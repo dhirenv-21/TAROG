@@ -1,0 +1,35 @@
+# Temporal method configurations for TAORG baselines
+# All parameters are exposed here — do not hide experimental parameters in source code.
+# See Rules.md §3: "No magic constants in algorithms; put experimental parameters in configs."
+
+no_memory:
+  method: no_memory
+  score_threshold: 0.0
+
+fixed_window:
+  method: fixed_window
+  window_size: 5
+  score_threshold: 0.0
+
+ema:
+  method: ema
+  alpha: 0.3
+  decay: 0.9
+  score_threshold: 0.1
+
+gated_ema:
+  method: gated_ema
+  alpha: 0.3
+  decay_visible: 0.7       # fast decay on visible absence (termination evidence)
+  decay_occluded: 0.95     # slow decay on occluded absence (censored evidence)
+  decay_unknown: -1.0      # -1 = default to decay_occluded
+  score_threshold: 0.1
+
+hmm:
+  method: hmm
+  stay_alive_prob: 0.9
+  resurrect_prob: 0.01
+  emit_obs_alive: 0.9
+  emit_obs_dead: 0.05
+  prior_alive: 0.5
+  score_threshold: 0.3

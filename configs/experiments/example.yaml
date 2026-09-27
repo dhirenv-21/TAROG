@@ -1,0 +1,26 @@
+# Example experiment configuration for TAORG
+# This is a minimal config demonstrating the required structure.
+# Real experiments will have dataset-specific and method-specific fields.
+
+dataset: "synthetic_fixture"
+dataset_split: "test"
+
+temporal_method: "no_memory"
+
+seed: 42
+
+# Temporal method hyperparameters (method-specific section)
+temporal_params: {}
+
+# Noise/corruption settings (empty = no corruption)
+noise: {}
+
+# Metrics to compute
+metrics:
+  - "edge_persistence_f1"
+  - "churn_rate"
+
+# Runtime settings
+runtime:
+  device: "cpu"
+  log_level: "INFO"
