@@ -1,0 +1,21 @@
+# Default corruption configurations for Phase 2 synthetic evaluation
+# All parameters are exposed here — see Rules.md §3.
+
+occlusion:
+  gap_lengths: [1, 2, 3, 5, 10, 20]
+  num_gaps_per_edge: 1
+  max_edges: null          # null = all eligible edges
+  min_pre_gap_frames: 2
+  min_post_gap_frames: 2
+
+id_switch:
+  swap_duration: 5
+  num_swaps: 1
+  require_same_class: false
+  min_pre_swap_frames: 2
+  min_post_swap_frames: 2
+
+# Evaluation configuration
+evaluation:
+  score_threshold: 0.1
+  seeds: [42, 123, 456, 789, 2024]
