@@ -62,3 +62,28 @@ def get_git_dirty(repo_dir: Path | None = None) -> bool:
         return result.returncode != 0
     except (subprocess.SubprocessError, FileNotFoundError):
         return True
+
+
+def get_git_branch(repo_dir: Path | None = None) -> str:
+    """Return the current git branch name, or 'unknown'.
+
+    Args:
+        repo_dir: Directory to check. Defaults to cwd.
+
+    Returns:
+        Branch name string, or 'unknown' if unavailable.
+    """
+    try:
+        cwd = str(repo_dir) if repo_dir else None
+        result = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            capture_output=True,
+            text=True,
+            cwd=cwd,
+            timeout=5,
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+        return "unknown"
+    except (subprocess.SubprocessError, FileNotFoundError):
+        return "unknown"

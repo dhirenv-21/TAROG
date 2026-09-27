@@ -50,6 +50,8 @@ class RunMetadata:
 
     run_id: str = field(default_factory=_generate_run_id)
     git_commit: str = "unknown"
+    git_dirty: bool = True  # conservative default
+    git_branch: str = "unknown"
     command: str = ""
     config: dict[str, Any] = field(default_factory=dict)
     dataset_id: str = ""
