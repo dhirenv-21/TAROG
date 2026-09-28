@@ -184,6 +184,14 @@ defined in `failures.py` and reported for every method on the same unit.
 None at registration. Any later change must be dated, justified, and must state whether it was
 made before or after viewing evaluation results.
 
+- **A1 — 2026-09-28, before any calibration/evaluation run (engineering only, no protocol change).**
+  The first smoke run hung: Windows "spawn" workers re-imported the CLI script, which imported
+  SciPy/pandas/matplotlib at module level; with 24 workers the paging file was exhausted and
+  workers died mid-import, leaving `multiprocessing.Pool` blocked. Fix: deferred imports in
+  `scripts/phase3/run_phase3.py`; default worker count capped at 16. The smoke run (seeds
+  9000–9001, grid stride 25) was then repeated and checked only for stage completion and
+  artifact presence; its numbers were not inspected.
+
 ## 12. Registration record
 
 - Registration commit: recorded in `research/paper_evidence_ledger.md` and `Memory.md` after commit.

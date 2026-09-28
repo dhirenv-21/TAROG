@@ -26,13 +26,10 @@ import os
 import sys
 from pathlib import Path
 
-from taorg.experiments.phase3.analysis import run_analysis
-from taorg.experiments.phase3.failures import run_failures
-from taorg.experiments.phase3.pipeline import (
-    load_phase3_config, run_calibration, run_evaluation, run_latency, run_selection,
-    save_resolved_config,
-)
-from taorg.experiments.phase3.plots import run_plots
+# NOTE: heavy imports (scipy, pandas, matplotlib) are deferred into main().
+# On Windows, multiprocessing "spawn" workers re-import this script; importing
+# the analysis stack here made every worker load it, exhausting the paging file
+# and killing workers mid-import (which leaves multiprocessing.Pool blocked).
 
 STAGES = ("calibrate", "select", "evaluate", "latency", "analyze", "plots", "failures")
 
@@ -42,11 +39,16 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--config", type=Path, default=Path("configs/experiments/phase3_pilot.yaml"))
     ap.add_argument("--out", type=Path, default=Path("results/phase3"))
     ap.add_argument("--stage", choices=(*STAGES, "all"), default="all")
-    ap.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 4))
+    ap.add_argument("--workers", type=int, default=min(16, max(1, (os.cpu_count() or 2) - 4)))
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--grid-stride", type=int, default=None,
                     help="Evaluate every k-th grid config (smoke only; default 25 in smoke mode).")
     args = ap.parse_args(argv)
+
+    from taorg.experiments.phase3.pipeline import (
+        load_phase3_config, run_calibration, run_evaluation, run_latency, run_selection,
+        save_resolved_config,
+    )
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     logging.getLogger("taorg.noise").setLevel(logging.WARNING)
@@ -72,11 +74,14 @@ def main(argv: list[str] | None = None) -> int:
         elif stage == "latency":
             run_latency(cfg, args.out, smoke=args.smoke)
         elif stage == "analyze":
+            from taorg.experiments.phase3.analysis import run_analysis
             decision = run_analysis(cfg, args.out, smoke=args.smoke)
             logging.info("H1 decision (pre-registered rule): %s", decision["decision"])
         elif stage == "plots":
+            from taorg.experiments.phase3.plots import run_plots
             run_plots(cfg, args.out)
         elif stage == "failures":
+            from taorg.experiments.phase3.failures import run_failures
             run_failures(cfg, args.out, smoke=args.smoke)
     return 0
 
