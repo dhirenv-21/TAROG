@@ -75,7 +75,9 @@ def main(argv: list[str] | None = None) -> int:
             run_latency(cfg, args.out, smoke=args.smoke)
         elif stage == "analyze":
             from taorg.experiments.phase3.analysis import run_analysis
+            from taorg.experiments.phase3.report import run_report
             decision = run_analysis(cfg, args.out, smoke=args.smoke)
+            run_report(cfg, args.out)
             logging.info("H1 decision (pre-registered rule): %s", decision["decision"])
         elif stage == "plots":
             from taorg.experiments.phase3.plots import run_plots
