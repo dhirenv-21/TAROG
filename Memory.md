@@ -3,9 +3,9 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Phase 3 complete — H1 = PASS (pre-registered rule), synthetic evidence only**
-- Active phase: none — **awaiting user approval before Phase 4**
-- Next phase: **Phase 4 — V-HPED reference model** (NOT started)
+- Stage: **Phase 4 complete — H2 = MIXED, H3 = MIXED, H4 = FAIL; METHOD CONTRIBUTION = NO** (synthetic only)
+- Active phase: none — **awaiting user approval** (recommended pivot: evaluation/failure-analysis paper)
+- Next phase: undecided (Phase 5 lazy/heap = ADSA deliverable; real-data validation of the protocol)
 - Last updated: 2026-09-29
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
@@ -96,7 +96,8 @@
 - [x] Phase 3 synthetic world, flicker / visibility-noise / UNKNOWN injectors, condition specs (src/taorg/experiments/phase3/, src/taorg/noise/).
 - [x] Phase 3 pre-registration (`d8728b3`), calibration (1080 instances x 6213 configs), freeze (`2ce7d1f`), evaluation (156,240 runs, complete), analysis, failures, exit report.
 - [x] Pilot completed — 182 tests passing.
-- [ ] V-HPED reference implemented.
+- [x] Phase 4: pre-registration `bad0ef9`, VA-HMM (M1), V-HPED eager reference M2–M6 (`src/taorg/temporal/vhped.py`), baseline freeze `07b01c2`, V-HPED freeze `490b28c`, evaluation complete (478,620 runs), exit report `research/phase4_exit_report.md`. 215 tests passing.
+- [x] V-HPED reference implemented (eager; Phase 4).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -111,8 +112,17 @@ seeds 2000–2029; details `research/phase3_exit_report.md`, artifacts `results/
 - Formal Pareto dominance: class B (condition-specific), not A.
 - Evaluation re-run bit-identical (0/156,240 rows differ).
 
+Phase 4 (SYNTHETIC; `results/phase4/`): H2 MIXED (6/21 wins: F3 g20, F5 ×3, F8 ×2), H3 MIXED (T1 only), H4 FAIL (2 wins / 12 losses).
+- Only robust gain: ID-switch ghost suppression (F5 ghosts 220 vs 902 GatedEMA / 575 VA-HMM at equal F1/delay/FPR).
+- M3+ filters RELAPSE after the first post-termination drop (F1 98–100%); frozen delay metric is blind to it; FPR 2–5× on F1/F7/F8.
+- VA-HMM ≈ GatedEMA; matched tuning removes Phase 3 failures A/B; M4 not retained; continuous time hurts at 15 fps.
+
 ## Decisions made during implementation
 Add short entries only, newest first:
+
+2026-09-29 — Phase 4 ran baseline group first (calibrate→freeze→evaluate) before any V-HPED run; equal 200-sample random search per method. — research/phase4_preregistration.md
+2026-09-29 — Obsolete pre-registration pilot files archived to archive/pre_registration_pilot/ (not deleted). — research/phase4_preregistration.md §12
+2026-09-29 — `render_video` extracted from `generate_video` (Phase 3 outputs verified identical). — src/taorg/data/synthetic_world.py
 
 2026-09-29 — Phase 3 amendment A2: stalled calibration run terminated (no output) and re-run with 8 workers; serial recomputation matched to 1.8e-15. — research/phase3_preregistration.md §11
 2026-09-29 — Evaluation artifacts committed before interpretation; logs force-added (gitignored *.log) for audit trail without editing .gitignore. — results/phase3/
@@ -138,12 +148,13 @@ Add short entries only, newest first:
 - GatedEMA treats edge keys with no record as UNKNOWN and decay_unknown defaults to decay_occluded → holds ID-switch ghosts and all-UNKNOWN streams (Phase 3 S2/S4). Untested alternative policy; Phase 4 ablation.
 - Cohen's d_z is printed as ~1e15/inf when paired SD ≈ 0 (reporting issue; not in H1 rule).
 - Fig. E panel titles overlap (cosmetic).
-- Untracked pre-registration-era files scripts/run_pilot.py, tests/fixtures/pilot_fixtures.py — superseded; user to decide.
+- Frozen termination-delay metric (first drop) is gameable by non-monotone estimators (relapse); any further method comparison needs a relapse-aware metric, pre-registered.
+- V-HPED evidence-rate tempering over-weights per-frame misses at low fps; flag reliabilities are tuned, not estimated online.
 - Calibration/ECE metric deferred (requires probabilistic method output).
 - No external datasets. Not needed until Phase 3.
 
 ## Next action
-WAIT for explicit user approval. If approved: pre-register Phase 4 (V-HPED vs GatedEMA + a visibility-aware HMM) on failure-derived conditions listed in research/phase3_exit_report.md §31 BEFORE implementing V-HPED.
+WAIT for explicit user approval. Options in research/phase4_exit_report.md §26–§28 (pivot to evaluation/failure-analysis paper; relapse-aware Phase 4b; real-data protocol validation). Do not start Action Genome or Phase 5 without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:

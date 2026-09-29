@@ -71,3 +71,21 @@ Chronological, factual log. Protocol: `research/phase4_preregistration.md`.
   (run `phase3_calibrate_proposed_20260929_071404_3d738e`, 840 instances, 12,000 config rows, 1227 s).
 - Proposed selection (including the pre-registered half-sample tuning control for M5) and
   `freeze_params.py --group proposed`: all 10 checks PASS. Committed before the proposed evaluation.
+- `490b28c` — V-HPED freeze commit; 13:05–13:10 proposed evaluation (126,630/126,630 rows) + latency;
+  completeness COMPLETE for both groups, with identical manifests across groups.
+- 13:10 — pre-registered analysis: **H2 = MIXED** (6/21, wins F3 g20, F5 ×3, F8 g10/20; 0 losses),
+  tuning control MIXED (8 wins), **H3 = MIXED** (3/6, T1 only), **H4 = FAIL** (2 wins, 12 losses).
+  Ablation retention: M3 yes, M4 no, M5 yes.
+- Post-results scrutiny (disclosed): M5's best F1-condition frontier point had F1 0.975 at delay
+  3.1 but false persistence 0.131. Diagnosis: M3+ filters **relapse** after the first
+  post-termination drop, which the frozen first-drop delay metric cannot see. **Post-hoc
+  exploratory diagnostics** were added (`scripts/phase4/exploratory_diagnostics.py`): a relapse
+  rate and an F1-vs-false-persistence frontier. On the latter, M5 is worse than both baselines on
+  F1/F7/F8, and only F3/N1 gap 20 (+0.01–0.02) and F5 (identity axis) survive. The
+  pre-registered decisions were NOT changed; the diagnostics inform interpretation only.
+- The pre-registered failure-regret rule shares the delay blind spot (it reports no F1 failure);
+  reported as such.
+- Exit report `research/phase4_exit_report.md`: METHOD CONTRIBUTION = NO; recommended pivot to an
+  evaluation/failure-analysis paper. Phase 4 closed; awaiting approval.
+- Correction to the baseline-stage entry above: A0 is within ±0.02 everywhere except the identity
+  frontier (−0.04) **and F7 gap 20, where VA-HMM is +0.020 (CI > 0)**.

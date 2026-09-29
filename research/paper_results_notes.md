@@ -132,3 +132,67 @@ GatedEMA keeps outputting the edge for 41 frames; Fixed Window, EMA and HMM drop
 - Frame-rate variation (15/30/60 fps) — every Phase 1 method is per-frame.
 - Real data: Action Genome with ≥ 2 base models and tracker-derived visibility (Phase 6–7).
 - Phase 4 question: does V-HPED improve on GatedEMA at all?
+
+---
+
+# Phase 4 results notes (controlled synthetic evidence only)
+
+> Source: `results/phase4/` (`Q/`). Pre-registration `bad0ef9`; baseline freeze `07b01c2`; V-HPED
+> code `095101b`; V-HPED freeze `490b28c`; evaluation seeds 4000–4029 (n = 30). No real data.
+> Pre-registered decisions: **H2 = MIXED, H3 = MIXED, H4 = FAIL**.
+
+## Strongest result
+**Identity-reliability tempering suppresses ID-switch ghosts.** On F5, at the budget-5 operating
+point, M5 has 220 ghost edge-frames per video against 902 (GatedEMA) and 575 (VA-HMM). F1, delay,
+false persistence and swap recall are equal. Identity-frontier HV is 0.709 [0.634, 0.779] vs
+0.510 / 0.470, and the gain survives the half-sample tuning control (0.634). This is the only H2
+gain that survives every post-hoc check.
+
+## Weakest result
+**The default (F1, termination-delay) frontier over-credits V-HPED.** The joint (Z,V) filter with
+uncertain flags dips below threshold at occlusion onset and later climbs back (relapse). The frozen
+delay metric records only the first drop. On F1 (termination during occlusion), M5 appears to
+reach F1 0.95 at "delay" 4 frames, but its false persistence is 0.14 vs 0.03. On an
+F1-vs-false-persistence frontier (post-hoc, exploratory), M5 is worse than both baselines on
+F1, F7 and F8.
+
+## Unexpected results
+1. **Matched tuning removes most Phase 3 GatedEMA failures** (baseline stage, before V-HPED ran).
+   On F1/F2 every method, including EMA, reaches nearly the same frontier. Phase 3 failures A/B
+   were largely failures of oracle *tuning*, not of gating.
+2. **VA-HMM (probabilistic flags) ≈ GatedEMA** everywhere except the identity frontier, where it is
+   worse. "Using visibility probabilistically" is not what helps.
+3. **Continuous time hurts at 15 fps.** Evidence-rate tempering doubles the weight of each missed
+   frame, so churn goes 0.001 → 0.08. The frame-rate-invariance argument fails for per-frame
+   detector misses.
+4. **Cross-predicate evidence (M6) helps only when visibility is uninformative** (T1: gap-10 F1
+   0.898 vs 0.568, lower delay and FPR), not under flag noise (T2).
+
+## Negative results
+- H4 = FAIL: M5 tuned on low noise is *less* robust to shift than GatedEMA (ρ = 0.5 FPR 0.37 vs
+  0.05; flicker churn 10–20×).
+- M4 (occlusion-onset hazard) earns nothing on its target conditions (0/9), as predicted a priori.
+- M2 ≈ M1 at 30 fps, as predicted a priori.
+- The identity mechanism (A4) costs up to −0.17 HV on non-ID failure conditions because of
+  box-jitter false alarms.
+
+## Important failure case
+`Q/failures/F3_visnoise__worst.png` (seed 4012): terminated edges are held about 30 extra frames
+through false-OCC flags, and one edge relapses after being dropped.
+- OBSERVATION: in F3, 37% of M5's terminations relapse.
+- HYPOTHESIZED EXPLANATION: posterior mass in (Z=0, V=1) is penalised by each OCC flag, so the
+  normalised Z=1 share grows again (explaining away). This is inherent to exact joint filtering
+  with confusable flags; not separately tested.
+
+## Likely reviewer criticisms
+1. The headline "win" (F5) rests on a synthetic identity cue (static boxes + Gaussian jitter).
+2. The registered default frontier was gameable; the decisive post-hoc check is exploratory.
+3. The H3 world is constructed and E is learned from the same world.
+4. There is no learned temporal baseline; everything is hand-parameterised and randomly searched.
+
+## Experiments still required
+- Re-define termination with relapse (a "last-drop" delay or relapse-penalised delay) and repeat
+  Phase 4 as a *new* pre-registered experiment.
+- A monotone-termination variant (e.g. absorbing termination or hysteresis) and online
+  flag-reliability estimation, before any shift claim.
+- Real tracker identity cues (appearance/motion) before the ghost-suppression claim.
