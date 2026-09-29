@@ -66,3 +66,8 @@ Chronological, factual log. Protocol: `research/phase4_preregistration.md`.
   because it tried to build every registered method without parameters. No Phase 2/3 result
   depends on it. Smoke run of the proposed group plus the full analysis, plots and failure
   extraction on scratch data (numbers not inspected): pipeline complete. 215 tests pass.
+- `095101b` — V-HPED implementation commit (before any V-HPED calibration).
+- 12:44–13:04 — proposed-group calibration from clean `095101b`
+  (run `phase3_calibrate_proposed_20260929_071404_3d738e`, 840 instances, 12,000 config rows, 1227 s).
+- Proposed selection (including the pre-registered half-sample tuning control for M5) and
+  `freeze_params.py --group proposed`: all 10 checks PASS. Committed before the proposed evaluation.
