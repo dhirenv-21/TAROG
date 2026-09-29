@@ -61,8 +61,17 @@ Explicit non-claims:
 
 | Premise | Status |
 |---|---|
-| Visibility gating improves the persistence/termination trade-off over visibility-unaware smoothing | See ledger H1 (Phase 3 pilot, synthetic only) |
+| Visibility gating improves the persistence/termination trade-off over visibility-unaware smoothing | SUPPORTED on controlled synthetic data only, with condition-matched tuning (H1 = PASS, ledger L1); advantage vanishes with an uninformative flag and reverses under tuning mismatch (L16, L19) |
+| Visibility gating is safe when termination coincides with occlusion or visibility is unknown | NOT SUPPORTED — these are structural failure modes (L18) |
 | The improvement transfers to real VidSGG predictions | UNTESTED (Phase 6–7) |
 | Continuous-time formulation adds value over per-frame gating | UNTESTED (Phase 4) |
+
+**Effect of Phase 3 on the motivation (draft).** The synthetic pilot suggests changing the
+framing. "Occluded absence is weak evidence" is supported, but what the evidence actually shows is
+narrower: an informative visibility signal breaks the coupling between gap bridging and
+termination delay that constrains every visibility-unaware smoother. It also shows that the same
+signal creates new failure modes: termination during occlusion, unknown visibility, and ghosts
+after identity switches. A motivation that presents visibility gating only as a fix would be
+incomplete; the trade-off *moves*, it does not disappear.
 
 [TBD — contribution list and paper organisation after Phase 4–8 evidence exists.]

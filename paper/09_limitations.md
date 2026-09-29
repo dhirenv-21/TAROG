@@ -26,4 +26,19 @@
 
 ## 9.2 Added after the Phase 3 results
 
-[TBD — filled from research/paper_results_notes.md after the pilot.]
+8. **The primary (oracle) condition is circular in practice, not only in principle.**
+   Calibration chose `decay_visible = 0`; the method then reads the answer from the flag
+   (F1 = 1.0, delay 1 frame, zero variance). Only R1/R2 and the sweeps are informative.
+9. **Win counts are fixed by the design grid.** The winning cells are exactly those with
+   gap ≥ budget, a direct consequence of the bridging–delay coupling. Effect sizes and
+   dose–response carry the evidence, not the count.
+10. **Tuning dependence.** The advantage requires tuning `decay_visible` to the reliability of the
+    visibility signal and of the detector. Oracle-tuned parameters are worse than Fixed Window/HMM
+    under 20% flag noise and cause ≈ 10× churn under flicker.
+11. **Structural failure modes.** Termination during occlusion (delay ≈ 27 vs 5 frames),
+    UNKNOWN visibility (≈ 38 frames), ID-switch ghosts (≈ 2–4× ghost edge-frames) and a finite
+    hold horizon (≈ 38 frames at the selected decay) are not addressed by per-frame gating.
+12. **No visibility-aware probabilistic comparator.** Only GatedEMA uses visibility, so the
+    results cannot show that this *form* of gating matters, only that using the flag does.
+13. **Degenerate effect sizes.** Where both methods are deterministic across videos (C0), paired
+    SDs are ≈ 0 and Cohen's d_z is undefined; such cells are reported but not interpreted.

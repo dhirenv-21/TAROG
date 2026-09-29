@@ -1,7 +1,8 @@
 # 6. Experimental Protocol — DRAFT
 
 > Written from the frozen Phase 2 protocol (research/metric_definitions.md) and the Phase 3
-> pre-registration (research/phase3_preregistration.md). No results in this section.
+> pre-registration (research/phase3_preregistration.md). No results in this section; §6.8 records
+> how the protocol was actually executed.
 
 ## 6.1 Evaluation principle
 
@@ -92,7 +93,22 @@ per-(configuration, instance) results, all manifests and GT lifetimes are saved;
 and figure is regenerated from these files by `scripts/phase3/run_phase3.py`. Seeds are
 predeclared in `configs/experiments/phase3_pilot.yaml`; no seed is rerun selectively.
 
-## 6.8 Real-data protocol
+## 6.8 Execution record (Phase 3)
+
+- Pre-registration, config (SHA-256 `0dea058e…9ad52`) and decision code: commit `d8728b3`,
+  before any calibration or evaluation run.
+- Amendments (engineering only, no protocol change): A1, Windows worker memory (deferred
+  imports, ≤ 16 workers); A2, a stalled first calibration run was terminated with no output and
+  re-run unchanged with 8 workers. Worker count cannot change results; a serial recomputation
+  matched to 1.8e-15.
+- Calibration: 9 conditions × 6 gaps × 20 videos = 1080 instances × 6213 configurations; all
+  completeness and leakage checks passed. Parameters frozen in commit `2ce7d1f` before evaluation.
+- Evaluation: 2340 instances, 156,240 (configuration, instance) runs, 0 missing, duplicate or
+  failed, no calibration seed used (`results/phase3/tables/completeness.md`).
+- Exploratory additions not in the registered rule: a formal frontier-dominance definition
+  (committed before evaluation data existed) and the diagnostics listed in §6.4.
+
+## 6.9 Real-data protocol
 
 [TBD — Phase 6–7: Action Genome with base-model predictions; tracker-derived visibility;
 real ByteTrack failure cases.]

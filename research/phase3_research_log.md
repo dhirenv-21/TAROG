@@ -51,3 +51,19 @@ unless marked UTC. Protocol: `research/phase3_preregistration.md` (registered in
   declared in prereg §2, observed directly. 143–413 configurations tie at F1 = 1.0 (tie broken
   by the registered order).
 - No evaluation stage had been run when the parameters were frozen and committed.
+- `2ce7d1f` — **parameter-freeze commit** (selection, frozen parameters, calibration artifacts, A2).
+- 11:23–11:26 — `--stage evaluate` from clean `2ce7d1f` (run `phase3_evaluate_20260929_055335_6ac64a`,
+  8 workers, 177 s, 2340 instances, 156,240 rows); `--stage latency` (900 rows).
+- `check_completeness.py`: COMPLETE — 156,240/156,240 runs, 0 missing/duplicate/failed/unexpected,
+  seeds 2000–2029 only, no calibration seed, 2340/2340 manifests, 900/900 latency rows.
+- `--stage analyze` → registered H1 rule output **PASS** (10/10/10 wins, 0 losses, frontier 5/4/5 of
+  6); `--stage plots`, `--stage failures`, `dominance_analysis.py` (exploratory class B overall).
+- `867b7be` — evaluation and analysis artifacts committed before any interpretation was written.
+- Post-hoc observations (disclosed, not used to change anything): H1 wins are exactly the gap ≥ budget
+  cells; C0-tuned GatedEMA is worse than Fixed Window/HMM on R1 and has ≈ 10× churn on R2
+  (secondary analysis); d_z is degenerate (≈ 1e15 / inf) in zero-variance cells; 3 Holm-significant
+  results favour the comparators (R1, budget 2, gap 1, ΔF1 −0.032).
+- Full evaluation re-run into a scratch directory: 0 of 156,240 rows differ (excluding run ID and
+  wall-clock runtime).
+- Exit report `research/phase3_exit_report.md`; ledger, results notes and paper §§2, 6, 7, 9 updated.
+  Phase 3 closed; waiting for approval before Phase 4.
