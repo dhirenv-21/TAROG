@@ -1,0 +1,22 @@
+{
+  "run_id": "phase3_select_20260929_055225_2fbe3c",
+  "stage": "select",
+  "smoke": false,
+  "start_time_utc": "2026-09-29T05:52:25.533945+00:00",
+  "git_commit": "929d082",
+  "git_dirty": false,
+  "git_branch": "main",
+  "command": "scripts/phase3/run_phase3.py --stage select",
+  "config_path": "configs\\experiments\\phase3_pilot.yaml",
+  "config_sha256": "0dea058edfc7a3b14246acde0dd5ab915325562c3a507bf46ce1132304a9ad52",
+  "environment": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.8",
+    "cpu_count": "32",
+    "machine": "AMD64"
+  },
+  "end_time_utc": "2026-09-29T05:52:26.788750+00:00"
+}

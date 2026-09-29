@@ -192,6 +192,17 @@ made before or after viewing evaluation results.
   9000–9001, grid stride 25) was then repeated and checked only for stage completion and
   artifact presence; its numbers were not inspected.
 
+- **A2 — 2026-09-29, after calibration, before selection/evaluation (engineering only, no protocol
+  change).** The first full calibration run (16 workers, started 05:28) stopped progressing after
+  250/1080 instances: the log shows 200 instances at 05:48 and 250 only at 09:01, and the run was
+  then terminated. The cause was not diagnosed (hypothesis, not verified: host sleep or memory
+  pressure — free commit memory was ≈ 1.2 GB, the A1 failure mode). Calibration writes nothing until
+  the stage ends, so the aborted run left no data. Calibration was restarted unchanged from clean
+  commit `929d082` with 8 workers (09:14–11:19, run `phase3_calibrate_20260929_034436_e4842e`).
+  Worker count cannot affect results (`pool.imap` is ordered; each instance is a deterministic
+  function of its seed). Check: the C0 selected configurations (11) were recomputed serially on all
+  120 C0 calibration instances; max |difference| to the saved means = 1.8e-15.
+
 ## 12. Registration record
 
 - Registration commit: recorded in `research/paper_evidence_ledger.md` and `Memory.md` after commit.

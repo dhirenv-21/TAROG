@@ -33,3 +33,21 @@ unless marked UTC. Protocol: `research/phase3_preregistration.md` (registered in
   A/B/C classification) is exploratory, is not part of the H1 rule, and cannot change the H1
   decision. It was committed while calibration was still running, i.e. before selection, freezing
   and evaluation.
+- 05:28–09:01 — the first calibration run stalled (200 instances at 05:48, 250 at 09:01) and was
+  terminated; no data was written. **Amendment A2** (engineering only).
+- 09:14–11:19 — calibration re-run from clean `929d082`, 8 workers, 1080/1080 instances, 7468 s
+  (`results/phase3/raw/stage_calibrate.json`, run `phase3_calibrate_20260929_034436_e4842e`).
+- 11:22 — `--stage select` (calibration artifacts only) → `configs/selected_params.json`,
+  `configs/pareto_sets.json`.
+- `scripts/phase3/freeze_params.py` → `results/phase3/configs/frozen_parameters.json` +
+  `results/phase3/tables/frozen_parameters.md`. All 12 calibration checks passed: not smoke, full grid
+  (6213 configs), 1080/1080 expected instances with no duplicates or missing ones, calibration
+  seeds 1000–1019 only, no evaluation seed, every config saw every instance, no NaN F1/delay.
+- Serial recomputation of the 11 C0 selected configurations on all 120 C0 calibration instances
+  reproduced the saved means (max |Δ| = 1.8e-15).
+- Observation from calibration (not evaluation): in C0 the selected Vis-Gated EMA has
+  `decay_visible = 0` and calibration F1 = 1.000 at mean delay 1.0 frame for every budget, i.e. it
+  degenerates to "drop on visible absence, hold on occluded absence". This is the oracle tautology
+  declared in prereg §2, observed directly. 143–413 configurations tie at F1 = 1.0 (tie broken
+  by the registered order).
+- No evaluation stage had been run when the parameters were frozen and committed.
