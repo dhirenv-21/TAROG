@@ -9,6 +9,7 @@ Registry mapping config method names to classes:
     METHODS["ema"]           -> EMA
     METHODS["gated_ema"]     -> GatedEMA
     METHODS["hmm"]           -> HMM
+    METHODS["va_hmm"]        -> VisibilityAwareHMM (Phase 4 baseline M1)
 """
 
 from taorg.temporal.base import TemporalEdgeModel
@@ -17,6 +18,7 @@ from taorg.temporal.fixed_window import FixedWindow
 from taorg.temporal.ema import EMA
 from taorg.temporal.gated_ema import GatedEMA
 from taorg.temporal.hmm import HMM
+from taorg.temporal.va_hmm import VisibilityAwareHMM
 
 # Config-driven method registry.
 # Evaluation code should use this instead of method-specific branches.
@@ -26,6 +28,7 @@ METHODS: dict[str, type] = {
     "ema": EMA,
     "gated_ema": GatedEMA,
     "hmm": HMM,
+    "va_hmm": VisibilityAwareHMM,
 }
 
 __all__ = [
@@ -35,5 +38,6 @@ __all__ = [
     "EMA",
     "GatedEMA",
     "HMM",
+    "VisibilityAwareHMM",
     "METHODS",
 ]

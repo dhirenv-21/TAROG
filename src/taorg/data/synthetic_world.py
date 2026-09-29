@@ -221,6 +221,31 @@ def generate_video(
         video_id = f"synthetic_world_{seed}"
 
     lifetimes = sample_lifetimes(seed, config)
+    return render_video(lifetimes, seed, config, video_id), lifetimes
+
+
+def render_video(
+    lifetimes: list[EdgeLifetime],
+    seed: int,
+    config: SyntheticWorldConfig,
+    video_id: str,
+) -> list[FrameGraph]:
+    """Render the ground-truth frame sequence for given edge lifetimes.
+
+    Extracted from :func:`generate_video` without behavioural change so that
+    callers can modify the lifetimes (e.g. Phase 4 predicate succession) before
+    rendering.  Scores are drawn from a stream seeded by ``seed``, in the order
+    frame -> lifetime (the order of ``lifetimes``).
+
+    Args:
+        lifetimes: Edge lifetimes (at most one per edge key).
+        seed: Scenario seed (score stream).
+        config: World configuration.
+        video_id: Video identifier.
+
+    Returns:
+        The clean ground-truth frames.
+    """
     # Separate stream for per-frame scores so lifetimes do not depend on
     # how many score draws are made.
     score_rng = random.Random(seed * 7919 + 1)
@@ -272,4 +297,4 @@ def generate_video(
             video_id=video_id, frame_idx=f, timestamp=ts,
             track_observations=tracks, edge_observations=edges,
         ))
-    return frames, lifetimes
+    return frames
