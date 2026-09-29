@@ -1,0 +1,29 @@
+{
+ "tag": "worst",
+ "seed": 4012,
+ "regret": 0.4905555788414788,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.9873417721518987,
+   "term_delay_mean": 29.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "gated_ema": {
+   "persistence_f1": 0.9403973509933775,
+   "term_delay_mean": 8.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "va_hmm": {
+   "persistence_f1": 0.9261744966442953,
+   "term_delay_mean": 7.5,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F3_visnoise__worst.pdf",
+  "results\\phase4\\failures\\F3_visnoise__worst.png"
+ ]
+}

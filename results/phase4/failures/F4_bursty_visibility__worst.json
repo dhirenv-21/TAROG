@@ -1,0 +1,29 @@
+{
+ "tag": "worst",
+ "seed": 4013,
+ "regret": 0.20086710783808837,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.7969924812030075,
+   "term_delay_mean": 11.25,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "gated_ema": {
+   "persistence_f1": 0.7969924812030075,
+   "term_delay_mean": 7.5,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "va_hmm": {
+   "persistence_f1": 0.9041095890410958,
+   "term_delay_mean": 11.25,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F4_bursty_visibility__worst.pdf",
+  "results\\phase4\\failures\\F4_bursty_visibility__worst.png"
+ ]
+}

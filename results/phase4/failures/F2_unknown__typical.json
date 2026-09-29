@@ -1,0 +1,29 @@
+{
+ "tag": "typical",
+ "seed": 4028,
+ "regret": 0.025974025974026094,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.5454545454545454,
+   "term_delay_mean": 5.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "gated_ema": {
+   "persistence_f1": 0.5714285714285715,
+   "term_delay_mean": 5.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "va_hmm": {
+   "persistence_f1": 0.5714285714285715,
+   "term_delay_mean": 5.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F2_unknown__typical.pdf",
+  "results\\phase4\\failures\\F2_unknown__typical.png"
+ ]
+}

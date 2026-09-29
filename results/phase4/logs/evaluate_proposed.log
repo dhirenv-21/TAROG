@@ -1,0 +1,11 @@
+2026-09-29 13:04:56,189 INFO root: === Phase 4 stage: evaluate [proposed] (smoke=False) ===
+2026-09-29 13:04:56,591 INFO taorg.experiments.phase4.pipeline: Evaluation[proposed]: 1980 instances, 126630 runs
+2026-09-29 13:05:32,921 INFO taorg.experiments.phase4.pipeline:   200/1980 evaluation instances (36s)
+2026-09-29 13:06:17,681 INFO taorg.experiments.phase4.pipeline:   400/1980 evaluation instances (81s)
+2026-09-29 13:07:15,199 INFO taorg.experiments.phase4.pipeline:   600/1980 evaluation instances (139s)
+2026-09-29 13:07:38,362 INFO taorg.experiments.phase4.pipeline:   800/1980 evaluation instances (162s)
+2026-09-29 13:08:11,659 INFO taorg.experiments.phase4.pipeline:   1000/1980 evaluation instances (195s)
+2026-09-29 13:08:38,084 INFO taorg.experiments.phase4.pipeline:   1200/1980 evaluation instances (221s)
+2026-09-29 13:08:47,230 INFO taorg.experiments.phase4.pipeline:   1400/1980 evaluation instances (231s)
+2026-09-29 13:08:51,769 INFO taorg.experiments.phase4.pipeline:   1600/1980 evaluation instances (235s)
+2026-09-29 13:08:56,174 INFO taorg.experiments.phase4.pipeline:   1800/1980 evaluation instances (240s)

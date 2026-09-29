@@ -2,7 +2,7 @@
 
 # Phase 4 evaluation completeness
 
-Overall: **COMPLETE**; manifests identical across groups: n/a
+Overall: **COMPLETE**; manifests identical across groups: True
 
 | Group | Condition | Configs | Expected | Actual | Missing | Duplicate | Failed | Unexpected |
 |---|---|---|---|---|---|---|---|---|
@@ -29,3 +29,26 @@ Overall: **COMPLETE**; manifests identical across groups: n/a
 | baseline | SH7_fps15 | 11 | 990 | 990 | 0 | 0 | 0 | 0 |
 | baseline | SH8_fps60 | 11 | 990 | 990 | 0 | 0 | 0 | 0 |
 | **baseline total** | | | 351990 | 351990 | 0 | 0 | 0 | 0 |
+| proposed | F1_term_occlusion | 79 | 7110 | 7110 | 0 | 0 | 0 | 0 |
+| proposed | F2_unknown | 117 | 10530 | 10530 | 0 | 0 | 0 | 0 |
+| proposed | F3_visnoise | 94 | 8460 | 8460 | 0 | 0 | 0 | 0 |
+| proposed | F4_bursty_visibility | 164 | 14760 | 14760 | 0 | 0 | 0 | 0 |
+| proposed | F5_id_switch | 120 | 10800 | 10800 | 0 | 0 | 0 | 0 |
+| proposed | F7_mix_occlusion_visnoise | 146 | 13140 | 13140 | 0 | 0 | 0 | 0 |
+| proposed | F8_mix_occlusion_idswitch | 210 | 18900 | 18900 | 0 | 0 | 0 | 0 |
+| proposed | N0_clean | 6 | 540 | 540 | 0 | 0 | 0 | 0 |
+| proposed | N1_visnoise_0.2 | 79 | 7110 | 7110 | 0 | 0 | 0 | 0 |
+| proposed | N2_flicker_0.1 | 34 | 3060 | 3060 | 0 | 0 | 0 | 0 |
+| proposed | T1_succession_unknown | 112 | 10080 | 10080 | 0 | 0 | 0 | 0 |
+| proposed | T2_succession_visnoise | 119 | 10710 | 10710 | 0 | 0 | 0 | 0 |
+| proposed | T3_succession_clean | 12 | 1080 | 1080 | 0 | 0 | 0 | 0 |
+| proposed | SC_low_noise | 59 | 5310 | 5310 | 0 | 0 | 0 | 0 |
+| proposed | SH1_visnoise_0.3 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH2_visnoise_0.5 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH3_flicker_0.2 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH4_flicker_0.3 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH5_unknown_0.5 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH6_bursty | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH7_fps15 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| proposed | SH8_fps60 | 7 | 630 | 630 | 0 | 0 | 0 | 0 |
+| **proposed total** | | | 126630 | 126630 | 0 | 0 | 0 | 0 |

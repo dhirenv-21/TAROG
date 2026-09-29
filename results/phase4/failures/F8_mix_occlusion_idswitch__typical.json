@@ -1,0 +1,29 @@
+{
+ "tag": "typical",
+ "seed": 4017,
+ "regret": 0.5278708551483421,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.8235294117647058,
+   "term_delay_mean": 3.5,
+   "diag_ghost_edge_frames": 159.0,
+   "diag_swap_recall": 0.3193717277486911
+  },
+  "gated_ema": {
+   "persistence_f1": 0.7692307692307693,
+   "term_delay_mean": 4.5,
+   "diag_ghost_edge_frames": 518.0,
+   "diag_swap_recall": 0.7905759162303665
+  },
+  "va_hmm": {
+   "persistence_f1": 0.7596899224806202,
+   "term_delay_mean": 3.3333333333333335,
+   "diag_ghost_edge_frames": 142.0,
+   "diag_swap_recall": 0.27225130890052357
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F8_mix_occlusion_idswitch__typical.pdf",
+  "results\\phase4\\failures\\F8_mix_occlusion_idswitch__typical.png"
+ ]
+}

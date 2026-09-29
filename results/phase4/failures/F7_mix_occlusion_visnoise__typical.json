@@ -1,0 +1,29 @@
+{
+ "tag": "typical",
+ "seed": 4015,
+ "regret": 0.029794431433775845,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.7301587301587301,
+   "term_delay_mean": 6.142857142857143,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "gated_ema": {
+   "persistence_f1": 0.6885245901639345,
+   "term_delay_mean": 3.4285714285714284,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "va_hmm": {
+   "persistence_f1": 0.6554621848739496,
+   "term_delay_mean": 3.2857142857142856,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F7_mix_occlusion_visnoise__typical.pdf",
+  "results\\phase4\\failures\\F7_mix_occlusion_visnoise__typical.png"
+ ]
+}

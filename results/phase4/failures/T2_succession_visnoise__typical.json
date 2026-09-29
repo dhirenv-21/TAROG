@@ -1,0 +1,23 @@
+{
+ "tag": "typical",
+ "seed": 4016,
+ "regret": 0.050125067070668904,
+ "metrics": {
+  "vhped_m6": {
+   "persistence_f1": 0.8700564971751412,
+   "term_delay_mean": 3.5,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "vhped_m5": {
+   "persistence_f1": 0.8826815642458101,
+   "term_delay_mean": 2.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\T2_succession_visnoise__typical.pdf",
+  "results\\phase4\\failures\\T2_succession_visnoise__typical.png"
+ ]
+}
