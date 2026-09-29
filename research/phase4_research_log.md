@@ -45,3 +45,18 @@ Chronological, factual log. Protocol: `research/phase4_preregistration.md`.
   `04941e2`, clean, 840 instances, 11,774 config rows, 725 s.
 - Baseline selection + `freeze_params.py --group baseline`: all 10 checks PASS →
   `results/phase4/configs/frozen_baseline.json`. Committed before the baseline evaluation.
+- `07b01c2` — **baseline parameter-freeze commit**.
+- 12:33–12:39 — baseline evaluation from clean `07b01c2` (run `phase3_evaluate_baseline_20260929_070307_0e7494`,
+  1980 instances, 351,990 rows, 385 s) + latency. Completeness (baseline group): 351,990/351,990,
+  0 missing/duplicate/failed/unexpected, no calibration-seed leak.
+- **Baseline-stage analysis, BEFORE any V-HPED calibration** (`results/phase4/baseline_stage/`):
+  - A0 (VA-HMM − GatedEMA, frontier HV): within ±0.02 on all 14 calibrated conditions except the
+    identity frontier (F5, F8), where VA-HMM is worse (≈ −0.04, CI < 0). Using visibility
+    probabilistically adds nothing over deterministic gating once both are tuned.
+  - With condition-matched tuning, the Phase 3 failures A and B largely disappear for GatedEMA.
+    On F1 (termination during occlusion) and F2 (all UNKNOWN), every method, including
+    visibility-unaware EMA, reaches nearly the same frontier (e.g. F2 gap 10: GatedEMA 0.898,
+    EMA 0.899). This matches the a-priori expectation (prereg §9) that these conditions are
+    information-limited.
+  - Headroom observed now and recorded before V-HPED is run: GatedEMA's gap-10 HV is 0.957 (F3),
+    0.953 (F4), 0.930 (F7), 0.919/0.511 (F8 default/identity), 0.982/0.510 (F5). N0/T3 = 1.000.
