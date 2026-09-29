@@ -1,0 +1,13 @@
+2026-09-29 11:23:35,087 INFO root: === Phase 3 stage: evaluate (smoke=False) ===
+2026-09-29 11:23:35,413 INFO taorg.experiments.phase3.pipeline: Evaluation: 2340 instances, 156240 config-instance runs
+2026-09-29 11:24:08,041 INFO taorg.experiments.phase3.pipeline:   200/2340 evaluation instances (33s)
+2026-09-29 11:25:06,704 INFO taorg.experiments.phase3.pipeline:   400/2340 evaluation instances (91s)
+2026-09-29 11:25:51,258 INFO taorg.experiments.phase3.pipeline:   600/2340 evaluation instances (136s)
+2026-09-29 11:25:55,497 INFO taorg.experiments.phase3.pipeline:   800/2340 evaluation instances (140s)
+2026-09-29 11:25:59,727 INFO taorg.experiments.phase3.pipeline:   1000/2340 evaluation instances (144s)
+2026-09-29 11:26:03,672 INFO taorg.experiments.phase3.pipeline:   1200/2340 evaluation instances (148s)
+2026-09-29 11:26:07,871 INFO taorg.experiments.phase3.pipeline:   1400/2340 evaluation instances (152s)
+2026-09-29 11:26:12,077 INFO taorg.experiments.phase3.pipeline:   1600/2340 evaluation instances (157s)
+2026-09-29 11:26:15,987 INFO taorg.experiments.phase3.pipeline:   1800/2340 evaluation instances (161s)
+2026-09-29 11:26:19,831 INFO taorg.experiments.phase3.pipeline:   2000/2340 evaluation instances (164s)
+2026-09-29 11:26:23,445 INFO taorg.experiments.phase3.pipeline:   2200/2340 evaluation instances (168s)

@@ -31,8 +31,10 @@ outputs/figures/
 outputs/tables/
 
 # External models/data (never commit large binaries)
+# Anchored to the repo root: the unanchored "data/" also ignored the source
+# package src/taorg/data/, which was therefore never committed (fixed Phase 3).
 external/
-data/
+/data/
 checkpoints/
 *.pth
 *.pt

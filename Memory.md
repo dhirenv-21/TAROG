@@ -3,16 +3,16 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Phase 2 complete**
-- Active phase: **Phase 2 — Noise protocol + custom metrics** ✅
-- Next phase: **Phase 3 — Go/no-go pilot**
-- Last updated: 2026-09-28
+- Stage: **Phase 3 complete — H1 = PASS (pre-registered rule), synthetic evidence only**
+- Active phase: none — **awaiting user approval before Phase 4**
+- Next phase: **Phase 4 — V-HPED reference model** (NOT started)
+- Last updated: 2026-09-29
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
 - Repository: local + remote (https://github.com/dhirenv-21/TAROG.git)
 - Branch: `main`
-- Latest commit: `60060c5` (Phase 2 tests)
+- Latest commits: `d8728b3` Phase 3 pre-registration; `2ce7d1f` parameter freeze; `867b7be` evaluation artifacts; exit-report commit follows (see `git log`)
 - Baseline commit: `770caaa` (Phase 1 complete)
 - Identity: dhiren2125@gmail.com / dhirenv-21 (repo-local)
 
@@ -93,7 +93,9 @@
 - [x] Metric tests — 20 tests (persistence F1, churn, termination delay, false persistence).
 - [x] Integration tests — 5 tests (synthetic eval pipeline).
 - [x] Phase 2 — 121 total tests passing (78 Phase 0+1 + 43 Phase 2).
-- [ ] Pilot completed.
+- [x] Phase 3 synthetic world, flicker / visibility-noise / UNKNOWN injectors, condition specs (src/taorg/experiments/phase3/, src/taorg/noise/).
+- [x] Phase 3 pre-registration (`d8728b3`), calibration (1080 instances x 6213 configs), freeze (`2ce7d1f`), evaluation (156,240 runs, complete), analysis, failures, exit report.
+- [x] Pilot completed — 182 tests passing.
 - [ ] V-HPED reference implemented.
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
@@ -101,10 +103,19 @@
 - [ ] Paper drafted.
 
 ## Latest verified experimental results
-None yet. Synthetic evaluation pipeline produces test outputs only — not paper evidence. Do not invent results.
+Phase 3 (controlled SYNTHETIC evidence; run `phase3_evaluate_20260929_055335_6ac64a`, commit `2ce7d1f`,
+seeds 2000–2029; details `research/phase3_exit_report.md`, artifacts `results/phase3/`):
+- H1 = PASS by the registered rule: 10/18 wins, 0 losses in C0, R1 (vis-noise 0.2), R2 (flicker 0.1); frontier 5/6, 4/6, 5/6.
+- Caveats: C0 tautological (decay_visible = 0 selected); wins == gap >= budget cells; advantage gone at vis-noise 0.5; oracle-tuned GatedEMA worse than baselines on R1 and ~10x churn on R2 (tuning dependence).
+- Failures: termination under occlusion (delay 27.4 vs ~5), all-UNKNOWN visibility (38.3), ID-switch ghosts (2.2-3.8x), hold horizon ~38 frames.
+- Formal Pareto dominance: class B (condition-specific), not A.
+- Evaluation re-run bit-identical (0/156,240 rows differ).
 
 ## Decisions made during implementation
 Add short entries only, newest first:
+
+2026-09-29 — Phase 3 amendment A2: stalled calibration run terminated (no output) and re-run with 8 workers; serial recomputation matched to 1.8e-15. — research/phase3_preregistration.md §11
+2026-09-29 — Evaluation artifacts committed before interpretation; logs force-added (gitignored *.log) for audit trail without editing .gitignore. — results/phase3/
 
 2026-09-28 — Metric definitions FROZEN: Edge Persistence F1 evaluated over corrupted intervals only (not full sequence). Churn excludes initial appearance/final disappearance. Termination delay uses censoring for never-dropped edges. — research/metric_definitions.md
 2026-09-28 — Occlusion injection suppresses observations + sets visibility to OCCLUDED while keeping GT relationship conceptually alive. Deep-copies input. — src/taorg/noise/occlusion.py
@@ -124,11 +135,15 @@ Add short entries only, newest first:
 2026-09-27 — Edge visibility derived conservatively — Edge is VISIBLE only if both subject and object are VISIBLE. — src/taorg/schemas/edges.py
 
 ## Known issues / blockers
+- GatedEMA treats edge keys with no record as UNKNOWN and decay_unknown defaults to decay_occluded → holds ID-switch ghosts and all-UNKNOWN streams (Phase 3 S2/S4). Untested alternative policy; Phase 4 ablation.
+- Cohen's d_z is printed as ~1e15/inf when paired SD ≈ 0 (reporting issue; not in H1 rule).
+- Fig. E panel titles overlap (cosmetic).
+- Untracked pre-registration-era files scripts/run_pilot.py, tests/fixtures/pilot_fixtures.py — superseded; user to decide.
 - Calibration/ECE metric deferred (requires probabilistic method output).
 - No external datasets. Not needed until Phase 3.
 
 ## Next action
-Implement **Phase 3** from `Phases.md`: go/no-go pilot with synthetic corruption sweep across baselines. Produce preliminary results comparing all 5 baselines across gap lengths [1,2,3,5,10,20] with multiple seeds. These are pilot results for internal assessment, not final paper numbers.
+WAIT for explicit user approval. If approved: pre-register Phase 4 (V-HPED vs GatedEMA + a visibility-aware HMM) on failure-derived conditions listed in research/phase3_exit_report.md §31 BEFORE implementing V-HPED.
 
 ## Update protocol for Claude Code
 After each meaningful task:

@@ -1,0 +1,5672 @@
+{
+  "C0_oracle": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0092",
+        "feasible": true,
+        "n_feasible": 102,
+        "ranking": [
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0008",
+            "persistence_f1": 0.45818069360055624,
+            "term_delay_mean": 1.9797023809523813,
+            "churn_mean": 0.01201353830148367,
+            "false_pers_mean": 0.006642141386019835
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 180,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7798213985999004,
+            "term_delay_mean": 4.637261904761904,
+            "churn_mean": 0.006950838400183626,
+            "false_pers_mean": 0.024692996160066857
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.779035397085725,
+            "term_delay_mean": 4.598392857142856,
+            "churn_mean": 0.007002111996161274,
+            "false_pers_mean": 0.02442330913410119
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7788890558872065,
+            "term_delay_mean": 4.659047619047619,
+            "churn_mean": 0.007517241274736028,
+            "false_pers_mean": 0.02491007432791391
+          },
+          {
+            "config_id": "ema#0115",
+            "persistence_f1": 0.7768586127884552,
+            "term_delay_mean": 4.62359126984127,
+            "churn_mean": 0.012473506907130626,
+            "false_pers_mean": 0.024667382453941507
+          },
+          {
+            "config_id": "ema#0182",
+            "persistence_f1": 0.769747575802229,
+            "term_delay_mean": 4.4285912698412675,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02315347689488397
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9203068871081148,
+            "term_delay_mean": 9.552142857142856,
+            "churn_mean": 0.0045555144189056394,
+            "false_pers_mean": 0.0580565076643859
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9200815703227805,
+            "term_delay_mean": 9.55765873015873,
+            "churn_mean": 0.004603913136767444,
+            "false_pers_mean": 0.05815229014609268
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9200065550013785,
+            "term_delay_mean": 9.556726190476189,
+            "churn_mean": 0.004580311738166046,
+            "false_pers_mean": 0.05808767709107224
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9192979163412129,
+            "term_delay_mean": 9.50763888888889,
+            "churn_mean": 0.0046615528566628485,
+            "false_pers_mean": 0.05778699168127318
+          },
+          {
+            "config_id": "ema#0029",
+            "persistence_f1": 0.9181482241624034,
+            "term_delay_mean": 9.427916666666668,
+            "churn_mean": 0.004713296825767654,
+            "false_pers_mean": 0.05727097858374059
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 5.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02714858264007265
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.745401337792643,
+            "term_delay_mean": 4.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.020361436980054496
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.647763347763347,
+            "term_delay_mean": 3.0,
+            "churn_mean": 0.009570294544716303,
+            "false_pers_mean": 0.013574291320036324
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 10.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06108431094016345
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9100529100529092,
+            "term_delay_mean": 9.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.0542971652801453
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8903413217138715,
+            "term_delay_mean": 8.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.047510019620127145
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8685897435897445,
+            "term_delay_mean": 7.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.04072287396010899
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8444444444444462,
+            "term_delay_mean": 6.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.03393572830009082
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#0049",
+        "feasible": true,
+        "n_feasible": 1224,
+        "ranking": [
+          {
+            "config_id": "gated_ema#0049",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0056",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0057",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0063",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0064",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay_occluded": 0.93,
+          "decay_visible": 0.0,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#0049",
+        "feasible": true,
+        "n_feasible": 2169,
+        "ranking": [
+          {
+            "config_id": "gated_ema#0049",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0056",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0057",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0063",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0064",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay_occluded": 0.93,
+          "decay_visible": 0.0,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#0049",
+        "feasible": true,
+        "n_feasible": 2940,
+        "ranking": [
+          {
+            "config_id": "gated_ema#0049",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0056",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0057",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0063",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          },
+          {
+            "config_id": "gated_ema#0064",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay_occluded": 0.93,
+          "decay_visible": 0.0,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0016",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0016",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9466865079365088,
+            "churn_mean": 0.011802171777070403,
+            "false_pers_mean": 0.006438610870188157
+          },
+          {
+            "config_id": "hmm#0538",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9761507936507943,
+            "churn_mean": 0.01183926153245726,
+            "false_pers_mean": 0.006624932198599775
+          },
+          {
+            "config_id": "hmm#0316",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0437",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0456",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.2,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.7
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0608",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0608",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.956666666666666,
+            "churn_mean": 0.007136070329953707,
+            "false_pers_mean": 0.026857635813071788
+          },
+          {
+            "config_id": "hmm#0371",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.954999999999999,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02684938498798928
+          },
+          {
+            "config_id": "hmm#0510",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0626",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0645",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.968234126984126,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02694075414616949
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 9.989305555555555,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.061018935293405865
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.92785206977945,
+            "term_delay_mean": 9.947083333333332,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06073302844408699
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9275933029156412,
+            "term_delay_mean": 9.879325396825402,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06026836114088631
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9266271890928416,
+            "term_delay_mean": 9.827638888888892,
+            "churn_mean": 0.004743496693774631,
+            "false_pers_mean": 0.05988622729345485
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9097746216580288,
+            "term_delay_mean": 8.919960317460319,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.05376026341196311
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "R1_visnoise_0.2": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0092",
+        "feasible": true,
+        "n_feasible": 102,
+        "ranking": [
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0008",
+            "persistence_f1": 0.45818069360055624,
+            "term_delay_mean": 1.9797023809523813,
+            "churn_mean": 0.01201353830148367,
+            "false_pers_mean": 0.006642141386019835
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 180,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7798213985999004,
+            "term_delay_mean": 4.637261904761904,
+            "churn_mean": 0.006950838400183626,
+            "false_pers_mean": 0.024692996160066857
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.779035397085725,
+            "term_delay_mean": 4.598392857142856,
+            "churn_mean": 0.007002111996161274,
+            "false_pers_mean": 0.02442330913410119
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7788890558872065,
+            "term_delay_mean": 4.659047619047619,
+            "churn_mean": 0.007517241274736028,
+            "false_pers_mean": 0.02491007432791391
+          },
+          {
+            "config_id": "ema#0115",
+            "persistence_f1": 0.7768586127884552,
+            "term_delay_mean": 4.62359126984127,
+            "churn_mean": 0.012473506907130626,
+            "false_pers_mean": 0.024667382453941507
+          },
+          {
+            "config_id": "ema#0182",
+            "persistence_f1": 0.769747575802229,
+            "term_delay_mean": 4.4285912698412675,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02315347689488397
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9203068871081148,
+            "term_delay_mean": 9.552142857142856,
+            "churn_mean": 0.0045555144189056394,
+            "false_pers_mean": 0.0580565076643859
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9200815703227805,
+            "term_delay_mean": 9.55765873015873,
+            "churn_mean": 0.004603913136767444,
+            "false_pers_mean": 0.05815229014609268
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9200065550013785,
+            "term_delay_mean": 9.556726190476189,
+            "churn_mean": 0.004580311738166046,
+            "false_pers_mean": 0.05808767709107224
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9192979163412129,
+            "term_delay_mean": 9.50763888888889,
+            "churn_mean": 0.0046615528566628485,
+            "false_pers_mean": 0.05778699168127318
+          },
+          {
+            "config_id": "ema#0029",
+            "persistence_f1": 0.9181482241624034,
+            "term_delay_mean": 9.427916666666668,
+            "churn_mean": 0.004713296825767654,
+            "false_pers_mean": 0.05727097858374059
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 5.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02714858264007265
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.745401337792643,
+            "term_delay_mean": 4.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.020361436980054496
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.647763347763347,
+            "term_delay_mean": 3.0,
+            "churn_mean": 0.009570294544716303,
+            "false_pers_mean": 0.013574291320036324
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 10.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06108431094016345
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9100529100529092,
+            "term_delay_mean": 9.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.0542971652801453
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8903413217138715,
+            "term_delay_mean": 8.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.047510019620127145
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8685897435897445,
+            "term_delay_mean": 7.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.04072287396010899
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8444444444444462,
+            "term_delay_mean": 6.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.03393572830009082
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#4352",
+        "feasible": true,
+        "n_feasible": 1100,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4352",
+            "persistence_f1": 0.7712531233943006,
+            "term_delay_mean": 1.9957738095238098,
+            "churn_mean": 0.009554005347387519,
+            "false_pers_mean": 0.006791816891347777
+          },
+          {
+            "config_id": "gated_ema#4281",
+            "persistence_f1": 0.7574796362688124,
+            "term_delay_mean": 1.7558730158730163,
+            "churn_mean": 0.007183911080531479,
+            "false_pers_mean": 0.0050677946777263755
+          },
+          {
+            "config_id": "gated_ema#3273",
+            "persistence_f1": 0.756313914696109,
+            "term_delay_mean": 1.749325396825397,
+            "churn_mean": 0.0072740589071522005,
+            "false_pers_mean": 0.004945784093519967
+          },
+          {
+            "config_id": "gated_ema#2265",
+            "persistence_f1": 0.7536254917762514,
+            "term_delay_mean": 1.7900000000000005,
+            "churn_mean": 0.01136574803996262,
+            "false_pers_mean": 0.0051844707522414905
+          },
+          {
+            "config_id": "gated_ema#1257",
+            "persistence_f1": 0.7517237341597484,
+            "term_delay_mean": 1.788710317460318,
+            "churn_mean": 0.014472254361088623,
+            "false_pers_mean": 0.005177637911583095
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.97,
+          "decay_visible": 0.7,
+          "score_threshold": 0.5
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#2262",
+        "feasible": true,
+        "n_feasible": 2377,
+        "ranking": [
+          {
+            "config_id": "gated_ema#2262",
+            "persistence_f1": 0.9584587099883702,
+            "term_delay_mean": 4.31095238095238,
+            "churn_mean": 0.0027063087791019064,
+            "false_pers_mean": 0.022340232064910752
+          },
+          {
+            "config_id": "gated_ema#3270",
+            "persistence_f1": 0.958197397927415,
+            "term_delay_mean": 4.27938492063492,
+            "churn_mean": 0.002697591903230219,
+            "false_pers_mean": 0.022155821522467842
+          },
+          {
+            "config_id": "gated_ema#1254",
+            "persistence_f1": 0.9580547478535065,
+            "term_delay_mean": 4.315714285714283,
+            "churn_mean": 0.002711648118917309,
+            "false_pers_mean": 0.02236691090407683
+          },
+          {
+            "config_id": "gated_ema#4278",
+            "persistence_f1": 0.9578631167263306,
+            "term_delay_mean": 4.28047619047619,
+            "churn_mean": 0.002692576183862303,
+            "false_pers_mean": 0.02221183047749113
+          },
+          {
+            "config_id": "gated_ema#0246",
+            "persistence_f1": 0.9566596951527687,
+            "term_delay_mean": 4.290575396825395,
+            "churn_mean": 0.002773000520047252,
+            "false_pers_mean": 0.02220053085030795
+          }
+        ],
+        "params": {
+          "alpha": 0.5,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.5,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#2338",
+        "feasible": true,
+        "n_feasible": 3391,
+        "ranking": [
+          {
+            "config_id": "gated_ema#2338",
+            "persistence_f1": 0.9996039863621607,
+            "term_delay_mean": 9.973849206349207,
+            "churn_mean": 0.00013059768108082155,
+            "false_pers_mean": 0.06077344885680896
+          },
+          {
+            "config_id": "gated_ema#3346",
+            "persistence_f1": 0.9996039863621607,
+            "term_delay_mean": 9.990198412698414,
+            "churn_mean": 0.00013059768108082155,
+            "false_pers_mean": 0.06084847326639175
+          },
+          {
+            "config_id": "gated_ema#4354",
+            "persistence_f1": 0.9995787082690067,
+            "term_delay_mean": 9.993174603174603,
+            "churn_mean": 0.0001456942994383095,
+            "false_pers_mean": 0.060883164508205155
+          },
+          {
+            "config_id": "gated_ema#1330",
+            "persistence_f1": 0.9994717112298857,
+            "term_delay_mean": 9.964801587301588,
+            "churn_mean": 0.00016035958584272633,
+            "false_pers_mean": 0.060717898880908665
+          },
+          {
+            "config_id": "gated_ema#0322",
+            "persistence_f1": 0.9992565097944508,
+            "term_delay_mean": 9.932500000000001,
+            "churn_mean": 0.00019055282255770216,
+            "false_pers_mean": 0.06055349192829798
+          }
+        ],
+        "params": {
+          "alpha": 0.5,
+          "decay_occluded": 0.98,
+          "decay_visible": 0.7,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0016",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0016",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9466865079365088,
+            "churn_mean": 0.011802171777070403,
+            "false_pers_mean": 0.006438610870188157
+          },
+          {
+            "config_id": "hmm#0538",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9761507936507943,
+            "churn_mean": 0.01183926153245726,
+            "false_pers_mean": 0.006624932198599775
+          },
+          {
+            "config_id": "hmm#0316",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0437",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0456",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.2,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.7
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0608",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0608",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.956666666666666,
+            "churn_mean": 0.007136070329953707,
+            "false_pers_mean": 0.026857635813071788
+          },
+          {
+            "config_id": "hmm#0371",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.954999999999999,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02684938498798928
+          },
+          {
+            "config_id": "hmm#0510",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0626",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0645",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.968234126984126,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02694075414616949
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 9.989305555555555,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.061018935293405865
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.92785206977945,
+            "term_delay_mean": 9.947083333333332,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06073302844408699
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9275933029156412,
+            "term_delay_mean": 9.879325396825402,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06026836114088631
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9266271890928416,
+            "term_delay_mean": 9.827638888888892,
+            "churn_mean": 0.004743496693774631,
+            "false_pers_mean": 0.05988622729345485
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9097746216580288,
+            "term_delay_mean": 8.919960317460319,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.05376026341196311
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "R2_flicker_0.1": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0016",
+        "feasible": true,
+        "n_feasible": 108,
+        "ranking": [
+          {
+            "config_id": "ema#0016",
+            "persistence_f1": 0.4483552866985522,
+            "term_delay_mean": 1.9783531746031748,
+            "churn_mean": 0.04680243642939242,
+            "false_pers_mean": 0.0066318354847476006
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028234326465740794,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028234326465740794,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.42628956370831295,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028838085704306456,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.420923715159429,
+            "term_delay_mean": 1.8676587301587304,
+            "churn_mean": 0.03324910064038174,
+            "false_pers_mean": 0.005920534554574078
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay": 0.5,
+          "score_threshold": 0.2
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 183,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7697254804586485,
+            "term_delay_mean": 4.518710317460317,
+            "churn_mean": 0.008020876720112516,
+            "false_pers_mean": 0.023922179599865583
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.7670404088078074,
+            "term_delay_mean": 4.455099206349206,
+            "churn_mean": 0.008167682346328036,
+            "false_pers_mean": 0.02349317812582537
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7625019933087924,
+            "term_delay_mean": 4.410793650793652,
+            "churn_mean": 0.00948080021137764,
+            "false_pers_mean": 0.02321706412993298
+          },
+          {
+            "config_id": "ema#0350",
+            "persistence_f1": 0.7592843936268072,
+            "term_delay_mean": 4.294285714285715,
+            "churn_mean": 0.008227063011387618,
+            "false_pers_mean": 0.022348563167823913
+          },
+          {
+            "config_id": "ema#0266",
+            "persistence_f1": 0.7574100837506649,
+            "term_delay_mean": 4.257599206349205,
+            "churn_mean": 0.008259347393672001,
+            "false_pers_mean": 0.02204464677247128
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9171548978185206,
+            "term_delay_mean": 9.42656746031746,
+            "churn_mean": 0.005254070377888834,
+            "false_pers_mean": 0.05723559161762763
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9163971416868708,
+            "term_delay_mean": 9.396746031746032,
+            "churn_mean": 0.005328174083711311,
+            "false_pers_mean": 0.0570137564411365
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9159098937634071,
+            "term_delay_mean": 9.324682539682538,
+            "churn_mean": 0.005376000288514261,
+            "false_pers_mean": 0.056567320861371305
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9136102523532497,
+            "term_delay_mean": 9.207916666666668,
+            "churn_mean": 0.005437736528927436,
+            "false_pers_mean": 0.05574496208579257
+          },
+          {
+            "config_id": "ema#0297",
+            "persistence_f1": 0.9116955701833553,
+            "term_delay_mean": 9.12436507936508,
+            "churn_mean": 0.004938189877724362,
+            "false_pers_mean": 0.05509991826289437
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028234326465740794,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.17605873285410736,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7917403531428263,
+            "term_delay_mean": 4.887400793650794,
+            "churn_mean": 0.007967685011630391,
+            "false_pers_mean": 0.02639768630658636
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.733694808282841,
+            "term_delay_mean": 3.8874007936507926,
+            "churn_mean": 0.00844190011696057,
+            "false_pers_mean": 0.0196105406465682
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.6277441448241352,
+            "term_delay_mean": 2.8874007936507935,
+            "churn_mean": 0.012128776868182017,
+            "false_pers_mean": 0.012823394986550028
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028234326465740794,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.17605873285410736,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9255456796125144,
+            "term_delay_mean": 9.887400793650793,
+            "churn_mean": 0.005471076968715085,
+            "false_pers_mean": 0.06033341460667717
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9073620185409872,
+            "term_delay_mean": 8.887400793650793,
+            "churn_mean": 0.005471076968715085,
+            "false_pers_mean": 0.053546268946658995
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8873888245090032,
+            "term_delay_mean": 7.887400793650794,
+            "churn_mean": 0.005471076968715085,
+            "false_pers_mean": 0.04675912328664089
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.865333048325092,
+            "term_delay_mean": 6.8874007936507935,
+            "churn_mean": 0.005535193094015118,
+            "false_pers_mean": 0.03997197762662268
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8382745002479207,
+            "term_delay_mean": 5.8874007936507935,
+            "churn_mean": 0.006137052234060878,
+            "false_pers_mean": 0.03318483196660453
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#3186",
+        "feasible": true,
+        "n_feasible": 1290,
+        "ranking": [
+          {
+            "config_id": "gated_ema#3186",
+            "persistence_f1": 0.9955555555555556,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.016340186792353262,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "gated_ema#4187",
+            "persistence_f1": 0.9955555555555556,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.016340186792353262,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "gated_ema#4194",
+            "persistence_f1": 0.9955555555555556,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.016340186792353262,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "gated_ema#3179",
+            "persistence_f1": 0.9954766912022435,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.01636413315250652,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "gated_ema#4180",
+            "persistence_f1": 0.9953452485205531,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.01637960586541564,
+            "false_pers_mean": 0.006078884167970222
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#4256",
+        "feasible": true,
+        "n_feasible": 2196,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4256",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.294285714285715,
+            "churn_mean": 0.0007651983465768192,
+            "false_pers_mean": 0.022348563167823913
+          },
+          {
+            "config_id": "gated_ema#4263",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.294285714285715,
+            "churn_mean": 0.0007651983465768192,
+            "false_pers_mean": 0.022348563167823913
+          },
+          {
+            "config_id": "gated_ema#4270",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.294285714285715,
+            "churn_mean": 0.0007651983465768192,
+            "false_pers_mean": 0.022348563167823913
+          },
+          {
+            "config_id": "gated_ema#4277",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.294285714285715,
+            "churn_mean": 0.0007651983465768192,
+            "false_pers_mean": 0.022348563167823913
+          },
+          {
+            "config_id": "gated_ema#4448",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.518710317460317,
+            "churn_mean": 0.0007738823101795581,
+            "false_pers_mean": 0.023922179599865583
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.95,
+          "decay_visible": 0.5,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#1324",
+        "feasible": true,
+        "n_feasible": 2940,
+        "ranking": [
+          {
+            "config_id": "gated_ema#1324",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 5.9656150793650795,
+            "churn_mean": 0.0006859296963569333,
+            "false_pers_mean": 0.03374247912475407
+          },
+          {
+            "config_id": "gated_ema#1331",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 5.9656150793650795,
+            "churn_mean": 0.0006859296963569333,
+            "false_pers_mean": 0.03374247912475407
+          },
+          {
+            "config_id": "gated_ema#1338",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 5.974027777777779,
+            "churn_mean": 0.0006859296963569333,
+            "false_pers_mean": 0.03380172831495154
+          },
+          {
+            "config_id": "gated_ema#3517",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 6.037261904761904,
+            "churn_mean": 0.0006859296963569333,
+            "false_pers_mean": 0.03421240994865356
+          },
+          {
+            "config_id": "gated_ema#3524",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 6.040734126984125,
+            "churn_mean": 0.0006859296963569333,
+            "false_pers_mean": 0.03423572201670246
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay_occluded": 0.97,
+          "decay_visible": 0.7,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0503",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0503",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028359523542673275,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "hmm#0383",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028395860392306304,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "hmm#0624",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028440929613075427,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "hmm#0243",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.028452779610309897,
+            "false_pers_mean": 0.006078884167970222
+          },
+          {
+            "config_id": "hmm#0122",
+            "persistence_f1": 0.42684511926386853,
+            "term_delay_mean": 1.8943452380952381,
+            "churn_mean": 0.02848911645994293,
+            "false_pers_mean": 0.006078884167970222
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.7,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.97
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0361",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0361",
+            "persistence_f1": 0.7917403531428263,
+            "term_delay_mean": 4.881150793650794,
+            "churn_mean": 0.0080143994854282,
+            "false_pers_mean": 0.02634768630658636
+          },
+          {
+            "config_id": "hmm#0500",
+            "persistence_f1": 0.7917403531428263,
+            "term_delay_mean": 4.881150793650794,
+            "churn_mean": 0.0080143994854282,
+            "false_pers_mean": 0.02634768630658636
+          },
+          {
+            "config_id": "hmm#0366",
+            "persistence_f1": 0.7916023269178435,
+            "term_delay_mean": 4.862738095238097,
+            "churn_mean": 0.00798114747958315,
+            "false_pers_mean": 0.026244403931673134
+          },
+          {
+            "config_id": "hmm#0371",
+            "persistence_f1": 0.7916023269178435,
+            "term_delay_mean": 4.840515873015874,
+            "churn_mean": 0.00816125070571992,
+            "false_pers_mean": 0.02609394406788699
+          },
+          {
+            "config_id": "hmm#0603",
+            "persistence_f1": 0.7916023269178435,
+            "term_delay_mean": 4.8753174603174605,
+            "churn_mean": 0.00831383978076342,
+            "false_pers_mean": 0.026312268129259932
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.95
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9254946057852972,
+            "term_delay_mean": 9.85815476190476,
+            "churn_mean": 0.005471076968715085,
+            "false_pers_mean": 0.06013468089261315
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.9253350102240467,
+            "term_delay_mean": 9.82565476190476,
+            "churn_mean": 0.005478091559063009,
+            "false_pers_mean": 0.05991859427659367
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9244301638456984,
+            "term_delay_mean": 9.700753968253968,
+            "churn_mean": 0.0055445328996405275,
+            "false_pers_mean": 0.05912321646527207
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9200777956447065,
+            "term_delay_mean": 9.478551587301586,
+            "churn_mean": 0.005864252451638824,
+            "false_pers_mean": 0.05758580730473481
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9048278936020319,
+            "term_delay_mean": 8.665992063492062,
+            "churn_mean": 0.00561698498547027,
+            "false_pers_mean": 0.05206414711871285
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.17605873285410736,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.17605873285410736,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.17605873285410736,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "SWF_0.05": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0260",
+        "feasible": true,
+        "n_feasible": 105,
+        "ranking": [
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.01616387411575955,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.01616387411575955,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.016339155687485975,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.4452873812256051,
+            "term_delay_mean": 1.9476785714285718,
+            "churn_mean": 0.01830103679810513,
+            "false_pers_mean": 0.006451737497335899
+          },
+          {
+            "config_id": "ema#0008",
+            "persistence_f1": 0.43045552460501685,
+            "term_delay_mean": 1.8995238095238098,
+            "churn_mean": 0.023482986894263428,
+            "false_pers_mean": 0.006118951230491597
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 182,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7769890704403496,
+            "term_delay_mean": 4.5975198412698415,
+            "churn_mean": 0.007416381342601939,
+            "false_pers_mean": 0.024442093132836306
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.7747990145995677,
+            "term_delay_mean": 4.541011904761903,
+            "churn_mean": 0.0074842684420351946,
+            "false_pers_mean": 0.024039723025836856
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7732625445056472,
+            "term_delay_mean": 4.534801587301588,
+            "churn_mean": 0.008510723310745264,
+            "false_pers_mean": 0.024068986085660198
+          },
+          {
+            "config_id": "ema#0115",
+            "persistence_f1": 0.7667844440276312,
+            "term_delay_mean": 4.460912698412698,
+            "churn_mean": 0.013542423135336247,
+            "false_pers_mean": 0.023577038801114687
+          },
+          {
+            "config_id": "ema#0350",
+            "persistence_f1": 0.7657053963656701,
+            "term_delay_mean": 4.364146825396825,
+            "churn_mean": 0.007566633353971233,
+            "false_pers_mean": 0.02281092118769774
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9194203293111042,
+            "term_delay_mean": 9.508928571428571,
+            "churn_mean": 0.0048080764920865405,
+            "false_pers_mean": 0.05778435237660752
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9188869964170652,
+            "term_delay_mean": 9.49787698412698,
+            "churn_mean": 0.004840008514543293,
+            "false_pers_mean": 0.05769169634422422
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9183689999888006,
+            "term_delay_mean": 9.441765873015871,
+            "churn_mean": 0.004870843709440988,
+            "false_pers_mean": 0.057359096238061714
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9165824303968824,
+            "term_delay_mean": 9.368313492063493,
+            "churn_mean": 0.004928483429336393,
+            "false_pers_mean": 0.05684506586682129
+          },
+          {
+            "config_id": "ema#0297",
+            "persistence_f1": 0.9143130033379089,
+            "term_delay_mean": 9.236190476190476,
+            "churn_mean": 0.004467240177173804,
+            "false_pers_mean": 0.05582384203791357
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.01616387411575955,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.10383804044491107,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7964540260697184,
+            "term_delay_mean": 4.957261904761904,
+            "churn_mean": 0.007430282981718128,
+            "false_pers_mean": 0.02687223671861571
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.740638346974821,
+            "term_delay_mean": 3.957261904761904,
+            "churn_mean": 0.007809484312609185,
+            "false_pers_mean": 0.020085091058597553
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.6393620723210625,
+            "term_delay_mean": 2.957261904761905,
+            "churn_mean": 0.010346765995783748,
+            "false_pers_mean": 0.013297945398579378
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.01616387411575955,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.10383804044491107,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9271779817028905,
+            "term_delay_mean": 9.957261904761907,
+            "churn_mean": 0.005037709345539053,
+            "false_pers_mean": 0.06080796501870651
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9091361816050748,
+            "term_delay_mean": 8.957261904761907,
+            "churn_mean": 0.005037709345539053,
+            "false_pers_mean": 0.05402081935868837
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8893252920249635,
+            "term_delay_mean": 7.957261904761906,
+            "churn_mean": 0.005037709345539053,
+            "false_pers_mean": 0.0472336736986702
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8674566542429165,
+            "term_delay_mean": 6.957261904761906,
+            "churn_mean": 0.005037709345539053,
+            "false_pers_mean": 0.04044652803865205
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.842325300754649,
+            "term_delay_mean": 5.957261904761905,
+            "churn_mean": 0.0052685715922389685,
+            "false_pers_mean": 0.033659382378633876
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#3179",
+        "feasible": true,
+        "n_feasible": 1260,
+        "ranking": [
+          {
+            "config_id": "gated_ema#3179",
+            "persistence_f1": 0.9994444444444445,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.003983919895036784,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "gated_ema#3186",
+            "persistence_f1": 0.9994444444444445,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.003983919895036784,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "gated_ema#4187",
+            "persistence_f1": 0.9994444444444445,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.003983919895036784,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "gated_ema#4194",
+            "persistence_f1": 0.9994444444444445,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.003983919895036784,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "gated_ema#2171",
+            "persistence_f1": 0.9994444444444445,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.004128662826774808,
+            "false_pers_mean": 0.006521348261767969
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay_occluded": 0.98,
+          "decay_visible": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#2233",
+        "feasible": true,
+        "n_feasible": 2189,
+        "ranking": [
+          {
+            "config_id": "gated_ema#2233",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.343690476190476,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022611915735373626
+          },
+          {
+            "config_id": "gated_ema#3241",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.344424603174604,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022627772765261147
+          },
+          {
+            "config_id": "gated_ema#3248",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.344424603174604,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022627772765261147
+          },
+          {
+            "config_id": "gated_ema#3255",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.344424603174604,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022627772765261147
+          },
+          {
+            "config_id": "gated_ema#3262",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.345813492063494,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022634418166643393
+          }
+        ],
+        "params": {
+          "alpha": 0.5,
+          "decay_occluded": 0.93,
+          "decay_visible": 0.5,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#2233",
+        "feasible": true,
+        "n_feasible": 2940,
+        "ranking": [
+          {
+            "config_id": "gated_ema#2233",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.343690476190476,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022611915735373626
+          },
+          {
+            "config_id": "gated_ema#3241",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.344424603174604,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022627772765261147
+          },
+          {
+            "config_id": "gated_ema#3248",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.344424603174604,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022627772765261147
+          },
+          {
+            "config_id": "gated_ema#3255",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.344424603174604,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022627772765261147
+          },
+          {
+            "config_id": "gated_ema#3262",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 4.345813492063494,
+            "churn_mean": 0.00025256207318090026,
+            "false_pers_mean": 0.022634418166643393
+          }
+        ],
+        "params": {
+          "alpha": 0.5,
+          "decay_occluded": 0.93,
+          "decay_visible": 0.5,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0503",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0503",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.01622714460616007,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "hmm#0383",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.016237458137513202,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "hmm#0624",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.016237458137513202,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "hmm#0243",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.016249307726727443,
+            "false_pers_mean": 0.006521348261767969
+          },
+          {
+            "config_id": "hmm#0484",
+            "persistence_f1": 0.44673137784201544,
+            "term_delay_mean": 1.9589285714285718,
+            "churn_mean": 0.016249307726727443,
+            "false_pers_mean": 0.006521348261767969
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.7,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.97
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0500",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0500",
+            "persistence_f1": 0.7964540260697184,
+            "term_delay_mean": 4.955178571428571,
+            "churn_mean": 0.0074376969793456486,
+            "false_pers_mean": 0.026860975457354445
+          },
+          {
+            "config_id": "hmm#0361",
+            "persistence_f1": 0.7964540260697184,
+            "term_delay_mean": 4.957261904761904,
+            "churn_mean": 0.0074376969793456486,
+            "false_pers_mean": 0.02687223671861571
+          },
+          {
+            "config_id": "hmm#0366",
+            "persistence_f1": 0.7964540260697184,
+            "term_delay_mean": 4.931210317460318,
+            "churn_mean": 0.007452446102285504,
+            "false_pers_mean": 0.026707909456565242
+          },
+          {
+            "config_id": "hmm#0603",
+            "persistence_f1": 0.7964540260697184,
+            "term_delay_mean": 4.949345238095237,
+            "churn_mean": 0.007555307516576421,
+            "false_pers_mean": 0.02682015187462262
+          },
+          {
+            "config_id": "hmm#0621",
+            "persistence_f1": 0.7964540260697184,
+            "term_delay_mean": 4.94329365079365,
+            "churn_mean": 0.007746567384119729,
+            "false_pers_mean": 0.026784576882907276
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.7,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.97
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9271198894523968,
+            "term_delay_mean": 9.938849206349207,
+            "churn_mean": 0.005037709345539053,
+            "false_pers_mean": 0.06068101701403108
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.9269622798610063,
+            "term_delay_mean": 9.898293650793653,
+            "churn_mean": 0.005045123343166574,
+            "false_pers_mean": 0.06041181477451028
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9263257896630555,
+            "term_delay_mean": 9.807063492063493,
+            "churn_mean": 0.005037709345539053,
+            "false_pers_mean": 0.05981180469504728
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9235481750984438,
+            "term_delay_mean": 9.654345238095235,
+            "churn_mean": 0.005096875213989399,
+            "false_pers_mean": 0.058755591432681074
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9075756525846898,
+            "term_delay_mean": 8.816011904761904,
+            "churn_mean": 0.005045600759680467,
+            "false_pers_mean": 0.05308107570975377
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.10383804044491107,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.10383804044491107,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.10383804044491107,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "SWF_0.2": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0201",
+        "feasible": true,
+        "n_feasible": 114,
+        "ranking": [
+          {
+            "config_id": "ema#0201",
+            "persistence_f1": 0.42543618798301264,
+            "term_delay_mean": 1.9529166666666669,
+            "churn_mean": 0.10733141023685618,
+            "false_pers_mean": 0.006431091056982503
+          },
+          {
+            "config_id": "ema#0193",
+            "persistence_f1": 0.42263120712368424,
+            "term_delay_mean": 1.9376190476190465,
+            "churn_mean": 0.09326696925497056,
+            "false_pers_mean": 0.006356266042484831
+          },
+          {
+            "config_id": "ema#0100",
+            "persistence_f1": 0.42165079549402845,
+            "term_delay_mean": 1.8852777777777772,
+            "churn_mean": 0.08528771050932815,
+            "false_pers_mean": 0.005976063966853194
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.3901878641129971,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.07336628939927975,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.3901878641129971,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.07336628939927975,
+            "false_pers_mean": 0.0054174024276161786
+          }
+        ],
+        "params": {
+          "alpha": 0.5,
+          "decay": 0.8,
+          "score_threshold": 0.5
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0038",
+        "feasible": true,
+        "n_feasible": 186,
+        "ranking": [
+          {
+            "config_id": "ema#0038",
+            "persistence_f1": 0.7728170087056417,
+            "term_delay_mean": 4.933531746031745,
+            "churn_mean": 0.019820871253095236,
+            "false_pers_mean": 0.02675295455969886
+          },
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7597146002333394,
+            "term_delay_mean": 4.401666666666668,
+            "churn_mean": 0.010804548662585409,
+            "false_pers_mean": 0.023097320731674472
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.7518846038221205,
+            "term_delay_mean": 4.291111111111111,
+            "churn_mean": 0.011198433473942096,
+            "false_pers_mean": 0.022379631067299937
+          },
+          {
+            "config_id": "ema#0350",
+            "persistence_f1": 0.7469769528632011,
+            "term_delay_mean": 4.17593253968254,
+            "churn_mean": 0.011123878023433365,
+            "false_pers_mean": 0.021528902975807333
+          },
+          {
+            "config_id": "ema#0266",
+            "persistence_f1": 0.7413395309749754,
+            "term_delay_mean": 4.10218253968254,
+            "churn_mean": 0.01124078760244505,
+            "false_pers_mean": 0.02097987133834299
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay": 0.85,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9149234018814335,
+            "term_delay_mean": 9.290357142857143,
+            "churn_mean": 0.005979111985758074,
+            "false_pers_mean": 0.05629758992607174
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9135990211853073,
+            "term_delay_mean": 9.213730158730158,
+            "churn_mean": 0.006028207229316404,
+            "false_pers_mean": 0.0557549430616865
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.910735998283054,
+            "term_delay_mean": 9.04109126984127,
+            "churn_mean": 0.006074426107057021,
+            "false_pers_mean": 0.05464296721178692
+          },
+          {
+            "config_id": "ema#0381",
+            "persistence_f1": 0.909012732985979,
+            "term_delay_mean": 9.084007936507938,
+            "churn_mean": 0.005713274165893975,
+            "false_pers_mean": 0.054904990828613005
+          },
+          {
+            "config_id": "ema#0297",
+            "persistence_f1": 0.9084277012919659,
+            "term_delay_mean": 8.962797619047619,
+            "churn_mean": 0.005723265798267566,
+            "false_pers_mean": 0.054052789651199265
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.3901878641129971,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.07336628939927975,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.3155476166202037,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7837360006697028,
+            "term_delay_mean": 4.755357142857145,
+            "churn_mean": 0.009581432625930081,
+            "false_pers_mean": 0.02549119587729646
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.7180338161517205,
+            "term_delay_mean": 3.759523809523809,
+            "churn_mean": 0.012561083118303982,
+            "false_pers_mean": 0.018733191933845168
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.5995367566894082,
+            "term_delay_mean": 2.765773809523809,
+            "churn_mean": 0.024289031750275747,
+            "false_pers_mean": 0.011988208823727189
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.3901878641129971,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.07336628939927975,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.3155476166202037,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9234579935893202,
+            "term_delay_mean": 9.744940476190473,
+            "churn_mean": 0.006053334093216616,
+            "false_pers_mean": 0.05936454892788628
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9049579930776177,
+            "term_delay_mean": 8.747023809523808,
+            "churn_mean": 0.006086500675983626,
+            "false_pers_mean": 0.052589878317768304
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8844188983954496,
+            "term_delay_mean": 7.7491071428571425,
+            "churn_mean": 0.006177187134754598,
+            "false_pers_mean": 0.045815207707650345
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8612085328777528,
+            "term_delay_mean": 6.751190476190477,
+            "churn_mean": 0.006375573392761955,
+            "false_pers_mean": 0.03904053709753239
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8328138564150601,
+            "term_delay_mean": 5.75327380952381,
+            "churn_mean": 0.00700977167693769,
+            "false_pers_mean": 0.032265866487414425
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#3186",
+        "feasible": true,
+        "n_feasible": 1371,
+        "ranking": [
+          {
+            "config_id": "gated_ema#3186",
+            "persistence_f1": 0.9710317460317462,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.06203247161498893,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "gated_ema#4194",
+            "persistence_f1": 0.9710317460317462,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.06203247161498893,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "gated_ema#4187",
+            "persistence_f1": 0.9710020173063653,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.06203247161498893,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "gated_ema#3179",
+            "persistence_f1": 0.9708473964463664,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.06204487240863972,
+            "false_pers_mean": 0.0054174024276161786
+          },
+          {
+            "config_id": "gated_ema#4180",
+            "persistence_f1": 0.9702639794023387,
+            "term_delay_mean": 1.798472222222223,
+            "churn_mean": 0.06211112213189902,
+            "false_pers_mean": 0.0054174024276161786
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#4277",
+        "feasible": true,
+        "n_feasible": 2225,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4277",
+            "persistence_f1": 0.9991756272401434,
+            "term_delay_mean": 4.178015873015873,
+            "churn_mean": 0.003154233500562811,
+            "false_pers_mean": 0.021545569642473998
+          },
+          {
+            "config_id": "gated_ema#4270",
+            "persistence_f1": 0.9990058479532163,
+            "term_delay_mean": 4.178015873015873,
+            "churn_mean": 0.003154233500562811,
+            "false_pers_mean": 0.021545569642473998
+          },
+          {
+            "config_id": "gated_ema#4448",
+            "persistence_f1": 0.9990058479532163,
+            "term_delay_mean": 4.403750000000001,
+            "churn_mean": 0.00327720712292324,
+            "false_pers_mean": 0.02311398739834114
+          },
+          {
+            "config_id": "gated_ema#4263",
+            "persistence_f1": 0.9989477557027227,
+            "term_delay_mean": 4.178015873015873,
+            "churn_mean": 0.0031783365191469766,
+            "false_pers_mean": 0.021545569642473998
+          },
+          {
+            "config_id": "gated_ema#4256",
+            "persistence_f1": 0.9989477557027227,
+            "term_delay_mean": 4.178015873015873,
+            "churn_mean": 0.0032478475471313505,
+            "false_pers_mean": 0.021545569642473998
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.5,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#1401",
+        "feasible": true,
+        "n_feasible": 2941,
+        "ranking": [
+          {
+            "config_id": "gated_ema#1401",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.88628968253968,
+            "churn_mean": 0.0012878689729527973,
+            "false_pers_mean": 0.05356478320742051
+          },
+          {
+            "config_id": "gated_ema#1408",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.897956349206346,
+            "churn_mean": 0.0012878689729527973,
+            "false_pers_mean": 0.05365071062268132
+          },
+          {
+            "config_id": "gated_ema#1415",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.906289682539683,
+            "churn_mean": 0.0012878689729527973,
+            "false_pers_mean": 0.053710569869481965
+          },
+          {
+            "config_id": "gated_ema#1422",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.911845238095236,
+            "churn_mean": 0.0012878689729527973,
+            "false_pers_mean": 0.053742563520371114
+          },
+          {
+            "config_id": "gated_ema#3608",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.987658730158731,
+            "churn_mean": 0.0012878689729527973,
+            "false_pers_mean": 0.05422083931198784
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay_occluded": 0.95,
+          "decay_visible": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0503",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0503",
+            "persistence_f1": 0.3896106635357965,
+            "term_delay_mean": 1.794722222222223,
+            "churn_mean": 0.07352925542092065,
+            "false_pers_mean": 0.005390120049696858
+          },
+          {
+            "config_id": "hmm#0243",
+            "persistence_f1": 0.3896106635357965,
+            "term_delay_mean": 1.794722222222223,
+            "churn_mean": 0.0736210574758396,
+            "false_pers_mean": 0.005390120049696858
+          },
+          {
+            "config_id": "hmm#0484",
+            "persistence_f1": 0.3896106635357965,
+            "term_delay_mean": 1.794722222222223,
+            "churn_mean": 0.07368157378690302,
+            "false_pers_mean": 0.005390120049696858
+          },
+          {
+            "config_id": "hmm#0001",
+            "persistence_f1": 0.3896106635357965,
+            "term_delay_mean": 1.794722222222223,
+            "churn_mean": 0.0744621304129899,
+            "false_pers_mean": 0.005390120049696858
+          },
+          {
+            "config_id": "hmm#0040",
+            "persistence_f1": 0.3896106635357965,
+            "term_delay_mean": 1.794722222222223,
+            "churn_mean": 0.07446999204821,
+            "false_pers_mean": 0.005390120049696858
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.7,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.97
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0361",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0361",
+            "persistence_f1": 0.7837360006697028,
+            "term_delay_mean": 4.737857142857144,
+            "churn_mean": 0.00990625322858867,
+            "false_pers_mean": 0.02537236649501778
+          },
+          {
+            "config_id": "hmm#0500",
+            "persistence_f1": 0.7837360006697028,
+            "term_delay_mean": 4.736666666666666,
+            "churn_mean": 0.00992736007960141,
+            "false_pers_mean": 0.02536284268549397
+          },
+          {
+            "config_id": "hmm#0603",
+            "persistence_f1": 0.7834843053452256,
+            "term_delay_mean": 4.7327182539682555,
+            "churn_mean": 0.009982064560040608,
+            "false_pers_mean": 0.025333792337514
+          },
+          {
+            "config_id": "hmm#0366",
+            "persistence_f1": 0.7828779489188845,
+            "term_delay_mean": 4.713809523809525,
+            "churn_mean": 0.00973572912526391,
+            "false_pers_mean": 0.025217034743106506
+          },
+          {
+            "config_id": "hmm#0621",
+            "persistence_f1": 0.7828779489188845,
+            "term_delay_mean": 4.720833333333334,
+            "churn_mean": 0.010510664837482916,
+            "false_pers_mean": 0.02525721676899769
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.95
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0605",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.9228972528421677,
+            "term_delay_mean": 9.664642857142857,
+            "churn_mean": 0.006167988301490154,
+            "false_pers_mean": 0.05881379577254014
+          },
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9226060299879867,
+            "term_delay_mean": 9.661309523809525,
+            "churn_mean": 0.006053334093216616,
+            "false_pers_mean": 0.058810084443869697
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9193669548914208,
+            "term_delay_mean": 9.388749999999998,
+            "churn_mean": 0.006484918512881028,
+            "false_pers_mean": 0.056957604919173094
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9125852348300937,
+            "term_delay_mean": 9.076349206349205,
+            "churn_mean": 0.006924832220470529,
+            "false_pers_mean": 0.05481835377371761
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.8988207444197467,
+            "term_delay_mean": 8.3978373015873,
+            "churn_mean": 0.00651633045531707,
+            "false_pers_mean": 0.05021868567512015
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.3155476166202037,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.3155476166202037,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.3155476166202037,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "SWF_0.3": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0361",
+        "feasible": true,
+        "n_feasible": 123,
+        "ranking": [
+          {
+            "config_id": "ema#0361",
+            "persistence_f1": 0.4510431915876617,
+            "term_delay_mean": 1.997460317460318,
+            "churn_mean": 0.10542344728347795,
+            "false_pers_mean": 0.006720674777895108
+          },
+          {
+            "config_id": "ema#0268",
+            "persistence_f1": 0.43328850133306385,
+            "term_delay_mean": 1.948392857142857,
+            "churn_mean": 0.10568577206291903,
+            "false_pers_mean": 0.006372658266059093
+          },
+          {
+            "config_id": "ema#0285",
+            "persistence_f1": 0.42812131619433286,
+            "term_delay_mean": 1.9266865079365079,
+            "churn_mean": 0.13861313978145443,
+            "false_pers_mean": 0.0062023104431921435
+          },
+          {
+            "config_id": "ema#0277",
+            "persistence_f1": 0.4251239810316797,
+            "term_delay_mean": 1.9154960317460317,
+            "churn_mean": 0.12234774134374429,
+            "false_pers_mean": 0.006127591509027037
+          },
+          {
+            "config_id": "ema#0007",
+            "persistence_f1": 0.3945105006042361,
+            "term_delay_mean": 1.83297619047619,
+            "churn_mean": 0.13044257114911237,
+            "false_pers_mean": 0.005530974534696272
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.7,
+          "score_threshold": 0.4
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0022",
+        "feasible": true,
+        "n_feasible": 190,
+        "ranking": [
+          {
+            "config_id": "ema#0022",
+            "persistence_f1": 0.7620677636169599,
+            "term_delay_mean": 4.553313492063492,
+            "churn_mean": 0.01894863707169437,
+            "false_pers_mean": 0.02395926575563326
+          },
+          {
+            "config_id": "ema#0030",
+            "persistence_f1": 0.7610189794386204,
+            "term_delay_mean": 4.655019841269842,
+            "churn_mean": 0.025631094772447467,
+            "false_pers_mean": 0.02465252934851645
+          },
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7462618447926209,
+            "term_delay_mean": 4.1963888888888885,
+            "churn_mean": 0.01768542524375958,
+            "false_pers_mean": 0.021693831243282218
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.7357642365750612,
+            "term_delay_mean": 4.049186507936508,
+            "churn_mean": 0.01931462688343814,
+            "false_pers_mean": 0.020641629759150393
+          },
+          {
+            "config_id": "ema#0350",
+            "persistence_f1": 0.7328816361146423,
+            "term_delay_mean": 3.9651388888888888,
+            "churn_mean": 0.01815062158450277,
+            "false_pers_mean": 0.020109915527041427
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay": 0.7,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9117007121573549,
+            "term_delay_mean": 9.08968253968254,
+            "churn_mean": 0.007037120808944383,
+            "false_pers_mean": 0.05491785939456447
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9095934468993744,
+            "term_delay_mean": 8.986746031746032,
+            "churn_mean": 0.007142072130341057,
+            "false_pers_mean": 0.05415080813608554
+          },
+          {
+            "config_id": "ema#0381",
+            "persistence_f1": 0.905570196338317,
+            "term_delay_mean": 8.851884920634918,
+            "churn_mean": 0.007089092602069155,
+            "false_pers_mean": 0.05330256352856944
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9048465976680125,
+            "term_delay_mean": 8.726805555555556,
+            "churn_mean": 0.007249979522015155,
+            "false_pers_mean": 0.05237577947070689
+          },
+          {
+            "config_id": "ema#0297",
+            "persistence_f1": 0.9037365844238491,
+            "term_delay_mean": 8.690218253968252,
+            "churn_mean": 0.007161397243834441,
+            "false_pers_mean": 0.05214606723447406
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.3577866773470108,
+            "term_delay_mean": 1.6800198412698415,
+            "churn_mean": 0.1306398553806482,
+            "false_pers_mean": 0.004606597505758989
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.40594914862053144,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7726006163950007,
+            "term_delay_mean": 4.549265873015873,
+            "churn_mean": 0.013710167747328581,
+            "false_pers_mean": 0.024095197410377238
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.7000687820492613,
+            "term_delay_mean": 3.5549007936507935,
+            "churn_mean": 0.021693368605022502,
+            "false_pers_mean": 0.017347199030577787
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.5784709159536519,
+            "term_delay_mean": 2.5823611111111116,
+            "churn_mean": 0.04754544000761176,
+            "false_pers_mean": 0.010736891399221979
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.3577866773470108,
+            "term_delay_mean": 1.6800198412698415,
+            "churn_mean": 0.1306398553806482,
+            "false_pers_mean": 0.004606597505758989
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.40594914862053144,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9200699777045548,
+            "term_delay_mean": 9.545932539682536,
+            "churn_mean": 0.0071766825123672304,
+            "false_pers_mean": 0.05800528468482702
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9012544003348073,
+            "term_delay_mean": 8.545932539682537,
+            "churn_mean": 0.00724451006172637,
+            "false_pers_mean": 0.05121813902480886
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8800351620141289,
+            "term_delay_mean": 7.545932539682537,
+            "churn_mean": 0.007441511700794113,
+            "false_pers_mean": 0.044430993364790713
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.85510872545885,
+            "term_delay_mean": 6.545932539682538,
+            "churn_mean": 0.007963638762730586,
+            "false_pers_mean": 0.03764384770477256
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8240344846584834,
+            "term_delay_mean": 5.547599206349207,
+            "churn_mean": 0.009649565892187413,
+            "false_pers_mean": 0.0308695225575749
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#3271",
+        "feasible": true,
+        "n_feasible": 1476,
+        "ranking": [
+          {
+            "config_id": "gated_ema#3271",
+            "persistence_f1": 0.9606230231185453,
+            "term_delay_mean": 1.949781746031746,
+            "churn_mean": 0.09564149826847723,
+            "false_pers_mean": 0.006379303667441336
+          },
+          {
+            "config_id": "gated_ema#3264",
+            "persistence_f1": 0.9579638675975729,
+            "term_delay_mean": 1.949781746031746,
+            "churn_mean": 0.09580460919240741,
+            "false_pers_mean": 0.006379303667441336
+          },
+          {
+            "config_id": "gated_ema#4365",
+            "persistence_f1": 0.9551070842700972,
+            "term_delay_mean": 1.997460317460318,
+            "churn_mean": 0.09626381312883053,
+            "false_pers_mean": 0.006720674777895108
+          },
+          {
+            "config_id": "gated_ema#3257",
+            "persistence_f1": 0.9546771415722509,
+            "term_delay_mean": 1.948392857142857,
+            "churn_mean": 0.09624463979151536,
+            "false_pers_mean": 0.006372658266059093
+          },
+          {
+            "config_id": "gated_ema#3186",
+            "persistence_f1": 0.9535347985347992,
+            "term_delay_mean": 1.6800198412698415,
+            "churn_mean": 0.12075769655237246,
+            "false_pers_mean": 0.004606597505758989
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.5,
+          "score_threshold": 0.2
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#4277",
+        "feasible": true,
+        "n_feasible": 2289,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4277",
+            "persistence_f1": 0.9972222222222223,
+            "term_delay_mean": 3.9651388888888888,
+            "churn_mean": 0.009783790704223912,
+            "false_pers_mean": 0.020109915527041427
+          },
+          {
+            "config_id": "gated_ema#3269",
+            "persistence_f1": 0.9972222222222223,
+            "term_delay_mean": 3.8502579365079375,
+            "churn_mean": 0.010515523002180028,
+            "false_pers_mean": 0.019282655333645517
+          },
+          {
+            "config_id": "gated_ema#4270",
+            "persistence_f1": 0.9971698113207548,
+            "term_delay_mean": 3.9651388888888888,
+            "churn_mean": 0.009815841986275194,
+            "false_pers_mean": 0.020109915527041427
+          },
+          {
+            "config_id": "gated_ema#4448",
+            "persistence_f1": 0.9970837008965014,
+            "term_delay_mean": 4.1963888888888885,
+            "churn_mean": 0.009735922700778747,
+            "false_pers_mean": 0.021693831243282218
+          },
+          {
+            "config_id": "gated_ema#3440",
+            "persistence_f1": 0.9970048365431892,
+            "term_delay_mean": 4.065813492063492,
+            "churn_mean": 0.011031216564266245,
+            "false_pers_mean": 0.02076775903046664
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.5,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#3424",
+        "feasible": true,
+        "n_feasible": 2948,
+        "ranking": [
+          {
+            "config_id": "gated_ema#3424",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 9.001289682539683,
+            "churn_mean": 0.00234782806387393,
+            "false_pers_mean": 0.05424538413294569
+          },
+          {
+            "config_id": "gated_ema#3431",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 9.001289682539683,
+            "churn_mean": 0.00234782806387393,
+            "false_pers_mean": 0.05424538413294569
+          },
+          {
+            "config_id": "gated_ema#3438",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 9.00295634920635,
+            "churn_mean": 0.00234782806387393,
+            "false_pers_mean": 0.05426675165431321
+          },
+          {
+            "config_id": "gated_ema#4432",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 9.08968253968254,
+            "churn_mean": 0.00234782806387393,
+            "false_pers_mean": 0.05491785939456447
+          },
+          {
+            "config_id": "gated_ema#4439",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 9.08968253968254,
+            "churn_mean": 0.00234782806387393,
+            "false_pers_mean": 0.05491785939456447
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay_occluded": 0.97,
+          "decay_visible": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0513",
+        "feasible": true,
+        "n_feasible": 531,
+        "ranking": [
+          {
+            "config_id": "hmm#0513",
+            "persistence_f1": 0.43822748926336674,
+            "term_delay_mean": 1.9856746031746024,
+            "churn_mean": 0.109257877033464,
+            "false_pers_mean": 0.006568895847263593
+          },
+          {
+            "config_id": "hmm#0676",
+            "persistence_f1": 0.43191486611082613,
+            "term_delay_mean": 1.9999007936507938,
+            "churn_mean": 0.11359290810747211,
+            "false_pers_mean": 0.006692832470765853
+          },
+          {
+            "config_id": "hmm#0435",
+            "persistence_f1": 0.42398268860331617,
+            "term_delay_mean": 1.978988095238095,
+            "churn_mean": 0.12713558543199324,
+            "false_pers_mean": 0.006517390598441269
+          },
+          {
+            "config_id": "hmm#0537",
+            "persistence_f1": 0.41415771729870615,
+            "term_delay_mean": 1.9516865079365078,
+            "churn_mean": 0.12066514031216331,
+            "false_pers_mean": 0.006344778836353063
+          },
+          {
+            "config_id": "hmm#0518",
+            "persistence_f1": 0.40007584343319297,
+            "term_delay_mean": 1.9037301587301587,
+            "churn_mean": 0.12525573040381396,
+            "false_pers_mean": 0.0059911283879742145
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.7,
+          "emit_obs_dead": 0.1,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.97
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0376",
+        "feasible": true,
+        "n_feasible": 687,
+        "ranking": [
+          {
+            "config_id": "hmm#0376",
+            "persistence_f1": 0.7887986845410287,
+            "term_delay_mean": 4.8401984126984114,
+            "churn_mean": 0.016456995472288016,
+            "false_pers_mean": 0.02594257988447555
+          },
+          {
+            "config_id": "hmm#0515",
+            "persistence_f1": 0.7744936119835042,
+            "term_delay_mean": 4.616190476190477,
+            "churn_mean": 0.020116507100955628,
+            "false_pers_mean": 0.024338926105276614
+          },
+          {
+            "config_id": "hmm#0361",
+            "persistence_f1": 0.7723319531293955,
+            "term_delay_mean": 4.519226190476191,
+            "churn_mean": 0.013957498176673086,
+            "false_pers_mean": 0.023900928829764866
+          },
+          {
+            "config_id": "hmm#0603",
+            "persistence_f1": 0.7716858834463094,
+            "term_delay_mean": 4.5133928571428585,
+            "churn_mean": 0.014293444468603403,
+            "false_pers_mean": 0.023850567225557107
+          },
+          {
+            "config_id": "hmm#0500",
+            "persistence_f1": 0.7715382521677873,
+            "term_delay_mean": 4.508630952380954,
+            "churn_mean": 0.01402374727862551,
+            "false_pers_mean": 0.0238152717050607
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.2,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.95
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0605",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.918920622294174,
+            "term_delay_mean": 9.40849206349206,
+            "churn_mean": 0.0073436312704850005,
+            "false_pers_mean": 0.05703883301010217
+          },
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9186027383080819,
+            "term_delay_mean": 9.407281746031746,
+            "churn_mean": 0.007185399388238918,
+            "false_pers_mean": 0.05704734294747663
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9101689482244043,
+            "term_delay_mean": 8.898551587301585,
+            "churn_mean": 0.008069196854188979,
+            "false_pers_mean": 0.05352407208411376
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9018384607564882,
+            "term_delay_mean": 8.53875,
+            "churn_mean": 0.008831993925544289,
+            "false_pers_mean": 0.051020712388027745
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.8908533021761456,
+            "term_delay_mean": 7.992222222222221,
+            "churn_mean": 0.007976185215141809,
+            "false_pers_mean": 0.04734812407446158
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.40594914862053144,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.40594914862053144,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.40594914862053144,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "SWV_0.1": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0092",
+        "feasible": true,
+        "n_feasible": 102,
+        "ranking": [
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0008",
+            "persistence_f1": 0.45818069360055624,
+            "term_delay_mean": 1.9797023809523813,
+            "churn_mean": 0.01201353830148367,
+            "false_pers_mean": 0.006642141386019835
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 180,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7798213985999004,
+            "term_delay_mean": 4.637261904761904,
+            "churn_mean": 0.006950838400183626,
+            "false_pers_mean": 0.024692996160066857
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.779035397085725,
+            "term_delay_mean": 4.598392857142856,
+            "churn_mean": 0.007002111996161274,
+            "false_pers_mean": 0.02442330913410119
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7788890558872065,
+            "term_delay_mean": 4.659047619047619,
+            "churn_mean": 0.007517241274736028,
+            "false_pers_mean": 0.02491007432791391
+          },
+          {
+            "config_id": "ema#0115",
+            "persistence_f1": 0.7768586127884552,
+            "term_delay_mean": 4.62359126984127,
+            "churn_mean": 0.012473506907130626,
+            "false_pers_mean": 0.024667382453941507
+          },
+          {
+            "config_id": "ema#0182",
+            "persistence_f1": 0.769747575802229,
+            "term_delay_mean": 4.4285912698412675,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02315347689488397
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9203068871081148,
+            "term_delay_mean": 9.552142857142856,
+            "churn_mean": 0.0045555144189056394,
+            "false_pers_mean": 0.0580565076643859
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9200815703227805,
+            "term_delay_mean": 9.55765873015873,
+            "churn_mean": 0.004603913136767444,
+            "false_pers_mean": 0.05815229014609268
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9200065550013785,
+            "term_delay_mean": 9.556726190476189,
+            "churn_mean": 0.004580311738166046,
+            "false_pers_mean": 0.05808767709107224
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9192979163412129,
+            "term_delay_mean": 9.50763888888889,
+            "churn_mean": 0.0046615528566628485,
+            "false_pers_mean": 0.05778699168127318
+          },
+          {
+            "config_id": "ema#0029",
+            "persistence_f1": 0.9181482241624034,
+            "term_delay_mean": 9.427916666666668,
+            "churn_mean": 0.004713296825767654,
+            "false_pers_mean": 0.05727097858374059
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 5.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02714858264007265
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.745401337792643,
+            "term_delay_mean": 4.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.020361436980054496
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.647763347763347,
+            "term_delay_mean": 3.0,
+            "churn_mean": 0.009570294544716303,
+            "false_pers_mean": 0.013574291320036324
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 10.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06108431094016345
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9100529100529092,
+            "term_delay_mean": 9.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.0542971652801453
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8903413217138715,
+            "term_delay_mean": 8.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.047510019620127145
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8685897435897445,
+            "term_delay_mean": 7.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.04072287396010899
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8444444444444462,
+            "term_delay_mean": 6.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.03393572830009082
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#4195",
+        "feasible": true,
+        "n_feasible": 1134,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4195",
+            "persistence_f1": 0.9168124477659383,
+            "term_delay_mean": 1.943730158730158,
+            "churn_mean": 0.003528204655658235,
+            "false_pers_mean": 0.006487906221929171
+          },
+          {
+            "config_id": "gated_ema#3187",
+            "persistence_f1": 0.9164958064294041,
+            "term_delay_mean": 1.9368849206349201,
+            "churn_mean": 0.0035269459545385225,
+            "false_pers_mean": 0.006424604493998894
+          },
+          {
+            "config_id": "gated_ema#2179",
+            "persistence_f1": 0.9142895864030045,
+            "term_delay_mean": 1.915039682539682,
+            "churn_mean": 0.0035703069820061718,
+            "false_pers_mean": 0.006268282160871766
+          },
+          {
+            "config_id": "gated_ema#1171",
+            "persistence_f1": 0.9124450495977788,
+            "term_delay_mean": 1.933015873015872,
+            "churn_mean": 0.003949170920423023,
+            "false_pers_mean": 0.006357827648936416
+          },
+          {
+            "config_id": "gated_ema#0163",
+            "persistence_f1": 0.9093367796362997,
+            "term_delay_mean": 1.9398611111111101,
+            "churn_mean": 0.010711434914881728,
+            "false_pers_mean": 0.006391283921212104
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.3,
+          "score_threshold": 0.2
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#4277",
+        "feasible": true,
+        "n_feasible": 2248,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4277",
+            "persistence_f1": 0.9960981367745633,
+            "term_delay_mean": 4.897738095238093,
+            "churn_mean": 0.0002943676005070394,
+            "false_pers_mean": 0.02639364553843815
+          },
+          {
+            "config_id": "gated_ema#3269",
+            "persistence_f1": 0.9960981367745633,
+            "term_delay_mean": 4.9005158730158715,
+            "churn_mean": 0.0002943676005070394,
+            "false_pers_mean": 0.026373062436811735
+          },
+          {
+            "config_id": "gated_ema#2261",
+            "persistence_f1": 0.9960976248450051,
+            "term_delay_mean": 4.932857142857142,
+            "churn_mean": 0.0002943676005070394,
+            "false_pers_mean": 0.02656226434144032
+          },
+          {
+            "config_id": "gated_ema#1253",
+            "persistence_f1": 0.996097278644948,
+            "term_delay_mean": 4.931964285714286,
+            "churn_mean": 0.0002943676005070394,
+            "false_pers_mean": 0.02655287528143657
+          },
+          {
+            "config_id": "gated_ema#4270",
+            "persistence_f1": 0.995879301310101,
+            "term_delay_mean": 4.8854365079365065,
+            "churn_mean": 0.00030270093384037275,
+            "false_pers_mean": 0.026307952688818536
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.5,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#0315",
+        "feasible": true,
+        "n_feasible": 3274,
+        "ranking": [
+          {
+            "config_id": "gated_ema#0315",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.963908730158732,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.05411453848785765
+          },
+          {
+            "config_id": "gated_ema#2331",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.972896825396825,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.05418269380655571
+          },
+          {
+            "config_id": "gated_ema#1323",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.991507936507938,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.05430811682509235
+          },
+          {
+            "config_id": "gated_ema#3339",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 8.993432539682539,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.0542766542410995
+          },
+          {
+            "config_id": "gated_ema#4347",
+            "persistence_f1": 1.0,
+            "term_delay_mean": 9.002321428571431,
+            "churn_mean": 0.0,
+            "false_pers_mean": 0.05430393465386061
+          }
+        ],
+        "params": {
+          "alpha": 0.2,
+          "decay_occluded": 0.97,
+          "decay_visible": 0.7,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0016",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0016",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9466865079365088,
+            "churn_mean": 0.011802171777070403,
+            "false_pers_mean": 0.006438610870188157
+          },
+          {
+            "config_id": "hmm#0538",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9761507936507943,
+            "churn_mean": 0.01183926153245726,
+            "false_pers_mean": 0.006624932198599775
+          },
+          {
+            "config_id": "hmm#0316",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0437",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0456",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.2,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.7
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0608",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0608",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.956666666666666,
+            "churn_mean": 0.007136070329953707,
+            "false_pers_mean": 0.026857635813071788
+          },
+          {
+            "config_id": "hmm#0371",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.954999999999999,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02684938498798928
+          },
+          {
+            "config_id": "hmm#0510",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0626",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0645",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.968234126984126,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02694075414616949
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 9.989305555555555,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.061018935293405865
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.92785206977945,
+            "term_delay_mean": 9.947083333333332,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06073302844408699
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9275933029156412,
+            "term_delay_mean": 9.879325396825402,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06026836114088631
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9266271890928416,
+            "term_delay_mean": 9.827638888888892,
+            "churn_mean": 0.004743496693774631,
+            "false_pers_mean": 0.05988622729345485
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9097746216580288,
+            "term_delay_mean": 8.919960317460319,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.05376026341196311
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "SWV_0.3": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0092",
+        "feasible": true,
+        "n_feasible": 102,
+        "ranking": [
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0008",
+            "persistence_f1": 0.45818069360055624,
+            "term_delay_mean": 1.9797023809523813,
+            "churn_mean": 0.01201353830148367,
+            "false_pers_mean": 0.006642141386019835
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 180,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7798213985999004,
+            "term_delay_mean": 4.637261904761904,
+            "churn_mean": 0.006950838400183626,
+            "false_pers_mean": 0.024692996160066857
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.779035397085725,
+            "term_delay_mean": 4.598392857142856,
+            "churn_mean": 0.007002111996161274,
+            "false_pers_mean": 0.02442330913410119
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7788890558872065,
+            "term_delay_mean": 4.659047619047619,
+            "churn_mean": 0.007517241274736028,
+            "false_pers_mean": 0.02491007432791391
+          },
+          {
+            "config_id": "ema#0115",
+            "persistence_f1": 0.7768586127884552,
+            "term_delay_mean": 4.62359126984127,
+            "churn_mean": 0.012473506907130626,
+            "false_pers_mean": 0.024667382453941507
+          },
+          {
+            "config_id": "ema#0182",
+            "persistence_f1": 0.769747575802229,
+            "term_delay_mean": 4.4285912698412675,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02315347689488397
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9203068871081148,
+            "term_delay_mean": 9.552142857142856,
+            "churn_mean": 0.0045555144189056394,
+            "false_pers_mean": 0.0580565076643859
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9200815703227805,
+            "term_delay_mean": 9.55765873015873,
+            "churn_mean": 0.004603913136767444,
+            "false_pers_mean": 0.05815229014609268
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9200065550013785,
+            "term_delay_mean": 9.556726190476189,
+            "churn_mean": 0.004580311738166046,
+            "false_pers_mean": 0.05808767709107224
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9192979163412129,
+            "term_delay_mean": 9.50763888888889,
+            "churn_mean": 0.0046615528566628485,
+            "false_pers_mean": 0.05778699168127318
+          },
+          {
+            "config_id": "ema#0029",
+            "persistence_f1": 0.9181482241624034,
+            "term_delay_mean": 9.427916666666668,
+            "churn_mean": 0.004713296825767654,
+            "false_pers_mean": 0.05727097858374059
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 5.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02714858264007265
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.745401337792643,
+            "term_delay_mean": 4.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.020361436980054496
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.647763347763347,
+            "term_delay_mean": 3.0,
+            "churn_mean": 0.009570294544716303,
+            "false_pers_mean": 0.013574291320036324
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 10.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06108431094016345
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9100529100529092,
+            "term_delay_mean": 9.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.0542971652801453
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8903413217138715,
+            "term_delay_mean": 8.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.047510019620127145
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8685897435897445,
+            "term_delay_mean": 7.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.04072287396010899
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8444444444444462,
+            "term_delay_mean": 6.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.03393572830009082
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#4274",
+        "feasible": true,
+        "n_feasible": 1089,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4274",
+            "persistence_f1": 0.6533385972567375,
+            "term_delay_mean": 1.9907936507936508,
+            "churn_mean": 0.0091574617501132,
+            "false_pers_mean": 0.006467990709515969
+          },
+          {
+            "config_id": "gated_ema#3266",
+            "persistence_f1": 0.6532031850730858,
+            "term_delay_mean": 1.9958531746031754,
+            "churn_mean": 0.009225264735619666,
+            "false_pers_mean": 0.006471241285660037
+          },
+          {
+            "config_id": "gated_ema#4267",
+            "persistence_f1": 0.6435070666541585,
+            "term_delay_mean": 1.953293650793651,
+            "churn_mean": 0.009371275668102553,
+            "false_pers_mean": 0.006215540577588557
+          },
+          {
+            "config_id": "gated_ema#3259",
+            "persistence_f1": 0.6431727283004658,
+            "term_delay_mean": 1.9745238095238102,
+            "churn_mean": 0.009403531169375168,
+            "false_pers_mean": 0.006313926056522076
+          },
+          {
+            "config_id": "gated_ema#1243",
+            "persistence_f1": 0.6400976982175397,
+            "term_delay_mean": 1.9882539682539686,
+            "churn_mean": 0.016558634674492815,
+            "false_pers_mean": 0.006401442347674689
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.98,
+          "decay_visible": 0.5,
+          "score_threshold": 0.4
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#1254",
+        "feasible": true,
+        "n_feasible": 2623,
+        "ranking": [
+          {
+            "config_id": "gated_ema#1254",
+            "persistence_f1": 0.9195098955658497,
+            "term_delay_mean": 4.982242063492062,
+            "churn_mean": 0.003983966873452985,
+            "false_pers_mean": 0.026771072247072935
+          },
+          {
+            "config_id": "gated_ema#3270",
+            "persistence_f1": 0.9194382551137911,
+            "term_delay_mean": 4.940317460317461,
+            "churn_mean": 0.00395799002851545,
+            "false_pers_mean": 0.026530522791433975
+          },
+          {
+            "config_id": "gated_ema#2262",
+            "persistence_f1": 0.9193131653998845,
+            "term_delay_mean": 4.984325396825395,
+            "churn_mean": 0.00396485372360589,
+            "false_pers_mean": 0.026790127177048047
+          },
+          {
+            "config_id": "gated_ema#4278",
+            "persistence_f1": 0.9190296003567336,
+            "term_delay_mean": 4.921269841269842,
+            "churn_mean": 0.003944804374507012,
+            "false_pers_mean": 0.026430798424206193
+          },
+          {
+            "config_id": "gated_ema#0246",
+            "persistence_f1": 0.918477402755861,
+            "term_delay_mean": 4.952083333333332,
+            "churn_mean": 0.0039600786037393065,
+            "false_pers_mean": 0.026558286664037433
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.5,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#4447",
+        "feasible": true,
+        "n_feasible": 3503,
+        "ranking": [
+          {
+            "config_id": "gated_ema#4447",
+            "persistence_f1": 0.9848564697623734,
+            "term_delay_mean": 9.158154761904761,
+            "churn_mean": 0.0015563521847727355,
+            "false_pers_mean": 0.05517764924824749
+          },
+          {
+            "config_id": "gated_ema#2431",
+            "persistence_f1": 0.9847121948255799,
+            "term_delay_mean": 9.088492063492064,
+            "churn_mean": 0.0016028873697558651,
+            "false_pers_mean": 0.054669187483542596
+          },
+          {
+            "config_id": "gated_ema#3439",
+            "persistence_f1": 0.9846561608624592,
+            "term_delay_mean": 9.119880952380953,
+            "churn_mean": 0.0015491664122040025,
+            "false_pers_mean": 0.0549085576197482
+          },
+          {
+            "config_id": "gated_ema#1423",
+            "persistence_f1": 0.9839107226788746,
+            "term_delay_mean": 9.076607142857142,
+            "churn_mean": 0.0019691069323847545,
+            "false_pers_mean": 0.05460422005328315
+          },
+          {
+            "config_id": "gated_ema#3354",
+            "persistence_f1": 0.9836176812502339,
+            "term_delay_mean": 8.94734126984127,
+            "churn_mean": 0.0016630247500186435,
+            "false_pers_mean": 0.05379475870177527
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay_occluded": 0.99,
+          "decay_visible": 0.8,
+          "score_threshold": 0.2
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0016",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0016",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9466865079365088,
+            "churn_mean": 0.011802171777070403,
+            "false_pers_mean": 0.006438610870188157
+          },
+          {
+            "config_id": "hmm#0538",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9761507936507943,
+            "churn_mean": 0.01183926153245726,
+            "false_pers_mean": 0.006624932198599775
+          },
+          {
+            "config_id": "hmm#0316",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0437",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0456",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.2,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.7
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0608",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0608",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.956666666666666,
+            "churn_mean": 0.007136070329953707,
+            "false_pers_mean": 0.026857635813071788
+          },
+          {
+            "config_id": "hmm#0371",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.954999999999999,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02684938498798928
+          },
+          {
+            "config_id": "hmm#0510",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0626",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0645",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.968234126984126,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02694075414616949
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 9.989305555555555,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.061018935293405865
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.92785206977945,
+            "term_delay_mean": 9.947083333333332,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06073302844408699
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9275933029156412,
+            "term_delay_mean": 9.879325396825402,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06026836114088631
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9266271890928416,
+            "term_delay_mean": 9.827638888888892,
+            "churn_mean": 0.004743496693774631,
+            "false_pers_mean": 0.05988622729345485
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9097746216580288,
+            "term_delay_mean": 8.919960317460319,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.05376026341196311
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  },
+  "SWV_0.5": {
+    "ema": {
+      "2": {
+        "config_id": "ema#0092",
+        "feasible": true,
+        "n_feasible": 102,
+        "ranking": [
+          {
+            "config_id": "ema#0092",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0176",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0260",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0344",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "ema#0008",
+            "persistence_f1": 0.45818069360055624,
+            "term_delay_mean": 1.9797023809523813,
+            "churn_mean": 0.01201353830148367,
+            "false_pers_mean": 0.006642141386019835
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      },
+      "5": {
+        "config_id": "ema#0367",
+        "feasible": true,
+        "n_feasible": 180,
+        "ranking": [
+          {
+            "config_id": "ema#0367",
+            "persistence_f1": 0.7798213985999004,
+            "term_delay_mean": 4.637261904761904,
+            "churn_mean": 0.006950838400183626,
+            "false_pers_mean": 0.024692996160066857
+          },
+          {
+            "config_id": "ema#0283",
+            "persistence_f1": 0.779035397085725,
+            "term_delay_mean": 4.598392857142856,
+            "churn_mean": 0.007002111996161274,
+            "false_pers_mean": 0.02442330913410119
+          },
+          {
+            "config_id": "ema#0199",
+            "persistence_f1": 0.7788890558872065,
+            "term_delay_mean": 4.659047619047619,
+            "churn_mean": 0.007517241274736028,
+            "false_pers_mean": 0.02491007432791391
+          },
+          {
+            "config_id": "ema#0115",
+            "persistence_f1": 0.7768586127884552,
+            "term_delay_mean": 4.62359126984127,
+            "churn_mean": 0.012473506907130626,
+            "false_pers_mean": 0.024667382453941507
+          },
+          {
+            "config_id": "ema#0182",
+            "persistence_f1": 0.769747575802229,
+            "term_delay_mean": 4.4285912698412675,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02315347689488397
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.3
+        },
+        "method": "ema"
+      },
+      "10": {
+        "config_id": "ema#0365",
+        "feasible": true,
+        "n_feasible": 245,
+        "ranking": [
+          {
+            "config_id": "ema#0365",
+            "persistence_f1": 0.9203068871081148,
+            "term_delay_mean": 9.552142857142856,
+            "churn_mean": 0.0045555144189056394,
+            "false_pers_mean": 0.0580565076643859
+          },
+          {
+            "config_id": "ema#0197",
+            "persistence_f1": 0.9200815703227805,
+            "term_delay_mean": 9.55765873015873,
+            "churn_mean": 0.004603913136767444,
+            "false_pers_mean": 0.05815229014609268
+          },
+          {
+            "config_id": "ema#0281",
+            "persistence_f1": 0.9200065550013785,
+            "term_delay_mean": 9.556726190476189,
+            "churn_mean": 0.004580311738166046,
+            "false_pers_mean": 0.05808767709107224
+          },
+          {
+            "config_id": "ema#0113",
+            "persistence_f1": 0.9192979163412129,
+            "term_delay_mean": 9.50763888888889,
+            "churn_mean": 0.0046615528566628485,
+            "false_pers_mean": 0.05778699168127318
+          },
+          {
+            "config_id": "ema#0029",
+            "persistence_f1": 0.9181482241624034,
+            "term_delay_mean": 9.427916666666668,
+            "churn_mean": 0.004713296825767654,
+            "false_pers_mean": 0.05727097858374059
+          }
+        ],
+        "params": {
+          "alpha": 1.0,
+          "decay": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "ema"
+      }
+    },
+    "fixed_window": {
+      "2": {
+        "config_id": "fixed_window#0001",
+        "feasible": true,
+        "n_feasible": 2,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 2
+        },
+        "method": "fixed_window"
+      },
+      "5": {
+        "config_id": "fixed_window#0004",
+        "feasible": true,
+        "n_feasible": 5,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0004",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 5.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02714858264007265
+          },
+          {
+            "config_id": "fixed_window#0003",
+            "persistence_f1": 0.745401337792643,
+            "term_delay_mean": 4.0,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.020361436980054496
+          },
+          {
+            "config_id": "fixed_window#0002",
+            "persistence_f1": 0.647763347763347,
+            "term_delay_mean": 3.0,
+            "churn_mean": 0.009570294544716303,
+            "false_pers_mean": 0.013574291320036324
+          },
+          {
+            "config_id": "fixed_window#0001",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "fixed_window#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 5
+        },
+        "method": "fixed_window"
+      },
+      "10": {
+        "config_id": "fixed_window#0009",
+        "feasible": true,
+        "n_feasible": 10,
+        "ranking": [
+          {
+            "config_id": "fixed_window#0009",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 10.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06108431094016345
+          },
+          {
+            "config_id": "fixed_window#0008",
+            "persistence_f1": 0.9100529100529092,
+            "term_delay_mean": 9.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.0542971652801453
+          },
+          {
+            "config_id": "fixed_window#0007",
+            "persistence_f1": 0.8903413217138715,
+            "term_delay_mean": 8.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.047510019620127145
+          },
+          {
+            "config_id": "fixed_window#0006",
+            "persistence_f1": 0.8685897435897445,
+            "term_delay_mean": 7.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.04072287396010899
+          },
+          {
+            "config_id": "fixed_window#0005",
+            "persistence_f1": 0.8444444444444462,
+            "term_delay_mean": 6.0,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.03393572830009082
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0,
+          "window_size": 10
+        },
+        "method": "fixed_window"
+      }
+    },
+    "gated_ema": {
+      "2": {
+        "config_id": "gated_ema#1100",
+        "feasible": true,
+        "n_feasible": 1203,
+        "ranking": [
+          {
+            "config_id": "gated_ema#1100",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "gated_ema#2108",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "gated_ema#3116",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "gated_ema#4124",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 2.0,
+            "churn_mean": 0.011962868180895378,
+            "false_pers_mean": 0.006787145660018162
+          },
+          {
+            "config_id": "gated_ema#0092",
+            "persistence_f1": 0.45818069360055624,
+            "term_delay_mean": 1.9797023809523813,
+            "churn_mean": 0.01201353830148367,
+            "false_pers_mean": 0.006642141386019835
+          }
+        ],
+        "params": {
+          "alpha": 0.35,
+          "decay_occluded": 0.3,
+          "decay_visible": 0.3,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "5": {
+        "config_id": "gated_ema#2367",
+        "feasible": true,
+        "n_feasible": 2652,
+        "ranking": [
+          {
+            "config_id": "gated_ema#2367",
+            "persistence_f1": 0.8001443377025341,
+            "term_delay_mean": 4.944107142857143,
+            "churn_mean": 0.0064417575230146665,
+            "false_pers_mean": 0.026669227256047652
+          },
+          {
+            "config_id": "gated_ema#3375",
+            "persistence_f1": 0.8001113623701663,
+            "term_delay_mean": 4.951587301587302,
+            "churn_mean": 0.0064417575230146665,
+            "false_pers_mean": 0.026723779365824152
+          },
+          {
+            "config_id": "gated_ema#4383",
+            "persistence_f1": 0.7999617936404767,
+            "term_delay_mean": 4.963908730158731,
+            "churn_mean": 0.006427404869675957,
+            "false_pers_mean": 0.026829386711891588
+          },
+          {
+            "config_id": "gated_ema#1359",
+            "persistence_f1": 0.7994125461350995,
+            "term_delay_mean": 4.911527777777778,
+            "churn_mean": 0.0064364123533376,
+            "false_pers_mean": 0.02644650776721437
+          },
+          {
+            "config_id": "gated_ema#0359",
+            "persistence_f1": 0.7992249808391929,
+            "term_delay_mean": 4.954702380952383,
+            "churn_mean": 0.013630236192640635,
+            "false_pers_mean": 0.026867054780492686
+          }
+        ],
+        "params": {
+          "alpha": 0.5,
+          "decay_occluded": 0.5,
+          "decay_visible": 0.8,
+          "score_threshold": 0.1
+        },
+        "method": "gated_ema"
+      },
+      "10": {
+        "config_id": "gated_ema#3381",
+        "feasible": true,
+        "n_feasible": 3538,
+        "ranking": [
+          {
+            "config_id": "gated_ema#3381",
+            "persistence_f1": 0.9276100597711936,
+            "term_delay_mean": 9.884444444444444,
+            "churn_mean": 0.003928364267382541,
+            "false_pers_mean": 0.06034925378910707
+          },
+          {
+            "config_id": "gated_ema#4389",
+            "persistence_f1": 0.9273727501886011,
+            "term_delay_mean": 9.857579365079365,
+            "churn_mean": 0.003998413911299194,
+            "false_pers_mean": 0.060177452366762814
+          },
+          {
+            "config_id": "gated_ema#2373",
+            "persistence_f1": 0.9273159404823315,
+            "term_delay_mean": 9.839365079365079,
+            "churn_mean": 0.003957128584341303,
+            "false_pers_mean": 0.0600366460401568
+          },
+          {
+            "config_id": "gated_ema#0610",
+            "persistence_f1": 0.9272305644715042,
+            "term_delay_mean": 9.942619047619052,
+            "churn_mean": 0.003592143864952625,
+            "false_pers_mean": 0.060902130002682416
+          },
+          {
+            "config_id": "gated_ema#1365",
+            "persistence_f1": 0.9271142582026383,
+            "term_delay_mean": 9.821845238095237,
+            "churn_mean": 0.00397730706874676,
+            "false_pers_mean": 0.059900407402930546
+          }
+        ],
+        "params": {
+          "alpha": 0.75,
+          "decay_occluded": 0.7,
+          "decay_visible": 0.8,
+          "score_threshold": 0.05
+        },
+        "method": "gated_ema"
+      }
+    },
+    "hmm": {
+      "2": {
+        "config_id": "hmm#0016",
+        "feasible": true,
+        "n_feasible": 521,
+        "ranking": [
+          {
+            "config_id": "hmm#0016",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9466865079365088,
+            "churn_mean": 0.011802171777070403,
+            "false_pers_mean": 0.006438610870188157
+          },
+          {
+            "config_id": "hmm#0538",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9761507936507943,
+            "churn_mean": 0.01183926153245726,
+            "false_pers_mean": 0.006624932198599775
+          },
+          {
+            "config_id": "hmm#0316",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0437",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          },
+          {
+            "config_id": "hmm#0456",
+            "persistence_f1": 0.462842712842713,
+            "term_delay_mean": 1.9622619047619054,
+            "churn_mean": 0.011863392577095523,
+            "false_pers_mean": 0.006518909659202646
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.2,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.3,
+          "stay_alive_prob": 0.7
+        },
+        "method": "hmm"
+      },
+      "5": {
+        "config_id": "hmm#0608",
+        "feasible": true,
+        "n_feasible": 685,
+        "ranking": [
+          {
+            "config_id": "hmm#0608",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.956666666666666,
+            "churn_mean": 0.007136070329953707,
+            "false_pers_mean": 0.026857635813071788
+          },
+          {
+            "config_id": "hmm#0371",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.954999999999999,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02684938498798928
+          },
+          {
+            "config_id": "hmm#0510",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0626",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.964583333333334,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.026922837353349893
+          },
+          {
+            "config_id": "hmm#0645",
+            "persistence_f1": 0.7989417989417973,
+            "term_delay_mean": 4.968234126984126,
+            "churn_mean": 0.0071777209085372275,
+            "false_pers_mean": 0.02694075414616949
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.05,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.7,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      },
+      "10": {
+        "config_id": "hmm#0600",
+        "feasible": true,
+        "n_feasible": 718,
+        "ranking": [
+          {
+            "config_id": "hmm#0600",
+            "persistence_f1": 0.9280096793708404,
+            "term_delay_mean": 9.989305555555555,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.061018935293405865
+          },
+          {
+            "config_id": "hmm#0605",
+            "persistence_f1": 0.92785206977945,
+            "term_delay_mean": 9.947083333333332,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06073302844408699
+          },
+          {
+            "config_id": "hmm#0495",
+            "persistence_f1": 0.9275933029156412,
+            "term_delay_mean": 9.879325396825402,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.06026836114088631
+          },
+          {
+            "config_id": "hmm#0616",
+            "persistence_f1": 0.9266271890928416,
+            "term_delay_mean": 9.827638888888892,
+            "churn_mean": 0.004743496693774631,
+            "false_pers_mean": 0.05988622729345485
+          },
+          {
+            "config_id": "hmm#0490",
+            "persistence_f1": 0.9097746216580288,
+            "term_delay_mean": 8.919960317460319,
+            "churn_mean": 0.004785147272358152,
+            "false_pers_mean": 0.05376026341196311
+          }
+        ],
+        "params": {
+          "emit_obs_alive": 0.5,
+          "emit_obs_dead": 0.01,
+          "prior_alive": 0.5,
+          "resurrect_prob": 0.01,
+          "score_threshold": 0.1,
+          "stay_alive_prob": 0.99
+        },
+        "method": "hmm"
+      }
+    },
+    "no_memory": {
+      "2": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "5": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      },
+      "10": {
+        "config_id": "no_memory#0000",
+        "feasible": true,
+        "n_feasible": 1,
+        "ranking": [
+          {
+            "config_id": "no_memory#0000",
+            "persistence_f1": 0.0,
+            "term_delay_mean": 1.0,
+            "churn_mean": 0.014355441817074455,
+            "false_pers_mean": 0.0
+          }
+        ],
+        "params": {
+          "score_threshold": 0.0
+        },
+        "method": "no_memory"
+      }
+    }
+  }
+}

@@ -1,0 +1,3216 @@
+{
+  "description": "Phase 3 frozen parameters (selected on calibration seeds only).",
+  "registration_commit": "d8728b3",
+  "config_path": "configs\\experiments\\phase3_pilot.yaml",
+  "config_sha256": "0dea058edfc7a3b14246acde0dd5ab915325562c3a507bf46ce1132304a9ad52",
+  "selection_rule": "Among configurations whose mean termination delay over all calibration instances (20 seeds x 6 gaps) is <= B, choose maximal mean Persistence F1; ties (|dF1| <= 1e-9) broken by lower churn, lower delay, lower false persistence, then grid order. If nothing is feasible, the minimum-delay configuration is used and flagged (prereg \u00a75.3).",
+  "tie_tolerance": 1e-09,
+  "budgets_frames": [
+    2,
+    5,
+    10
+  ],
+  "artifact_sha256": {
+    "raw/calibration_summary.csv.gz": "27f8192deb832c00da9c18a496a2bcd4a61946b529f0f97cce25c7c50e268857",
+    "raw/calibration_instances.json": "eb49dcf0d0aecb46ae07ecd000a4ec7c90384e1b4ab6aae5462b6781a97717d1",
+    "configs/selected_params.json": "cd156d0c65d1236d397d802731713e4221518c01a4e29af61f8ad8623991e0a4",
+    "configs/pareto_sets.json": "68dde4d28a437890a79a142e0ef681cc7c6c54b81d0eea4ef1a8467adc1495e9"
+  },
+  "calibration_verification": {
+    "checks": {
+      "stage_not_smoke": true,
+      "grid_stride_1": true,
+      "config_sha_matches": true,
+      "n_configs_full_grid": true,
+      "instances_expected_count": true,
+      "instances_no_duplicates": true,
+      "instances_exact_match": true,
+      "only_calibration_seeds": true,
+      "no_evaluation_seeds": true,
+      "all_config_rows_present": true,
+      "every_config_saw_every_instance": true,
+      "no_nan_f1_or_delay": true
+    },
+    "all_passed": true,
+    "expected_instances": 1080,
+    "actual_instances": 1080,
+    "missing_instances": [],
+    "calibration_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ],
+    "seeds_seen": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019
+    ],
+    "per_condition": {
+      "C0_oracle": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "R1_visnoise_0.2": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "R2_flicker_0.1": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "SWV_0.1": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "SWV_0.3": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "SWV_0.5": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "SWF_0.05": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "SWF_0.2": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      },
+      "SWF_0.3": {
+        "n_config_rows": 6213,
+        "n_instances_min": 120,
+        "n_instances_max": 120,
+        "n_nan_f1": 0,
+        "n_nan_delay": 0
+      }
+    },
+    "calibration_run_id": "phase3_calibrate_20260929_034436_e4842e",
+    "calibration_git_commit": "929d082",
+    "calibration_git_dirty": false,
+    "calibration_elapsed_s": 7468.215540409088
+  },
+  "pareto_set_sizes": {
+    "C0_oracle": {
+      "ema": 99,
+      "fixed_window": 21,
+      "gated_ema": 1,
+      "hmm": 31,
+      "no_memory": 1
+    },
+    "R1_visnoise_0.2": {
+      "ema": 99,
+      "fixed_window": 21,
+      "gated_ema": 144,
+      "hmm": 31,
+      "no_memory": 1
+    },
+    "R2_flicker_0.1": {
+      "ema": 128,
+      "fixed_window": 23,
+      "gated_ema": 25,
+      "hmm": 113,
+      "no_memory": 1
+    },
+    "SWF_0.05": {
+      "ema": 119,
+      "fixed_window": 22,
+      "gated_ema": 15,
+      "hmm": 80,
+      "no_memory": 1
+    },
+    "SWF_0.2": {
+      "ema": 122,
+      "fixed_window": 23,
+      "gated_ema": 40,
+      "hmm": 179,
+      "no_memory": 1
+    },
+    "SWF_0.3": {
+      "ema": 118,
+      "fixed_window": 26,
+      "gated_ema": 38,
+      "hmm": 203,
+      "no_memory": 1
+    },
+    "SWV_0.1": {
+      "ema": 99,
+      "fixed_window": 21,
+      "gated_ema": 89,
+      "hmm": 31,
+      "no_memory": 1
+    },
+    "SWV_0.3": {
+      "ema": 99,
+      "fixed_window": 21,
+      "gated_ema": 220,
+      "hmm": 31,
+      "no_memory": 1
+    },
+    "SWV_0.5": {
+      "ema": 99,
+      "fixed_window": 21,
+      "gated_ema": 367,
+      "hmm": 31,
+      "no_memory": 1
+    }
+  },
+  "evaluation_plan_config_counts": {
+    "C0_oracle": 154,
+    "R1_visnoise_0.2": 298,
+    "R2_flicker_0.1": 295,
+    "SWV_0.1": 13,
+    "SWV_0.3": 13,
+    "SWV_0.5": 13,
+    "SWF_0.05": 12,
+    "SWF_0.2": 13,
+    "SWF_0.3": 13,
+    "S1_termination_under_occlusion": 11,
+    "S2_id_switch_d5": 11,
+    "S2_id_switch_d20": 11,
+    "S3_repeated_occlusion": 11,
+    "S4_unknown_all": 11,
+    "S4_unknown_half": 11,
+    "S5_long_absence": 11
+  },
+  "stress_conditions_use": {
+    "S1_termination_under_occlusion": "C0_oracle",
+    "S2_id_switch_d5": "C0_oracle",
+    "S2_id_switch_d20": "C0_oracle",
+    "S3_repeated_occlusion": "C0_oracle",
+    "S4_unknown_all": "C0_oracle",
+    "S4_unknown_half": "C0_oracle",
+    "S5_long_absence": "C0_oracle"
+  },
+  "frozen": {
+    "C0_oracle": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0092",
+          "params": {
+            "alpha": 0.35,
+            "decay": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 102,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 4,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "4 feasible configurations tied at max calibration F1 0.4628 (of 102 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 180,
+          "feasible": true,
+          "calib_persistence_f1": 0.7798213985999004,
+          "calib_term_delay_mean": 4.637261904761904,
+          "calib_churn_mean": 0.006950838400183626,
+          "calib_false_pers_mean": 0.024692996160066857,
+          "best_feasible_f1": 0.7798213985999004,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.779035397086,
+          "margin_to_next_f1": 0.0007860015139004028,
+          "reason": "Unique max calibration F1 0.7798 among 180 feasible configurations (mean delay <= 5); next best F1 0.7790."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9203068871081148,
+          "calib_term_delay_mean": 9.552142857142856,
+          "calib_churn_mean": 0.0045555144189056394,
+          "calib_false_pers_mean": 0.0580565076643859,
+          "best_feasible_f1": 0.9203068871081148,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.920081570323,
+          "margin_to_next_f1": 0.00022531678511483744,
+          "reason": "Unique max calibration F1 0.9203 among 245 feasible configurations (mean delay <= 10); next best F1 0.9201."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.462842712842713,
+          "reason": "Unique max calibration F1 0.4628 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 5.0,
+          "calib_churn_mean": 0.0071777209085372275,
+          "calib_false_pers_mean": 0.02714858264007265,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.745401337793,
+          "margin_to_next_f1": 0.05354046114879729,
+          "reason": "Unique max calibration F1 0.7989 among 5 feasible configurations (mean delay <= 5); next best F1 0.7454."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 10.0,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.06108431094016345,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.910052910053,
+          "margin_to_next_f1": 0.017956769317840404,
+          "reason": "Unique max calibration F1 0.9280 among 10 feasible configurations (mean delay <= 10); next best F1 0.9101."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#0049",
+          "params": {
+            "alpha": 0.2,
+            "decay_occluded": 0.93,
+            "decay_visible": 0.0,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1224,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.0,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 143,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "143 feasible configurations tied at max calibration F1 1.0000 (of 1224 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "gated_ema#0049",
+          "params": {
+            "alpha": 0.2,
+            "decay_occluded": 0.93,
+            "decay_visible": 0.0,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2169,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.0,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 282,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "282 feasible configurations tied at max calibration F1 1.0000 (of 2169 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "gated_ema#0049",
+          "params": {
+            "alpha": 0.2,
+            "decay_occluded": 0.93,
+            "decay_visible": 0.0,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2940,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.0,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 413,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "413 feasible configurations tied at max calibration F1 1.0000 (of 2940 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0016",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.2,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.7
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 1.9466865079365088,
+          "calib_churn_mean": 0.011802171777070403,
+          "calib_false_pers_mean": 0.006438610870188157,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 168,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "168 feasible configurations tied at max calibration F1 0.4628 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0608",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 4.956666666666666,
+          "calib_churn_mean": 0.007136070329953707,
+          "calib_false_pers_mean": 0.026857635813071788,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 13,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.798558703341,
+          "margin_to_next_f1": 0.00038309560079730076,
+          "reason": "13 feasible configurations tied at max calibration F1 0.7989 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 9.989305555555555,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.061018935293405865,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.927852069779,
+          "margin_to_next_f1": 0.000157609591840413,
+          "reason": "Unique max calibration F1 0.9280 among 718 feasible configurations (mean delay <= 10); next best F1 0.9279."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "R1_visnoise_0.2": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0092",
+          "params": {
+            "alpha": 0.35,
+            "decay": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 102,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 4,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "4 feasible configurations tied at max calibration F1 0.4628 (of 102 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 180,
+          "feasible": true,
+          "calib_persistence_f1": 0.7798213985999004,
+          "calib_term_delay_mean": 4.637261904761904,
+          "calib_churn_mean": 0.006950838400183626,
+          "calib_false_pers_mean": 0.024692996160066857,
+          "best_feasible_f1": 0.7798213985999004,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.779035397086,
+          "margin_to_next_f1": 0.0007860015139004028,
+          "reason": "Unique max calibration F1 0.7798 among 180 feasible configurations (mean delay <= 5); next best F1 0.7790."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9203068871081148,
+          "calib_term_delay_mean": 9.552142857142856,
+          "calib_churn_mean": 0.0045555144189056394,
+          "calib_false_pers_mean": 0.0580565076643859,
+          "best_feasible_f1": 0.9203068871081148,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.920081570323,
+          "margin_to_next_f1": 0.00022531678511483744,
+          "reason": "Unique max calibration F1 0.9203 among 245 feasible configurations (mean delay <= 10); next best F1 0.9201."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.462842712842713,
+          "reason": "Unique max calibration F1 0.4628 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 5.0,
+          "calib_churn_mean": 0.0071777209085372275,
+          "calib_false_pers_mean": 0.02714858264007265,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.745401337793,
+          "margin_to_next_f1": 0.05354046114879729,
+          "reason": "Unique max calibration F1 0.7989 among 5 feasible configurations (mean delay <= 5); next best F1 0.7454."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 10.0,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.06108431094016345,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.910052910053,
+          "margin_to_next_f1": 0.017956769317840404,
+          "reason": "Unique max calibration F1 0.9280 among 10 feasible configurations (mean delay <= 10); next best F1 0.9101."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#4352",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.97,
+            "decay_visible": 0.7,
+            "score_threshold": 0.5
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1100,
+          "feasible": true,
+          "calib_persistence_f1": 0.7712531233943006,
+          "calib_term_delay_mean": 1.9957738095238098,
+          "calib_churn_mean": 0.009554005347387519,
+          "calib_false_pers_mean": 0.006791816891347777,
+          "best_feasible_f1": 0.7712531233943006,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.757479636269,
+          "margin_to_next_f1": 0.013773487125300687,
+          "reason": "Unique max calibration F1 0.7713 among 1100 feasible configurations (mean delay <= 2); next best F1 0.7575."
+        },
+        "5": {
+          "config_id": "gated_ema#2262",
+          "params": {
+            "alpha": 0.5,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.5,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2377,
+          "feasible": true,
+          "calib_persistence_f1": 0.9584587099883702,
+          "calib_term_delay_mean": 4.31095238095238,
+          "calib_churn_mean": 0.0027063087791019064,
+          "calib_false_pers_mean": 0.022340232064910752,
+          "best_feasible_f1": 0.9584587099883702,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.958197397927,
+          "margin_to_next_f1": 0.00026131206137025575,
+          "reason": "Unique max calibration F1 0.9585 among 2377 feasible configurations (mean delay <= 5); next best F1 0.9582."
+        },
+        "10": {
+          "config_id": "gated_ema#2338",
+          "params": {
+            "alpha": 0.5,
+            "decay_occluded": 0.98,
+            "decay_visible": 0.7,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 3391,
+          "feasible": true,
+          "calib_persistence_f1": 0.9996039863621607,
+          "calib_term_delay_mean": 9.973849206349207,
+          "calib_churn_mean": 0.00013059768108082155,
+          "calib_false_pers_mean": 0.06077344885680896,
+          "best_feasible_f1": 0.9996039863621607,
+          "n_tied_at_best_f1": 2,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999578708269,
+          "margin_to_next_f1": 2.527809316077434e-05,
+          "reason": "2 feasible configurations tied at max calibration F1 0.9996 (of 3391 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0016",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.2,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.7
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 1.9466865079365088,
+          "calib_churn_mean": 0.011802171777070403,
+          "calib_false_pers_mean": 0.006438610870188157,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 168,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "168 feasible configurations tied at max calibration F1 0.4628 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0608",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 4.956666666666666,
+          "calib_churn_mean": 0.007136070329953707,
+          "calib_false_pers_mean": 0.026857635813071788,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 13,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.798558703341,
+          "margin_to_next_f1": 0.00038309560079730076,
+          "reason": "13 feasible configurations tied at max calibration F1 0.7989 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 9.989305555555555,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.061018935293405865,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.927852069779,
+          "margin_to_next_f1": 0.000157609591840413,
+          "reason": "Unique max calibration F1 0.9280 among 718 feasible configurations (mean delay <= 10); next best F1 0.9279."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "R2_flicker_0.1": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0016",
+          "params": {
+            "alpha": 0.2,
+            "decay": 0.5,
+            "score_threshold": 0.2
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 108,
+          "feasible": true,
+          "calib_persistence_f1": 0.4483552866985522,
+          "calib_term_delay_mean": 1.9783531746031748,
+          "calib_churn_mean": 0.04680243642939242,
+          "calib_false_pers_mean": 0.0066318354847476006,
+          "best_feasible_f1": 0.4483552866985522,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.426845119264,
+          "margin_to_next_f1": 0.021510167434552196,
+          "reason": "Unique max calibration F1 0.4484 among 108 feasible configurations (mean delay <= 2); next best F1 0.4268."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 183,
+          "feasible": true,
+          "calib_persistence_f1": 0.7697254804586485,
+          "calib_term_delay_mean": 4.518710317460317,
+          "calib_churn_mean": 0.008020876720112516,
+          "calib_false_pers_mean": 0.023922179599865583,
+          "best_feasible_f1": 0.7697254804586485,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.767040408808,
+          "margin_to_next_f1": 0.002685071650648574,
+          "reason": "Unique max calibration F1 0.7697 among 183 feasible configurations (mean delay <= 5); next best F1 0.7670."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9171548978185206,
+          "calib_term_delay_mean": 9.42656746031746,
+          "calib_churn_mean": 0.005254070377888834,
+          "calib_false_pers_mean": 0.05723559161762763,
+          "best_feasible_f1": 0.9171548978185206,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.916397141687,
+          "margin_to_next_f1": 0.000757756131520515,
+          "reason": "Unique max calibration F1 0.9172 among 245 feasible configurations (mean delay <= 10); next best F1 0.9164."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.42684511926386853,
+          "calib_term_delay_mean": 1.8943452380952381,
+          "calib_churn_mean": 0.028234326465740794,
+          "calib_false_pers_mean": 0.006078884167970222,
+          "best_feasible_f1": 0.42684511926386853,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.42684511926386853,
+          "reason": "Unique max calibration F1 0.4268 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7917403531428263,
+          "calib_term_delay_mean": 4.887400793650794,
+          "calib_churn_mean": 0.007967685011630391,
+          "calib_false_pers_mean": 0.02639768630658636,
+          "best_feasible_f1": 0.7917403531428263,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.733694808283,
+          "margin_to_next_f1": 0.05804554485982627,
+          "reason": "Unique max calibration F1 0.7917 among 5 feasible configurations (mean delay <= 5); next best F1 0.7337."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9255456796125144,
+          "calib_term_delay_mean": 9.887400793650793,
+          "calib_churn_mean": 0.005471076968715085,
+          "calib_false_pers_mean": 0.06033341460667717,
+          "best_feasible_f1": 0.9255456796125144,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.907362018541,
+          "margin_to_next_f1": 0.01818366107151448,
+          "reason": "Unique max calibration F1 0.9255 among 10 feasible configurations (mean delay <= 10); next best F1 0.9074."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#3186",
+          "params": {
+            "alpha": 0.75,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1290,
+          "feasible": true,
+          "calib_persistence_f1": 0.9955555555555556,
+          "calib_term_delay_mean": 1.8943452380952381,
+          "calib_churn_mean": 0.016340186792353262,
+          "calib_false_pers_mean": 0.006078884167970222,
+          "best_feasible_f1": 0.9955555555555556,
+          "n_tied_at_best_f1": 3,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.995476691202,
+          "margin_to_next_f1": 7.886435355564103e-05,
+          "reason": "3 feasible configurations tied at max calibration F1 0.9956 (of 1290 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "gated_ema#4256",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.95,
+            "decay_visible": 0.5,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2196,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 4.294285714285715,
+          "calib_churn_mean": 0.0007651983465768192,
+          "calib_false_pers_mean": 0.022348563167823913,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 33,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "33 feasible configurations tied at max calibration F1 1.0000 (of 2196 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "gated_ema#1324",
+          "params": {
+            "alpha": 0.35,
+            "decay_occluded": 0.97,
+            "decay_visible": 0.7,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2940,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 5.9656150793650795,
+          "calib_churn_mean": 0.0006859296963569333,
+          "calib_false_pers_mean": 0.03374247912475407,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 120,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "120 feasible configurations tied at max calibration F1 1.0000 (of 2940 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0503",
+          "params": {
+            "emit_obs_alive": 0.7,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.97
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.42684511926386853,
+          "calib_term_delay_mean": 1.8943452380952381,
+          "calib_churn_mean": 0.028359523542673275,
+          "calib_false_pers_mean": 0.006078884167970222,
+          "best_feasible_f1": 0.42684511926386853,
+          "n_tied_at_best_f1": 37,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.426289563708,
+          "margin_to_next_f1": 0.0005555555558685588,
+          "reason": "37 feasible configurations tied at max calibration F1 0.4268 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0361",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.95
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7917403531428263,
+          "calib_term_delay_mean": 4.881150793650794,
+          "calib_churn_mean": 0.0080143994854282,
+          "calib_false_pers_mean": 0.02634768630658636,
+          "best_feasible_f1": 0.7917403531428263,
+          "n_tied_at_best_f1": 2,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.791602326918,
+          "margin_to_next_f1": 0.00013802622482628202,
+          "reason": "2 feasible configurations tied at max calibration F1 0.7917 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9254946057852972,
+          "calib_term_delay_mean": 9.85815476190476,
+          "calib_churn_mean": 0.005471076968715085,
+          "calib_false_pers_mean": 0.06013468089261315,
+          "best_feasible_f1": 0.9254946057852972,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.925335010224,
+          "margin_to_next_f1": 0.00015959556129718777,
+          "reason": "Unique max calibration F1 0.9255 among 718 feasible configurations (mean delay <= 10); next best F1 0.9253."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.17605873285410736,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.17605873285410736,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.17605873285410736,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "SWF_0.05": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0260",
+          "params": {
+            "alpha": 0.75,
+            "decay": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 105,
+          "feasible": true,
+          "calib_persistence_f1": 0.44673137784201544,
+          "calib_term_delay_mean": 1.9589285714285718,
+          "calib_churn_mean": 0.01616387411575955,
+          "calib_false_pers_mean": 0.006521348261767969,
+          "best_feasible_f1": 0.44673137784201544,
+          "n_tied_at_best_f1": 3,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.445287381226,
+          "margin_to_next_f1": 0.0014439966160154638,
+          "reason": "3 feasible configurations tied at max calibration F1 0.4467 (of 105 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 182,
+          "feasible": true,
+          "calib_persistence_f1": 0.7769890704403496,
+          "calib_term_delay_mean": 4.5975198412698415,
+          "calib_churn_mean": 0.007416381342601939,
+          "calib_false_pers_mean": 0.024442093132836306,
+          "best_feasible_f1": 0.7769890704403496,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.7747990146,
+          "margin_to_next_f1": 0.0021900558403495918,
+          "reason": "Unique max calibration F1 0.7770 among 182 feasible configurations (mean delay <= 5); next best F1 0.7748."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9194203293111042,
+          "calib_term_delay_mean": 9.508928571428571,
+          "calib_churn_mean": 0.0048080764920865405,
+          "calib_false_pers_mean": 0.05778435237660752,
+          "best_feasible_f1": 0.9194203293111042,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.918886996417,
+          "margin_to_next_f1": 0.0005333328941041771,
+          "reason": "Unique max calibration F1 0.9194 among 245 feasible configurations (mean delay <= 10); next best F1 0.9189."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.44673137784201544,
+          "calib_term_delay_mean": 1.9589285714285718,
+          "calib_churn_mean": 0.01616387411575955,
+          "calib_false_pers_mean": 0.006521348261767969,
+          "best_feasible_f1": 0.44673137784201544,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.44673137784201544,
+          "reason": "Unique max calibration F1 0.4467 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7964540260697184,
+          "calib_term_delay_mean": 4.957261904761904,
+          "calib_churn_mean": 0.007430282981718128,
+          "calib_false_pers_mean": 0.02687223671861571,
+          "best_feasible_f1": 0.7964540260697184,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.740638346975,
+          "margin_to_next_f1": 0.05581567909471841,
+          "reason": "Unique max calibration F1 0.7965 among 5 feasible configurations (mean delay <= 5); next best F1 0.7406."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9271779817028905,
+          "calib_term_delay_mean": 9.957261904761907,
+          "calib_churn_mean": 0.005037709345539053,
+          "calib_false_pers_mean": 0.06080796501870651,
+          "best_feasible_f1": 0.9271779817028905,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.909136181605,
+          "margin_to_next_f1": 0.01804180009789047,
+          "reason": "Unique max calibration F1 0.9272 among 10 feasible configurations (mean delay <= 10); next best F1 0.9091."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#3179",
+          "params": {
+            "alpha": 0.75,
+            "decay_occluded": 0.98,
+            "decay_visible": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1260,
+          "feasible": true,
+          "calib_persistence_f1": 0.9994444444444445,
+          "calib_term_delay_mean": 1.9589285714285718,
+          "calib_churn_mean": 0.003983919895036784,
+          "calib_false_pers_mean": 0.006521348261767969,
+          "best_feasible_f1": 0.9994444444444445,
+          "n_tied_at_best_f1": 8,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.99931316919,
+          "margin_to_next_f1": 0.00013127525444445176,
+          "reason": "8 feasible configurations tied at max calibration F1 0.9994 (of 1260 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "gated_ema#2233",
+          "params": {
+            "alpha": 0.5,
+            "decay_occluded": 0.93,
+            "decay_visible": 0.5,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2189,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 4.343690476190476,
+          "calib_churn_mean": 0.00025256207318090026,
+          "calib_false_pers_mean": 0.022611915735373626,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 85,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "85 feasible configurations tied at max calibration F1 1.0000 (of 2189 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "gated_ema#2233",
+          "params": {
+            "alpha": 0.5,
+            "decay_occluded": 0.93,
+            "decay_visible": 0.5,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2940,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 4.343690476190476,
+          "calib_churn_mean": 0.00025256207318090026,
+          "calib_false_pers_mean": 0.022611915735373626,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 199,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "199 feasible configurations tied at max calibration F1 1.0000 (of 2940 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0503",
+          "params": {
+            "emit_obs_alive": 0.7,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.97
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.44673137784201544,
+          "calib_term_delay_mean": 1.9589285714285718,
+          "calib_churn_mean": 0.01622714460616007,
+          "calib_false_pers_mean": 0.006521348261767969,
+          "best_feasible_f1": 0.44673137784201544,
+          "n_tied_at_best_f1": 32,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.446557222495,
+          "margin_to_next_f1": 0.00017415534701542557,
+          "reason": "32 feasible configurations tied at max calibration F1 0.4467 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0500",
+          "params": {
+            "emit_obs_alive": 0.7,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.97
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7964540260697184,
+          "calib_term_delay_mean": 4.955178571428571,
+          "calib_churn_mean": 0.0074376969793456486,
+          "calib_false_pers_mean": 0.026860975457354445,
+          "best_feasible_f1": 0.7964540260697184,
+          "n_tied_at_best_f1": 5,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.796346775962,
+          "margin_to_next_f1": 0.00010725010771839294,
+          "reason": "5 feasible configurations tied at max calibration F1 0.7965 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9271198894523968,
+          "calib_term_delay_mean": 9.938849206349207,
+          "calib_churn_mean": 0.005037709345539053,
+          "calib_false_pers_mean": 0.06068101701403108,
+          "best_feasible_f1": 0.9271198894523968,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.926962279861,
+          "margin_to_next_f1": 0.0001576095913967679,
+          "reason": "Unique max calibration F1 0.9271 among 718 feasible configurations (mean delay <= 10); next best F1 0.9270."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.10383804044491107,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.10383804044491107,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.10383804044491107,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "SWF_0.2": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0201",
+          "params": {
+            "alpha": 0.5,
+            "decay": 0.8,
+            "score_threshold": 0.5
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 114,
+          "feasible": true,
+          "calib_persistence_f1": 0.42543618798301264,
+          "calib_term_delay_mean": 1.9529166666666669,
+          "calib_churn_mean": 0.10733141023685618,
+          "calib_false_pers_mean": 0.006431091056982503,
+          "best_feasible_f1": 0.42543618798301264,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.422631207124,
+          "margin_to_next_f1": 0.0028049808590126513,
+          "reason": "Unique max calibration F1 0.4254 among 114 feasible configurations (mean delay <= 2); next best F1 0.4226."
+        },
+        "5": {
+          "config_id": "ema#0038",
+          "params": {
+            "alpha": 0.2,
+            "decay": 0.85,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 186,
+          "feasible": true,
+          "calib_persistence_f1": 0.7728170087056417,
+          "calib_term_delay_mean": 4.933531746031745,
+          "calib_churn_mean": 0.019820871253095236,
+          "calib_false_pers_mean": 0.02675295455969886,
+          "best_feasible_f1": 0.7728170087056417,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.759714600233,
+          "margin_to_next_f1": 0.013102408472641769,
+          "reason": "Unique max calibration F1 0.7728 among 186 feasible configurations (mean delay <= 5); next best F1 0.7597."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9149234018814335,
+          "calib_term_delay_mean": 9.290357142857143,
+          "calib_churn_mean": 0.005979111985758074,
+          "calib_false_pers_mean": 0.05629758992607174,
+          "best_feasible_f1": 0.9149234018814335,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.913599021185,
+          "margin_to_next_f1": 0.0013243806964334803,
+          "reason": "Unique max calibration F1 0.9149 among 245 feasible configurations (mean delay <= 10); next best F1 0.9136."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.3901878641129971,
+          "calib_term_delay_mean": 1.798472222222223,
+          "calib_churn_mean": 0.07336628939927975,
+          "calib_false_pers_mean": 0.0054174024276161786,
+          "best_feasible_f1": 0.3901878641129971,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.3901878641129971,
+          "reason": "Unique max calibration F1 0.3902 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7837360006697028,
+          "calib_term_delay_mean": 4.755357142857145,
+          "calib_churn_mean": 0.009581432625930081,
+          "calib_false_pers_mean": 0.02549119587729646,
+          "best_feasible_f1": 0.7837360006697028,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.718033816152,
+          "margin_to_next_f1": 0.06570218451770282,
+          "reason": "Unique max calibration F1 0.7837 among 5 feasible configurations (mean delay <= 5); next best F1 0.7180."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9234579935893202,
+          "calib_term_delay_mean": 9.744940476190473,
+          "calib_churn_mean": 0.006053334093216616,
+          "calib_false_pers_mean": 0.05936454892788628,
+          "best_feasible_f1": 0.9234579935893202,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.904957993078,
+          "margin_to_next_f1": 0.01850000051132028,
+          "reason": "Unique max calibration F1 0.9235 among 10 feasible configurations (mean delay <= 10); next best F1 0.9050."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#3186",
+          "params": {
+            "alpha": 0.75,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1371,
+          "feasible": true,
+          "calib_persistence_f1": 0.9710317460317462,
+          "calib_term_delay_mean": 1.798472222222223,
+          "calib_churn_mean": 0.06203247161498893,
+          "calib_false_pers_mean": 0.0054174024276161786,
+          "best_feasible_f1": 0.9710317460317462,
+          "n_tied_at_best_f1": 2,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.971002017306,
+          "margin_to_next_f1": 2.972872574624752e-05,
+          "reason": "2 feasible configurations tied at max calibration F1 0.9710 (of 1371 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "gated_ema#4277",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.5,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2225,
+          "feasible": true,
+          "calib_persistence_f1": 0.9991756272401434,
+          "calib_term_delay_mean": 4.178015873015873,
+          "calib_churn_mean": 0.003154233500562811,
+          "calib_false_pers_mean": 0.021545569642473998,
+          "best_feasible_f1": 0.9991756272401434,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.999005847953,
+          "margin_to_next_f1": 0.0001697792871434567,
+          "reason": "Unique max calibration F1 0.9992 among 2225 feasible configurations (mean delay <= 5); next best F1 0.9990."
+        },
+        "10": {
+          "config_id": "gated_ema#1401",
+          "params": {
+            "alpha": 0.35,
+            "decay_occluded": 0.95,
+            "decay_visible": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2941,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 8.88628968253968,
+          "calib_churn_mean": 0.0012878689729527973,
+          "calib_false_pers_mean": 0.05356478320742051,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 70,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "70 feasible configurations tied at max calibration F1 1.0000 (of 2941 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0503",
+          "params": {
+            "emit_obs_alive": 0.7,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.97
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.3896106635357965,
+          "calib_term_delay_mean": 1.794722222222223,
+          "calib_churn_mean": 0.07352925542092065,
+          "calib_false_pers_mean": 0.005390120049696858,
+          "best_feasible_f1": 0.3896106635357965,
+          "n_tied_at_best_f1": 5,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.388720785894,
+          "margin_to_next_f1": 0.0008898776417964882,
+          "reason": "5 feasible configurations tied at max calibration F1 0.3896 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0361",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.95
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7837360006697028,
+          "calib_term_delay_mean": 4.737857142857144,
+          "calib_churn_mean": 0.00990625322858867,
+          "calib_false_pers_mean": 0.02537236649501778,
+          "best_feasible_f1": 0.7837360006697028,
+          "n_tied_at_best_f1": 2,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.783484305345,
+          "margin_to_next_f1": 0.0002516953247028164,
+          "reason": "2 feasible configurations tied at max calibration F1 0.7837 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0605",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9228972528421677,
+          "calib_term_delay_mean": 9.664642857142857,
+          "calib_churn_mean": 0.006167988301490154,
+          "calib_false_pers_mean": 0.05881379577254014,
+          "best_feasible_f1": 0.9228972528421677,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.922606029988,
+          "margin_to_next_f1": 0.00029122285416771643,
+          "reason": "Unique max calibration F1 0.9229 among 718 feasible configurations (mean delay <= 10); next best F1 0.9226."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.3155476166202037,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.3155476166202037,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.3155476166202037,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "SWF_0.3": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0361",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.7,
+            "score_threshold": 0.4
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 123,
+          "feasible": true,
+          "calib_persistence_f1": 0.4510431915876617,
+          "calib_term_delay_mean": 1.997460317460318,
+          "calib_churn_mean": 0.10542344728347795,
+          "calib_false_pers_mean": 0.006720674777895108,
+          "best_feasible_f1": 0.4510431915876617,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.433288501333,
+          "margin_to_next_f1": 0.017754690254661698,
+          "reason": "Unique max calibration F1 0.4510 among 123 feasible configurations (mean delay <= 2); next best F1 0.4333."
+        },
+        "5": {
+          "config_id": "ema#0022",
+          "params": {
+            "alpha": 0.2,
+            "decay": 0.7,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 190,
+          "feasible": true,
+          "calib_persistence_f1": 0.7620677636169599,
+          "calib_term_delay_mean": 4.553313492063492,
+          "calib_churn_mean": 0.01894863707169437,
+          "calib_false_pers_mean": 0.02395926575563326,
+          "best_feasible_f1": 0.7620677636169599,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.761018979439,
+          "margin_to_next_f1": 0.0010487841779599494,
+          "reason": "Unique max calibration F1 0.7621 among 190 feasible configurations (mean delay <= 5); next best F1 0.7610."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9117007121573549,
+          "calib_term_delay_mean": 9.08968253968254,
+          "calib_churn_mean": 0.007037120808944383,
+          "calib_false_pers_mean": 0.05491785939456447,
+          "best_feasible_f1": 0.9117007121573549,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.909593446899,
+          "margin_to_next_f1": 0.002107265258354918,
+          "reason": "Unique max calibration F1 0.9117 among 245 feasible configurations (mean delay <= 10); next best F1 0.9096."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.3577866773470108,
+          "calib_term_delay_mean": 1.6800198412698415,
+          "calib_churn_mean": 0.1306398553806482,
+          "calib_false_pers_mean": 0.004606597505758989,
+          "best_feasible_f1": 0.3577866773470108,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.3577866773470108,
+          "reason": "Unique max calibration F1 0.3578 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7726006163950007,
+          "calib_term_delay_mean": 4.549265873015873,
+          "calib_churn_mean": 0.013710167747328581,
+          "calib_false_pers_mean": 0.024095197410377238,
+          "best_feasible_f1": 0.7726006163950007,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.700068782049,
+          "margin_to_next_f1": 0.07253183434600063,
+          "reason": "Unique max calibration F1 0.7726 among 5 feasible configurations (mean delay <= 5); next best F1 0.7001."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9200699777045548,
+          "calib_term_delay_mean": 9.545932539682536,
+          "calib_churn_mean": 0.0071766825123672304,
+          "calib_false_pers_mean": 0.05800528468482702,
+          "best_feasible_f1": 0.9200699777045548,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.901254400335,
+          "margin_to_next_f1": 0.018815577369554748,
+          "reason": "Unique max calibration F1 0.9201 among 10 feasible configurations (mean delay <= 10); next best F1 0.9013."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#3271",
+          "params": {
+            "alpha": 0.75,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.5,
+            "score_threshold": 0.2
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1476,
+          "feasible": true,
+          "calib_persistence_f1": 0.9606230231185453,
+          "calib_term_delay_mean": 1.949781746031746,
+          "calib_churn_mean": 0.09564149826847723,
+          "calib_false_pers_mean": 0.006379303667441336,
+          "best_feasible_f1": 0.9606230231185453,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.957963867598,
+          "margin_to_next_f1": 0.0026591555205452977,
+          "reason": "Unique max calibration F1 0.9606 among 1476 feasible configurations (mean delay <= 2); next best F1 0.9580."
+        },
+        "5": {
+          "config_id": "gated_ema#4277",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.5,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2289,
+          "feasible": true,
+          "calib_persistence_f1": 0.9972222222222223,
+          "calib_term_delay_mean": 3.9651388888888888,
+          "calib_churn_mean": 0.009783790704223912,
+          "calib_false_pers_mean": 0.020109915527041427,
+          "best_feasible_f1": 0.9972222222222223,
+          "n_tied_at_best_f1": 2,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.997169811321,
+          "margin_to_next_f1": 5.2410901222321726e-05,
+          "reason": "2 feasible configurations tied at max calibration F1 0.9972 (of 2289 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "gated_ema#3424",
+          "params": {
+            "alpha": 0.75,
+            "decay_occluded": 0.97,
+            "decay_visible": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2948,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 9.001289682539683,
+          "calib_churn_mean": 0.00234782806387393,
+          "calib_false_pers_mean": 0.05424538413294569,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 50,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999973876698,
+          "margin_to_next_f1": 2.6123302000025106e-05,
+          "reason": "50 feasible configurations tied at max calibration F1 1.0000 (of 2948 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0513",
+          "params": {
+            "emit_obs_alive": 0.7,
+            "emit_obs_dead": 0.1,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.97
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 531,
+          "feasible": true,
+          "calib_persistence_f1": 0.43822748926336674,
+          "calib_term_delay_mean": 1.9856746031746024,
+          "calib_churn_mean": 0.109257877033464,
+          "calib_false_pers_mean": 0.006568895847263593,
+          "best_feasible_f1": 0.43822748926336674,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.431914866111,
+          "margin_to_next_f1": 0.0063126231523667475,
+          "reason": "Unique max calibration F1 0.4382 among 531 feasible configurations (mean delay <= 2); next best F1 0.4319."
+        },
+        "5": {
+          "config_id": "hmm#0376",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.2,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.95
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 687,
+          "feasible": true,
+          "calib_persistence_f1": 0.7887986845410287,
+          "calib_term_delay_mean": 4.8401984126984114,
+          "calib_churn_mean": 0.016456995472288016,
+          "calib_false_pers_mean": 0.02594257988447555,
+          "best_feasible_f1": 0.7887986845410287,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.774493611984,
+          "margin_to_next_f1": 0.01430507255702873,
+          "reason": "Unique max calibration F1 0.7888 among 687 feasible configurations (mean delay <= 5); next best F1 0.7745."
+        },
+        "10": {
+          "config_id": "hmm#0605",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.918920622294174,
+          "calib_term_delay_mean": 9.40849206349206,
+          "calib_churn_mean": 0.0073436312704850005,
+          "calib_false_pers_mean": 0.05703883301010217,
+          "best_feasible_f1": 0.918920622294174,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.918602738308,
+          "margin_to_next_f1": 0.0003178839861740501,
+          "reason": "Unique max calibration F1 0.9189 among 718 feasible configurations (mean delay <= 10); next best F1 0.9186."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.40594914862053144,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.40594914862053144,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.40594914862053144,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "SWV_0.1": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0092",
+          "params": {
+            "alpha": 0.35,
+            "decay": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 102,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 4,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "4 feasible configurations tied at max calibration F1 0.4628 (of 102 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 180,
+          "feasible": true,
+          "calib_persistence_f1": 0.7798213985999004,
+          "calib_term_delay_mean": 4.637261904761904,
+          "calib_churn_mean": 0.006950838400183626,
+          "calib_false_pers_mean": 0.024692996160066857,
+          "best_feasible_f1": 0.7798213985999004,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.779035397086,
+          "margin_to_next_f1": 0.0007860015139004028,
+          "reason": "Unique max calibration F1 0.7798 among 180 feasible configurations (mean delay <= 5); next best F1 0.7790."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9203068871081148,
+          "calib_term_delay_mean": 9.552142857142856,
+          "calib_churn_mean": 0.0045555144189056394,
+          "calib_false_pers_mean": 0.0580565076643859,
+          "best_feasible_f1": 0.9203068871081148,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.920081570323,
+          "margin_to_next_f1": 0.00022531678511483744,
+          "reason": "Unique max calibration F1 0.9203 among 245 feasible configurations (mean delay <= 10); next best F1 0.9201."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.462842712842713,
+          "reason": "Unique max calibration F1 0.4628 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 5.0,
+          "calib_churn_mean": 0.0071777209085372275,
+          "calib_false_pers_mean": 0.02714858264007265,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.745401337793,
+          "margin_to_next_f1": 0.05354046114879729,
+          "reason": "Unique max calibration F1 0.7989 among 5 feasible configurations (mean delay <= 5); next best F1 0.7454."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 10.0,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.06108431094016345,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.910052910053,
+          "margin_to_next_f1": 0.017956769317840404,
+          "reason": "Unique max calibration F1 0.9280 among 10 feasible configurations (mean delay <= 10); next best F1 0.9101."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#4195",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.3,
+            "score_threshold": 0.2
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1134,
+          "feasible": true,
+          "calib_persistence_f1": 0.9168124477659383,
+          "calib_term_delay_mean": 1.943730158730158,
+          "calib_churn_mean": 0.003528204655658235,
+          "calib_false_pers_mean": 0.006487906221929171,
+          "best_feasible_f1": 0.9168124477659383,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.916495806429,
+          "margin_to_next_f1": 0.000316641336938317,
+          "reason": "Unique max calibration F1 0.9168 among 1134 feasible configurations (mean delay <= 2); next best F1 0.9165."
+        },
+        "5": {
+          "config_id": "gated_ema#4277",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.5,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2248,
+          "feasible": true,
+          "calib_persistence_f1": 0.9960981367745633,
+          "calib_term_delay_mean": 4.897738095238093,
+          "calib_churn_mean": 0.0002943676005070394,
+          "calib_false_pers_mean": 0.02639364553843815,
+          "best_feasible_f1": 0.9960981367745633,
+          "n_tied_at_best_f1": 2,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.996097624845,
+          "margin_to_next_f1": 5.11929563296043e-07,
+          "reason": "2 feasible configurations tied at max calibration F1 0.9961 (of 2248 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "gated_ema#0315",
+          "params": {
+            "alpha": 0.2,
+            "decay_occluded": 0.97,
+            "decay_visible": 0.7,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 3274,
+          "feasible": true,
+          "calib_persistence_f1": 1.0,
+          "calib_term_delay_mean": 8.963908730158732,
+          "calib_churn_mean": 0.0,
+          "calib_false_pers_mean": 0.05411453848785765,
+          "best_feasible_f1": 1.0,
+          "n_tied_at_best_f1": 23,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.999894514768,
+          "margin_to_next_f1": 0.00010548523200004656,
+          "reason": "23 feasible configurations tied at max calibration F1 1.0000 (of 3274 feasible, budget 10); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0016",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.2,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.7
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 1.9466865079365088,
+          "calib_churn_mean": 0.011802171777070403,
+          "calib_false_pers_mean": 0.006438610870188157,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 168,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "168 feasible configurations tied at max calibration F1 0.4628 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0608",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 4.956666666666666,
+          "calib_churn_mean": 0.007136070329953707,
+          "calib_false_pers_mean": 0.026857635813071788,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 13,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.798558703341,
+          "margin_to_next_f1": 0.00038309560079730076,
+          "reason": "13 feasible configurations tied at max calibration F1 0.7989 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 9.989305555555555,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.061018935293405865,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.927852069779,
+          "margin_to_next_f1": 0.000157609591840413,
+          "reason": "Unique max calibration F1 0.9280 among 718 feasible configurations (mean delay <= 10); next best F1 0.9279."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "SWV_0.3": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0092",
+          "params": {
+            "alpha": 0.35,
+            "decay": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 102,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 4,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "4 feasible configurations tied at max calibration F1 0.4628 (of 102 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 180,
+          "feasible": true,
+          "calib_persistence_f1": 0.7798213985999004,
+          "calib_term_delay_mean": 4.637261904761904,
+          "calib_churn_mean": 0.006950838400183626,
+          "calib_false_pers_mean": 0.024692996160066857,
+          "best_feasible_f1": 0.7798213985999004,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.779035397086,
+          "margin_to_next_f1": 0.0007860015139004028,
+          "reason": "Unique max calibration F1 0.7798 among 180 feasible configurations (mean delay <= 5); next best F1 0.7790."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9203068871081148,
+          "calib_term_delay_mean": 9.552142857142856,
+          "calib_churn_mean": 0.0045555144189056394,
+          "calib_false_pers_mean": 0.0580565076643859,
+          "best_feasible_f1": 0.9203068871081148,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.920081570323,
+          "margin_to_next_f1": 0.00022531678511483744,
+          "reason": "Unique max calibration F1 0.9203 among 245 feasible configurations (mean delay <= 10); next best F1 0.9201."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.462842712842713,
+          "reason": "Unique max calibration F1 0.4628 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 5.0,
+          "calib_churn_mean": 0.0071777209085372275,
+          "calib_false_pers_mean": 0.02714858264007265,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.745401337793,
+          "margin_to_next_f1": 0.05354046114879729,
+          "reason": "Unique max calibration F1 0.7989 among 5 feasible configurations (mean delay <= 5); next best F1 0.7454."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 10.0,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.06108431094016345,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.910052910053,
+          "margin_to_next_f1": 0.017956769317840404,
+          "reason": "Unique max calibration F1 0.9280 among 10 feasible configurations (mean delay <= 10); next best F1 0.9101."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#4274",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.98,
+            "decay_visible": 0.5,
+            "score_threshold": 0.4
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1089,
+          "feasible": true,
+          "calib_persistence_f1": 0.6533385972567375,
+          "calib_term_delay_mean": 1.9907936507936508,
+          "calib_churn_mean": 0.0091574617501132,
+          "calib_false_pers_mean": 0.006467990709515969,
+          "best_feasible_f1": 0.6533385972567375,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.653203185073,
+          "margin_to_next_f1": 0.0001354121837374711,
+          "reason": "Unique max calibration F1 0.6533 among 1089 feasible configurations (mean delay <= 2); next best F1 0.6532."
+        },
+        "5": {
+          "config_id": "gated_ema#1254",
+          "params": {
+            "alpha": 0.35,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.5,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2623,
+          "feasible": true,
+          "calib_persistence_f1": 0.9195098955658497,
+          "calib_term_delay_mean": 4.982242063492062,
+          "calib_churn_mean": 0.003983966873452985,
+          "calib_false_pers_mean": 0.026771072247072935,
+          "best_feasible_f1": 0.9195098955658497,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.919438255114,
+          "margin_to_next_f1": 7.164045184970824e-05,
+          "reason": "Unique max calibration F1 0.9195 among 2623 feasible configurations (mean delay <= 5); next best F1 0.9194."
+        },
+        "10": {
+          "config_id": "gated_ema#4447",
+          "params": {
+            "alpha": 1.0,
+            "decay_occluded": 0.99,
+            "decay_visible": 0.8,
+            "score_threshold": 0.2
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 3503,
+          "feasible": true,
+          "calib_persistence_f1": 0.9848564697623734,
+          "calib_term_delay_mean": 9.158154761904761,
+          "calib_churn_mean": 0.0015563521847727355,
+          "calib_false_pers_mean": 0.05517764924824749,
+          "best_feasible_f1": 0.9848564697623734,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.984712194826,
+          "margin_to_next_f1": 0.00014427493637336752,
+          "reason": "Unique max calibration F1 0.9849 among 3503 feasible configurations (mean delay <= 10); next best F1 0.9847."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0016",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.2,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.7
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 1.9466865079365088,
+          "calib_churn_mean": 0.011802171777070403,
+          "calib_false_pers_mean": 0.006438610870188157,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 168,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "168 feasible configurations tied at max calibration F1 0.4628 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0608",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 4.956666666666666,
+          "calib_churn_mean": 0.007136070329953707,
+          "calib_false_pers_mean": 0.026857635813071788,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 13,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.798558703341,
+          "margin_to_next_f1": 0.00038309560079730076,
+          "reason": "13 feasible configurations tied at max calibration F1 0.7989 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 9.989305555555555,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.061018935293405865,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.927852069779,
+          "margin_to_next_f1": 0.000157609591840413,
+          "reason": "Unique max calibration F1 0.9280 among 718 feasible configurations (mean delay <= 10); next best F1 0.9279."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    },
+    "SWV_0.5": {
+      "ema": {
+        "2": {
+          "config_id": "ema#0092",
+          "params": {
+            "alpha": 0.35,
+            "decay": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 102,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 4,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "4 feasible configurations tied at max calibration F1 0.4628 (of 102 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "ema#0367",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.3
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 180,
+          "feasible": true,
+          "calib_persistence_f1": 0.7798213985999004,
+          "calib_term_delay_mean": 4.637261904761904,
+          "calib_churn_mean": 0.006950838400183626,
+          "calib_false_pers_mean": 0.024692996160066857,
+          "best_feasible_f1": 0.7798213985999004,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.779035397086,
+          "margin_to_next_f1": 0.0007860015139004028,
+          "reason": "Unique max calibration F1 0.7798 among 180 feasible configurations (mean delay <= 5); next best F1 0.7790."
+        },
+        "10": {
+          "config_id": "ema#0365",
+          "params": {
+            "alpha": 1.0,
+            "decay": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 420,
+          "n_feasible": 245,
+          "feasible": true,
+          "calib_persistence_f1": 0.9203068871081148,
+          "calib_term_delay_mean": 9.552142857142856,
+          "calib_churn_mean": 0.0045555144189056394,
+          "calib_false_pers_mean": 0.0580565076643859,
+          "best_feasible_f1": 0.9203068871081148,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.920081570323,
+          "margin_to_next_f1": 0.00022531678511483744,
+          "reason": "Unique max calibration F1 0.9203 among 245 feasible configurations (mean delay <= 10); next best F1 0.9201."
+        }
+      },
+      "fixed_window": {
+        "2": {
+          "config_id": "fixed_window#0001",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 2
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 2,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.0,
+          "margin_to_next_f1": 0.462842712842713,
+          "reason": "Unique max calibration F1 0.4628 among 2 feasible configurations (mean delay <= 2); next best F1 0.0000."
+        },
+        "5": {
+          "config_id": "fixed_window#0004",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 5
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 5,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 5.0,
+          "calib_churn_mean": 0.0071777209085372275,
+          "calib_false_pers_mean": 0.02714858264007265,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.745401337793,
+          "margin_to_next_f1": 0.05354046114879729,
+          "reason": "Unique max calibration F1 0.7989 among 5 feasible configurations (mean delay <= 5); next best F1 0.7454."
+        },
+        "10": {
+          "config_id": "fixed_window#0009",
+          "params": {
+            "score_threshold": 0.0,
+            "window_size": 10
+          },
+          "n_configs_searched": 32,
+          "n_feasible": 10,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 10.0,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.06108431094016345,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.910052910053,
+          "margin_to_next_f1": 0.017956769317840404,
+          "reason": "Unique max calibration F1 0.9280 among 10 feasible configurations (mean delay <= 10); next best F1 0.9101."
+        }
+      },
+      "gated_ema": {
+        "2": {
+          "config_id": "gated_ema#1100",
+          "params": {
+            "alpha": 0.35,
+            "decay_occluded": 0.3,
+            "decay_visible": 0.3,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 1203,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 2.0,
+          "calib_churn_mean": 0.011962868180895378,
+          "calib_false_pers_mean": 0.006787145660018162,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 4,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "4 feasible configurations tied at max calibration F1 0.4628 (of 1203 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "gated_ema#2367",
+          "params": {
+            "alpha": 0.5,
+            "decay_occluded": 0.5,
+            "decay_visible": 0.8,
+            "score_threshold": 0.1
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 2652,
+          "feasible": true,
+          "calib_persistence_f1": 0.8001443377025341,
+          "calib_term_delay_mean": 4.944107142857143,
+          "calib_churn_mean": 0.0064417575230146665,
+          "calib_false_pers_mean": 0.026669227256047652,
+          "best_feasible_f1": 0.8001443377025341,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.80011136237,
+          "margin_to_next_f1": 3.297533253410201e-05,
+          "reason": "Unique max calibration F1 0.8001 among 2652 feasible configurations (mean delay <= 5); next best F1 0.8001."
+        },
+        "10": {
+          "config_id": "gated_ema#3381",
+          "params": {
+            "alpha": 0.75,
+            "decay_occluded": 0.7,
+            "decay_visible": 0.8,
+            "score_threshold": 0.05
+          },
+          "n_configs_searched": 5040,
+          "n_feasible": 3538,
+          "feasible": true,
+          "calib_persistence_f1": 0.9276100597711936,
+          "calib_term_delay_mean": 9.884444444444444,
+          "calib_churn_mean": 0.003928364267382541,
+          "calib_false_pers_mean": 0.06034925378910707,
+          "best_feasible_f1": 0.9276100597711936,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.927372750189,
+          "margin_to_next_f1": 0.00023730958219359,
+          "reason": "Unique max calibration F1 0.9276 among 3538 feasible configurations (mean delay <= 10); next best F1 0.9274."
+        }
+      },
+      "hmm": {
+        "2": {
+          "config_id": "hmm#0016",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.2,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.3,
+            "stay_alive_prob": 0.7
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 521,
+          "feasible": true,
+          "calib_persistence_f1": 0.462842712842713,
+          "calib_term_delay_mean": 1.9466865079365088,
+          "calib_churn_mean": 0.011802171777070403,
+          "calib_false_pers_mean": 0.006438610870188157,
+          "best_feasible_f1": 0.462842712842713,
+          "n_tied_at_best_f1": 168,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.458180693601,
+          "margin_to_next_f1": 0.004662019241713,
+          "reason": "168 feasible configurations tied at max calibration F1 0.4628 (of 521 feasible, budget 2); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "5": {
+          "config_id": "hmm#0608",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.05,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.7,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 685,
+          "feasible": true,
+          "calib_persistence_f1": 0.7989417989417973,
+          "calib_term_delay_mean": 4.956666666666666,
+          "calib_churn_mean": 0.007136070329953707,
+          "calib_false_pers_mean": 0.026857635813071788,
+          "best_feasible_f1": 0.7989417989417973,
+          "n_tied_at_best_f1": 13,
+          "tie_break_decisive": true,
+          "next_best_distinct_f1": 0.798558703341,
+          "margin_to_next_f1": 0.00038309560079730076,
+          "reason": "13 feasible configurations tied at max calibration F1 0.7989 (of 685 feasible, budget 5); tie broken by the registered order churn -> delay -> false persistence -> grid index."
+        },
+        "10": {
+          "config_id": "hmm#0600",
+          "params": {
+            "emit_obs_alive": 0.5,
+            "emit_obs_dead": 0.01,
+            "prior_alive": 0.5,
+            "resurrect_prob": 0.01,
+            "score_threshold": 0.1,
+            "stay_alive_prob": 0.99
+          },
+          "n_configs_searched": 720,
+          "n_feasible": 718,
+          "feasible": true,
+          "calib_persistence_f1": 0.9280096793708404,
+          "calib_term_delay_mean": 9.989305555555555,
+          "calib_churn_mean": 0.004785147272358152,
+          "calib_false_pers_mean": 0.061018935293405865,
+          "best_feasible_f1": 0.9280096793708404,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": 0.927852069779,
+          "margin_to_next_f1": 0.000157609591840413,
+          "reason": "Unique max calibration F1 0.9280 among 718 feasible configurations (mean delay <= 10); next best F1 0.9279."
+        }
+      },
+      "no_memory": {
+        "2": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 2); next best F1 nan."
+        },
+        "5": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 5); next best F1 nan."
+        },
+        "10": {
+          "config_id": "no_memory#0000",
+          "params": {
+            "score_threshold": 0.0
+          },
+          "n_configs_searched": 1,
+          "n_feasible": 1,
+          "feasible": true,
+          "calib_persistence_f1": 0.0,
+          "calib_term_delay_mean": 1.0,
+          "calib_churn_mean": 0.014355441817074455,
+          "calib_false_pers_mean": 0.0,
+          "best_feasible_f1": 0.0,
+          "n_tied_at_best_f1": 1,
+          "tie_break_decisive": false,
+          "next_best_distinct_f1": null,
+          "margin_to_next_f1": null,
+          "reason": "Unique max calibration F1 0.0000 among 1 feasible configurations (mean delay <= 10); next best F1 nan."
+        }
+      }
+    }
+  }
+}
