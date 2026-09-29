@@ -60,3 +60,9 @@ Chronological, factual log. Protocol: `research/phase4_preregistration.md`.
     information-limited.
   - Headroom observed now and recorded before V-HPED is run: GatedEMA's gap-10 HV is 0.957 (F3),
     0.953 (F4), 0.930 (F7), 0.919/0.511 (F8 default/identity), 0.982/0.510 (F5). N0/T3 = 1.000.
+- `0c2c4ab` — baseline evaluation + baseline-stage analysis committed.
+- V-HPED registered in `taorg.temporal.METHODS` (rungs `vhped_m2`–`vhped_m6`). The Phase 2
+  `run_synthetic_eval` default method list was made explicit (the five Phase 1 baselines),
+  because it tried to build every registered method without parameters. No Phase 2/3 result
+  depends on it. Smoke run of the proposed group plus the full analysis, plots and failure
+  extraction on scratch data (numbers not inspected): pipeline complete. 215 tests pass.
