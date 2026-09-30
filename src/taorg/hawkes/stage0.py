@@ -165,7 +165,7 @@ def run(cfg_path: Path, out: Path, workers: int = 1) -> dict[str, Any]:
     # ---- C1 null ----
     fit_videos = [train[i] for i in fitv]
     null_g = []
-    for seed in cfg["null"]["c1_seeds"]:
+    for seed in cfg["null_control"]["c1_seeds"]:
         tn = time.time()
         sf, stt = circular_shift(fit_videos, seed), circular_shift(test, seed + 100000)
         ssf, sst = streams_of(sf, K), streams_of(stt, K)
@@ -185,7 +185,7 @@ def run(cfg_path: Path, out: Path, workers: int = 1) -> dict[str, Any]:
     S_real, rho_real, counts = stability(real_fold, K, stc["branching_min"], stc["min_folds_present"])
     S_null, rho_null = [], []
     pos = {v: i for i, v in enumerate(fitv)}
-    for seed in cfg["null"]["c4_seeds"]:
+    for seed in cfg["null_control"]["c4_seeds"]:
         sf = circular_shift(fit_videos, seed)
         f2 = build(sf, R, b2, streams_of(sf, K))
         fp = [fit(f2, np.array([pos[v] for v in f]), "HK2", pen2, mc["mu_min"]) for f in folds]

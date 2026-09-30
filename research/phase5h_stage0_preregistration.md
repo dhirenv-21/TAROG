@@ -178,3 +178,16 @@ HK2 is fitted separately on each of the 5 FIT folds, at the DEV-selected hyperpa
 ## 11. Amendments
 
 None at registration.
+
+- **A1 — 2026-09-30, after the TEST evaluation had run once, before any null or stability result
+  existed (engineering only; no protocol change).** The first full run crashed after DEV selection
+  and the TEST evaluation. The config key `null:` is parsed by YAML as a null key, so
+  `cfg["null"]` raised KeyError at the C1 null stage. Fix: the key was renamed to `null_control`
+  (same seeds 5200–5218 and 5300–5304) in the config and the pipeline. Nothing else changed.
+  - The TEST numbers printed by the crashed run were seen before the null control. The decision
+    rule (§8) was frozen at registration and is not altered.
+  - The rerun is fully deterministic, so the TEST numbers must reproduce exactly; this is
+    verified in the Stage 0 report. The crashed log is kept as
+    `results/phase5h/stage0/run_attempt1_crashed.log`.
+  - Disclosure: after registration and before the first run, a timing check fitted HK2 on a
+    10% subset of *training* videos (no likelihood evaluated or inspected).
