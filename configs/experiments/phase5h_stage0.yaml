@@ -1,0 +1,32 @@
+# Phase 5H Stage 0 — VidOR ground-truth Hawkes signal probe (see research/phase5h_stage0_preregistration.md)
+data:
+  root: data/vidor               # gitignored; annotations only
+  train_dir: training
+  test_dir: validation            # official validation split = untouched TEST
+  md5:
+    training-annotation.zip: 85f39fdd81a780bbb9b975cca8f219a2
+    validation-annotation.zip: 96c6870910e8d4fb3836878215432c1f
+splits:
+  shuffle_seed: 5101
+  dev_size: 1400
+  fold_seed: 5102
+  n_folds: 5
+models:
+  beta_grid: [0.1, 0.3, 1.0, 3.0, 10.0]
+  penalty_grid: [0.0, 0.1, 1.0, 10.0]
+  mu_min: 1.0e-10
+  duration_bins_s: [0.0, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0]   # last bin open-ended
+null:
+  c1_seeds: [5200, 5201, 5202, 5203, 5204, 5205, 5206, 5207, 5208, 5209,
+             5210, 5211, 5212, 5213, 5214, 5215, 5216, 5217, 5218]
+  c4_seeds: [5300, 5301, 5302, 5303, 5304]
+stability:
+  branching_min: 0.01
+  min_folds_present: 4
+bootstrap:
+  seed: 5400
+  resamples: 2000
+  ci_level: 0.95
+decision:
+  c3_ratio: 0.10
+  c3_descriptive_ratios: [0.05, 0.20]
