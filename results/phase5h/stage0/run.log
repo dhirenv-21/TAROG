@@ -1,0 +1,72 @@
+2026-09-30 10:10:07,031 INFO taorg.hawkes.stage0: Loaded 7000 train (1400 dev, 5600 fit) and 835 test videos; 50 predicates
+2026-09-30 10:10:22,391 INFO taorg.hawkes.stage0:   built train stats beta=0.1 (14s)
+2026-09-30 10:10:22,849 INFO taorg.hawkes.stage0:     HK1 beta=0.1 pen=0 dev_ll=-344043.8
+2026-09-30 10:10:23,307 INFO taorg.hawkes.stage0:     HK1 beta=0.1 pen=0.1 dev_ll=-344043.1
+2026-09-30 10:10:23,749 INFO taorg.hawkes.stage0:     HK1 beta=0.1 pen=1 dev_ll=-344042.1
+2026-09-30 10:10:24,180 INFO taorg.hawkes.stage0:     HK1 beta=0.1 pen=10 dev_ll=-344046.1
+2026-09-30 10:10:55,243 INFO taorg.hawkes.stage0:     HK2 beta=0.1 pen=0 dev_ll=-336111.6
+2026-09-30 10:11:24,047 INFO taorg.hawkes.stage0:     HK2 beta=0.1 pen=0.1 dev_ll=-335759.5
+2026-09-30 10:11:57,065 INFO taorg.hawkes.stage0:     HK2 beta=0.1 pen=1 dev_ll=-335657.4
+2026-09-30 10:12:21,243 INFO taorg.hawkes.stage0:     HK2 beta=0.1 pen=10 dev_ll=-335607.0
+2026-09-30 10:12:40,673 INFO taorg.hawkes.stage0:   built train stats beta=0.3 (19s)
+2026-09-30 10:12:41,261 INFO taorg.hawkes.stage0:     HK1 beta=0.3 pen=0 dev_ll=-349669.1
+2026-09-30 10:12:41,831 INFO taorg.hawkes.stage0:     HK1 beta=0.3 pen=0.1 dev_ll=-349667.1
+2026-09-30 10:12:42,400 INFO taorg.hawkes.stage0:     HK1 beta=0.3 pen=1 dev_ll=-349666.5
+2026-09-30 10:12:42,988 INFO taorg.hawkes.stage0:     HK1 beta=0.3 pen=10 dev_ll=-349672.8
+2026-09-30 10:13:24,767 INFO taorg.hawkes.stage0:     HK2 beta=0.3 pen=0 dev_ll=-338465.1
+2026-09-30 10:14:04,085 INFO taorg.hawkes.stage0:     HK2 beta=0.3 pen=0.1 dev_ll=-338304.8
+2026-09-30 10:14:37,972 INFO taorg.hawkes.stage0:     HK2 beta=0.3 pen=1 dev_ll=-338260.2
+2026-09-30 10:15:06,962 INFO taorg.hawkes.stage0:     HK2 beta=0.3 pen=10 dev_ll=-338267.2
+2026-09-30 10:15:26,042 INFO taorg.hawkes.stage0:   built train stats beta=1 (19s)
+2026-09-30 10:15:26,618 INFO taorg.hawkes.stage0:     HK1 beta=1 pen=0 dev_ll=-362298.8
+2026-09-30 10:15:27,224 INFO taorg.hawkes.stage0:     HK1 beta=1 pen=0.1 dev_ll=-362273.5
+2026-09-30 10:15:27,768 INFO taorg.hawkes.stage0:     HK1 beta=1 pen=1 dev_ll=-362273.7
+2026-09-30 10:15:28,287 INFO taorg.hawkes.stage0:     HK1 beta=1 pen=10 dev_ll=-362283.6
+2026-09-30 10:16:09,933 INFO taorg.hawkes.stage0:     HK2 beta=1 pen=0 dev_ll=-351365.9
+2026-09-30 10:16:48,504 INFO taorg.hawkes.stage0:     HK2 beta=1 pen=0.1 dev_ll=-351198.6
+2026-09-30 10:17:20,177 INFO taorg.hawkes.stage0:     HK2 beta=1 pen=1 dev_ll=-351199.2
+2026-09-30 10:17:46,966 INFO taorg.hawkes.stage0:     HK2 beta=1 pen=10 dev_ll=-351317.1
+2026-09-30 10:18:05,949 INFO taorg.hawkes.stage0:   built train stats beta=3 (19s)
+2026-09-30 10:18:06,473 INFO taorg.hawkes.stage0:     HK1 beta=3 pen=0 dev_ll=-374492.0
+2026-09-30 10:18:06,994 INFO taorg.hawkes.stage0:     HK1 beta=3 pen=0.1 dev_ll=-374491.4
+2026-09-30 10:18:07,467 INFO taorg.hawkes.stage0:     HK1 beta=3 pen=1 dev_ll=-374503.3
+2026-09-30 10:18:07,934 INFO taorg.hawkes.stage0:     HK1 beta=3 pen=10 dev_ll=-374590.6
+2026-09-30 10:18:54,201 INFO taorg.hawkes.stage0:     HK2 beta=3 pen=0 dev_ll=-368997.0
+2026-09-30 10:19:38,854 INFO taorg.hawkes.stage0:     HK2 beta=3 pen=0.1 dev_ll=-368905.8
+2026-09-30 10:20:11,498 INFO taorg.hawkes.stage0:     HK2 beta=3 pen=1 dev_ll=-368983.3
+2026-09-30 10:20:40,354 INFO taorg.hawkes.stage0:     HK2 beta=3 pen=10 dev_ll=-369258.1
+2026-09-30 10:20:59,045 INFO taorg.hawkes.stage0:   built train stats beta=10 (19s)
+2026-09-30 10:20:59,477 INFO taorg.hawkes.stage0:     HK1 beta=10 pen=0 dev_ll=-382475.6
+2026-09-30 10:20:59,917 INFO taorg.hawkes.stage0:     HK1 beta=10 pen=0.1 dev_ll=-382482.2
+2026-09-30 10:21:00,340 INFO taorg.hawkes.stage0:     HK1 beta=10 pen=1 dev_ll=-382515.9
+2026-09-30 10:21:00,724 INFO taorg.hawkes.stage0:     HK1 beta=10 pen=10 dev_ll=-382573.5
+2026-09-30 10:21:43,015 INFO taorg.hawkes.stage0:     HK2 beta=10 pen=0 dev_ll=-379834.6
+2026-09-30 10:22:19,143 INFO taorg.hawkes.stage0:     HK2 beta=10 pen=0.1 dev_ll=-379813.6
+2026-09-30 10:22:51,931 INFO taorg.hawkes.stage0:     HK2 beta=10 pen=1 dev_ll=-379922.3
+2026-09-30 10:23:16,597 INFO taorg.hawkes.stage0:     HK2 beta=10 pen=10 dev_ll=-380197.9
+2026-09-30 10:23:20,113 INFO taorg.hawkes.stage0: TEST: {'HK0': -4.345142162687573, 'HK1': -3.863161560841784, 'HK2': -3.78893728885604, 'DUR': -4.297537533793101}  G_cross={'mean': 0.07422427198574406, 'ci_lo': 0.06599125450926323, 'ci_hi': 0.08267190386733866}
+2026-09-30 10:24:06,965 INFO taorg.hawkes.stage0:   C1 null seed 5200: G_cross_null=0.03999 (47s)
+2026-09-30 10:24:56,822 INFO taorg.hawkes.stage0:   C1 null seed 5201: G_cross_null=0.04038 (50s)
+2026-09-30 10:25:46,276 INFO taorg.hawkes.stage0:   C1 null seed 5202: G_cross_null=0.03962 (49s)
+2026-09-30 10:26:45,052 INFO taorg.hawkes.stage0:   C1 null seed 5203: G_cross_null=0.03958 (59s)
+2026-09-30 10:27:38,188 INFO taorg.hawkes.stage0:   C1 null seed 5204: G_cross_null=0.03994 (53s)
+2026-09-30 10:28:29,545 INFO taorg.hawkes.stage0:   C1 null seed 5205: G_cross_null=0.03972 (51s)
+2026-09-30 10:29:22,858 INFO taorg.hawkes.stage0:   C1 null seed 5206: G_cross_null=0.04179 (53s)
+2026-09-30 10:30:11,711 INFO taorg.hawkes.stage0:   C1 null seed 5207: G_cross_null=0.04112 (49s)
+2026-09-30 10:31:02,382 INFO taorg.hawkes.stage0:   C1 null seed 5208: G_cross_null=0.04065 (51s)
+2026-09-30 10:31:52,305 INFO taorg.hawkes.stage0:   C1 null seed 5209: G_cross_null=0.04006 (50s)
+2026-09-30 10:32:41,925 INFO taorg.hawkes.stage0:   C1 null seed 5210: G_cross_null=0.04055 (50s)
+2026-09-30 10:33:33,895 INFO taorg.hawkes.stage0:   C1 null seed 5211: G_cross_null=0.03921 (52s)
+2026-09-30 10:34:25,568 INFO taorg.hawkes.stage0:   C1 null seed 5212: G_cross_null=0.04041 (52s)
+2026-09-30 10:35:06,335 INFO taorg.hawkes.stage0:   C1 null seed 5213: G_cross_null=0.04065 (41s)
+2026-09-30 10:35:48,680 INFO taorg.hawkes.stage0:   C1 null seed 5214: G_cross_null=0.03993 (42s)
+2026-09-30 10:36:29,236 INFO taorg.hawkes.stage0:   C1 null seed 5215: G_cross_null=0.03950 (41s)
+2026-09-30 10:37:08,592 INFO taorg.hawkes.stage0:   C1 null seed 5216: G_cross_null=0.04310 (39s)
+2026-09-30 10:37:48,761 INFO taorg.hawkes.stage0:   C1 null seed 5217: G_cross_null=0.04101 (40s)
+2026-09-30 10:38:28,216 INFO taorg.hawkes.stage0:   C1 null seed 5218: G_cross_null=0.04072 (39s)
+2026-09-30 10:40:12,225 INFO taorg.hawkes.stage0:   C4 null seed 5300: S=421 rho=0.338
+2026-09-30 10:41:12,919 INFO taorg.hawkes.stage0:   C4 null seed 5301: S=404 rho=0.338
+2026-09-30 10:42:12,429 INFO taorg.hawkes.stage0:   C4 null seed 5302: S=406 rho=0.349
+2026-09-30 10:43:12,229 INFO taorg.hawkes.stage0:   C4 null seed 5303: S=406 rho=0.339
+2026-09-30 10:44:11,867 INFO taorg.hawkes.stage0:   C4 null seed 5304: S=422 rho=0.343
+2026-09-30 10:44:13,113 INFO root: HAWKES SIGNAL = WEAK-MIXED

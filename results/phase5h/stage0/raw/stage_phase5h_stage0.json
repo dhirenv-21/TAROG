@@ -1,0 +1,24 @@
+{
+  "run_id": "phase3_phase5h_stage0_20260930_043902_0732b0",
+  "stage": "phase5h_stage0",
+  "smoke": false,
+  "start_time_utc": "2026-09-30T04:39:02.466707+00:00",
+  "git_commit": "06ad683",
+  "git_dirty": false,
+  "git_branch": "phase5h-hawkes-feasibility",
+  "command": "scripts/phase5h/run_stage0.py",
+  "config_path": "configs\\experiments\\phase5h_stage0.yaml",
+  "config_sha256": "a21856f8df5bccbb4aa4011107ae1cacb2571acc434b69ea3d45b97d8d4d2239",
+  "environment": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.8",
+    "cpu_count": "32",
+    "machine": "AMD64"
+  },
+  "end_time_utc": "2026-09-30T05:14:11.877657+00:00",
+  "elapsed_s": 2109.080892801285,
+  "label": "WEAK-MIXED"
+}

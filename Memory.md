@@ -117,7 +117,7 @@ Phase 4 (SYNTHETIC; `results/phase4/`): H2 MIXED (6/21 wins: F3 g20, F5 ×3, F8 
 - M3+ filters RELAPSE after the first post-termination drop (F1 98–100%); frozen delay metric is blind to it; FPR 2–5× on F1/F7/F8.
 - VA-HMM ≈ GatedEMA; matched tuning removes Phase 3 failures A/B; M4 not retained; continuous time hurts at 15 fps.
 
-Phase 5H (Hawkes feasibility, Track B) — DESIGN ONLY, 2026-09-30: HAWKES TRACK = MODIFY. Events = relation onsets/offsets (not frames); data = VidOR/PVSG (Action Genome too sparse); maths (censored/missing/noisy/inhibitory/marked Hawkes) already exists; identity-weighted history = marked Hawkes. A GT-only Stage 0 probe (needs dataset-download approval) gates the track. See research/phase5h_hawkes_design.md, research/phase5h_hawkes_literature.md.
+Phase 5H (Hawkes feasibility, Track B) — DESIGN ONLY, 2026-09-30: HAWKES TRACK = MODIFY. Events = relation onsets/offsets (not frames); data = VidOR/PVSG (Action Genome too sparse); maths (censored/missing/noisy/inhibitory/marked Hawkes) already exists; identity-weighted history = marked Hawkes. Stage 0 DONE on VidOR ground truth (annotations only): HAWKES SIGNAL = WEAK-MIXED (C1, C2 pass; C3 excess/self = 0.07 < 0.10; C4 fails vs heterogeneity null). ~54% of the multivariate gain reproduced by the circular-shift null. Report research/phase5h_stage0_report.md. Awaiting user decision; no visibility-aware Hawkes / detector work started. See research/phase5h_hawkes_design.md, research/phase5h_hawkes_literature.md.
 
 ## Decisions made during implementation
 Add short entries only, newest first:

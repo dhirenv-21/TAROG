@@ -1,0 +1,1546 @@
+{
+ "vocab": [
+  "above",
+  "away",
+  "behind",
+  "beneath",
+  "bite",
+  "caress",
+  "carry",
+  "chase",
+  "clean",
+  "close",
+  "cut",
+  "drive",
+  "feed",
+  "get_off",
+  "get_on",
+  "grab",
+  "hit",
+  "hold",
+  "hold_hand_of",
+  "hug",
+  "in_front_of",
+  "inside",
+  "kick",
+  "kiss",
+  "knock",
+  "lean_on",
+  "lick",
+  "lift",
+  "next_to",
+  "open",
+  "pat",
+  "play(instrument)",
+  "point_to",
+  "press",
+  "pull",
+  "push",
+  "release",
+  "ride",
+  "shake_hand_with",
+  "shout_at",
+  "smell",
+  "speak_to",
+  "squeeze",
+  "throw",
+  "touch",
+  "towards",
+  "use",
+  "watch",
+  "wave",
+  "wave_hand_to"
+ ],
+ "load_stats": {
+  "train": {
+   "videos": 7000,
+   "relations": 267210,
+   "dropped_unknown_predicate": 0,
+   "relations_outside_coexistence": 0,
+   "pairs": 171382
+  },
+  "test": {
+   "videos": 835,
+   "relations": 30142,
+   "dropped_unknown_predicate": 0,
+   "relations_outside_coexistence": 0,
+   "pairs": 18498
+  }
+ },
+ "n_dev": 1400,
+ "n_fit": 5600,
+ "n_test": 835,
+ "fold_sizes": [
+  1120,
+  1120,
+  1120,
+  1120,
+  1120
+ ],
+ "descriptive": {
+  "per_predicate": [
+   {
+    "predicate": "above",
+    "onsets": 2530,
+    "offsets": 3419,
+    "intervals": 4271,
+    "median_duration_s": 7.958333333333333,
+    "censored_fraction": 0.44813860922500587
+   },
+   {
+    "predicate": "away",
+    "onsets": 10825,
+    "offsets": 11310,
+    "intervals": 11812,
+    "median_duration_s": 3.0029999999999997,
+    "censored_fraction": 0.12436505248899424
+   },
+   {
+    "predicate": "behind",
+    "onsets": 15689,
+    "offsets": 18147,
+    "intervals": 20390,
+    "median_duration_s": 4.4044,
+    "censored_fraction": 0.2849435998038254
+   },
+   {
+    "predicate": "beneath",
+    "onsets": 2501,
+    "offsets": 3426,
+    "intervals": 4351,
+    "median_duration_s": 8.174833333333334,
+    "censored_fraction": 0.4658699149620777
+   },
+   {
+    "predicate": "bite",
+    "onsets": 451,
+    "offsets": 455,
+    "intervals": 490,
+    "median_duration_s": 1.625,
+    "censored_fraction": 0.13877551020408163
+   },
+   {
+    "predicate": "caress",
+    "onsets": 487,
+    "offsets": 479,
+    "intervals": 520,
+    "median_duration_s": 1.9853166666666668,
+    "censored_fraction": 0.12884615384615383
+   },
+   {
+    "predicate": "carry",
+    "onsets": 534,
+    "offsets": 556,
+    "intervals": 716,
+    "median_duration_s": 3.186516666666667,
+    "censored_fraction": 0.4036312849162011
+   },
+   {
+    "predicate": "chase",
+    "onsets": 234,
+    "offsets": 248,
+    "intervals": 261,
+    "median_duration_s": 1.6683333333333334,
+    "censored_fraction": 0.14942528735632185
+   },
+   {
+    "predicate": "clean",
+    "onsets": 87,
+    "offsets": 88,
+    "intervals": 91,
+    "median_duration_s": 1.5682333333333334,
+    "censored_fraction": 0.07692307692307693
+   },
+   {
+    "predicate": "close",
+    "onsets": 16,
+    "offsets": 17,
+    "intervals": 17,
+    "median_duration_s": 0.8341666666666667,
+    "censored_fraction": 0.058823529411764705
+   },
+   {
+    "predicate": "cut",
+    "onsets": 23,
+    "offsets": 22,
+    "intervals": 24,
+    "median_duration_s": 2.1855166666666666,
+    "censored_fraction": 0.125
+   },
+   {
+    "predicate": "drive",
+    "onsets": 61,
+    "offsets": 63,
+    "intervals": 87,
+    "median_duration_s": 3.269969666329626,
+    "censored_fraction": 0.4827586206896552
+   },
+   {
+    "predicate": "feed",
+    "onsets": 236,
+    "offsets": 244,
+    "intervals": 260,
+    "median_duration_s": 1.8685333333333334,
+    "censored_fraction": 0.1423076923076923
+   },
+   {
+    "predicate": "get_off",
+    "onsets": 56,
+    "offsets": 53,
+    "intervals": 56,
+    "median_duration_s": 0.9634625,
+    "censored_fraction": 0.05357142857142857
+   },
+   {
+    "predicate": "get_on",
+    "onsets": 56,
+    "offsets": 57,
+    "intervals": 59,
+    "median_duration_s": 1.25125,
+    "censored_fraction": 0.0847457627118644
+   },
+   {
+    "predicate": "grab",
+    "onsets": 625,
+    "offsets": 628,
+    "intervals": 636,
+    "median_duration_s": 0.6339666666666667,
+    "censored_fraction": 0.029874213836477988
+   },
+   {
+    "predicate": "hit",
+    "onsets": 662,
+    "offsets": 662,
+    "intervals": 673,
+    "median_duration_s": 0.6339666666666667,
+    "censored_fraction": 0.03268945022288262
+   },
+   {
+    "predicate": "hold",
+    "onsets": 2799,
+    "offsets": 2937,
+    "intervals": 3453,
+    "median_duration_s": 2.769433333333333,
+    "censored_fraction": 0.29365768896611644
+   },
+   {
+    "predicate": "hold_hand_of",
+    "onsets": 699,
+    "offsets": 756,
+    "intervals": 878,
+    "median_duration_s": 3.1364666666666667,
+    "censored_fraction": 0.2984054669703872
+   },
+   {
+    "predicate": "hug",
+    "onsets": 611,
+    "offsets": 613,
+    "intervals": 839,
+    "median_duration_s": 4.337666666666666,
+    "censored_fraction": 0.41835518474374256
+   },
+   {
+    "predicate": "in_front_of",
+    "onsets": 39210,
+    "offsets": 47040,
+    "intervals": 54077,
+    "median_duration_s": 5.005055611729019,
+    "censored_fraction": 0.32660835475340716
+   },
+   {
+    "predicate": "inside",
+    "onsets": 176,
+    "offsets": 248,
+    "intervals": 343,
+    "median_duration_s": 8.475133333333334,
+    "censored_fraction": 0.5131195335276968
+   },
+   {
+    "predicate": "kick",
+    "onsets": 197,
+    "offsets": 195,
+    "intervals": 199,
+    "median_duration_s": 0.6,
+    "censored_fraction": 0.020100502512562814
+   },
+   {
+    "predicate": "kiss",
+    "onsets": 213,
+    "offsets": 214,
+    "intervals": 219,
+    "median_duration_s": 0.92,
+    "censored_fraction": 0.0502283105022831
+   },
+   {
+    "predicate": "knock",
+    "onsets": 52,
+    "offsets": 52,
+    "intervals": 52,
+    "median_duration_s": 0.5377666666666667,
+    "censored_fraction": 0.0
+   },
+   {
+    "predicate": "lean_on",
+    "onsets": 1377,
+    "offsets": 1492,
+    "intervals": 2385,
+    "median_duration_s": 7.774441107774441,
+    "censored_fraction": 0.5710691823899371
+   },
+   {
+    "predicate": "lick",
+    "onsets": 82,
+    "offsets": 88,
+    "intervals": 96,
+    "median_duration_s": 1.4139125,
+    "censored_fraction": 0.22916666666666666
+   },
+   {
+    "predicate": "lift",
+    "onsets": 457,
+    "offsets": 457,
+    "intervals": 466,
+    "median_duration_s": 0.9676333333333333,
+    "censored_fraction": 0.03862660944206009
+   },
+   {
+    "predicate": "next_to",
+    "onsets": 42572,
+    "offsets": 51218,
+    "intervals": 59559,
+    "median_duration_s": 5.005005005005005,
+    "censored_fraction": 0.33842072566698567
+   },
+   {
+    "predicate": "open",
+    "onsets": 22,
+    "offsets": 23,
+    "intervals": 23,
+    "median_duration_s": 1.2012,
+    "censored_fraction": 0.043478260869565216
+   },
+   {
+    "predicate": "pat",
+    "onsets": 371,
+    "offsets": 370,
+    "intervals": 389,
+    "median_duration_s": 0.76,
+    "censored_fraction": 0.08997429305912596
+   },
+   {
+    "predicate": "play(instrument)",
+    "onsets": 373,
+    "offsets": 405,
+    "intervals": 674,
+    "median_duration_s": 15.233479166666665,
+    "censored_fraction": 0.6246290801186943
+   },
+   {
+    "predicate": "point_to",
+    "onsets": 290,
+    "offsets": 287,
+    "intervals": 294,
+    "median_duration_s": 0.7674333333333333,
+    "censored_fraction": 0.03741496598639456
+   },
+   {
+    "predicate": "press",
+    "onsets": 397,
+    "offsets": 402,
+    "intervals": 433,
+    "median_duration_s": 1.4347666666666667,
+    "censored_fraction": 0.14318706697459585
+   },
+   {
+    "predicate": "pull",
+    "onsets": 398,
+    "offsets": 403,
+    "intervals": 433,
+    "median_duration_s": 1.2345666666666666,
+    "censored_fraction": 0.13856812933025403
+   },
+   {
+    "predicate": "push",
+    "onsets": 630,
+    "offsets": 650,
+    "intervals": 679,
+    "median_duration_s": 1.0010000000000001,
+    "censored_fraction": 0.10456553755522828
+   },
+   {
+    "predicate": "release",
+    "onsets": 564,
+    "offsets": 575,
+    "intervals": 575,
+    "median_duration_s": 0.5005000000000001,
+    "censored_fraction": 0.019130434782608695
+   },
+   {
+    "predicate": "ride",
+    "onsets": 869,
+    "offsets": 947,
+    "intervals": 1243,
+    "median_duration_s": 4.337666666666666,
+    "censored_fraction": 0.43765084473049076
+   },
+   {
+    "predicate": "shake_hand_with",
+    "onsets": 52,
+    "offsets": 48,
+    "intervals": 52,
+    "median_duration_s": 1.0510505338672007,
+    "censored_fraction": 0.07692307692307693
+   },
+   {
+    "predicate": "shout_at",
+    "onsets": 71,
+    "offsets": 73,
+    "intervals": 74,
+    "median_duration_s": 1.3304958333333334,
+    "censored_fraction": 0.05405405405405406
+   },
+   {
+    "predicate": "smell",
+    "onsets": 125,
+    "offsets": 125,
+    "intervals": 135,
+    "median_duration_s": 1.32,
+    "censored_fraction": 0.14814814814814814
+   },
+   {
+    "predicate": "speak_to",
+    "onsets": 1767,
+    "offsets": 1770,
+    "intervals": 1882,
+    "median_duration_s": 1.875,
+    "censored_fraction": 0.11583421891604676
+   },
+   {
+    "predicate": "squeeze",
+    "onsets": 74,
+    "offsets": 72,
+    "intervals": 76,
+    "median_duration_s": 0.9676333333333333,
+    "censored_fraction": 0.06578947368421052
+   },
+   {
+    "predicate": "throw",
+    "onsets": 222,
+    "offsets": 227,
+    "intervals": 227,
+    "median_duration_s": 0.3670333333333333,
+    "censored_fraction": 0.022026431718061675
+   },
+   {
+    "predicate": "touch",
+    "onsets": 806,
+    "offsets": 812,
+    "intervals": 844,
+    "median_duration_s": 0.9009050050556118,
+    "censored_fraction": 0.08293838862559241
+   },
+   {
+    "predicate": "towards",
+    "onsets": 9725,
+    "offsets": 10122,
+    "intervals": 10483,
+    "median_duration_s": 3.003,
+    "censored_fraction": 0.1049317943336831
+   },
+   {
+    "predicate": "use",
+    "onsets": 270,
+    "offsets": 297,
+    "intervals": 346,
+    "median_duration_s": 3.336666666666667,
+    "censored_fraction": 0.315028901734104
+   },
+   {
+    "predicate": "watch",
+    "onsets": 25526,
+    "offsets": 26091,
+    "intervals": 28144,
+    "median_duration_s": 1.4681333333333333,
+    "censored_fraction": 0.15822200113700965
+   },
+   {
+    "predicate": "wave",
+    "onsets": 431,
+    "offsets": 433,
+    "intervals": 447,
+    "median_duration_s": 1.2345666666666666,
+    "censored_fraction": 0.06263982102908278
+   },
+   {
+    "predicate": "wave_hand_to",
+    "onsets": 111,
+    "offsets": 112,
+    "intervals": 116,
+    "median_duration_s": 1.0677333333333334,
+    "censored_fraction": 0.07758620689655173
+   }
+  ],
+  "peri_event_top20": [
+   {
+    "source": "ON(next_to)",
+    "target": "ON(watch)",
+    "n_source_events": 42572,
+    "onsets_per_source_event_by_lag": [
+     0.00862,
+     0.00991,
+     0.01705,
+     0.03937,
+     0.04876
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00442,
+     0.00442,
+     0.00883,
+     0.02649,
+     0.04415
+    ]
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(watch)",
+    "n_source_events": 39210,
+    "onsets_per_source_event_by_lag": [
+     0.01084,
+     0.01018,
+     0.01801,
+     0.03785,
+     0.04588
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00442,
+     0.00442,
+     0.00883,
+     0.02649,
+     0.04415
+    ]
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(next_to)",
+    "n_source_events": 39210,
+    "onsets_per_source_event_by_lag": [
+     0.0001,
+     0.00566,
+     0.00928,
+     0.06195,
+     0.04231
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00871,
+     0.00871,
+     0.01742,
+     0.05226,
+     0.0871
+    ]
+   },
+   {
+    "source": "OFF(watch)",
+    "target": "ON(next_to)",
+    "n_source_events": 26091,
+    "onsets_per_source_event_by_lag": [
+     0.0087,
+     0.01157,
+     0.02242,
+     0.05316,
+     0.07478
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00871,
+     0.00871,
+     0.01742,
+     0.05226,
+     0.0871
+    ]
+   },
+   {
+    "source": "ON(watch)",
+    "target": "ON(next_to)",
+    "n_source_events": 25526,
+    "onsets_per_source_event_by_lag": [
+     0.01587,
+     0.00928,
+     0.01634,
+     0.05132,
+     0.07392
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00871,
+     0.00871,
+     0.01742,
+     0.05226,
+     0.0871
+    ]
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(in_front_of)",
+    "n_source_events": 42572,
+    "onsets_per_source_event_by_lag": [
+     9e-05,
+     0.00357,
+     0.00622,
+     0.04989,
+     0.03481
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00782,
+     0.00782,
+     0.01563,
+     0.0469,
+     0.07817
+    ]
+   },
+   {
+    "source": "OFF(next_to)",
+    "target": "ON(watch)",
+    "n_source_events": 51218,
+    "onsets_per_source_event_by_lag": [
+     0.00383,
+     0.00463,
+     0.00998,
+     0.02558,
+     0.03423
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00442,
+     0.00442,
+     0.00883,
+     0.02649,
+     0.04415
+    ]
+   },
+   {
+    "source": "ON(watch)",
+    "target": "ON(in_front_of)",
+    "n_source_events": 25526,
+    "onsets_per_source_event_by_lag": [
+     0.01739,
+     0.00693,
+     0.01344,
+     0.0389,
+     0.05927
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00782,
+     0.00782,
+     0.01563,
+     0.0469,
+     0.07817
+    ]
+   },
+   {
+    "source": "OFF(watch)",
+    "target": "ON(in_front_of)",
+    "n_source_events": 26091,
+    "onsets_per_source_event_by_lag": [
+     0.00659,
+     0.00832,
+     0.0156,
+     0.04197,
+     0.06044
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00782,
+     0.00782,
+     0.01563,
+     0.0469,
+     0.07817
+    ]
+   },
+   {
+    "source": "OFF(in_front_of)",
+    "target": "ON(watch)",
+    "n_source_events": 47040,
+    "onsets_per_source_event_by_lag": [
+     0.00351,
+     0.00493,
+     0.00972,
+     0.02457,
+     0.03087
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00442,
+     0.00442,
+     0.00883,
+     0.02649,
+     0.04415
+    ]
+   },
+   {
+    "source": "OFF(in_front_of)",
+    "target": "ON(next_to)",
+    "n_source_events": 47040,
+    "onsets_per_source_event_by_lag": [
+     0.00057,
+     0.00128,
+     0.01095,
+     0.01728,
+     0.03552
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00871,
+     0.00871,
+     0.01742,
+     0.05226,
+     0.0871
+    ]
+   },
+   {
+    "source": "OFF(next_to)",
+    "target": "ON(in_front_of)",
+    "n_source_events": 51218,
+    "onsets_per_source_event_by_lag": [
+     0.00043,
+     0.00107,
+     0.00816,
+     0.01462,
+     0.03089
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00782,
+     0.00782,
+     0.01563,
+     0.0469,
+     0.07817
+    ]
+   },
+   {
+    "source": "ON(towards)",
+    "target": "ON(away)",
+    "n_source_events": 9725,
+    "onsets_per_source_event_by_lag": [
+     0.00021,
+     0.01573,
+     0.02766,
+     0.14057,
+     0.09378
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00184,
+     0.00184,
+     0.00368,
+     0.01103,
+     0.01838
+    ]
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(behind)",
+    "n_source_events": 42572,
+    "onsets_per_source_event_by_lag": [
+     9e-05,
+     0.00247,
+     0.00449,
+     0.02762,
+     0.01954
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00277,
+     0.00277,
+     0.00554,
+     0.01662,
+     0.0277
+    ]
+   },
+   {
+    "source": "ON(towards)",
+    "target": "ON(next_to)",
+    "n_source_events": 9725,
+    "onsets_per_source_event_by_lag": [
+     0.00041,
+     0.01728,
+     0.02519,
+     0.11434,
+     0.06961
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00871,
+     0.00871,
+     0.01742,
+     0.05226,
+     0.0871
+    ]
+   },
+   {
+    "source": "OFF(in_front_of)",
+    "target": "ON(behind)",
+    "n_source_events": 47040,
+    "onsets_per_source_event_by_lag": [
+     0.0003,
+     0.00057,
+     0.01395,
+     0.01046,
+     0.0209
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00277,
+     0.00277,
+     0.00554,
+     0.01662,
+     0.0277
+    ]
+   },
+   {
+    "source": "OFF(towards)",
+    "target": "ON(away)",
+    "n_source_events": 10122,
+    "onsets_per_source_event_by_lag": [
+     0.00168,
+     0.00425,
+     0.06007,
+     0.0489,
+     0.09514
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00184,
+     0.00184,
+     0.00368,
+     0.01103,
+     0.01838
+    ]
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(away)",
+    "n_source_events": 39210,
+    "onsets_per_source_event_by_lag": [
+     8e-05,
+     0.00314,
+     0.00676,
+     0.02181,
+     0.02122
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00184,
+     0.00184,
+     0.00368,
+     0.01103,
+     0.01838
+    ]
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(away)",
+    "n_source_events": 42572,
+    "onsets_per_source_event_by_lag": [
+     0.00021,
+     0.00294,
+     0.0051,
+     0.02241,
+     0.01703
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00184,
+     0.00184,
+     0.00368,
+     0.01103,
+     0.01838
+    ]
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(behind)",
+    "n_source_events": 39210,
+    "onsets_per_source_event_by_lag": [
+     3e-05,
+     0.00163,
+     0.00329,
+     0.02326,
+     0.02091
+    ],
+    "lag_bins_s": [
+     0.0,
+     0.5,
+     1.0,
+     2.0,
+     5.0,
+     10.0
+    ],
+    "baseline_onsets_per_source_event_by_lag": [
+     0.00277,
+     0.00277,
+     0.00554,
+     0.01662,
+     0.0277
+    ]
+   }
+  ]
+ },
+ "selection": [
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 0.0,
+   "dev_ll": -344043.8162896533
+  },
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 0.1,
+   "dev_ll": -344043.073200371
+  },
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 1.0,
+   "dev_ll": -344042.0745337894
+  },
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 10.0,
+   "dev_ll": -344046.08054196095
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 0.0,
+   "dev_ll": -336111.5634137393
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 0.1,
+   "dev_ll": -335759.5334299889
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 1.0,
+   "dev_ll": -335657.35424230003
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 10.0,
+   "dev_ll": -335607.04074589186
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 0.0,
+   "dev_ll": -349669.13108583627
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 0.1,
+   "dev_ll": -349667.06079133914
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 1.0,
+   "dev_ll": -349666.51684071217
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 10.0,
+   "dev_ll": -349672.8326289313
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 0.0,
+   "dev_ll": -338465.07454260264
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 0.1,
+   "dev_ll": -338304.7967699636
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 1.0,
+   "dev_ll": -338260.19423839066
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 10.0,
+   "dev_ll": -338267.2279868922
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 0.0,
+   "dev_ll": -362298.80927223427
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 0.1,
+   "dev_ll": -362273.5470304239
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 1.0,
+   "dev_ll": -362273.705396464
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 10.0,
+   "dev_ll": -362283.5989455144
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 0.0,
+   "dev_ll": -351365.85635077854
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 0.1,
+   "dev_ll": -351198.6038151784
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 1.0,
+   "dev_ll": -351199.17907920456
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 10.0,
+   "dev_ll": -351317.1394155221
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 0.0,
+   "dev_ll": -374492.0107813255
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 0.1,
+   "dev_ll": -374491.35481524933
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 1.0,
+   "dev_ll": -374503.29797562317
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 10.0,
+   "dev_ll": -374590.6461372663
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 0.0,
+   "dev_ll": -368997.0273653007
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 0.1,
+   "dev_ll": -368905.79281845095
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 1.0,
+   "dev_ll": -368983.3150518264
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 10.0,
+   "dev_ll": -369258.0597750641
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 0.0,
+   "dev_ll": -382475.57674908964
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 0.1,
+   "dev_ll": -382482.1538810051
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 1.0,
+   "dev_ll": -382515.8583450915
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 10.0,
+   "dev_ll": -382573.50208664394
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 0.0,
+   "dev_ll": -379834.58168776584
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 0.1,
+   "dev_ll": -379813.5800994848
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 1.0,
+   "dev_ll": -379922.3172195758
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 10.0,
+   "dev_ll": -380197.88732285897
+  }
+ ],
+ "selected": {
+  "HK1": {
+   "beta": 0.1,
+   "penalty": 1.0,
+   "dev_ll": -344042.0745337894
+  },
+  "HK2": {
+   "beta": 0.1,
+   "penalty": 10.0,
+   "dev_ll": -335607.04074589186
+  }
+ },
+ "test": {
+  "n_events": 50509,
+  "ll_per_event": {
+   "HK0": -4.345142162687573,
+   "HK1": -3.863161560841784,
+   "HK2": -3.78893728885604,
+   "DUR": -4.297537533793101
+  },
+  "G_cross": {
+   "mean": 0.07422427198574406,
+   "ci_lo": 0.06599125450926323,
+   "ci_hi": 0.08267190386733866
+  },
+  "G_dur": {
+   "mean": 0.5086002449370619,
+   "ci_lo": 0.46098904589665674,
+   "ci_hi": 0.5539121200077664
+  },
+  "G_base": {
+   "mean": 0.556204873831533,
+   "ci_lo": 0.5120438117225742,
+   "ci_hi": 0.602616512579381
+  },
+  "G_self": {
+   "mean": 0.48198060184578906,
+   "ci_lo": 0.437771786513885,
+   "ci_hi": 0.5262967523774689
+  },
+  "HK1_minus_DUR": {
+   "mean": 0.43437597295131786,
+   "ci_lo": 0.38754485449249404,
+   "ci_hi": 0.48185898406861416
+  }
+ },
+ "c1_null": [
+  0.039990198589055226,
+  0.04038406440932449,
+  0.03961682752699454,
+  0.039577381045799054,
+  0.03994337244479194,
+  0.03971862607048756,
+  0.04179325835954402,
+  0.041115887284464976,
+  0.040653664714849456,
+  0.040061522801398845,
+  0.04054907922149314,
+  0.03920897187737583,
+  0.04040696573696618,
+  0.0406512242639917,
+  0.03993274975475326,
+  0.039499221213747014,
+  0.04310335518395766,
+  0.04100674256834359,
+  0.040717289807576655
+ ],
+ "c4": {
+  "S_real": 404,
+  "rho_real": 0.3683732271507573,
+  "S_null": [
+   421,
+   404,
+   406,
+   406,
+   422
+  ],
+  "rho_null": [
+   0.3375903552201105,
+   0.3379398340706639,
+   0.3489674026982771,
+   0.3393728771627121,
+   0.34342339912635433
+  ]
+ },
+ "decision": {
+  "label": "WEAK-MIXED",
+  "C1": true,
+  "C2": true,
+  "C3": false,
+  "C4": false,
+  "null_max": 0.04310335518395766,
+  "null_median": 0.04038406440932449,
+  "excess": 0.033840207576419576,
+  "excess_over_self": 0.07021072517612822,
+  "perm_p": 0.05,
+  "c3_descriptive": {
+   "0.05": true,
+   "0.2": false
+  }
+ },
+ "top_cross_cells": [
+  {
+   "target": "OFF(grab)",
+   "source": "ON(hold)",
+   "alpha": 1.4055372614300419,
+   "branching": 14.055372614300419,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(hold)",
+   "source": "ON(release)",
+   "alpha": 0.867146957510777,
+   "branching": 8.67146957510777,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(release)",
+   "source": "OFF(hold)",
+   "alpha": 0.6826976751241043,
+   "branching": 6.826976751241043,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(hold)",
+   "source": "ON(throw)",
+   "alpha": 0.6779970139143683,
+   "branching": 6.779970139143683,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(ride)",
+   "source": "ON(get_off)",
+   "alpha": 0.5746571735313765,
+   "branching": 5.746571735313764,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(hug)",
+   "source": "ON(release)",
+   "alpha": 0.5486250350806787,
+   "branching": 5.486250350806787,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(grab)",
+   "source": "ON(hug)",
+   "alpha": 0.49635190953904007,
+   "branching": 4.9635190953904,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(hold_hand_of)",
+   "source": "ON(release)",
+   "alpha": 0.4662080402175436,
+   "branching": 4.662080402175436,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(hug)",
+   "source": "ON(throw)",
+   "alpha": 0.4369250907566109,
+   "branching": 4.369250907566109,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(lean_on)",
+   "source": "ON(away)",
+   "alpha": 0.38925457550673415,
+   "branching": 3.8925457550673412,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(behind)",
+   "source": "ON(inside)",
+   "alpha": 0.3639778230611743,
+   "branching": 3.639778230611743,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(grab)",
+   "source": "ON(lift)",
+   "alpha": 0.3633152992107341,
+   "branching": 3.6331529921073407,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(hold)",
+   "source": "ON(play(instrument))",
+   "alpha": 0.3633006899003301,
+   "branching": 3.6330068990033006,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(push)",
+   "source": "ON(release)",
+   "alpha": 0.3584300757906728,
+   "branching": 3.584300757906728,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(above)",
+   "source": "ON(beneath)",
+   "alpha": 0.34641330883763344,
+   "branching": 3.464133088376334,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(press)",
+   "source": "ON(away)",
+   "alpha": 0.329992455725967,
+   "branching": 3.2999245572596703,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(bite)",
+   "source": "ON(release)",
+   "alpha": 0.3266240191560671,
+   "branching": 3.2662401915606707,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(throw)",
+   "source": "ON(watch)",
+   "alpha": 0.3077362747007844,
+   "branching": 3.077362747007844,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(chase)",
+   "source": "ON(away)",
+   "alpha": 0.30389366346739194,
+   "branching": 3.0389366346739193,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(pat)",
+   "source": "OFF(next_to)",
+   "alpha": 0.2962090101682095,
+   "branching": 2.9620901016820946,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(pull)",
+   "source": "OFF(hold)",
+   "alpha": 0.2945533865063085,
+   "branching": 2.945533865063085,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(kick)",
+   "source": "ON(towards)",
+   "alpha": 0.29432364727576943,
+   "branching": 2.943236472757694,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(throw)",
+   "source": "OFF(hold)",
+   "alpha": 0.2927595830583779,
+   "branching": 2.927595830583779,
+   "folds_present": 5
+  },
+  {
+   "target": "OFF(hit)",
+   "source": "ON(next_to)",
+   "alpha": 0.28414567560938286,
+   "branching": 2.8414567560938284,
+   "folds_present": 4
+  },
+  {
+   "target": "OFF(lift)",
+   "source": "ON(throw)",
+   "alpha": 0.2771840381562143,
+   "branching": 2.771840381562143,
+   "folds_present": 5
+  }
+ ]
+}

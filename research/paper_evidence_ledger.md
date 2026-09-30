@@ -42,11 +42,12 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L26 | V-HPED is more robust to visibility-distribution shift than simple gating | H4 | Tune once on SC, never retune | Phase 4 SH1–SH8 | H4 = **FAIL**: 2 wins, 12 losses of 24 cells. M5 has 10–20× churn under flicker shift, FPR 0.37 at ρ = 0.5 (vs 0.05 GatedEMA), churn 0.08 at 15 fps | NOT SUPPORTED (opposite observed) | §7, §9 |
 | L27 | "Hawkes" is the right description of the proposed model | — | Formulation | Phase 4 formulation §9 | The formulation is a continuous-time factorial HMM filter with tempered likelihoods; no intensity model | INVALIDATED (terminology) | never |
 | L28 | The proposed method is computationally practical | Gate 4 | Latency | Phase 4 | M5 0.030 ms/frame vs GatedEMA 0.011 (2.6×), 8 synthetic edges, one machine (`Q/tables/latency.md`) | PARTIAL (synthetic scale) | §5, §7 |
-| L29 | Multivariate Hawkes dynamics over relationship onset/offset events improve held-out modelling beyond independent exponential/duration models (Track B, RQ-H′) | RQ-H′ | Stage 0 GT probe → Stage 1/2 | Phase 5H (not started) | Design only (`research/phase5h_hawkes_design.md`) | UNTESTED | — |
+| L29 | Multivariate Hawkes dynamics over relationship onset/offset events improve held-out modelling beyond independent exponential/duration models (Track B, RQ-H′) | RQ-H′ | Stage 0 GT probe → Stage 1/2 | Phase 5H Stage 0 (VidOR GT) | HAWKES SIGNAL = **WEAK-MIXED** (`research/phase5h_stage0_report.md`): HK2 − HK1 +0.074 [0.066, 0.083] nats/event, above all 19 circular-shift nulls (max 0.043), beats DUR/HK0; but the excess over the null is only 7% of the within-relation gain (C3 fail) and stable-interaction count ≈ null (C4 fail). A few coherent offset-triggering transitions (hold/grab/release, ride/get_off) | PARTIAL (ground truth only) | — |
 | L30 | Visibility/censoring-aware Hawkes inference is a new theory | — | Literature | Phase 5H lit. check | Missing/censored/thinned/ghost-event Hawkes inference is established (Shelton et al. AAAI 2018; Mei et al. ICML 2019; Xu et al. ICML 2017; ABC arXiv 2006.09015; Bonnet et al. 2025) | INVALIDATED (as theory novelty) | never |
 | L31 | Identity-weighted Hawkes history is a new formulation | — | Literature | Phase 5H lit. check | Equals a marked Hawkes process with mark-dependent impact (ETAS tradition) | INVALIDATED (as novelty) | never |
 | L32 | No prior work applies a genuine Hawkes intensity to visual relationship events in video | — | Systematic literature sweep | Phase 5H lit. check | None found in a non-exhaustive web search (closest: TKG Hawkes GHNN/GHT/Know-Evolve; APP-VAE; SceneSayer/FDSG use Neural ODE/SDE) | PARTIAL (not exhaustive; never phrase as "first") | §3 |
 | L33 | Action Genome supports point-process modelling of relationship transitions | — | Annotation density | Phase 5H lit. check | ≈ 35 annotated frames per video (5 per action): onset/offset interval-censored by design | NOT SUPPORTED | — |
+| L34 | Hawkes cross-excitation estimated on relationship ground truth is partly pair-level heterogeneity | — | Circular-shift null | Phase 5H Stage 0 | ≈ 54% of the HK2 − HK1 gain (0.040 of 0.074 nats/event) reproduced with cross-relation timing destroyed; null yields as many 'stable' cross cells (404–422) as real data (404) | SUPPORTED (VidOR GT) | — |
 
 ## Change log
 
@@ -63,3 +64,4 @@ synthetic evidence** (`R/` = `results/phase3/`)._
   every H2 win was re-checked against false persistence (post-hoc, exploratory).
 - 2026-09-30 (Phase 5H literature/design, no experiments): added L29–L33. Hawkes track = MODIFY
   (`research/phase5h_hawkes_design.md`).
+- 2026-09-30 (Phase 5H Stage 0): L29 UNTESTED→PARTIAL; added L34.

@@ -1,0 +1,256 @@
+{
+ "rows": [
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 0.0,
+   "dev_ll": -344043.8162896533
+  },
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 0.1,
+   "dev_ll": -344043.073200371
+  },
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 1.0,
+   "dev_ll": -344042.0745337894
+  },
+  {
+   "model": "HK1",
+   "beta": 0.1,
+   "penalty": 10.0,
+   "dev_ll": -344046.08054196095
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 0.0,
+   "dev_ll": -336111.5634137393
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 0.1,
+   "dev_ll": -335759.5334299889
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 1.0,
+   "dev_ll": -335657.35424230003
+  },
+  {
+   "model": "HK2",
+   "beta": 0.1,
+   "penalty": 10.0,
+   "dev_ll": -335607.04074589186
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 0.0,
+   "dev_ll": -349669.13108583627
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 0.1,
+   "dev_ll": -349667.06079133914
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 1.0,
+   "dev_ll": -349666.51684071217
+  },
+  {
+   "model": "HK1",
+   "beta": 0.3,
+   "penalty": 10.0,
+   "dev_ll": -349672.8326289313
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 0.0,
+   "dev_ll": -338465.07454260264
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 0.1,
+   "dev_ll": -338304.7967699636
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 1.0,
+   "dev_ll": -338260.19423839066
+  },
+  {
+   "model": "HK2",
+   "beta": 0.3,
+   "penalty": 10.0,
+   "dev_ll": -338267.2279868922
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 0.0,
+   "dev_ll": -362298.80927223427
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 0.1,
+   "dev_ll": -362273.5470304239
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 1.0,
+   "dev_ll": -362273.705396464
+  },
+  {
+   "model": "HK1",
+   "beta": 1.0,
+   "penalty": 10.0,
+   "dev_ll": -362283.5989455144
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 0.0,
+   "dev_ll": -351365.85635077854
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 0.1,
+   "dev_ll": -351198.6038151784
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 1.0,
+   "dev_ll": -351199.17907920456
+  },
+  {
+   "model": "HK2",
+   "beta": 1.0,
+   "penalty": 10.0,
+   "dev_ll": -351317.1394155221
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 0.0,
+   "dev_ll": -374492.0107813255
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 0.1,
+   "dev_ll": -374491.35481524933
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 1.0,
+   "dev_ll": -374503.29797562317
+  },
+  {
+   "model": "HK1",
+   "beta": 3.0,
+   "penalty": 10.0,
+   "dev_ll": -374590.6461372663
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 0.0,
+   "dev_ll": -368997.0273653007
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 0.1,
+   "dev_ll": -368905.79281845095
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 1.0,
+   "dev_ll": -368983.3150518264
+  },
+  {
+   "model": "HK2",
+   "beta": 3.0,
+   "penalty": 10.0,
+   "dev_ll": -369258.0597750641
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 0.0,
+   "dev_ll": -382475.57674908964
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 0.1,
+   "dev_ll": -382482.1538810051
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 1.0,
+   "dev_ll": -382515.8583450915
+  },
+  {
+   "model": "HK1",
+   "beta": 10.0,
+   "penalty": 10.0,
+   "dev_ll": -382573.50208664394
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 0.0,
+   "dev_ll": -379834.58168776584
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 0.1,
+   "dev_ll": -379813.5800994848
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 1.0,
+   "dev_ll": -379922.3172195758
+  },
+  {
+   "model": "HK2",
+   "beta": 10.0,
+   "penalty": 10.0,
+   "dev_ll": -380197.88732285897
+  }
+ ],
+ "selected": {
+  "HK1": {
+   "beta": 0.1,
+   "penalty": 1.0,
+   "dev_ll": -344042.0745337894
+  },
+  "HK2": {
+   "beta": 0.1,
+   "penalty": 10.0,
+   "dev_ll": -335607.04074589186
+  }
+ }
+}
