@@ -1,0 +1,29 @@
+{
+ "tag": "typical",
+ "seed": 4022,
+ "regret": 0.06435054773082942,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.888888888888889,
+   "term_delay_mean": 7.8,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "gated_ema": {
+   "persistence_f1": 0.8732394366197184,
+   "term_delay_mean": 5.2,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "va_hmm": {
+   "persistence_f1": 0.8405797101449275,
+   "term_delay_mean": 4.6,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F3_visnoise__typical.pdf",
+  "results\\phase4\\failures\\F3_visnoise__typical.png"
+ ]
+}

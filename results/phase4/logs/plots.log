@@ -1,0 +1,2 @@
+2026-09-29 13:16:13,198 INFO root: === Phase 4 stage: plots [baseline] (smoke=False) ===
+2026-09-29 13:16:32,496 INFO taorg.experiments.phase4.plots: Phase 4 plots written to results\phase4\plots

@@ -1,0 +1,29 @@
+{
+ "tag": "worst",
+ "seed": 4000,
+ "regret": 0.88,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.7786259541984732,
+   "term_delay_mean": 4.0,
+   "diag_ghost_edge_frames": 132.0,
+   "diag_swap_recall": 0.15
+  },
+  "gated_ema": {
+   "persistence_f1": 0.6776859504132231,
+   "term_delay_mean": 3.0,
+   "diag_ghost_edge_frames": 385.0,
+   "diag_swap_recall": 1.0
+  },
+  "va_hmm": {
+   "persistence_f1": 0.6885245901639345,
+   "term_delay_mean": 3.3333333333333335,
+   "diag_ghost_edge_frames": 123.0,
+   "diag_swap_recall": 0.1
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F8_mix_occlusion_idswitch__worst.pdf",
+  "results\\phase4\\failures\\F8_mix_occlusion_idswitch__worst.png"
+ ]
+}

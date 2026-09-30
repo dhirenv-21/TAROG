@@ -1,0 +1,521 @@
+[
+ {
+  "category": "short_occlusion",
+  "condition": "C0_oracle",
+  "gap": 1,
+  "severity_kind": "gap_fn",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 240,
+  "n_units_positive": 0,
+  "gated_mean_severity": 0.0,
+  "mean_severity_by_method": {
+   "no_memory": 1.0,
+   "fixed_window": 0.0,
+   "ema": 0.0,
+   "gated_ema": 0.0,
+   "hmm": 0.0
+  },
+  "cases": []
+ },
+ {
+  "category": "long_occlusion",
+  "condition": "C0_oracle",
+  "gap": 20,
+  "severity_kind": "gap_fn",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 240,
+  "n_units_positive": 0,
+  "gated_mean_severity": 0.0,
+  "mean_severity_by_method": {
+   "no_memory": 20.0,
+   "fixed_window": 16.0,
+   "ema": 16.258333333333333,
+   "gated_ema": 0.0,
+   "hmm": 16.0
+  },
+  "cases": []
+ },
+ {
+  "category": "true_termination",
+  "condition": "C0_oracle",
+  "gap": 5,
+  "severity_kind": "term_delay",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 144,
+  "n_units_positive": 144,
+  "gated_mean_severity": 1.0,
+  "mean_severity_by_method": {
+   "no_memory": 1.0,
+   "fixed_window": 5.0,
+   "ema": 4.798611111111111,
+   "gated_ema": 1.0,
+   "hmm": 5.0
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "true_termination__worst",
+    "seed": 2000,
+    "unit": "(2, 4, 0)",
+    "severity": 1.0,
+    "severity_by_method": {
+     "no_memory": 1.0,
+     "fixed_window": 5.0,
+     "ema": 4.0,
+     "gated_ema": 1.0,
+     "hmm": 5.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\true_termination__worst.pdf",
+     "results\\phase3\\failures\\true_termination__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "true_termination__typical",
+    "seed": 2014,
+    "unit": "(1, 6, 2)",
+    "severity": 1.0,
+    "severity_by_method": {
+     "no_memory": 1.0,
+     "fixed_window": 5.0,
+     "ema": 4.0,
+     "gated_ema": 1.0,
+     "hmm": 5.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\true_termination__typical.pdf",
+     "results\\phase3\\failures\\true_termination__typical.png"
+    ]
+   }
+  ]
+ },
+ {
+  "category": "termination_under_occlusion",
+  "condition": "S1_termination_under_occlusion",
+  "gap": 5,
+  "severity_kind": "term_delay",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 144,
+  "n_units_positive": 144,
+  "gated_mean_severity": 27.48611111111111,
+  "mean_severity_by_method": {
+   "no_memory": 1.0,
+   "fixed_window": 5.0,
+   "ema": 4.798611111111111,
+   "gated_ema": 27.48611111111111,
+   "hmm": 5.0
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "termination_under_occlusion__worst",
+    "seed": 2015,
+    "unit": "(2, 6, 3)",
+    "severity": 41.0,
+    "severity_by_method": {
+     "no_memory": 1.0,
+     "fixed_window": 5.0,
+     "ema": 6.0,
+     "gated_ema": 41.0,
+     "hmm": 5.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\termination_under_occlusion__worst.pdf",
+     "results\\phase3\\failures\\termination_under_occlusion__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "termination_under_occlusion__typical",
+    "seed": 2014,
+    "unit": "(2, 5, 1)",
+    "severity": 27.0,
+    "severity_by_method": {
+     "no_memory": 1.0,
+     "fixed_window": 5.0,
+     "ema": 3.0,
+     "gated_ema": 27.0,
+     "hmm": 5.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\termination_under_occlusion__typical.pdf",
+     "results\\phase3\\failures\\termination_under_occlusion__typical.png"
+    ]
+   }
+  ]
+ },
+ {
+  "category": "ambiguous_visibility_unknown",
+  "condition": "S4_unknown_all",
+  "gap": 5,
+  "severity_kind": "term_delay",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 144,
+  "n_units_positive": 144,
+  "gated_mean_severity": 38.25,
+  "mean_severity_by_method": {
+   "no_memory": 1.0,
+   "fixed_window": 5.0,
+   "ema": 4.798611111111111,
+   "gated_ema": 38.25,
+   "hmm": 5.0
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "ambiguous_visibility_unknown__worst",
+    "seed": 2003,
+    "unit": "(1, 6, 1)",
+    "severity": 41.0,
+    "severity_by_method": {
+     "no_memory": 1.0,
+     "fixed_window": 5.0,
+     "ema": 6.0,
+     "gated_ema": 41.0,
+     "hmm": 5.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\ambiguous_visibility_unknown__worst.pdf",
+     "results\\phase3\\failures\\ambiguous_visibility_unknown__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "ambiguous_visibility_unknown__typical",
+    "seed": 2029,
+    "unit": "(2, 4, 3)",
+    "severity": 39.0,
+    "severity_by_method": {
+     "no_memory": 1.0,
+     "fixed_window": 5.0,
+     "ema": 5.0,
+     "gated_ema": 39.0,
+     "hmm": 5.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\ambiguous_visibility_unknown__typical.pdf",
+     "results\\phase3\\failures\\ambiguous_visibility_unknown__typical.png"
+    ]
+   }
+  ]
+ },
+ {
+  "category": "visibility_returns_after_long_absence",
+  "condition": "S5_long_absence",
+  "gap": 60,
+  "severity_kind": "gap_fn_plus_recovery",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 237,
+  "n_units_positive": 237,
+  "gated_mean_severity": 23.9789029535865,
+  "mean_severity_by_method": {
+   "no_memory": 60.0,
+   "fixed_window": 56.0,
+   "ema": 56.21518987341772,
+   "gated_ema": 23.9789029535865,
+   "hmm": 58.0
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "visibility_returns_after_long_absence__worst",
+    "seed": 2006,
+    "unit": "(2, 4, 5)",
+    "severity": 40.0,
+    "severity_by_method": {
+     "no_memory": 60.0,
+     "fixed_window": 56.0,
+     "ema": 57.0,
+     "gated_ema": 40.0,
+     "hmm": 58.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\visibility_returns_after_long_absence__worst.pdf",
+     "results\\phase3\\failures\\visibility_returns_after_long_absence__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "visibility_returns_after_long_absence__typical",
+    "seed": 2008,
+    "unit": "(2, 6, 3)",
+    "severity": 23.0,
+    "severity_by_method": {
+     "no_memory": 60.0,
+     "fixed_window": 56.0,
+     "ema": 57.0,
+     "gated_ema": 23.0,
+     "hmm": 58.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\visibility_returns_after_long_absence__typical.pdf",
+     "results\\phase3\\failures\\visibility_returns_after_long_absence__typical.png"
+    ]
+   }
+  ]
+ },
+ {
+  "category": "repeated_occlusion",
+  "condition": "S3_repeated_occlusion",
+  "gap": 10,
+  "severity_kind": "gap_fn",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 240,
+  "n_units_positive": 0,
+  "gated_mean_severity": 0.0,
+  "mean_severity_by_method": {
+   "no_memory": 27.8,
+   "fixed_window": 17.433333333333334,
+   "ema": 18.05,
+   "gated_ema": 0.0,
+   "hmm": 17.7125
+  },
+  "cases": []
+ },
+ {
+  "category": "id_switch",
+  "condition": "S2_id_switch_d20",
+  "gap": 0,
+  "severity_kind": "id_switch",
+  "budget": 5,
+  "tuning_source": "C0_oracle",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#0049",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 60,
+  "n_units_positive": 58,
+  "gated_mean_severity": 170.5,
+  "mean_severity_by_method": {
+   "no_memory": 110.08333333333333,
+   "fixed_window": 118.33333333333333,
+   "ema": 118.1,
+   "gated_ema": 170.5,
+   "hmm": 117.8
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "id_switch__worst",
+    "seed": 2024,
+    "unit": "swap0:[1, 2]",
+    "severity": 498.0,
+    "severity_by_method": {
+     "no_memory": 340.0,
+     "fixed_window": 368.0,
+     "ema": 368.0,
+     "gated_ema": 498.0,
+     "hmm": 368.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\id_switch__worst.pdf",
+     "results\\phase3\\failures\\id_switch__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "id_switch__typical",
+    "seed": 2020,
+    "unit": "swap0:[5, 6]",
+    "severity": 153.0,
+    "severity_by_method": {
+     "no_memory": 120.0,
+     "fixed_window": 124.0,
+     "ema": 125.0,
+     "gated_ema": 153.0,
+     "hmm": 122.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\id_switch__typical.pdf",
+     "results\\phase3\\failures\\id_switch__typical.png"
+    ]
+   }
+  ]
+ },
+ {
+  "category": "visibility_flag_noise",
+  "condition": "R1_visnoise_0.2",
+  "gap": 10,
+  "severity_kind": "gap_fn",
+  "budget": 5,
+  "tuning_source": "R1_visnoise_0.2",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#2262",
+   "hmm": "hmm#0608"
+  },
+  "n_units": 240,
+  "n_units_positive": 65,
+  "gated_mean_severity": 0.8791666666666667,
+  "mean_severity_by_method": {
+   "no_memory": 10.0,
+   "fixed_window": 6.0,
+   "ema": 6.204166666666667,
+   "gated_ema": 0.8791666666666667,
+   "hmm": 6.0
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "visibility_flag_noise__worst",
+    "seed": 2003,
+    "unit": "(2, 4, 5)",
+    "severity": 7.0,
+    "severity_by_method": {
+     "no_memory": 10.0,
+     "fixed_window": 6.0,
+     "ema": 5.0,
+     "gated_ema": 7.0,
+     "hmm": 6.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\visibility_flag_noise__worst.pdf",
+     "results\\phase3\\failures\\visibility_flag_noise__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "visibility_flag_noise__typical",
+    "seed": 2005,
+    "unit": "(2, 5, 5)",
+    "severity": 3.0,
+    "severity_by_method": {
+     "no_memory": 10.0,
+     "fixed_window": 6.0,
+     "ema": 7.0,
+     "gated_ema": 3.0,
+     "hmm": 6.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\visibility_flag_noise__typical.pdf",
+     "results\\phase3\\failures\\visibility_flag_noise__typical.png"
+    ]
+   }
+  ]
+ },
+ {
+  "category": "base_model_flicker",
+  "condition": "R2_flicker_0.1",
+  "gap": 10,
+  "severity_kind": "flips",
+  "budget": 5,
+  "tuning_source": "R2_flicker_0.1",
+  "operating_points": {
+   "no_memory": "no_memory#0000",
+   "fixed_window": "fixed_window#0004",
+   "ema": "ema#0367",
+   "gated_ema": "gated_ema#4256",
+   "hmm": "hmm#0361"
+  },
+  "n_units": 240,
+  "n_units_positive": 22,
+  "gated_mean_severity": 0.1,
+  "mean_severity_by_method": {
+   "no_memory": 31.741666666666667,
+   "fixed_window": 2.0833333333333335,
+   "ema": 2.1083333333333334,
+   "gated_ema": 0.1,
+   "hmm": 2.1
+  },
+  "cases": [
+   {
+    "tag": "worst",
+    "case_id": "base_model_flicker__worst",
+    "seed": 2001,
+    "unit": "(1, 3, 5)",
+    "severity": 2.0,
+    "severity_by_method": {
+     "no_memory": 44.0,
+     "fixed_window": 2.0,
+     "ema": 2.0,
+     "gated_ema": 2.0,
+     "hmm": 2.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\base_model_flicker__worst.pdf",
+     "results\\phase3\\failures\\base_model_flicker__worst.png"
+    ]
+   },
+   {
+    "tag": "typical",
+    "case_id": "base_model_flicker__typical",
+    "seed": 2010,
+    "unit": "(2, 3, 4)",
+    "severity": 1.0,
+    "severity_by_method": {
+     "no_memory": 21.0,
+     "fixed_window": 3.0,
+     "ema": 3.0,
+     "gated_ema": 1.0,
+     "hmm": 3.0
+    },
+    "figures": [
+     "results\\phase3\\failures\\base_model_flicker__typical.pdf",
+     "results\\phase3\\failures\\base_model_flicker__typical.png"
+    ]
+   }
+  ]
+ }
+]

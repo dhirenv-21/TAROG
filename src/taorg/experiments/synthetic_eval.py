@@ -56,7 +56,9 @@ def run_synthetic_eval(
         gt_frames: Ground-truth (uncorrupted) frame sequence.
         seed: Random seed for corruption.
         gap_lengths: Occlusion gap lengths. Defaults to [3].
-        method_names: Methods to evaluate. Defaults to all in METHODS.
+        method_names: Methods to evaluate. Defaults to the five Phase 1 baselines
+            (Phase 4 methods need explicit parameters and are evaluated by
+            taorg.experiments.phase4).
         output_base: Output directory for run artifacts. If None, no artifacts saved.
         score_threshold: Score threshold for method construction.
 
@@ -66,7 +68,7 @@ def run_synthetic_eval(
     if gap_lengths is None:
         gap_lengths = [3]
     if method_names is None:
-        method_names = list(METHODS.keys())
+        method_names = ["no_memory", "fixed_window", "ema", "gated_ema", "hmm"]
 
     video_id = gt_frames[0].video_id if gt_frames else "unknown"
 

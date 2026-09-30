@@ -1,0 +1,1 @@
+classification overall=B per_condition={'C0_oracle': 'A', 'R1_visnoise_0.2': 'B', 'R2_flicker_0.1': 'B'}

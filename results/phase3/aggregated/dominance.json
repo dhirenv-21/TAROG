@@ -1,0 +1,667 @@
+{
+  "definition_module": "taorg.experiments.phase3.dominance",
+  "cost_ref": 40.0,
+  "bootstrap_resamples": 2000,
+  "treatment": "gated_ema",
+  "comparators": [
+    "ema",
+    "fixed_window",
+    "hmm"
+  ],
+  "classification_overall": "B",
+  "classification_per_condition": {
+    "C0_oracle": "A",
+    "R1_visnoise_0.2": "B",
+    "R2_flicker_0.1": "B"
+  },
+  "rows": [
+    {
+      "condition": "C0_oracle",
+      "gap": 1,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 1,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 1,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 1,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 2,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 2,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 2,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 2,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 3,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 3,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 3,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 3,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 5,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 5,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 5,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 5,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 10,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 10,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 10,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 10,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 20,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 20,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 20,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "C0_oracle",
+      "gap": 20,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 1,
+      "comparator": "ema",
+      "dominates": false,
+      "p_dom": 0.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 1,
+      "comparator": "fixed_window",
+      "dominates": false,
+      "p_dom": 0.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 1,
+      "comparator": "hmm",
+      "dominates": false,
+      "p_dom": 0.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 1,
+      "comparator": "no_memory",
+      "dominates": false,
+      "p_dom": 0.317,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 2,
+      "comparator": "ema",
+      "dominates": false,
+      "p_dom": 0.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 2,
+      "comparator": "fixed_window",
+      "dominates": false,
+      "p_dom": 0.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 2,
+      "comparator": "hmm",
+      "dominates": false,
+      "p_dom": 0.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 2,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 0.8795,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 3,
+      "comparator": "ema",
+      "dominates": false,
+      "p_dom": 0.341,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 3,
+      "comparator": "fixed_window",
+      "dominates": false,
+      "p_dom": 0.1255,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 3,
+      "comparator": "hmm",
+      "dominates": false,
+      "p_dom": 0.124,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 3,
+      "comparator": "no_memory",
+      "dominates": false,
+      "p_dom": 0.0025,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 5,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 5,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 5,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 5,
+      "comparator": "no_memory",
+      "dominates": false,
+      "p_dom": 0.375,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 10,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 10,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 10,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 10,
+      "comparator": "no_memory",
+      "dominates": false,
+      "p_dom": 0.1125,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 20,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 20,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 20,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R1_visnoise_0.2",
+      "gap": 20,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 0.6755,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 1,
+      "comparator": "ema",
+      "dominates": false,
+      "p_dom": 0.368,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 1,
+      "comparator": "fixed_window",
+      "dominates": false,
+      "p_dom": 0.368,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 1,
+      "comparator": "hmm",
+      "dominates": false,
+      "p_dom": 0.368,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 1,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 2,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 2,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 2,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 2,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 3,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 3,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 3,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 3,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 5,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 5,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 5,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 5,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 10,
+      "comparator": "ema",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 10,
+      "comparator": "fixed_window",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 10,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 10,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 20,
+      "comparator": "ema",
+      "dominates": false,
+      "p_dom": 0.37,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 20,
+      "comparator": "fixed_window",
+      "dominates": false,
+      "p_dom": 0.37,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 20,
+      "comparator": "hmm",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    },
+    {
+      "condition": "R2_flicker_0.1",
+      "gap": 20,
+      "comparator": "no_memory",
+      "dominates": true,
+      "p_dom": 1.0,
+      "dominated_by": false,
+      "p_dominated_by": 0.0
+    }
+  ]
+}

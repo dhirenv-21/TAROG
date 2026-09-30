@@ -1,0 +1,23 @@
+{
+ "tag": "worst",
+ "seed": 4014,
+ "regret": 0.18097776769509988,
+ "metrics": {
+  "vhped_m6": {
+   "persistence_f1": 0.8157894736842105,
+   "term_delay_mean": 4.5,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "vhped_m5": {
+   "persistence_f1": 0.9655172413793104,
+   "term_delay_mean": 3.25,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\T2_succession_visnoise__worst.pdf",
+  "results\\phase4\\failures\\T2_succession_visnoise__worst.png"
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "tag": "typical",
+ "seed": 4000,
+ "regret": 0.016666666666666653,
+ "metrics": {
+  "vhped_m5": {
+   "persistence_f1": 0.8652482269503545,
+   "term_delay_mean": 9.666666666666666,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "gated_ema": {
+   "persistence_f1": 0.8652482269503545,
+   "term_delay_mean": 9.0,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  },
+  "va_hmm": {
+   "persistence_f1": 0.8652482269503545,
+   "term_delay_mean": 9.666666666666666,
+   "diag_ghost_edge_frames": 0.0,
+   "diag_swap_recall": NaN
+  }
+ },
+ "figures": [
+  "results\\phase4\\failures\\F4_bursty_visibility__typical.pdf",
+  "results\\phase4\\failures\\F4_bursty_visibility__typical.png"
+ ]
+}

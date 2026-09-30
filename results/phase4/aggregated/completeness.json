@@ -1,0 +1,516 @@
+{
+ "groups": {
+  "baseline": {
+   "complete": true,
+   "totals": {
+    "expected": 351990,
+    "actual": 351990,
+    "missing": 0,
+    "unexpected": 0,
+    "duplicates": 0,
+    "failed": 0
+   },
+   "per_condition": {
+    "F1_term_occlusion": {
+     "n_configs": 237,
+     "expected": 21330,
+     "actual": 21330,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F2_unknown": {
+     "n_configs": 317,
+     "expected": 28530,
+     "actual": 28530,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F3_visnoise": {
+     "n_configs": 270,
+     "expected": 24300,
+     "actual": 24300,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F4_bursty_visibility": {
+     "n_configs": 298,
+     "expected": 26820,
+     "actual": 26820,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F5_id_switch": {
+     "n_configs": 353,
+     "expected": 31770,
+     "actual": 31770,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F7_mix_occlusion_visnoise": {
+     "n_configs": 314,
+     "expected": 28260,
+     "actual": 28260,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F8_mix_occlusion_idswitch": {
+     "n_configs": 404,
+     "expected": 36360,
+     "actual": 36360,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "N0_clean": {
+     "n_configs": 170,
+     "expected": 15300,
+     "actual": 15300,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "N1_visnoise_0.2": {
+     "n_configs": 250,
+     "expected": 22500,
+     "actual": 22500,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "N2_flicker_0.1": {
+     "n_configs": 224,
+     "expected": 20160,
+     "actual": 20160,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "T1_succession_unknown": {
+     "n_configs": 306,
+     "expected": 27540,
+     "actual": 27540,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "T2_succession_visnoise": {
+     "n_configs": 260,
+     "expected": 23400,
+     "actual": 23400,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "T3_succession_clean": {
+     "n_configs": 166,
+     "expected": 14940,
+     "actual": 14940,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SC_low_noise": {
+     "n_configs": 254,
+     "expected": 22860,
+     "actual": 22860,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH1_visnoise_0.3": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH2_visnoise_0.5": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH3_flicker_0.2": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH4_flicker_0.3": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH5_unknown_0.5": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH6_bursty": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH7_fps15": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH8_fps60": {
+     "n_configs": 11,
+     "expected": 990,
+     "actual": 990,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    }
+   },
+   "calibration_seed_leak": [],
+   "seeds_seen": [
+    4000,
+    4001,
+    4002,
+    4003,
+    4004,
+    4005,
+    4006,
+    4007,
+    4008,
+    4009,
+    4010,
+    4011,
+    4012,
+    4013,
+    4014,
+    4015,
+    4016,
+    4017,
+    4018,
+    4019,
+    4020,
+    4021,
+    4022,
+    4023,
+    4024,
+    4025,
+    4026,
+    4027,
+    4028,
+    4029
+   ],
+   "run_id": "phase3_evaluate_baseline_20260929_070307_0e7494",
+   "git_commit": "07b01c2",
+   "git_dirty": false,
+   "manifests": {
+    "expected": 1980,
+    "actual": 1980
+   },
+   "latency_rows": {
+    "expected": 540,
+    "actual": 540
+   }
+  },
+  "proposed": {
+   "complete": true,
+   "totals": {
+    "expected": 126630,
+    "actual": 126630,
+    "missing": 0,
+    "unexpected": 0,
+    "duplicates": 0,
+    "failed": 0
+   },
+   "per_condition": {
+    "F1_term_occlusion": {
+     "n_configs": 79,
+     "expected": 7110,
+     "actual": 7110,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F2_unknown": {
+     "n_configs": 117,
+     "expected": 10530,
+     "actual": 10530,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F3_visnoise": {
+     "n_configs": 94,
+     "expected": 8460,
+     "actual": 8460,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F4_bursty_visibility": {
+     "n_configs": 164,
+     "expected": 14760,
+     "actual": 14760,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F5_id_switch": {
+     "n_configs": 120,
+     "expected": 10800,
+     "actual": 10800,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F7_mix_occlusion_visnoise": {
+     "n_configs": 146,
+     "expected": 13140,
+     "actual": 13140,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "F8_mix_occlusion_idswitch": {
+     "n_configs": 210,
+     "expected": 18900,
+     "actual": 18900,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "N0_clean": {
+     "n_configs": 6,
+     "expected": 540,
+     "actual": 540,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "N1_visnoise_0.2": {
+     "n_configs": 79,
+     "expected": 7110,
+     "actual": 7110,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "N2_flicker_0.1": {
+     "n_configs": 34,
+     "expected": 3060,
+     "actual": 3060,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "T1_succession_unknown": {
+     "n_configs": 112,
+     "expected": 10080,
+     "actual": 10080,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "T2_succession_visnoise": {
+     "n_configs": 119,
+     "expected": 10710,
+     "actual": 10710,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "T3_succession_clean": {
+     "n_configs": 12,
+     "expected": 1080,
+     "actual": 1080,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SC_low_noise": {
+     "n_configs": 59,
+     "expected": 5310,
+     "actual": 5310,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH1_visnoise_0.3": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH2_visnoise_0.5": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH3_flicker_0.2": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH4_flicker_0.3": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH5_unknown_0.5": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH6_bursty": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH7_fps15": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    },
+    "SH8_fps60": {
+     "n_configs": 7,
+     "expected": 630,
+     "actual": 630,
+     "missing": 0,
+     "unexpected": 0,
+     "duplicates": 0,
+     "failed": 0
+    }
+   },
+   "calibration_seed_leak": [],
+   "seeds_seen": [
+    4000,
+    4001,
+    4002,
+    4003,
+    4004,
+    4005,
+    4006,
+    4007,
+    4008,
+    4009,
+    4010,
+    4011,
+    4012,
+    4013,
+    4014,
+    4015,
+    4016,
+    4017,
+    4018,
+    4019,
+    4020,
+    4021,
+    4022,
+    4023,
+    4024,
+    4025,
+    4026,
+    4027,
+    4028,
+    4029
+   ],
+   "run_id": "phase3_evaluate_proposed_20260929_073456_78e309",
+   "git_commit": "490b28c",
+   "git_dirty": false,
+   "manifests": {
+    "expected": 1980,
+    "actual": 1980
+   },
+   "latency_rows": {
+    "expected": 360,
+    "actual": 360
+   }
+  }
+ },
+ "manifests_identical_across_groups": true,
+ "all_complete": true
+}

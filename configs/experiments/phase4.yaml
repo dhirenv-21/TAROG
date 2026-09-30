@@ -1,0 +1,375 @@
+# Phase 4 — method-selection experiment (pre-registered; see research/phase4_preregistration.md)
+#
+# Frozen together with the pre-registration commit.  Any later change is an amendment.
+# Seeds are disjoint from every Phase 3 split (1000-1019, 2000-2029, 9000-9001).
+
+phase: 4
+
+world:                        # identical to Phase 3 (configs/experiments/phase3_pilot.yaml)
+  num_frames: 300
+  fps: 30.0
+  num_subject_tracks: 2
+  num_object_tracks: 4
+  num_predicates: 6
+  num_edges: 8
+  start_frame_max: 60
+  terminating_prob: 0.6
+  min_alive_frames: 60
+  max_alive_frames: 180
+  min_post_termination_frames: 40
+  score_mean_range: [0.6, 0.95]
+  score_noise_std: 0.05
+  score_min: 0.05
+  termination_occlusion_prob: 0.0
+  termination_occlusion_frames: [15, 40]
+
+seeds:
+  calibration: [3000, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009,
+                3010, 3011, 3012, 3013, 3014, 3015, 3016, 3017, 3018, 3019]
+  evaluation: [4000, 4001, 4002, 4003, 4004, 4005, 4006, 4007, 4008, 4009,
+               4010, 4011, 4012, 4013, 4014, 4015, 4016, 4017, 4018, 4019,
+               4020, 4021, 4022, 4023, 4024, 4025, 4026, 4027, 4028, 4029]
+  smoke: [9100, 9101]         # pipeline checks only; never analysed
+  bootstrap: 4242
+  sampler: 777                # random-search configuration sampling
+
+occlusion:
+  num_gaps_per_edge: 1
+  max_edges: null
+  min_pre_gap_frames: 2
+  min_post_gap_frames: 2
+
+gap_lengths: [3, 10, 20]      # frames at 30 fps (0.1, 0.33, 0.67 s)
+
+# Applied to EVERY condition (scene/observation property; only M5 reads boxes).
+# Relative std of the per-frame bounding-box centre jitter, in box diagonals.
+bbox_jitter_std: 0.15
+
+# Predicate succession (H3 world only): predicate r is followed on the same pair by partner(r).
+predicate_partners: {0: 1, 1: 0, 2: 3, 3: 2, 4: 5, 5: 4}
+
+budgets_frames: [5, 10]
+primary_budget_frames: 5
+
+# --------------------------------------------------------------------------
+# Conditions.  role: h2_failure | h2_noninferiority | h3_benefit | h3_noninferiority
+#                    | h4_source | h4_shift
+# calibrate: true -> condition-matched tuning; tuned_on: <name> -> reuse parameters.
+# --------------------------------------------------------------------------
+conditions:
+  # ---- H2 failure conditions (derived from Phase 3 failures A-E) ----
+  F1_term_occlusion:
+    role: h2_failure
+    description: "Every terminating edge's object is OCCLUDED 15-40 frames right after termination (Phase 3 failure A)."
+    calibrate: true
+    world_overrides: {termination_occlusion_prob: 1.0}
+  F2_unknown:
+    role: h2_failure
+    description: "All absence records report UNKNOWN visibility (Phase 3 failure B)."
+    calibrate: true
+    visibility_noise: {to_unknown_prob: 1.0}
+  F3_visnoise:
+    role: h2_failure
+    description: "i.i.d. visibility-flag noise, 30% of absence records flipped OCC<->VIS (Phase 3 failure E)."
+    calibrate: true
+    visibility_noise: {occluded_to_visible_prob: 0.3, visible_to_occluded_prob: 0.3}
+  F4_bursty_visibility:
+    role: h2_failure
+    description: "Temporally correlated (bursty) visibility-flag errors: stationary error 0.2, mean burst 10 frames."
+    calibrate: true
+    bursty_visibility: {error_rate: 0.2, mean_burst_frames: 10}
+  F5_id_switch:
+    role: h2_failure
+    description: "Two same-class ID swaps of 20 frames (Phase 3 failure C); identity cue = jittered boxes."
+    calibrate: true
+    id_switch: {swap_duration: 20, num_swaps: 2, require_same_class: true, min_pre_swap_frames: 2, min_post_swap_frames: 2}
+  F7_mix_occlusion_visnoise:
+    role: h2_failure
+    description: "Mixed: half of terminations occluded + 20% flag noise + 20% UNKNOWN."
+    calibrate: true
+    world_overrides: {termination_occlusion_prob: 0.5}
+    visibility_noise: {occluded_to_visible_prob: 0.2, visible_to_occluded_prob: 0.2, to_unknown_prob: 0.2}
+  F8_mix_occlusion_idswitch:
+    role: h2_failure
+    description: "Mixed: half of terminations occluded + two 20-frame ID swaps."
+    calibrate: true
+    world_overrides: {termination_occlusion_prob: 0.5}
+    id_switch: {swap_duration: 20, num_swaps: 2, require_same_class: true, min_pre_swap_frames: 2, min_post_swap_frames: 2}
+
+  # ---- H2 non-inferiority (Phase 3 H1 conditions, new seeds) ----
+  N0_clean:
+    role: h2_noninferiority
+    description: "Occlusion gaps only, oracle visibility (Phase 3 C0)."
+    calibrate: true
+  N1_visnoise_0.2:
+    role: h2_noninferiority
+    description: "Phase 3 R1: 20% i.i.d. flag noise."
+    calibrate: true
+    visibility_noise: {occluded_to_visible_prob: 0.2, visible_to_occluded_prob: 0.2}
+  N2_flicker_0.1:
+    role: h2_noninferiority
+    description: "Phase 3 R2: 10% base-model flicker."
+    calibrate: true
+    flicker_miss_prob: 0.1
+
+  # ---- H3 (predicate-succession world) ----
+  T1_succession_unknown:
+    role: h3_benefit
+    description: "80% of terminations followed by the partner predicate on the same pair; all absence records UNKNOWN."
+    calibrate: true
+    successor_prob: 0.8
+    visibility_noise: {to_unknown_prob: 1.0}
+  T2_succession_visnoise:
+    role: h3_benefit
+    description: "Succession world + 30% i.i.d. flag noise."
+    calibrate: true
+    successor_prob: 0.8
+    visibility_noise: {occluded_to_visible_prob: 0.3, visible_to_occluded_prob: 0.3}
+  T3_succession_clean:
+    role: h3_noninferiority
+    description: "Succession world, oracle visibility."
+    calibrate: true
+    successor_prob: 0.8
+
+  # ---- H4 (distribution shift: tune once on SC, never retune) ----
+  SC_low_noise:
+    role: h4_source
+    description: "Calibration source for H4: 10% flag noise + 5% flicker, 30 fps."
+    calibrate: true
+    visibility_noise: {occluded_to_visible_prob: 0.1, visible_to_occluded_prob: 0.1}
+    flicker_miss_prob: 0.05
+  SH1_visnoise_0.3:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    visibility_noise: {occluded_to_visible_prob: 0.3, visible_to_occluded_prob: 0.3}
+    flicker_miss_prob: 0.05
+  SH2_visnoise_0.5:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    visibility_noise: {occluded_to_visible_prob: 0.5, visible_to_occluded_prob: 0.5}
+    flicker_miss_prob: 0.05
+  SH3_flicker_0.2:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    visibility_noise: {occluded_to_visible_prob: 0.1, visible_to_occluded_prob: 0.1}
+    flicker_miss_prob: 0.2
+  SH4_flicker_0.3:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    visibility_noise: {occluded_to_visible_prob: 0.1, visible_to_occluded_prob: 0.1}
+    flicker_miss_prob: 0.3
+  SH5_unknown_0.5:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    visibility_noise: {occluded_to_visible_prob: 0.1, visible_to_occluded_prob: 0.1, to_unknown_prob: 0.5}
+    flicker_miss_prob: 0.05
+  SH6_bursty:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    bursty_visibility: {error_rate: 0.2, mean_burst_frames: 10}
+    flicker_miss_prob: 0.05
+  SH7_fps15:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    description: "Same physical-time world at 15 fps (all frame-denominated lengths halved)."
+    fps_scale: 0.5
+    gaps: [2, 5, 10]
+    world_overrides: {fps: 15.0, num_frames: 150, start_frame_max: 30, min_alive_frames: 30,
+                      max_alive_frames: 90, min_post_termination_frames: 20,
+                      termination_occlusion_frames: [8, 20]}
+    visibility_noise: {occluded_to_visible_prob: 0.1, visible_to_occluded_prob: 0.1}
+    flicker_miss_prob: 0.05
+  SH8_fps60:
+    role: h4_shift
+    tuned_on: SC_low_noise
+    description: "Same physical-time world at 60 fps (all frame-denominated lengths doubled)."
+    fps_scale: 2.0
+    gaps: [6, 20, 40]
+    world_overrides: {fps: 60.0, num_frames: 600, start_frame_max: 120, min_alive_frames: 120,
+                      max_alive_frames: 360, min_post_termination_frames: 80,
+                      termination_occlusion_frames: [30, 80]}
+    visibility_noise: {occluded_to_visible_prob: 0.1, visible_to_occluded_prob: 0.1}
+    flicker_miss_prob: 0.05
+
+# --------------------------------------------------------------------------
+# Methods and tuning.  Equal random-search budget for every tunable method.
+# Distributions: uniform [lo, hi]; loguniform [lo, hi]; one_minus_loguniform [lo, hi]
+# (value = 1 - x, x loguniform); int_range [lo, hi] (enumerated).
+# --------------------------------------------------------------------------
+search:
+  n_samples: 200
+  enumerated:
+    no_memory: {score_threshold: [0.0]}
+    fixed_window:
+      window_size: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+      score_threshold: [0.0]
+  spaces:
+    ema:
+      alpha: [uniform, 0.1, 1.0]
+      decay: [uniform, 0.0, 0.99]
+      score_threshold: [loguniform, 0.01, 0.6]
+    hmm:
+      stay_alive_prob: [one_minus_loguniform, 0.0001, 0.1]
+      resurrect_prob: [loguniform, 0.0001, 0.1]
+      emit_obs_alive: [uniform, 0.5, 0.999]
+      emit_obs_dead: [loguniform, 0.0001, 0.2]
+      prior_alive: [uniform, 0.05, 0.95]
+      score_threshold: [uniform, 0.05, 0.95]
+    gated_ema:                                   # M0
+      alpha: [uniform, 0.1, 1.0]
+      decay_visible: [uniform, 0.0, 0.95]
+      decay_occluded: [one_minus_loguniform, 0.001, 0.3]
+      decay_unknown: [uniform, 0.0, 0.999]
+      score_threshold: [loguniform, 0.01, 0.6]
+    va_hmm:                                      # M1
+      p_stay: [one_minus_loguniform, 0.0001, 0.1]
+      p_birth: [loguniform, 0.0001, 0.1]
+      prior: [uniform, 0.05, 0.95]
+      theta_vis: [loguniform, 0.001, 0.5]
+      theta_occ: [uniform, 0.5, 1.0]
+      theta_unk: [uniform, 0.1, 1.0]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+    vhped_m2:
+      mu: [loguniform, 0.01, 10.0]               # termination rate, 1/s
+      nu: [loguniform, 0.001, 1.0]               # birth rate, 1/s
+      gamma_o: [loguniform, 0.01, 10.0]          # visible -> occluded, 1/s
+      gamma_v: [loguniform, 0.1, 30.0]           # occluded -> visible, 1/s
+      miss: [loguniform, 0.001, 0.5]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+    vhped_m3:
+      mu: [loguniform, 0.01, 10.0]
+      nu: [loguniform, 0.001, 1.0]
+      gamma_o: [loguniform, 0.01, 10.0]
+      gamma_v: [loguniform, 0.1, 30.0]
+      miss: [loguniform, 0.001, 0.5]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+      r_ov: [loguniform, 0.001, 0.5]
+      r_vo: [loguniform, 0.001, 0.5]
+    vhped_m4:
+      mu: [loguniform, 0.01, 10.0]
+      nu: [loguniform, 0.001, 1.0]
+      gamma_o: [loguniform, 0.01, 10.0]
+      gamma_v: [loguniform, 0.1, 30.0]
+      miss: [loguniform, 0.001, 0.5]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+      r_ov: [loguniform, 0.001, 0.5]
+      r_vo: [loguniform, 0.001, 0.5]
+      eta: [uniform, 0.0, 0.9]
+    vhped_m5:
+      mu: [loguniform, 0.01, 10.0]
+      nu: [loguniform, 0.001, 1.0]
+      gamma_o: [loguniform, 0.01, 10.0]
+      gamma_v: [loguniform, 0.1, 30.0]
+      miss: [loguniform, 0.001, 0.5]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+      r_ov: [loguniform, 0.001, 0.5]
+      r_vo: [loguniform, 0.001, 0.5]
+      eta: [uniform, 0.0, 0.9]
+      sigma_id: [loguniform, 0.02, 1.0]
+      r_id: [loguniform, 0.3, 30.0]
+    vhped_m6:
+      mu: [loguniform, 0.01, 10.0]
+      nu: [loguniform, 0.001, 1.0]
+      gamma_o: [loguniform, 0.01, 10.0]
+      gamma_v: [loguniform, 0.1, 30.0]
+      miss: [loguniform, 0.001, 0.5]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+      r_ov: [loguniform, 0.001, 0.5]
+      r_vo: [loguniform, 0.001, 0.5]
+      eta: [uniform, 0.0, 0.9]
+      sigma_id: [loguniform, 0.02, 1.0]
+      r_id: [loguniform, 0.3, 30.0]
+      w_x: [uniform, 0.0, 1.0]
+  # V-HPED constraint: threshold > nu/(mu+nu) + 0.01 (otherwise an unobserved edge never
+  # expires; formulation §3).  Violating samples are redrawn (deterministic sampler stream).
+  vhped_threshold_margin: 0.01
+
+method_groups:
+  baseline: [no_memory, fixed_window, ema, hmm, gated_ema, va_hmm]
+  proposed: [vhped_m2, vhped_m3, vhped_m4, vhped_m5, vhped_m6]
+# vhped_m6 needs the exclusivity statistic; it is run only where H3 is decided.
+m6_conditions: [T1_succession_unknown, T2_succession_visnoise, T3_succession_clean, F2_unknown]
+
+method_labels:
+  no_memory: "No Memory"
+  fixed_window: "Fixed Window"
+  ema: "EMA"
+  hmm: "HMM"
+  gated_ema: "GatedEMA (M0)"
+  va_hmm: "VA-HMM (M1)"
+  vhped_m2: "M2 CT-dynamics"
+  vhped_m3: "M3 +uncertain vis"
+  vhped_m4: "M4 +onset hazard"
+  vhped_m5: "M5 +identity"
+  vhped_m6: "M6 +cross-predicate"
+
+# --------------------------------------------------------------------------
+# Statistics and decision rules (exact logic: taorg.experiments.phase4.decision)
+# --------------------------------------------------------------------------
+statistics:
+  ci_level: 0.95
+  bootstrap_resamples: 5000
+  hv_bootstrap_resamples: 2000
+  hv_delay_min: 1.0
+  hv_delay_ref: 40.0
+  hv_ghost_min: 0.0
+  hv_ghost_ref: 300.0
+  dz_min_sd: 1.0e-9           # d_z reported as undefined when SD of paired differences < this
+
+frontiers:                    # quality (up) vs cost (down)
+  default: {quality: persistence_f1, cost: term_delay_mean, cost_min: 1.0, cost_ref: 40.0}
+  identity: {quality: diag_swap_recall, cost: diag_ghost_edge_frames, cost_min: 0.0, cost_ref: 300.0}
+identity_conditions: [F5_id_switch, F8_mix_occlusion_idswitch]
+
+criteria:
+  min_hv_gain: 0.02
+  churn_margin_abs: 0.005
+  churn_margin_rel: 0.10
+  h2:
+    treatment: vhped_m5
+    comparators: [gated_ema, va_hmm]
+    identity_default_frontier_ni: -0.02     # ID conditions: default-frontier dHV CI lower > this
+    pass_min_wins: 11                       # of 21 failure cells
+    pass_min_conditions_with_win: 4         # of 7 failure conditions
+    pass_max_failure_losses: 2
+    pass_max_ni_losses: 0                   # of 9 non-inferiority cells
+    fail_max_wins: 4                        # FAIL if wins <= 4
+    fail_max_conditions_with_win: 1         # FAIL if wins span <= 1 condition
+    tuning_control_fraction: 0.5            # secondary: re-select M5 from a random half of its samples
+  h3:
+    treatment: vhped_m6
+    comparator: vhped_m5
+    benefit_conditions: [T1_succession_unknown, T2_succession_visnoise]
+    noninferiority_conditions: [T3_succession_clean, F2_unknown]
+    pass_min_wins: 4                        # of 6
+    pass_max_ni_losses: 0                   # of 6
+    fail_max_wins: 1
+    fail_min_ni_losses: 2
+  h4:
+    treatment: vhped_m5
+    comparators: [gated_ema, va_hmm]
+    budget_frames: 5
+    alpha: 0.05                             # Holm over 24 cells x 2 comparators = 48 F1 tests
+    min_f1_gain: 0.05
+    f1_noninferiority: -0.02
+    delay_margin_s: 0.0333333333            # 1 frame at 30 fps
+    term_win_delay_s: 0.0666666667          # 2 frames at 30 fps
+    fpr_margin: 0.02
+    churn_win_rel: 0.5
+    pass_min_wins: 12                       # of 24
+    pass_max_losses: 2
+    fail_max_wins: 4
+  ablation:                                 # mechanism retention (vhped_ablation_plan.md)
+    min_hv_gain: 0.02
+    min_target_cell_fraction: 0.3333333333
+    targets:
+      vhped_m3: [F3_visnoise, F4_bursty_visibility, F7_mix_occlusion_visnoise, N1_visnoise_0.2]
+      vhped_m4: [F1_term_occlusion, F7_mix_occlusion_visnoise, F8_mix_occlusion_idswitch]
+      vhped_m5: [F5_id_switch, F8_mix_occlusion_idswitch]
