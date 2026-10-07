@@ -148,3 +148,10 @@ def test_leakage_guard_and_split_disjointness():
     assert len(sets["SELECT"]) == len(sets["EVAL_A"]) == 700 and len(sets["TRAIN"]) == 5600
     assert sets["SMOKE_FIT"] <= sets["TRAIN"] and sets["SMOKE_CHECK"] <= sets["TRAIN"]
     assert not sets["SMOKE_FIT"] & sets["SMOKE_CHECK"]
+
+
+def test_simulator_is_deterministic_and_labelled():
+    from taorg.hawkes.simulate import simulate
+    a, b = simulate(0.6, 5, n_videos=3), simulate(0.6, 5, n_videos=3)
+    assert [v.pairs[(0, 10)].rels for v in a] == [v.pairs[(0, 10)].rels for v in b]
+    assert all(v.vid.startswith("synthetic_") for v in a)

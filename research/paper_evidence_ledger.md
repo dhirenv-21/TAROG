@@ -48,6 +48,8 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L32 | No prior work applies a genuine Hawkes intensity to visual relationship events in video | — | Systematic literature sweep | Phase 5H lit. check | None found in a non-exhaustive web search (closest: TKG Hawkes GHNN/GHT/Know-Evolve; APP-VAE; SceneSayer/FDSG use Neural ODE/SDE) | PARTIAL (not exhaustive; never phrase as "first") | §3 |
 | L33 | Action Genome supports point-process modelling of relationship transitions | — | Annotation density | Phase 5H lit. check | ≈ 35 annotated frames per video (5 per action): onset/offset interval-censored by design | NOT SUPPORTED | — |
 | L34 | Hawkes cross-excitation estimated on relationship ground truth is partly pair-level heterogeneity | — | Circular-shift null | Phase 5H Stage 0 | ≈ 54% of the HK2 − HK1 gain (0.040 of 0.074 nats/event) reproduced with cross-relation timing destroyed; null yields as many 'stable' cross cells (404–422) as real data (404) | SUPPORTED (VidOR GT) | — |
+| L35 | Cross-event history improves prediction after controlling heterogeneity, duration and current state (point-process GLM, RQ-H1 of Phase 5H-1) | RQ-H1 | Registered G-ladder comparison + 2 nulls + stability | Phase 5H-1 (pre-registered `07bf369`, not yet run) | Engine built and tested; smoke only | UNTESTED (and EXPLORATORY when run: no untouched VidOR data) | — |
+| L36 | Stage-0-generated transitions get_off→ride and beneath→above are well supported in the data | — | TRAIN support audit | Phase 5H-1 audit | Only 15 and 11 target events within 10 s of a source onset in TRAIN (`results/phase5h1/audit/audit.json`); their large Stage 0 weights are likely noise-driven | NOT SUPPORTED | — |
 
 ## Change log
 
@@ -65,3 +67,4 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 - 2026-09-30 (Phase 5H literature/design, no experiments): added L29–L33. Hawkes track = MODIFY
   (`research/phase5h_hawkes_design.md`).
 - 2026-09-30 (Phase 5H Stage 0): L29 UNTESTED→PARTIAL; added L34.
+- 2026-10-07 (Phase 5H-1 milestone): added L35 (UNTESTED), L36 (NOT SUPPORTED).
