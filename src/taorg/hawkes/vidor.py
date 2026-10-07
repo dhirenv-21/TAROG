@@ -32,6 +32,7 @@ class VideoRecord:
     fps: float
     T: int                                  # frame_count
     pairs: dict[tuple[int, int], PairRecord]
+    cats: dict[int, str] = field(default_factory=dict)   # track id -> object category (Phase 5H-1)
 
 
 def load_videos(root: str, split_dir: str, vocab: list[str] | None = None
@@ -95,7 +96,8 @@ def load_videos(root: str, split_dir: str, vocab: list[str] | None = None
                 pairs[(u, v)] = PairRecord((min(b for b, _ in ivs), max(e for _, e in ivs)),
                                            {k: sorted(x) for k, x in pr.items()})
         stats["pairs"] += len(pairs)
-        out.append(VideoRecord(str(d["video_id"]), float(d["fps"]), T, pairs))
+        cats = {int(o["tid"]): str(o["category"]) for o in d.get("subject/objects", [])}
+        out.append(VideoRecord(str(d["video_id"]), float(d["fps"]), T, pairs, cats))
     out.sort(key=lambda v: v.vid)
     return out, vocab, stats
 
@@ -138,7 +140,7 @@ def circular_shift(videos: Iterable[VideoRecord], seed: int) -> list[VideoRecord
                 for b, e in ivs:
                     w0, w1 = min(w0, b), max(w1, e)
             pairs[key] = PairRecord((w0, w1), new)
-        out.append(VideoRecord(v.vid, v.fps, T, pairs))
+        out.append(VideoRecord(v.vid, v.fps, T, pairs, dict(v.cats)))
     return out
 
 

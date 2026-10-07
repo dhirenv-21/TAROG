@@ -1,0 +1,39 @@
+{
+ "LABEL": "SMOKE TEST \u2014 pipeline check on 300 TRAIN videos; NOT scientific evidence",
+ "n_fit_videos": 200,
+ "n_check_videos": 100,
+ "n_targets": 69,
+ "n_sources": 93,
+ "n_columns": 504,
+ "n_segments_fit": 74544,
+ "design_build_s": 9.9,
+ "ridge": 1.0,
+ "rungs": {
+  "G0": {
+   "check_ll_per_event": -4.371319346319537,
+   "finite": true,
+   "reproducible": true,
+   "fit_s": 0.9
+  },
+  "G1": {
+   "check_ll_per_event": -3.939873525273931,
+   "finite": true,
+   "reproducible": true,
+   "fit_s": 17.5
+  },
+  "G2": {
+   "check_ll_per_event": -3.6873969432912825,
+   "finite": true,
+   "reproducible": true,
+   "fit_s": 22.2
+  },
+  "G3": {
+   "check_ll_per_event": -3.629991237470066,
+   "finite": true,
+   "reproducible": true,
+   "fit_s": 24.2
+  }
+ },
+ "n_check_events": 7372,
+ "elapsed_s": 202.0
+}
