@@ -1,0 +1,40 @@
+# Phase 5H-1 (see research/phase5h1_preregistration.md). EXPLORATORY evidence class.
+stage0_config: configs/experiments/phase5h_stage0.yaml   # reuses Stage 0 data paths and FIT/DEV split
+splits:
+  dev_half_seed: 6101          # Stage 0 DEV -> SELECT (first 700) / EVAL-A (rest)
+  fold_seed: 6102
+  n_folds: 5
+  smoke_seed: 6103
+  smoke_fit: 200
+  smoke_check: 100
+support:
+  target_min_events: 200
+  source_min_events: 50
+bins:
+  lag_edges_s: [0.0, 0.5, 2.0, 10.0]
+  elapsed_edges_s: [2.0, 10.0]
+  pair_events_bins: [0, 1, 2, 3, 5, 9]          # lower edges: 0,1,2,3-4,5-8,>=9
+  active_bins: [0, 1, 2, 3]                      # lower edges: 0,1,2,>=3
+  duration_edges_s: [1.0, 4.0, 16.0]
+fit:
+  ridge_grid: [0.3, 1.0, 3.0, 10.0]
+  max_iter: 500
+null_control:
+  circ_seeds: [6200, 6201, 6202, 6203, 6204, 6205, 6206, 6207, 6208, 6209,
+               6210, 6211, 6212, 6213, 6214, 6215, 6216, 6217, 6218]
+  jitter_seeds: [6300, 6301, 6302, 6303, 6304, 6305, 6306, 6307, 6308, 6309,
+                 6310, 6311, 6312, 6313, 6314, 6315, 6316, 6317, 6318]
+  jitter_s: 5.0
+  fold_null_seeds: [6400, 6401, 6402, 6403, 6404]
+bootstrap:
+  seed: 6500
+  resamples: 2000
+hypotheses:
+  window_s: 2.0
+  null_seed: 6600
+  null_reps: 199
+  min_events: 20
+  pairs: [["hold", "grab"], ["release", "hold"], ["get_off", "ride"], ["beneath", "above"]]
+decision:
+  practical_ratio: 0.10
+  fdr: 0.10
