@@ -1,0 +1,35 @@
+{
+ "truth": {
+  "pick_up_frame": 30,
+  "release_frame": 240,
+  "occluder": [
+   105,
+   135
+  ],
+  "relations": [
+   {
+    "subject": 1,
+    "object": 2,
+    "predicate": 0,
+    "start": 30,
+    "end": 240
+   },
+   {
+    "subject": 2,
+    "object": 3,
+    "predicate": 1,
+    "start": 240,
+    "end": 360
+   }
+  ]
+ },
+ "nodes": {
+  "1": "person",
+  "2": "cup",
+  "3": "table"
+ },
+ "predicates": {
+  "0": "holding",
+  "1": "on"
+ }
+}

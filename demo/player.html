@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAORG temporal relationship demo</title>
+<style>
+  :root { --ink:#1d2b36; --muted:#5b6b77; --bg:#ffffff; --panel:#f3f6f8; --line:#d5dde3;
+          --obs:#1a9850; --ret:#e08e0b; --rem:#8a949b; --ina:#cfd6dc; --vis:#8e44ad; --truth:#2c3e50; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Calibri, "Segoe UI", Arial, sans-serif; color:var(--ink); background:var(--bg); }
+  header { padding:14px 20px 8px; }
+  h1 { font-size:22px; margin:0 0 6px; font-family: Cambria, Georgia, serif; }
+  .badge { display:inline-block; background:#fde8d7; color:#9a3b00; border:1px solid #f0b48a; border-radius:12px;
+           padding:2px 10px; font-size:13px; font-weight:bold; margin-right:8px; }
+  .disc { font-size:13px; color:var(--muted); max-width:1220px; }
+  .panels { display:grid; grid-template-columns: 420px 1fr 1fr; gap:14px; padding:6px 20px; }
+  .panel { background:var(--panel); border-radius:10px; padding:10px 12px; }
+  .panel h2 { font-size:15px; margin:0 0 6px; }
+  .sub { font-size:12px; color:var(--muted); margin:0 0 6px; }
+  canvas#scene { width:396px; height:280px; background:#fff; border-radius:6px; display:block; }
+  svg { width:100%; height:240px; background:#fff; border-radius:6px; }
+  .controls { display:flex; gap:10px; align-items:center; padding:8px 20px; flex-wrap:wrap; }
+  button, select { font-size:14px; padding:5px 12px; border-radius:6px; border:1px solid var(--line); background:#fff; cursor:pointer; }
+  button.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+  input[type=range] { flex:1; min-width:300px; }
+  .clock { font-variant-numeric: tabular-nums; font-size:14px; min-width:150px; }
+  .timeline { padding:0 20px 6px; }
+  canvas#tl { width:100%; height:180px; display:block; }
+  .legend { display:flex; gap:16px; padding:2px 20px 10px; font-size:13px; flex-wrap:wrap; align-items:center; }
+  .sw { display:inline-block; width:26px; height:10px; margin-right:5px; vertical-align:middle; border-radius:2px; }
+  .facts { font-size:13px; color:var(--muted); padding:0 20px 14px; }
+  #render-state { display:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>TAORG: keeping relationships through temporary observation loss</h1>
+  <span class="badge">Synthetic scenario with controlled observations</span>
+  <span class="disc" id="disc"></span>
+</header>
+
+<div class="panels">
+  <div class="panel">
+    <h2>1 · Scene (synthetic animation)</h2>
+    <p class="sub">Drawn from the scenario truth — not a camera, nothing is detected from pixels.</p>
+    <canvas id="scene" width="792" height="560"></canvas>
+  </div>
+  <div class="panel">
+    <h2>2 · Raw relationship observations (model input)</h2>
+    <p class="sub">Hand-specified detector reports, identical for every method.</p>
+    <svg id="g-in" viewBox="0 0 420 240"></svg>
+  </div>
+  <div class="panel">
+    <h2>3 · After temporal processing: <span id="mname"></span></h2>
+    <p class="sub">Computed by the repository method (taorg.temporal) with demo settings.</p>
+    <svg id="g-out" viewBox="0 0 420 240"></svg>
+  </div>
+</div>
+
+<div class="controls">
+  <button id="play" class="primary">▶ Play</button>
+  <button id="replay">⟲ Replay</button>
+  <label>Method <select id="method"></select></label>
+  <label>Speed <select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+  <input id="slider" type="range" min="0" value="0" step="1">
+  <span class="clock" id="clock"></span>
+</div>
+
+<div class="timeline"><canvas id="tl" width="2480" height="360"></canvas></div>
+
+<div class="legend">
+  <span><span class="sw" style="background:var(--obs)"></span>observed</span>
+  <span><span class="sw" style="background:repeating-linear-gradient(90deg,var(--ret) 0 6px,#fff 6px 9px)"></span>retained by temporal memory</span>
+  <span><span class="sw" style="background:var(--rem)"></span>removed</span>
+  <span><span class="sw" style="background:var(--ina)"></span>not active</span>
+  <span><span class="sw" style="background:var(--vis)"></span>visibility occluded / unknown (input flag)</span>
+  <span><span class="sw" style="background:#fff;border:1px solid var(--line)"></span>not reported, visible</span>
+</div>
+<div class="facts" id="facts"></div>
+<pre id="render-state"></pre>
+
+<script>
+const DATA = /*__DATA__*/null;
+const FPS = DATA.meta.fps, N = DATA.meta.n_frames;
+const C = { obs:"#1a9850", ret:"#e08e0b", rem:"#8a949b", ina:"#cfd6dc", vis:"#8e44ad", ink:"#1d2b36", muted:"#5b6b77" };
+const st = { frame:0, playing:false, method:"gated_ema", speed:1, t0:null, f0:0 };
+document.getElementById("disc").textContent = DATA.meta.disclaimer;
+
+// ---------------------------------------------------------------- controls
+const sel = document.getElementById("method");
+for (const [k, m] of Object.entries(DATA.methods)) { const o = document.createElement("option"); o.value = k; o.textContent = m.label; sel.appendChild(o); }
+const slider = document.getElementById("slider"); slider.max = N - 1;
+function setFrame(f) { st.frame = Math.max(0, Math.min(N - 1, f)); render(); }
+// playback clock: wall time -> frame index (timer-driven, so it also runs where rAF is throttled)
+let timer = null;
+function play() {
+  st.playing = true; st.t0 = performance.now(); st.f0 = st.frame >= N - 1 ? 0 : st.frame;
+  document.getElementById("play").textContent = "❚❚ Pause";
+  clearInterval(timer); timer = setInterval(tick, 1000 / FPS / 2);
+}
+function pause() { st.playing = false; clearInterval(timer); timer = null; document.getElementById("play").textContent = "▶ Play"; }
+function tick() {
+  if (!st.playing) return;
+  const f = st.f0 + Math.floor((performance.now() - st.t0) / 1000 * FPS * st.speed);
+  if (f >= N - 1) { setFrame(N - 1); pause(); return; }
+  if (f !== st.frame) setFrame(f);
+}
+document.getElementById("play").onclick = () => st.playing ? pause() : play();
+document.getElementById("replay").onclick = () => { setFrame(0); play(); };
+slider.oninput = () => { pause(); setFrame(+slider.value); };
+sel.onchange = () => { st.method = sel.value; render(); };
+document.getElementById("speed").onchange = (e) => { st.speed = +e.target.value; if (st.playing) { pause(); play(); } };
+
+// ---------------------------------------------------------------- scene (from TRUTH only)
+const T = DATA.truth;
+function lerp(a, b, u) { return a + (b - a) * Math.max(0, Math.min(1, u)); }
+function sceneGeometry(f) {
+  // person stands by the shelf, walks to the table, puts the cup down, walks back (truth-driven cartoon)
+  const rel = T.release_frame;
+  let px = 150;
+  if (f >= 150 && f < 230) px = lerp(150, 400, (f - 150) / 80);
+  else if (f >= 230 && f < rel + 20) px = 400;
+  else if (f >= rel + 20) px = lerp(400, 150, (f - rel - 20) / 80);
+  const handX = px + 62, handY = 290 + Math.sin(f / 6) * 3;
+  let cup;
+  if (f < T.pick_up_frame) cup = { x: 255, y: 358 };
+  else if (f < rel) cup = { x: handX, y: handY - 28 };
+  else cup = { x: 500, y: 358 };
+  return { px, handX, handY, cup };
+}
+function drawScene(f) {
+  const cv = document.getElementById("scene"), g = cv.getContext("2d");
+  g.clearRect(0, 0, cv.width, cv.height);
+  g.fillStyle = "#eef3f6"; g.fillRect(0, 0, cv.width, 400); g.fillStyle = "#d9e2e8"; g.fillRect(0, 400, cv.width, 160);
+  // shelf (left) and table (right)
+  g.fillStyle = "#a0826d"; g.fillRect(200, 360, 110, 14); g.fillRect(250, 374, 10, 40);
+  g.fillStyle = "#7d5a44"; g.fillRect(440, 360, 200, 16); g.fillRect(455, 376, 12, 50); g.fillRect(610, 376, 12, 50);
+  g.fillStyle = C.muted; g.font = "30px Calibri"; g.fillText("table", 505, 460);
+  const s = sceneGeometry(f);
+  // person
+  g.strokeStyle = C.ink; g.lineWidth = 7; g.lineCap = "round";
+  g.beginPath(); g.arc(s.px, 175, 30, 0, Math.PI * 2); g.stroke();
+  g.beginPath(); g.moveTo(s.px, 205); g.lineTo(s.px, 330); g.moveTo(s.px, 330); g.lineTo(s.px - 30, 410); g.moveTo(s.px, 330); g.lineTo(s.px + 30, 410);
+  g.moveTo(s.px, 240); g.lineTo(s.handX, s.handY); g.moveTo(s.px, 240); g.lineTo(s.px - 45, 300); g.stroke();
+  g.fillStyle = C.muted; g.font = "30px Calibri"; g.fillText("person", s.px - 42, 130);
+  // cup
+  g.fillStyle = "#c0392b"; g.fillRect(s.cup.x - 18, s.cup.y - 30, 36, 34);
+  g.strokeStyle = "#c0392b"; g.lineWidth = 5; g.beginPath(); g.arc(s.cup.x + 20, s.cup.y - 13, 10, -Math.PI / 2, Math.PI / 2); g.stroke();
+  g.fillStyle = C.muted; g.fillText("cup", s.cup.x - 22, s.cup.y - 42);
+  // occluder board (truth)
+  const [o0, o1] = T.occluder;
+  {
+    // board slides left-to-right at constant speed and covers the cup exactly during [o0, o1)
+    // slow while covering the cup, fast on the way in and out
+    const x = f < o0 ? 80 - (o0 - f) * 12 : (f < o1 ? 80 + (f - o0) * 3.8 : 194 + (f - o1) * 12);
+    if (x > -200 && x < cv.width) {
+      g.fillStyle = "rgba(52,73,94,0.97)"; g.fillRect(x, 200, 160, 150);
+      g.fillStyle = "#fff"; g.font = "bold 26px Calibri"; g.fillText("passing", x + 30, 265); g.fillText("board", x + 42, 295);
+    }
+  }
+  // captions: truth events (black) and observation events (purple, from the observation file)
+  g.font = "bold 30px Calibri"; g.fillStyle = C.ink;
+  let cap = "";
+  if (f >= T.pick_up_frame - 10 && f < T.pick_up_frame + 25) cap = "scene: person picks up the cup";
+  if (f >= T.release_frame - 5 && f < T.release_frame + 40) cap = "scene: cup put down — holding really ends";
+  g.fillText(cap, 18, 40);
+  const fl = DATA.failures.find(x => f >= x.start && f < x.end);
+  if (fl) { g.fillStyle = C.vis; g.font = "26px Calibri"; g.fillText("input: " + fl.why.split(":")[0], 18, 76); }
+  g.fillStyle = C.muted; g.font = "26px Calibri"; g.fillText(`t = ${(f / FPS).toFixed(2)} s   frame ${f}`, 18, 540);
+}
+
+// ---------------------------------------------------------------- scene graphs (SVG)
+const POS = { 1: [70, 60], 2: [350, 60], 3: [350, 205] };
+function node(svg, id) {
+  const [x, y] = POS[id];
+  return `<g><rect x="${x - 52}" y="${y - 20}" width="104" height="40" rx="18" fill="#fff" stroke="${C.ink}" stroke-width="2"/>
+          <text x="${x}" y="${y + 6}" text-anchor="middle" font-size="17" font-weight="bold">${DATA.nodes[id]}</text></g>`;
+}
+function edgeSvg(e, style, label, note1, note2) {
+  const [x1, y1] = POS[e.subject], [x2, y2] = POS[e.object];
+  const vertical = x1 === x2;
+  const sx = vertical ? x1 : x1 + 52, sy = vertical ? y1 + 20 : y1, ex = vertical ? x2 : x2 - 52, ey = vertical ? y2 - 20 : y2;
+  const dash = style.dash ? `stroke-dasharray="${style.dash}"` : "";
+  // horizontal edge: label above the arrow, notes below the nodes; vertical edge: text left of the arrow
+  const lx = vertical ? x1 - 14 : (sx + ex) / 2, anchor = vertical ? "end" : "middle";
+  const ly = vertical ? 128 : y1 - 10, ny = vertical ? 148 : 108;
+  return `<line x1="${sx}" y1="${sy}" x2="${ex}" y2="${ey}" stroke="${style.color}" stroke-width="${style.w}" ${dash} marker-end="url(#ah-${style.key})"/>
+          <text x="${lx}" y="${ly}" text-anchor="${anchor}" font-size="17" font-weight="bold" fill="${style.color}">${label}${style.x ? " ✕" : ""}</text>
+          <text x="${lx}" y="${ny}" text-anchor="${anchor}" font-size="13" fill="${C.muted}">${note1}</text>
+          <text x="${lx}" y="${ny + 17}" text-anchor="${anchor}" font-size="13" font-weight="bold" fill="${C.vis}">${note2 || ""}</text>`;
+}
+const STY = {
+  observed: { key: "o", color: C.obs, w: 5 }, retained: { key: "r", color: C.ret, w: 5, dash: "10 6" },
+  removed: { key: "m", color: C.rem, w: 3, dash: "2 6", x: true }, inactive: { key: "i", color: C.ina, w: 2, dash: "2 6" },
+  missing: { key: "m", color: C.rem, w: 2, dash: "4 6" },
+};
+function defs() {
+  return `<defs>${Object.values(STY).map(s => `<marker id="ah-${s.key}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${s.color}"/></marker>`).join("")}</defs>`;
+}
+function visNote(v) { return v === "VISIBLE" ? "" : (v === "UNKNOWN" ? "visibility: UNKNOWN" : "visibility: OCCLUDED / unreliable"); }
+function drawGraphs(f) {
+  const obs = DATA.observations[f], m = DATA.methods[st.method];
+  let a = defs(), b = defs();
+  DATA.edges.forEach((e, j) => {
+    const r = obs.edges[j], lab = DATA.predicates[e.predicate];
+    if (r.observed) a += edgeSvg(e, STY.observed, lab, `observed · score ${r.score.toFixed(2)}`, "");
+    else {
+      const s = Object.assign({}, STY.missing); if (r.visibility !== "VISIBLE") s.color = C.vis;
+      a += edgeSvg(e, s, lab, "not reported this frame", visNote(r.visibility));
+    }
+    const state = m.states[f][j], out = m.frames[f][j];
+    const mem = out.memory === null ? "" : ` · memory ${out.memory.toFixed(2)}`;
+    const notes = { observed: "observed → output", retained: "retained by temporal memory", removed: "removed from output", inactive: "not in output" };
+    const v2 = (!r.observed && state !== "inactive") ? visNote(r.visibility) : "";
+    b += edgeSvg(e, STY[state], lab, notes[state] + mem, v2);
+  });
+  Object.keys(DATA.nodes).forEach(id => { a += node(null, id); b += node(null, id); });
+  document.getElementById("g-in").innerHTML = a;
+  document.getElementById("g-out").innerHTML = b;
+}
+
+// ---------------------------------------------------------------- timeline
+function drawTimeline(f) {
+  const cv = document.getElementById("tl"), g = cv.getContext("2d");
+  const W = cv.width, L = 330, R = W - 20, rowH = 36, top = 40;
+  g.clearRect(0, 0, W, cv.height); g.font = "22px Calibri"; g.textBaseline = "middle";
+  const x = (fr) => L + (R - L) * fr / N;
+  const rows = [["Scene truth: holding", "truth"], ["Input: holding observed?", "input"]];
+  for (const k of Object.keys(DATA.methods)) rows.push([DATA.methods[k].label, k]);
+  rows.forEach(([name, key], i) => {
+    const y = top + i * (rowH + 8);
+    g.fillStyle = key === st.method ? C.ink : C.muted; g.font = (key === st.method ? "bold " : "") + "22px Calibri";
+    g.fillText((key === st.method ? "▶ " : "") + name, 10, y + rowH / 2);
+    for (let fr = 0; fr < N; fr++) {
+      let col = null, dash = false;
+      if (key === "truth") col = (fr >= T.relations[0].start && fr < T.relations[0].end) ? "#2c3e50" : null;
+      else if (key === "input") { const r = DATA.observations[fr].edges[0]; col = r.observed ? C.obs : (fr >= T.relations[0].start && fr < T.relations[0].end + 30 ? (r.visibility === "VISIBLE" ? "#ffffff" : C.vis) : null); }
+      else { const s = DATA.methods[key].states[fr][0]; col = { observed: C.obs, retained: C.ret, removed: C.rem, inactive: C.ina }[s]; dash = s === "retained"; }
+      if (!col) continue;
+      g.fillStyle = col; g.fillRect(x(fr), y + (dash ? 6 : 0), x(fr + 1) - x(fr) + 0.5, dash ? rowH - 12 : rowH);
+    }
+    g.strokeStyle = "#d5dde3"; g.lineWidth = 1; g.strokeRect(L, y, R - L, rowH);
+  });
+  // event markers
+  const yb = top + rows.length * (rowH + 8);
+  g.fillStyle = C.muted; g.font = "20px Calibri";
+  [[T.pick_up_frame, "pick up"], [T.occluder[0], "occlusion"], [175, "flicker"], [195, "unknown vis."], [T.release_frame, "release"]]
+    .forEach(([fr, t]) => { g.fillRect(x(fr), top - 10, 2, yb - top + 4); g.fillText(t, x(fr) + 4, top - 22); });
+  g.strokeStyle = "#c0392b"; g.lineWidth = 3; g.beginPath(); g.moveTo(x(f), top - 30); g.lineTo(x(f), yb); g.stroke();
+}
+
+// ---------------------------------------------------------------- render (single source of truth: st.frame)
+function render() {
+  const f = st.frame, m = DATA.methods[st.method];
+  slider.value = f;
+  document.getElementById("clock").textContent = `t = ${(f / FPS).toFixed(2)} s · frame ${f}/${N - 1}`;
+  document.getElementById("mname").textContent = m.label;
+  drawScene(f); drawGraphs(f); drawTimeline(f);
+  const sm = m.summary;
+  document.getElementById("facts").textContent =
+    `${m.label} (demo settings ${JSON.stringify(m.params)}): ` + Object.entries(sm.gaps).map(([k, v]) => `${k.split(":")[0]} → ${v}`).join("; ") +
+    `; after the genuine release the relation is removed after ${sm.removal_delay_frames} frame(s) (${sm.removal_delay_s} s).`;
+  document.getElementById("render-state").textContent = JSON.stringify({
+    frame: f, method: st.method,
+    input: DATA.observations[f].edges.map(e => ({ observed: e.observed, visibility: e.visibility })),
+    output: m.states[f], memory: m.frames[f].map(o => o.memory), present: m.frames[f].map(o => o.present) });
+}
+
+// URL hash (for screenshots / tests): #frame=120&method=ema
+const h = new URLSearchParams(location.hash.slice(1));
+if (h.get("method") && DATA.methods[h.get("method")]) st.method = h.get("method");
+sel.value = st.method;
+setFrame(h.get("frame") ? +h.get("frame") : 0);
+if (h.get("autoplay") === "1") play();
+</script>
+</body>
+</html>
