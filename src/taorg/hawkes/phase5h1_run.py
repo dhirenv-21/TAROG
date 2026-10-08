@@ -380,8 +380,13 @@ def hyp_job(run: str, reps: list[int], code: str) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 def stage_prepare(run: Path) -> dict[str, Any]:
-    """Reduce raw TRAIN/SELECT annotations; layout, targets and folds from TRAIN only."""
-    guard({"TRAIN", "SELECT"}, allow_eval=False)
+    """Reduce raw TRAIN/SELECT annotations; layout, targets and folds from TRAIN only.
+
+    This is the registered entry point for SELECT (ridge selection, prereg §4). EVAL-A/EVAL-B are
+    neither written nor read here; they stay locked until the freeze is committed.
+    """
+    guard({"SELECT"}, allow_eval=True)         # registered selection use of SELECT
+    guard({"TRAIN"}, allow_eval=False)
     cfg = load_config(CFG)
     s0 = s0load(Path(cfg["stage0_config"]))
     (run / "data").mkdir(parents=True, exist_ok=True)
