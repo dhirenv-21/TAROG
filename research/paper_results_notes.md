@@ -196,3 +196,43 @@ through false-OCC flags, and one edge relapses after being dropped.
 - A monotone-termination variant (e.g. absorbing termination or hysteresis) and online
   flag-reliability estimation, before any shift claim.
 - Real tracker identity cues (appearance/motion) before the ghost-suppression claim.
+
+---
+
+# Phase 5H-1 results notes (EXPLORATORY; VidOR annotations only)
+
+> Source: `results/phase5h1/full/tables.md` / `analysis.json` (freeze `289319e`). Full account:
+> `research/phase5h1_exit_report.md`. Numbers checked by `scripts/phase5h1/verify_results.py`.
+> Every annotated VidOR video was already used in Stage 0, so nothing here is confirmatory.
+
+## Pre-registered outcome
+
+**HAWKES TRACK = NARROW (MIXED)**: K1, K2, K3 pass; K4 fails; family test passes for SPATIAL and
+MOTION.
+
+## Strongest result
+
+Cross-predicate event history adds **+0.083 [0.076, 0.090] nats/event** of held-out
+log-likelihood beyond the state-dependent transition model (G4 − G3), and +0.145 beyond
+heterogeneity + duration (G4x − G2). Both are about 5× the largest of 38 null replicates and are
+consistent across EVAL-A and EVAL-B (T3, T4).
+
+## Weakest result
+
+No individual interaction is reproducible across training folds (K4: 0 discoveries, minimum
+FDR 0.16), and the registered fold statistic is shrinkage-inflated (T7, post-hoc). The
+interaction *structure* cannot be named with confidence; only the aggregate predictive gain is
+robust.
+
+## Must-disclose caveats
+
+1. Annotation timing: 17.0% of events tie exactly with another predicate's event on the same
+   pair. The short-lag structure may be annotation convention (`posthoc_boundary.json`).
+2. Nulls are imperfect: N-circ +16% events (registered Stage 0 function shifts censored ends),
+   N-jit −9.3% to −9.8% (window clipping).
+3. Positive-only Hawkes is worse than signed history (−0.031); "Hawkes" is not the right
+   description of the useful model.
+4. 7,058 EVAL onsets at the pair-window start are excluded by the registered event
+   construction.
+5. A4 changed only the optimiser iteration limit; the selected ridges are identical with and
+   without it.

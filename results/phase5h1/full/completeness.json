@@ -1,0 +1,53 @@
+{
+ "tune": {
+  "expected": 2208,
+  "unique_expected": 2208,
+  "complete": 2208,
+  "missing": 0,
+  "missing_ids": [],
+  "unexpected_checkpoints": 2208,
+  "non_converged_or_nonfinite": 0
+ },
+ "evaluate": {
+  "expected": 1934,
+  "unique_expected": 1934,
+  "complete": 1934,
+  "missing": 0,
+  "missing_ids": [],
+  "unexpected_checkpoints": 0,
+  "non_converged_or_nonfinite": 0
+ },
+ "nulls": {
+  "expected": 10488,
+  "unique_expected": 10488,
+  "complete": 10488,
+  "missing": 0,
+  "missing_ids": [],
+  "unexpected_checkpoints": 0,
+  "non_converged_or_nonfinite": 0
+ },
+ "stability": {
+  "expected": 2071,
+  "unique_expected": 2071,
+  "complete": 2071,
+  "missing": 0,
+  "missing_ids": [],
+  "unexpected_checkpoints": 0,
+  "non_converged_or_nonfinite": 0
+ },
+ "hypotheses": {
+  "expected": 200,
+  "unique_expected": 200,
+  "complete": 200,
+  "missing": 0,
+  "missing_ids": [],
+  "unexpected_checkpoints": 0,
+  "non_converged_or_nonfinite": 0
+ },
+ "attempts": {
+  "job_ends": 406,
+  "failed": [],
+  "blocked": []
+ },
+ "all_complete": true
+}

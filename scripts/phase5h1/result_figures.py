@@ -3,6 +3,7 @@
 fig_main_comparison : per-event held-out ΔLL ladder with 95% video-bootstrap CIs (EVAL, EVAL-A, EVAL-B)
 fig_null_comparison : observed Δ(G4x,G2) and Δ(G4,G3) vs 19 N-circ + 19 N-jit replicates
 fig_ablation_stability : RQ-H2 class/lag ablations; per-family Δ_F(G4,G3) in EVAL-A vs EVAL-B vs null
+fig_k4_stability : K4 fold reproducibility (sign-consistent cells, inter-fold Spearman) vs N-jit fold nulls
 
 Written before any EVAL result was computed (layout is fixed; values come from the JSON).
 
@@ -115,8 +116,8 @@ def main() -> None:
         ci_row(ax2, i - 0.15, f["d_a"], "s", FAM_COL[F], ms=5)
         ci_row(ax2, i + 0.15, f["d_b"], "^", FAM_COL[F], ms=5)
         ax2.plot([f["null_max"]], [i], marker="|", color="k", ms=14, mew=1.5)
-        ax2.text(ax2.get_xlim()[1] if False else f["d_all"]["ci_hi"], i, f"  {'PASS' if f['passes'] else 'fail'}",
-                 va="center", fontsize=7)
+        ax2.text(1.01, i, "PASS" if f["passes"] else "fail", transform=ax2.get_yaxis_transform(), va="center",
+                 fontsize=8, fontweight="bold" if f["passes"] else "normal")
     ax2.set_yticks(range(len(names)))
     ax2.set_yticklabels([f"{F.replace('_', ' ').lower()}\n({int(fams[F]['d_all']['n_events'])} events)" for F in names],
                         fontsize=7)
@@ -126,6 +127,29 @@ def main() -> None:
     ax2.set_title("Family test (NARROW): both halves > 0, above null max, ≥ 10% of duration gain", fontsize=9)
     fig.tight_layout()
     save(fig, "fig_ablation_stability")
+
+    # ---- K4 fold reproducibility (negative result shown at the same prominence) ----
+    st = a["stability"]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 3.2))
+    nn = st["n_sign_agree_null"]
+    ax1.bar(["real"] + [f"N-jit {i + 1}" for i in range(len(nn))], [st["n_sign_agree_real"]] + nn,
+            color=["#D55E00"] + ["#009E73"] * len(nn))
+    ax1.set_ylabel("HIST cells with 5/5 sign agreement")
+    ax1.set_ylim(0, 1.15 * st["n_sign_agree_real"])
+    ax1.set_title(f"Sign-consistent cells: real {st['n_sign_agree_real']} of {st['n_cells']} vs null {min(nn)}–{max(nn)}\n"
+                  f"min estimated FDR = {st['fdr_scan_min']:.2f} > 0.10 → 0 discoveries (K4 fails)", fontsize=9)
+    ax1.tick_params(axis="x", labelsize=7)
+    rn = st["rho_null"]
+    ax2.scatter(rn, [0] * len(rn), marker="D", color="#009E73", s=30, label="N-jit fold nulls (5)")
+    ax2.scatter([st["rho_real"]], [0], marker="o", color="#D55E00", s=60, label="real")
+    ax2.set_yticks([])
+    ax2.set_xlabel("mean inter-fold Spearman of G4 HIST weights")
+    ax2.set_title(f"Weight-vector agreement: real {st['rho_real']:.3f} > null max {max(rn):.3f} (this part passes)",
+                  fontsize=9)
+    ax2.legend(frameon=False, fontsize=7)
+    fig.suptitle("K4 reproducibility of individual interactions (5 disjoint TRAIN folds)", fontsize=10)
+    fig.tight_layout()
+    save(fig, "fig_k4_stability")
     print("written to", OUT)
 
 

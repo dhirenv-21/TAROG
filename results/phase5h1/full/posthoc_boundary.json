@@ -1,0 +1,225 @@
+{
+ "LABEL": "POST-HOC descriptive analysis (not registered; does not enter the decision)",
+ "EVAL": {
+  "n_target_events": 91773,
+  "share": {
+   "tie": 0.1701,
+   "le_1frame": 0.0073,
+   "1frame_0.5s": 0.0429,
+   "0.5_2s": 0.139,
+   "2_10s": 0.1383,
+   "none_within_10s": 0.5024
+  },
+  "counts": {
+   "none_within_10s": 46106,
+   "tie": 15614,
+   "2_10s": 12689,
+   "0.5_2s": 12753,
+   "1frame_0.5s": 3940,
+   "le_1frame": 671
+  },
+  "top_short_lag_transitions": [
+   {
+    "source": "OFF(in_front_of)",
+    "target": "OFF(away)",
+    "bin": "tie",
+    "n": 688
+   },
+   {
+    "source": "OFF(away)",
+    "target": "OFF(in_front_of)",
+    "bin": "tie",
+    "n": 687
+   },
+   {
+    "source": "OFF(next_to)",
+    "target": "OFF(away)",
+    "bin": "tie",
+    "n": 579
+   },
+   {
+    "source": "OFF(away)",
+    "target": "OFF(next_to)",
+    "bin": "tie",
+    "n": 569
+   },
+   {
+    "source": "ON(towards)",
+    "target": "ON(in_front_of)",
+    "bin": "tie",
+    "n": 477
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(towards)",
+    "bin": "tie",
+    "n": 475
+   },
+   {
+    "source": "ON(towards)",
+    "target": "ON(next_to)",
+    "bin": "tie",
+    "n": 416
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(towards)",
+    "bin": "tie",
+    "n": 415
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(away)",
+    "bin": "tie",
+    "n": 357
+   },
+   {
+    "source": "ON(away)",
+    "target": "ON(in_front_of)",
+    "bin": "tie",
+    "n": 357
+   },
+   {
+    "source": "OFF(towards)",
+    "target": "OFF(in_front_of)",
+    "bin": "tie",
+    "n": 357
+   },
+   {
+    "source": "OFF(in_front_of)",
+    "target": "OFF(towards)",
+    "bin": "tie",
+    "n": 352
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(away)",
+    "bin": "tie",
+    "n": 329
+   },
+   {
+    "source": "ON(away)",
+    "target": "ON(next_to)",
+    "bin": "tie",
+    "n": 322
+   },
+   {
+    "source": "OFF(watch)",
+    "target": "OFF(next_to)",
+    "bin": "tie",
+    "n": 266
+   }
+  ]
+ },
+ "TRAIN": {
+  "n_target_events": 353691,
+  "share": {
+   "tie": 0.1538,
+   "le_1frame": 0.0069,
+   "1frame_0.5s": 0.0416,
+   "0.5_2s": 0.1407,
+   "2_10s": 0.1395,
+   "none_within_10s": 0.5175
+  },
+  "counts": {
+   "none_within_10s": 183030,
+   "tie": 54409,
+   "2_10s": 49337,
+   "0.5_2s": 49776,
+   "le_1frame": 2432,
+   "1frame_0.5s": 14707
+  },
+  "top_short_lag_transitions": [
+   {
+    "source": "OFF(in_front_of)",
+    "target": "OFF(away)",
+    "bin": "tie",
+    "n": 2183
+   },
+   {
+    "source": "OFF(away)",
+    "target": "OFF(in_front_of)",
+    "bin": "tie",
+    "n": 2174
+   },
+   {
+    "source": "OFF(next_to)",
+    "target": "OFF(away)",
+    "bin": "tie",
+    "n": 2116
+   },
+   {
+    "source": "OFF(away)",
+    "target": "OFF(next_to)",
+    "bin": "tie",
+    "n": 2106
+   },
+   {
+    "source": "ON(towards)",
+    "target": "ON(in_front_of)",
+    "bin": "tie",
+    "n": 1704
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(towards)",
+    "bin": "tie",
+    "n": 1690
+   },
+   {
+    "source": "ON(in_front_of)",
+    "target": "ON(away)",
+    "bin": "tie",
+    "n": 1367
+   },
+   {
+    "source": "ON(away)",
+    "target": "ON(in_front_of)",
+    "bin": "tie",
+    "n": 1361
+   },
+   {
+    "source": "ON(towards)",
+    "target": "ON(next_to)",
+    "bin": "tie",
+    "n": 1281
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(towards)",
+    "bin": "tie",
+    "n": 1278
+   },
+   {
+    "source": "ON(next_to)",
+    "target": "ON(away)",
+    "bin": "tie",
+    "n": 1226
+   },
+   {
+    "source": "OFF(towards)",
+    "target": "OFF(in_front_of)",
+    "bin": "tie",
+    "n": 1214
+   },
+   {
+    "source": "ON(away)",
+    "target": "ON(next_to)",
+    "bin": "tie",
+    "n": 1205
+   },
+   {
+    "source": "OFF(in_front_of)",
+    "target": "OFF(towards)",
+    "bin": "tie",
+    "n": 1198
+   },
+   {
+    "source": "OFF(towards)",
+    "target": "OFF(next_to)",
+    "bin": "tie",
+    "n": 920
+   }
+  ]
+ }
+}

@@ -3,10 +3,10 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Phase 4 complete — H2 = MIXED, H3 = MIXED, H4 = FAIL; METHOD CONTRIBUTION = NO** (synthetic only)
-- Active phase: none — **awaiting user approval** (recommended pivot: evaluation/failure-analysis paper)
-- Next phase: undecided (Phase 5 lazy/heap = ADSA deliverable; real-data validation of the protocol)
-- Last updated: 2026-09-29
+- Stage: **Phase 5H-1 complete — HAWKES TRACK = NARROW (MIXED)**, EXPLORATORY, VidOR annotations only
+- Earlier: Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 HAWKES SIGNAL = WEAK-MIXED
+- Active phase: none — **awaiting user decision** (accept NARROW; optional independent confirmation protocol, not started)
+- Last updated: 2026-10-08
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
@@ -119,10 +119,18 @@ Phase 4 (SYNTHETIC; `results/phase4/`): H2 MIXED (6/21 wins: F3 g20, F5 ×3, F8 
 
 Phase 5H (Hawkes feasibility, Track B) — DESIGN ONLY, 2026-09-30: HAWKES TRACK = MODIFY. Events = relation onsets/offsets (not frames); data = VidOR/PVSG (Action Genome too sparse); maths (censored/missing/noisy/inhibitory/marked Hawkes) already exists; identity-weighted history = marked Hawkes. Stage 0 DONE on VidOR ground truth (annotations only): HAWKES SIGNAL = WEAK-MIXED (C1, C2 pass; C3 excess/self = 0.07 < 0.10; C4 fails vs heterogeneity null). ~54% of the multivariate gain reproduced by the circular-shift null. Report research/phase5h_stage0_report.md. Awaiting user decision; no visibility-aware Hawkes / detector work started.
 Phase 5H-1 (2026-10-07): pre-registered (`07bf369`, EXPLORATORY: no untouched annotated VidOR data); point-process GLM engine with exact likelihood + tests (`4d810ce`); smoke on 300 TRAIN videos only. Full registered run NOT started (est. 30-60 CPU-h; needs parallel fitting). Supervisor showcase in results/phase5h1/showcase + research/phase5h1_supervisor_update.md. Branch phase5h-hawkes-feasibility is pushed (user authorised GitHub updates). See research/phase5h_hawkes_design.md, research/phase5h_hawkes_literature.md.
+Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/`; report `research/phase5h1_exit_report.md`): **NARROW**.
+- Δ(G4x,G2) +0.145 [0.135, 0.155], Δ(G4,G3) +0.083 [0.076, 0.090] nats/event on 84,715 EVAL events; null max 0.031 / 0.017 (38 nulls); K3 pass.
+- K4 FAIL: 0 discoveries (min FDR 0.16); registered fold t-statistic is ridge-shrinkage-inflated in sparse cells (post-hoc).
+- Families passing: SPATIAL, MOTION (contact fails practical size). Gain = ONSET→OFFSET at lags ≤ 2 s; signed > positive-only (−0.031).
+- 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
+- Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
 
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-08 — Phase 5H-1 amendments A1–A4 (aggregation/runner; N-jit pins censored endpoints; analysis details; max_iter 5000), all before freeze `289319e`. — research/phase5h1_preregistration.md §11
+2026-10-08 — Heavy run state on D: (C: nearly full); compact artifacts in results/phase5h1/full/. — research/phase5h1_exit_report.md §16
 2026-09-29 — Phase 4 ran baseline group first (calibrate→freeze→evaluate) before any V-HPED run; equal 200-sample random search per method. — research/phase4_preregistration.md
 2026-09-29 — Obsolete pre-registration pilot files archived to archive/pre_registration_pilot/ (not deleted). — research/phase4_preregistration.md §12
 2026-09-29 — `render_video` extracted from `generate_video` (Phase 3 outputs verified identical). — src/taorg/data/synthetic_world.py
@@ -154,10 +162,12 @@ Add short entries only, newest first:
 - Frozen termination-delay metric (first drop) is gameable by non-monotone estimators (relapse); any further method comparison needs a relapse-aware metric, pre-registered.
 - V-HPED evidence-rate tempering over-weights per-frame misses at low fps; flag reliabilities are tuned, not estimated online.
 - Calibration/ECE metric deferred (requires probabilistic method output).
+- Phase 5H-1 K4 statistic (fold t = mean/(SD/√5)) is inflated by ridge shrinkage in sparse cells; redesign before any confirmatory study.
+- Registered N-circ null manufactures events from censored intervals (+16%); N-jit clipping loses ~9.5% of events.
 - No external datasets. Not needed until Phase 3.
 
 ## Next action
-WAIT for explicit user approval. Options in research/phase4_exit_report.md §26–§28 (pivot to evaluation/failure-analysis paper; relapse-aware Phase 4b; real-data protocol validation). Do not start Action Genome or Phase 5 without approval.
+WAIT for user decision on Phase 5H-1 NARROW: (a) keep robustness/evaluation paper as main track with Phase 5H-1 as exploratory section (draft `research/paper_notes/phase5h1_exploratory_section.md`); (b) optionally pre-register confirmatory protocol C1 (exit report §15: VidVRD/PVSG, repaired nulls, boundary-tie control). Do not start detector integration, another dataset, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:
@@ -169,3 +179,5 @@ After each meaningful task:
 6. Set one concrete `Next action`.
 7. Keep this file concise; detailed derivations belong under `research/derivations/`, and experiment details belong in run artifacts.
 
+
+2026-10-07 - Added scripts/phase5h1/visual_demo.py: visual wrapper around the existing synthetic Stage 0 demo (not a Phase 5H-1 comparison). Generated PNG/PDF/JSON under outputs/showcase_demo. Verified run: planted alpha 0.6 recovered as 0.583; independent control 0.000. Five Stage 0 tests passed. Frozen research artifacts unchanged.

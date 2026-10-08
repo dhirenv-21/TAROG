@@ -8,7 +8,7 @@
 > Companion files: `research/claims.md` (older Phase 0 ledger, kept for history),
 > `research/phase3_preregistration.md`, `research/paper_results_notes.md`.
 
-_Last updated: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
+_Last updated: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
 frozen-parameter commit `2ce7d1f`, artifacts commit `867b7be`). All Phase 3 evidence is **controlled
 synthetic evidence** (`R/` = `results/phase3/`)._
 
@@ -48,8 +48,14 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L32 | No prior work applies a genuine Hawkes intensity to visual relationship events in video | — | Systematic literature sweep | Phase 5H lit. check | None found in a non-exhaustive web search (closest: TKG Hawkes GHNN/GHT/Know-Evolve; APP-VAE; SceneSayer/FDSG use Neural ODE/SDE) | PARTIAL (not exhaustive; never phrase as "first") | §3 |
 | L33 | Action Genome supports point-process modelling of relationship transitions | — | Annotation density | Phase 5H lit. check | ≈ 35 annotated frames per video (5 per action): onset/offset interval-censored by design | NOT SUPPORTED | — |
 | L34 | Hawkes cross-excitation estimated on relationship ground truth is partly pair-level heterogeneity | — | Circular-shift null | Phase 5H Stage 0 | ≈ 54% of the HK2 − HK1 gain (0.040 of 0.074 nats/event) reproduced with cross-relation timing destroyed; null yields as many 'stable' cross cells (404–422) as real data (404) | SUPPORTED (VidOR GT) | — |
-| L35 | Cross-event history improves prediction after controlling heterogeneity, duration and current state (point-process GLM, RQ-H1 of Phase 5H-1) | RQ-H1 | Registered G-ladder comparison + 2 nulls + stability | Phase 5H-1 (pre-registered `07bf369`, not yet run) | Engine built and tested; smoke only | UNTESTED (and EXPLORATORY when run: no untouched VidOR data) | — |
+| L35 | Cross-event history improves prediction after controlling heterogeneity, duration and current state (point-process GLM, RQ-H1 of Phase 5H-1) | RQ-H1 | Registered G-ladder comparison + 2 nulls + stability | Phase 5H-1 (prereg `07bf369`, freeze `289319e`) | HAWKES TRACK = **NARROW** (`F/analysis.json`, `F/tables.md`): Δ(G4x,G2) +0.145 [0.135, 0.155], Δ(G4,G3) +0.083 [0.076, 0.090] nats/event on 84,715 EVAL events, above all 38 nulls (max 0.031 / 0.017); K3 passes; K4 fails (0 discoveries); family test passes for SPATIAL and MOTION only. Annotation-only; 17.0% of events tie exactly with another predicate's boundary (`F/posthoc_boundary.json`) | PARTIAL (EXPLORATORY; predictive association in VidOR annotation timing only) | exploratory section |
 | L36 | Stage-0-generated transitions get_off→ride and beneath→above are well supported in the data | — | TRAIN support audit | Phase 5H-1 audit | Only 15 and 11 target events within 10 s of a source onset in TRAIN (`results/phase5h1/audit/audit.json`); their large Stage 0 weights are likely noise-driven | NOT SUPPORTED | — |
+| L37 | Classical positive-only (excitatory) Hawkes history is an adequate model of relation-event dependence | — | G4+ vs G4 | Phase 5H-1 | G4+ − G4 −0.031 [−0.034, −0.027] nats/event (`F/tables.md` T3): signed history (with inhibition) is clearly better | NOT SUPPORTED | exploratory section |
+| L38 | Individual cross-predicate interactions (cells) are reproducible across training folds | RQ-H3 | K4 (5 folds, N-jit fold nulls, FDR ≤ 0.10) | Phase 5H-1 | 0 discoveries; min estimated FDR 0.16; sign-consistent cells 5,924 real vs 5,589–5,857 null; whole-vector Spearman 0.299 > 0.270 (`F/tables.md` T7). Registered t-statistic shrinkage-inflated in sparse cells (`F/posthoc_foldnull_cells.json`, post-hoc) | NOT SUPPORTED | exploratory section (negative) |
+| L39 | Relation boundaries in VidOR annotations are often synchronised across predicates on the same pair | — | Model-free tie analysis | Phase 5H-1 post-hoc | 17.0% of EVAL events of modelled types tie exactly (same frame) with another predicate's event on the pair; dominant spatial relabelling pairs (`F/posthoc_boundary.json`) | SUPPORTED (descriptive, post-hoc) | exploratory section / threats |
+| L40 | Stage-0-generated contact transitions replicate out of sample | — | §8 hypotheses, Holm | Phase 5H-1 | H-a ON(hold)→OFF(grab) RR 4.93, H-b ON(release)→OFF(hold) RR 44.5, both Holm p 0.015 (permutation floor); H-c/H-d underpowered (1/0 events) (`F/tables.md` T9) | PARTIAL (exploratory; possibly annotation convention) | exploratory section |
+| L41 | Heterogeneity controls remove most of the null-reproduced share of the cross-history gain | — | Stage 0 vs Phase 5H-1 null shares | Phase 5H Stage 0 + 5H-1 | Null median / observed: 54% in Stage 0 (HK2 − HK1) vs 15% in Phase 5H-1 (Δ(G4x,G2) 0.021 / 0.145) — different model classes, so descriptive only | PARTIAL | exploratory section |
+| L42 | A Hawkes-based method contribution is justified | — | GO on the Phase 5H-1 rule + independent confirmation | Phase 5H-1 | NARROW, not GO; model class is a standard GLM; positive-only Hawkes worse (L37); interactions not reproducible (L38) | NOT SUPPORTED | never (unless confirmed) |
 
 ## Change log
 
@@ -68,3 +74,4 @@ synthetic evidence** (`R/` = `results/phase3/`)._
   (`research/phase5h_hawkes_design.md`).
 - 2026-09-30 (Phase 5H Stage 0): L29 UNTESTED→PARTIAL; added L34.
 - 2026-10-07 (Phase 5H-1 milestone): added L35 (UNTESTED), L36 (NOT SUPPORTED).
+- 2026-10-08 (Phase 5H-1 registered run, decision NARROW): L35 UNTESTED→PARTIAL (exploratory, annotation timing); added L37 (NOT SUPPORTED), L38 (NOT SUPPORTED), L39 (SUPPORTED, post-hoc descriptive), L40 (PARTIAL), L41 (PARTIAL), L42 (NOT SUPPORTED). No claim upgraded on p-values; every entry points to `results/phase5h1/full/`.

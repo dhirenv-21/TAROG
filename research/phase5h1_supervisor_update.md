@@ -1,112 +1,80 @@
-# Phase 5H-1 — Supervisor update (7 Oct 2026)
+# Phase 5H-1 — Supervisor update (8 Oct 2026): registered comparison complete
 
-> Evidence classes: **synthetic** = simulated worlds (Phases 3–4, demo). **Real ground truth** =
-> human VidOR annotations, no detector (Phase 5H). **Detector outputs** = not used anywhere in
-> Phase 5H. Every number below is checked against saved artifacts by
-> `scripts/phase5h1/verify_showcase.py` (all 22 checks pass).
+> **Result: HAWKES TRACK = NARROW** under the pre-registered rule. Evidence class:
+> **EXPLORATORY, annotation-only** (human VidOR relation intervals; no detector or tracker).
+> All numbers come from `results/phase5h1/full/` and are checked by
+> `scripts/phase5h1/verify_results.py`. The full account is in
+> `research/phase5h1_exit_report.md`.
 
-## Research problem
+## Question
 
-Video scene-graph models output relationships (e.g. *person–holds–cup*) frame by frame. We ask
-whether **relationship events depend on each other in time**: does "release starts" make "hold
-ends" more likely soon after? Specifically, is a temporal point-process (Hawkes-type) model of
-these dependencies justified *beyond simpler explanations*, namely how busy an object pair is,
-how long relations last, and which relations are currently on?
+Does the recent history of *other* relations on the same object pair (e.g. "release starts")
+help predict when a relation starts or ends, **beyond** pair heterogeneity, relation duration
+and the current relation state?
 
-## Completed work (each experiment pre-registered before evaluation)
+## What was run (registered order, nothing retuned)
 
-| Stage | Data | Outcome |
-|---|---|---|
-| Phase 3 | synthetic | visibility-aware gating helps under controlled corruption: **H1 = PASS** |
-| Phase 4 | synthetic | the complex "V-HPED" filter does not beat simple baselines: **method contribution = NO** |
-| Phase 5H design | literature | Hawkes theory for missing/noisy/inhibitory/marked events already exists; any gap is empirical: **MODIFY** |
-| Stage 0 | VidOR GT annotations | **HAWKES SIGNAL = WEAK-MIXED** |
-| Phase 5H-1 (this session) | VidOR GT, fitting split only | literature check, audit, pre-registration, tested model engine |
+- Fit on 5600 TRAIN videos, ridge selected on 700 SELECT videos.
+- **Parameters frozen and committed (`289319e`) before evaluation data was unlocked.**
+- Held-out evaluation on 1535 videos (84,715 events).
+- 38 null replicates (19 N-circ + 19 N-jit), 5-fold stability with 5 fold nulls, and 4
+  hypothesis tests.
+- The full matrix completed with 0 missing runs and 0 failures.
 
-## What Stage 0 established
+## Positive findings
 
-Source: `results/phase5h/stage0/summary.json`; 835 test videos, 50,509 events.
+| Finding | Value |
+|---|---|
+| Cross-event history beyond heterogeneity + duration (K1) | **+0.145** nats/event, above every null (max +0.031) |
+| History beyond the simple transition model (K2) | **+0.083** [0.076, 0.090], above every null (max +0.017); ≈ 1.09× likelihood per event |
+| Practical size (K3) | passes |
+| Both evaluation halves agree | yes (EVAL-A and EVAL-B CIs > 0) |
+| Families passing the registered test | SPATIAL, MOTION |
+| Mechanism | "another relation starts → this one ends" (+0.048) at lags ≤ 2 s; inhibition matters |
+| Stage 0 transitions replicated out of sample | hold→grab (RR 4.93), release→hold (RR 44.5) |
 
-- Adding the history of *other* relations improved held-out prediction by **+0.074 nats/event
-  (95% CI 0.066–0.083)**, more than all 19 shuffled-timing nulls (0.039–0.043).
-- But the shuffled-timing null already reaches a median of **0.040**, about **54%** of the observed
-  gain. The timing-specific excess (**0.034**) is only **7%** of the gain from a relation's own
-  history; the pre-registered bar was 10%.
-- Interaction structure was not more stable than the null (404 stable cells vs a null maximum of 422).
+## Negative findings (same weight)
 
-Figure: `results/phase5h1/showcase/fig_stage0_gain_vs_null.png`.
+| Finding | Value |
+|---|---|
+| Individual interactions reproducible across folds (K4) | **No.** 0 discoveries; the minimum FDR is 0.16. Real 5,924 sign-consistent cells vs null 5,589–5,857 |
+| Positive-only (classical) Hawkes | **worse** than signed history: −0.031 nats/event |
+| Contact / vehicle / attention families | fail (contact misses the practical bar; vehicle CI includes 0) |
+| Annotation artefact risk | 17.0% of events tie exactly with another relation's event on the same pair: synchronised annotation boundaries |
+| Null quality | N-circ adds +16% events, N-jit loses −9.3% to −9.8%; neither is a clean jitter test |
+| K4 statistic | inflated by ridge shrinkage in sparse cells (post-hoc); a design flaw of our registration |
 
-## Why WEAK-MIXED motivates heterogeneity controls
+Inter-fold weight agreement does beat the nulls (Spearman 0.299 vs max 0.270). So the pattern
+of weights is reproducible, but no single interaction is.
 
-The null keeps *which* relations each object pair has and destroys *when* they happen, yet it
-recovers more than half of the gain. The simplest explanation (a hypothesis, not yet tested) is
-**pair heterogeneity**: busy pairs produce more events of every kind, and a model that only
-"remembers activity" looks like it learned triggering. The literature says the same: unmodelled
-heterogeneity inflates apparent excitation. We also saw short-lag *suppression* (e.g. 0.0001 vs a
-baseline of 0.0087 onsets within 0.5 s), which a positive-only Hawkes model cannot express. The
-question must therefore be re-asked with heterogeneity, duration and the current state controlled,
-and with inhibition allowed.
+## Interpretation
 
-## New progress this session (commits on `phase5h-hawkes-feasibility`, pushed)
+- Cross-predicate timing carries real predictive information about **annotated relation
+  boundaries**, mostly spatial and motion relabelling within 2 s.
+- This is predictive association in annotation timing. **It is not causal and not shown on
+  real video.**
+- It does **not** justify a method contribution. The model is a standard point-process GLM,
+  and classical Hawkes is the worse variant.
 
-1. **Literature check** (`research/phase5h1_literature.md`), each source with formulation,
-   assumptions and fit to our data:
-   - frailty / hierarchical relational event models (heterogeneity);
-   - point-process GLMs (valid inhibition);
-   - interval jitter vs circular shift (nulls);
-   - semi-Markov / transition models (simple alternatives).
-2. **Fitting-split audit** (Stage 0 FIT only; `results/phase5h1/audit/`):
-   - 5,600 videos, 356,040 events;
-   - the top 6 predicates are 86% of events, and spatial relations alone 63.5%;
-   - 34 onset / 35 offset target types meet the support rule;
-   - predicate families are fixed by a semantic rule;
-   - two of the four Stage 0 "hypotheses" have tiny support (11–15 events).
-3. **Pre-registration** committed before any comparison (`research/phase5h1_preregistration.md`,
-   commit `07bf369`): a nested model ladder G0 → G4 (heterogeneity → duration → current state →
-   cross-event history with excitation *and* inhibition), two nulls, data-use audit and
-   GO / NARROW / STOP rule.
-   - **Key integrity point:** every annotated VidOR video was already used in Stage 0, so all
-     Phase 5H-1 comparisons are **exploratory**. Confirmation requires an independent dataset.
-4. **Model engine** (`src/taorg/hawkes/glm.py`, commit `4d810ce`):
-   - exp-link point-process GLM with an exact likelihood;
-   - tests show it matches an independent brute-force reference, stays valid under extreme
-     inhibition, honours positive-only constraints, reproduces exactly, and blocks evaluation data
-     from development code;
-   - 234 tests pass.
-5. **Smoke run** on 300 training videos (G0–G3): finite, reproducible, leakage-free.
-   **A pipeline check, not evidence.**
-6. **Showcase:** 6-slide deck, two figures, a demo, and a 90-second script (links below).
+## Decision requested
 
-## Limitations
-
-- No untouched VidOR evaluation data remain (exploratory label).
-- Heterogeneity is controlled by category random intercepts and pair-history proxies; a joint
-  frailty fit is still owed.
-- The jitter null cannot test effects slower than 5 s.
-- The full registered run (ridge selection, 2 × 19 nulls, 5-fold stability) needs parallel
-  fitting: estimated 30–60 single-thread CPU-hours.
-- Ground-truth annotations only; VidOR boundaries may reflect annotation convention.
-
-## Next decision
-
-1. **Approve compute** for the full registered run (and target-level parallelisation).
-2. **Choose an independent dataset** with relation start/end annotations (candidates:
-   ImageNet-VidVRD, PVSG) for a confirmatory replication, *if* the exploratory run reaches GO or
-   NARROW.
-3. If the result is STOP, Hawkes is removed from the contribution list, and the
-   robustness/evaluation paper (Phases 3–4) remains the main track.
+1. Accept NARROW. Keep the **robustness/evaluation paper** (Phases 3–4) as the main track, and
+   report this as an exploratory analysis section (draft:
+   `research/paper_notes/phase5h1_exploratory_section.md`).
+2. Optionally approve a **confirmatory protocol** on an independent dataset (ImageNet-VidVRD or
+   PVSG). It would use repaired nulls (reflection jitter, boundary-tie control) and a
+   support-aware stability statistic, and would be pre-registered before any data access
+   (exit report §15). **Not started.**
 
 ## Materials
 
-- Deck: [`results/phase5h1/showcase/phase5h1_supervisor_update.pptx`](../results/phase5h1/showcase/phase5h1_supervisor_update.pptx)
-- Figures: [`fig_stage0_gain_vs_null.png`](../results/phase5h1/showcase/fig_stage0_gain_vs_null.png),
-  [`fig_fit_support.png`](../results/phase5h1/showcase/fig_fit_support.png) (PDF versions alongside)
-- Script: [`research/phase5h1_presentation_script.md`](phase5h1_presentation_script.md)
-- Demo (synthetic data, about 5 s). It shows that the model recovers a planted dependency and
-  shows nothing when none exists:
-
-```bash
-python scripts/phase5h1/demo.py
-```
-
-- Number check: `python scripts/phase5h1/verify_showcase.py`
+- Figures (`results/phase5h1/full/`):
+  - `fig_main_comparison` — main comparison with CIs;
+  - `fig_null_comparison` — nulls;
+  - `fig_ablation_stability` — ablations and family test;
+  - `fig_k4_stability` — negative K4 result.
+- Deck: `results/phase5h1/showcase/phase5h1_supervisor_update.pptx` (updated). Script:
+  `research/phase5h1_presentation_script.md`.
+- **Separate from the research results:** the synchronised video demo (`demo/`) uses a
+  *synthetic* scenario with hand-picked settings. It illustrates the problem; it is not evidence
+  and contains no Phase 5H-1 numbers.

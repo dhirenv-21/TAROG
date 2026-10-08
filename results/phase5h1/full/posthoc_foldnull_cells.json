@@ -1,0 +1,255 @@
+{
+ "LABEL": "POST-HOC diagnostic: strongest sign-consistent cells in each N-jit fold-null replicate (does not enter the decision)",
+ "replicates": [
+  {
+   "seed": 6400,
+   "top": [
+    {
+     "target": "OFF(in_front_of)",
+     "source": "ON(next_to)",
+     "lag": "(2,10]",
+     "t_null": 88.7,
+     "mean_w_null": 0.55,
+     "t_real": 4.8,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(away)",
+     "source": "OFF(towards)",
+     "lag": "(2,10]",
+     "t_null": 37.3,
+     "mean_w_null": 1.012,
+     "t_real": 10.1,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(press)",
+     "source": "OFF(carry)",
+     "lag": "(0.5,2]",
+     "t_null": -37.1,
+     "mean_w_null": -0.006,
+     "t_real": -24.6,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(towards)",
+     "source": "OFF(away)",
+     "lag": "(2,10]",
+     "t_null": 36.7,
+     "mean_w_null": 0.933,
+     "t_real": 14.4,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(speak_to)",
+     "source": "ON(lean_on)",
+     "lag": "(2,10]",
+     "t_null": -34.8,
+     "mean_w_null": -0.079,
+     "t_real": -15.0,
+     "real_sign_agree": true
+    }
+   ]
+  },
+  {
+   "seed": 6401,
+   "top": [
+    {
+     "target": "ON(point_to)",
+     "source": "OFF(away)",
+     "lag": "(0.5,2]",
+     "t_null": -88.0,
+     "mean_w_null": -0.125,
+     "t_real": -13.5,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(pat)",
+     "source": "OFF(beneath)",
+     "lag": "(0.5,2]",
+     "t_null": -45.8,
+     "mean_w_null": -0.01,
+     "t_real": -7.4,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(feed)",
+     "source": "OFF(grab)",
+     "lag": "(0.5,2]",
+     "t_null": -37.4,
+     "mean_w_null": -0.004,
+     "t_real": -10.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(feed)",
+     "source": "ON(hit)",
+     "lag": "(2,10]",
+     "t_null": -36.6,
+     "mean_w_null": -0.018,
+     "t_real": -41.4,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(feed)",
+     "source": "OFF(hit)",
+     "lag": "(2,10]",
+     "t_null": -35.9,
+     "mean_w_null": -0.018,
+     "t_real": -47.0,
+     "real_sign_agree": true
+    }
+   ]
+  },
+  {
+   "seed": 6402,
+   "top": [
+    {
+     "target": "ON(carry)",
+     "source": "ON(touch)",
+     "lag": "(0.5,2]",
+     "t_null": -65.1,
+     "mean_w_null": -0.006,
+     "t_real": -8.5,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(use)",
+     "source": "OFF(ride)",
+     "lag": "(0.5,2]",
+     "t_null": -50.2,
+     "mean_w_null": -0.005,
+     "t_real": -17.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(carry)",
+     "source": "OFF(touch)",
+     "lag": "(0,0.5]",
+     "t_null": -40.9,
+     "mean_w_null": -0.002,
+     "t_real": -6.5,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(carry)",
+     "source": "ON(touch)",
+     "lag": "(0,0.5]",
+     "t_null": -40.7,
+     "mean_w_null": -0.002,
+     "t_real": -7.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(feed)",
+     "source": "ON(grab)",
+     "lag": "(0.5,2]",
+     "t_null": -39.8,
+     "mean_w_null": -0.005,
+     "t_real": -10.0,
+     "real_sign_agree": true
+    }
+   ]
+  },
+  {
+   "seed": 6403,
+   "top": [
+    {
+     "target": "ON(kiss)",
+     "source": "OFF(bite)",
+     "lag": "(0,0.5]",
+     "t_null": -50.1,
+     "mean_w_null": -0.001,
+     "t_real": -8.1,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(throw)",
+     "source": "ON(behind)",
+     "lag": "(2,10]",
+     "t_null": -34.8,
+     "mean_w_null": -0.155,
+     "t_real": -15.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(hug)",
+     "source": "OFF(carry)",
+     "lag": "(0,0.5]",
+     "t_null": -30.0,
+     "mean_w_null": -0.003,
+     "t_real": -6.9,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(use)",
+     "source": "OFF(ride)",
+     "lag": "(0.5,2]",
+     "t_null": -29.3,
+     "mean_w_null": -0.006,
+     "t_real": -17.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(feed)",
+     "source": "OFF(carry)",
+     "lag": "(0,0.5]",
+     "t_null": -28.7,
+     "mean_w_null": -0.001,
+     "t_real": -14.1,
+     "real_sign_agree": true
+    }
+   ]
+  },
+  {
+   "seed": 6404,
+   "top": [
+    {
+     "target": "ON(use)",
+     "source": "OFF(above)",
+     "lag": "(0,0.5]",
+     "t_null": -81.8,
+     "mean_w_null": -0.005,
+     "t_real": -18.6,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(use)",
+     "source": "OFF(above)",
+     "lag": "(0.5,2]",
+     "t_null": -45.8,
+     "mean_w_null": -0.012,
+     "t_real": -18.7,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(point_to)",
+     "source": "OFF(kiss)",
+     "lag": "(0,0.5]",
+     "t_null": -35.3,
+     "mean_w_null": -0.003,
+     "t_real": -11.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(use)",
+     "source": "OFF(ride)",
+     "lag": "(0.5,2]",
+     "t_null": -33.3,
+     "mean_w_null": -0.006,
+     "t_real": -17.0,
+     "real_sign_agree": true
+    },
+    {
+     "target": "ON(hold)",
+     "source": "OFF(in_front_of)",
+     "lag": "(2,10]",
+     "t_null": -33.0,
+     "mean_w_null": -0.163,
+     "t_real": -2.2,
+     "real_sign_agree": false
+    }
+   ]
+  }
+ ]
+}
