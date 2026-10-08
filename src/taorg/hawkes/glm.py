@@ -229,6 +229,25 @@ RUNGS: dict[str, tuple[str, ...]] = {
 }
 
 
+# RQ-H2 decomposition (prereg §4): G3 plus HIST restricted to one interaction class or one lag window.
+# Class "SRC>TGT": source parity (ON/OFF) and target parity; a target of the other parity gets no HIST.
+HIST_CLASSES = ("ON>ON", "ON>OFF", "OFF>ON", "OFF>OFF")
+for _c in HIST_CLASSES:
+    RUNGS[f"G3+H:{_c}"] = ("HET", "DUR", "STATE", "HIST")
+for _m in range(3):
+    RUNGS[f"G3+H:lag{_m}"] = ("HET", "DUR", "STATE", "HIST")
+
+
+def _hist_filter(rung: str, k: int, src: int, m: int) -> bool:
+    if not rung.startswith("G3+H:"):
+        return True
+    tag = rung[5:]
+    if tag.startswith("lag"):
+        return m == int(tag[3:])
+    s, t = tag.split(">")
+    return (src % 2 == (0 if s == "ON" else 1)) and (k % 2 == (0 if t == "ON" else 1))
+
+
 def target_columns(lay: Layout, rung: str, k: int) -> np.ndarray:
     """Common-design columns used by target k under a rung (own predicate excluded from STATE/HIST)."""
     blocks = RUNGS[rung]
@@ -242,7 +261,7 @@ def target_columns(lay: Layout, rung: str, k: int) -> np.ndarray:
         nl = len(lay.lag_edges) - 1
         for i, src in enumerate(lay.sources):
             if src // 2 != r:
-                cols += [lay.offsets["HIST"] + i * nl + m for m in range(nl)]
+                cols += [lay.offsets["HIST"] + i * nl + m for m in range(nl) if _hist_filter(rung, k, src, m)]
     return np.array(cols, dtype=np.int64)
 
 
@@ -325,6 +344,165 @@ def fit_rung(d: Design, rung: str, ridge: float, max_iter: int = 500) -> dict[in
 def ll_rung(d: Design, fits: dict[int, TargetFit], rung: str) -> np.ndarray:
     use_dur = "DUR" in RUNGS[rung]
     return sum(target_ll_per_video(d, fits[k], use_dur) for k in d.targets)
+
+
+# ---------------------------------------------------------------------------
+# Exact sufficient-statistic aggregation (amendment A1, technical; no model change)
+# ---------------------------------------------------------------------------
+# The target log-likelihood  sum_i [y_i z_i - d_i exp(z_i)]  depends on the rows only through
+# (Y_u, D_u) = (sum y_i, sum d_i) over rows sharing an identical covariate vector (incl. duration
+# bin), so merging such rows leaves the objective, gradient and MLE unchanged (up to float
+# summation order). Rows are merged only within a group label (fold for TRAIN, video for EVAL),
+# so fold fits and per-video held-out log-likelihoods remain available.
+
+@dataclass
+class TargetData:
+    """Aggregated at-risk rows of one target over the full layout (columns = all common columns)."""
+
+    k: int
+    X: sp.csr_matrix          # (U, layout.size) binary
+    dur: np.ndarray           # (U,) duration bin
+    y: np.ndarray             # (U,) summed event counts
+    e: np.ndarray             # (U,) summed exposure (s)
+    group: np.ndarray         # (U,) group label
+    n_rows: int               # rows before aggregation
+
+
+def _aggregate(k: int, group: np.ndarray, dur: np.ndarray, sub: sp.csr_matrix, y: np.ndarray, e: np.ndarray,
+               size: int, n_rows: int) -> TargetData:
+    """Merge rows with identical (group, duration bin, sorted column pattern); sum y and e."""
+    sub = sub.tocsr()
+    sub.sort_indices()
+    n = sub.shape[0]
+    cnt = np.diff(sub.indptr)
+    width = int(cnt.max()) if n and sub.nnz else 0
+    P = np.full((n, width + 2), -1, dtype=np.int32)
+    P[:, 0] = group
+    P[:, 1] = dur
+    if sub.nnz:
+        ri = np.repeat(np.arange(n), cnt)
+        pos = np.arange(sub.nnz) - np.repeat(sub.indptr[:-1], cnt)
+        P[ri, 2 + pos] = sub.indices
+    U, inv = np.unique(P, axis=0, return_inverse=True)
+    inv = inv.ravel()
+    yy = np.bincount(inv, weights=y, minlength=len(U))
+    ee = np.bincount(inv, weights=e, minlength=len(U))
+    m = U[:, 2:] >= 0
+    ucnt = m.sum(1)
+    X = sp.csr_matrix((np.ones(int(ucnt.sum())), U[:, 2:][m], np.concatenate([[0], np.cumsum(ucnt)])),
+                      shape=(len(U), size))
+    return TargetData(k, X, U[:, 1].astype(np.int64), yy, ee, U[:, 0].astype(np.int64), n_rows)
+
+
+def aggregate_target(d: Design, k: int, seg_group: np.ndarray) -> TargetData:
+    """Merge rows of target k with identical (group, duration bin, covariate pattern). Exact."""
+    rows = d.rows[k]
+    return _aggregate(k, seg_group[rows], d.dur[k], d.X[rows], d.y[k], d.seg_dur[rows], d.layout.size, len(rows))
+
+
+def merge_targets(parts: Sequence[TargetData], size: int, reaggregate: bool = True) -> TargetData:
+    """Concatenate aggregated parts of one target (e.g. video chunks); optionally merge again."""
+    k = parts[0].k
+    X = sp.vstack([p.X for p in parts], format="csr")
+    g = np.concatenate([p.group for p in parts])
+    du = np.concatenate([p.dur for p in parts])
+    y = np.concatenate([p.y for p in parts])
+    e = np.concatenate([p.e for p in parts])
+    n_rows = int(sum(p.n_rows for p in parts))
+    if not reaggregate:
+        return TargetData(k, X, du, y, e, g, n_rows)
+    return _aggregate(k, g, du, X, y, e, size, n_rows)
+
+
+def td_arrays(td: TargetData) -> dict[str, np.ndarray]:
+    return {"k": np.array(td.k), "indptr": td.X.indptr.astype(np.int64), "indices": td.X.indices.astype(np.int32),
+            "ncol": np.array(td.X.shape[1]), "dur": td.dur.astype(np.int8), "y": td.y, "e": td.e,
+            "group": td.group.astype(np.int32), "n_rows": np.array(td.n_rows)}
+
+
+def td_from_arrays(a: Any) -> TargetData:
+    n = len(a["indptr"]) - 1
+    X = sp.csr_matrix((np.ones(len(a["indices"])), a["indices"], a["indptr"]), shape=(n, int(a["ncol"])))
+    return TargetData(int(a["k"]), X, a["dur"].astype(np.int64), a["y"], a["e"], a["group"].astype(np.int64),
+                      int(a["n_rows"]))
+
+
+@dataclass
+class FitResult:
+    """Fit plus optimiser diagnostics."""
+
+    fit: TargetFit
+    diag: dict[str, Any]
+
+
+def _agg_matrix(td: TargetData, cols: np.ndarray, use_dur: bool, n_dur: int) -> sp.csr_matrix:
+    M = td.X[:, cols]
+    if use_dur:
+        D = sp.csr_matrix((np.ones(len(td.dur)), (np.arange(len(td.dur)), td.dur)), shape=(len(td.dur), n_dur))
+        M = sp.hstack([M, D], format="csr")
+    return M
+
+
+def fit_target_agg(td: TargetData, lay: Layout, rung: str, ridge: float, max_iter: int = 500,
+                   groups: np.ndarray | None = None) -> FitResult:
+    """Same estimator as fit_target on aggregated rows; `groups` restricts rows to those group labels."""
+    k = td.k
+    cols = target_columns(lay, rung, k)
+    use_dur = "DUR" in RUNGS[rung]
+    sel = np.ones(len(td.y), dtype=bool) if groups is None else np.isin(td.group, groups)
+    M = _agg_matrix(td, cols, use_dur, lay.n_dur)[sel]
+    expo, yy = td.e[sel], td.y[sel]
+    p = M.shape[1]
+    n_ev = float(yy.sum())
+    eta0 = math.log(max(n_ev, 0.5) / max(expo.sum(), 1e-12))
+    lo = None
+    if rung == "G4+":
+        nh = int((cols >= lay.offsets["HIST"]).sum())
+        lo = (len(cols) - nh, len(cols))
+    clipped = {"n": 0}
+
+    def f(theta: np.ndarray) -> tuple[float, np.ndarray]:
+        eta, w = theta[0], theta[1:]
+        z = eta + M @ w
+        if z.size and z.max() > 50.0:
+            clipped["n"] += 1
+        mu = expo * np.exp(np.minimum(z, 50.0))
+        val = float(mu.sum() - yy @ z + 0.5 * ridge * w @ w)
+        r = mu - yy
+        return val, np.concatenate([[r.sum()], M.T @ r + ridge * w])
+    bounds = [(None, None)] * (1 + p)
+    if lo is not None:
+        for j in range(lo[0], lo[1]):
+            bounds[1 + j] = (0.0, None)
+    x0 = np.concatenate([[eta0], np.zeros(p)])
+    res = so.minimize(f, x0, jac=True, method="L-BFGS-B", bounds=bounds,
+                      options={"maxiter": max_iter, "ftol": 1e-12, "gtol": 1e-7})
+    val, g = f(res.x)
+    pg = g.copy()                                   # projected gradient (bounded coordinates at 0)
+    if lo is not None:
+        at = np.zeros(1 + p, dtype=bool)
+        at[1 + lo[0]: 1 + lo[1]] = res.x[1 + lo[0]: 1 + lo[1]] <= 0.0
+        pg[at & (g > 0)] = 0.0
+    w = res.x[1:]
+    nd = lay.n_dur if use_dur else 0
+    fit = TargetFit(k, cols, float(res.x[0]), w[: p - nd], w[p - nd:] if nd else np.zeros(0))
+    diag = {"success": bool(res.success), "message": str(res.message), "nit": int(res.nit),
+            "nfev": int(res.nfev), "objective": float(val), "proj_grad_inf": float(np.abs(pg).max()),
+            "n_params": int(1 + p), "n_rows_agg": int(M.shape[0]), "n_events": n_ev,
+            "exposure_s": float(expo.sum()), "z_cap_hits": int(clipped["n"]),
+            "finite": bool(np.isfinite(res.x).all() and math.isfinite(val))}
+    return FitResult(fit, diag)
+
+
+def ll_agg_per_group(td: TargetData, fit: TargetFit, lay: Layout, n_groups: int, use_dur: bool
+                     ) -> tuple[np.ndarray, np.ndarray]:
+    """Per-group log-likelihood and event count of one target on aggregated rows."""
+    z = fit.eta + td.X[:, fit.cols] @ fit.w
+    if use_dur:
+        z = z + fit.v[td.dur]
+    contrib = td.y * z - td.e * np.exp(np.minimum(z, 50.0))
+    return (np.bincount(td.group, weights=contrib, minlength=n_groups),
+            np.bincount(td.group, weights=td.y, minlength=n_groups))
 
 
 def n_events_per_video(d: Design) -> np.ndarray:
