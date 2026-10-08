@@ -18,7 +18,7 @@ bins:
   duration_edges_s: [1.0, 4.0, 16.0]
 fit:
   ridge_grid: [0.3, 1.0, 3.0, 10.0]
-  max_iter: 500
+  max_iter: 5000             # amendment A4 (was 500: 35/157 early fits stopped at the iteration limit)
 null_control:
   circ_seeds: [6200, 6201, 6202, 6203, 6204, 6205, 6206, 6207, 6208, 6209,
                6210, 6211, 6212, 6213, 6214, 6215, 6216, 6217, 6218]

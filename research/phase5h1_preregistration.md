@@ -244,3 +244,21 @@ budget, a null, a metric or a decision criterion.
 - The decision is computed by `decide_phase5h1` exactly as registered. These details do not
   create an alternative rule.
 
+
+### A4 — Optimiser iteration limit (technical; 2026-10-08, before any selection quantity was viewed)
+- In the first registered tuning attempt (`max_iter` = 500), 35 of the first 157 completed fits
+  stopped at the L-BFGS-B iteration limit ("TOTAL NO. OF ITERATIONS REACHED LIMIT") instead of
+  meeting the convergence tolerance. They therefore had not reached the registered estimator
+  (penalised MLE). The failures were spread over all rungs (G1 7, G2 5, G3 6, G4x 6, G4 6,
+  G4+ 5).
+- On TRAIN only, four of these cases were refitted with 2000 and 10000 iterations. All converged
+  within ≤ 1091 iterations, and the penalised objective changed by ≤ 0.011 nats (totals of
+  1.2e4–4.8e4). The limit is raised to 5000 for **every** fit (all rungs, folds and nulls). The
+  model, ridge grid, tolerances and data are unchanged.
+- The decision used only optimiser diagnostics. No SELECT log-likelihood had been read. The
+  500-iteration attempt is preserved under the run root (its checkpoints carry max_iter = 500 in
+  their spec). Its selected ridges are compared with the A4 run in the exit report as a
+  sensitivity disclosure.
+- Operational note: the same attempt shows a ~34-minute system-wide pause (10:09–10:43 local
+  time) during which every running fit stalled. A keep-awake hold was requested for the rest of
+  the run. Fit times are therefore reported from the A4 run.
