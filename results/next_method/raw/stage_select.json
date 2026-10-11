@@ -1,0 +1,20 @@
+{
+  "run_id": "episodes_select_20261011_181414_7d1752",
+  "stage": "select",
+  "smoke": false,
+  "start_time_utc": "2026-10-11T18:14:14.074755+00:00",
+  "git_commit": "ed9a021",
+  "git_dirty": true,
+  "git_branch": "codex/taorg-next-method",
+  "command": "scripts/next_method/run_next_method.py fit calibrate select --workers 4",
+  "config_path": "configs\\experiments\\next_method.yaml",
+  "config_sha256": "4e2b8203694495965e4a25df51923e62b979d38a6d1b6528058e60eae3d8e86e",
+  "environment": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "cpu_count": 32
+  },
+  "end_time_utc": "2026-10-11T18:14:14.306490+00:00"
+}

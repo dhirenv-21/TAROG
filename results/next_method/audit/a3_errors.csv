@@ -1,0 +1,12 @@
+condition,fn_temporary_gap,fn_hidden_end_block,fn_onset_delay,fn_fragmentation_visible,fp_hidden_termination,fp_misleading_flags,fp_visible_lag_or_reactivation,fp_false_birth,fp_ghost
+C1_gaps,81.85,0.0,48.9,14.8,0.0,0.0,54.5,0.0,0.0
+C2_hidden_termination,5.95,4.85,45.7,1.1,291.35,0.0,2.95,0.05,0.0
+C3_misleading_post,6.4,0.0,43.05,1.0,0.0,408.65,8.55,0.15,0.0
+C4_recurrence,9.4,0.0,75.35,3.1,0.0,0.0,96.9,0.0,0.0
+C5_boundary_flicker,23.65,0.0,75.45,16.7,0.0,0.0,70.25,5.55,0.0
+C6_id_switch,21.3,0.0,66.1,84.1,0.0,0.0,54.85,10.1,82.3
+C7_motion,6.5,0.0,49.0,1.1,0.0,0.0,56.25,0.0,0.0
+S0_mixed,13.45,8.3,58.3,3.45,123.95,67.55,31.5,1.4,0.0
+S1_mixed_flagnoise,100.1,22.9,56.15,17.65,30.5,34.25,42.65,1.95,0.0
+S2_mixed_unknown,172.1,55.7,71.15,41.8,1.2,6.85,11.8,0.45,0.0
+S3_mixed_bursty,65.1,17.0,56.0,13.1,74.4,50.75,45.2,1.35,0.0

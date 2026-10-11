@@ -1,0 +1,695 @@
+{
+ "gate": {
+  "decision": "STOP",
+  "algorithm_contribution": "UNSUPPORTED",
+  "gates": {
+   "G1_primary_wins_vs_B2": false,
+   "G2_no_loss_vs_B2": false,
+   "G3_beyond_fixed_buffer": false,
+   "G4_online_adaptation": false,
+   "G5_beyond_geometric_learner": false,
+   "G7_cost": false,
+   "G6_tuning_control": false
+  },
+  "wins_vs_B2": [
+   "C1_gaps",
+   "C5_boundary_flicker"
+  ],
+  "losses_vs_B2": [
+   "C2_hidden_termination",
+   "C3_misleading_post",
+   "S0_mixed",
+   "S2_mixed_unknown"
+  ],
+  "wins_vs_BUF": [
+   "C1_gaps"
+  ],
+  "losses_vs_BUF": [
+   "C6_id_switch",
+   "S2_mixed_unknown"
+  ],
+  "wins_vs_static": [],
+  "losses_vs_static": [],
+  "wins_vs_GEO": [],
+  "losses_vs_GEO": [],
+  "primary_wins_vs_B2": [
+   "C1_gaps"
+  ]
+ },
+ "pairwise": {
+  "B2": {
+   "C1_gaps": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J"
+    ],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J",
+     "churn"
+    ],
+    "churn_guard": false
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "BUF": {
+   "C1_gaps": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J"
+    ],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J",
+     "frr",
+     "churn"
+    ],
+    "churn_guard": false
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "GEO": {
+   "C1_gaps": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "STATIC": {
+   "C1_gaps": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "POOLED": {
+   "C1_gaps": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J"
+    ],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J",
+     "frr",
+     "churn"
+    ],
+    "churn_guard": false
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "BUF_vs_B2": {
+   "C1_gaps": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "ghost_time_s"
+    ],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "half_B2": {
+   "C1_gaps": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J"
+    ],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "fpt_s",
+     "std_mean_s"
+    ],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J",
+     "churn"
+    ],
+    "churn_guard": false
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  },
+  "half_BUF": {
+   "C1_gaps": {
+    "win": true,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C2_hidden_termination": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C3_misleading_post": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C4_recurrence": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C5_boundary_flicker": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "C6_id_switch": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J"
+    ],
+    "churn_guard": true
+   },
+   "C7_motion": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S0_mixed": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S1_mixed_flagnoise": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   },
+   "S2_mixed_unknown": {
+    "win": false,
+    "loss": true,
+    "loss_reasons": [
+     "J",
+     "frr",
+     "churn"
+    ],
+    "churn_guard": false
+   },
+   "S3_mixed_bursty": {
+    "win": false,
+    "loss": false,
+    "loss_reasons": [],
+    "churn_guard": true
+   }
+  }
+ },
+ "latency_ms": {
+  "gated_ema_hyst": 0.01691305549078,
+  "b2_hold_buffer": 0.029271444331647623,
+  "b2_hold_geometric": 0.03391430553165264,
+  "b2_hold_static": 0.05530530572286807,
+  "b2_hold_pooled": 0.061667666628232434,
+  "b2_hold_km": 0.06268927790289228
+ },
+ "latency_ratio_K1_B2": 3.706561356525246,
+ "holm_J": {
+  "B2|C1_gaps": 7.815970093361102e-14,
+  "B2|C2_hidden_termination": 0.5188768632106999,
+  "B2|C3_misleading_post": 0.001017401676634222,
+  "B2|C4_recurrence": 4.190951585769653e-09,
+  "B2|C5_boundary_flicker": 3.166496753692627e-08,
+  "B2|C6_id_switch": 0.19741830074378797,
+  "B2|C7_motion": 1.9669532775878906e-06,
+  "B2|S0_mixed": 1.0,
+  "B2|S1_mixed_flagnoise": 0.05052232361313358,
+  "B2|S2_mixed_unknown": 7.815970093361102e-14,
+  "B2|S3_mixed_bursty": 1.0,
+  "BUF|C1_gaps": 4.433786671143025e-12,
+  "BUF|C2_hidden_termination": 7.815970093361102e-14,
+  "BUF|C3_misleading_post": 7.815970093361102e-14,
+  "BUF|C4_recurrence": 1.0,
+  "BUF|C5_boundary_flicker": 1.0,
+  "BUF|C6_id_switch": 0.00015910062771240518,
+  "BUF|C7_motion": 1.0,
+  "BUF|S0_mixed": 8.149072527885437e-09,
+  "BUF|S1_mixed_flagnoise": 1.0,
+  "BUF|S2_mixed_unknown": 7.815970093361102e-14,
+  "BUF|S3_mixed_bursty": 0.00634765625,
+  "GEO|C1_gaps": 1.0,
+  "GEO|C2_hidden_termination": 4.433786671143025e-12,
+  "GEO|C3_misleading_post": 3.3651303965598345e-11,
+  "GEO|C4_recurrence": 1.0,
+  "GEO|C5_boundary_flicker": 1.0,
+  "GEO|C6_id_switch": 1.0,
+  "GEO|C7_motion": 1.0,
+  "GEO|S0_mixed": 0.0032958984375,
+  "GEO|S1_mixed_flagnoise": 1.0,
+  "GEO|S2_mixed_unknown": 3.0517578125e-05,
+  "GEO|S3_mixed_bursty": 1.0,
+  "STATIC|C1_gaps": 1.0,
+  "STATIC|C2_hidden_termination": 0.0004425048828125,
+  "STATIC|C3_misleading_post": 0.1875,
+  "STATIC|C4_recurrence": 1.0,
+  "STATIC|C5_boundary_flicker": 1.0,
+  "STATIC|C6_id_switch": 1.0,
+  "STATIC|C7_motion": 1.0,
+  "STATIC|S0_mixed": 1.0,
+  "STATIC|S1_mixed_flagnoise": 1.0,
+  "STATIC|S2_mixed_unknown": 3.0517578125e-05,
+  "STATIC|S3_mixed_bursty": 1.0
+ },
+ "completeness": {
+  "complete": true,
+  "rows": 8250
+ }
+}

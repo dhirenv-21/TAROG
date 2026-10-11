@@ -1,0 +1,54 @@
+[
+ {
+  "condition": "C1_gaps",
+  "n_positive_regret": 0,
+  "mean_regret": -0.12938460750267766,
+  "result": "No failure observed"
+ },
+ {
+  "condition": "S2_mixed_unknown",
+  "n_positive_regret": 50,
+  "mean_regret": 0.15641780782512935,
+  "cases": {
+   "worst": {
+    "seed": 8003,
+    "regret_J": 0.246460485694321,
+    "files": [
+     "results\\next_method\\failures\\S2_mixed_unknown__worst.pdf",
+     "results\\next_method\\failures\\S2_mixed_unknown__worst.png"
+    ]
+   },
+   "median": {
+    "seed": 8011,
+    "regret_J": 0.15230195799864177,
+    "files": [
+     "results\\next_method\\failures\\S2_mixed_unknown__median.pdf",
+     "results\\next_method\\failures\\S2_mixed_unknown__median.png"
+    ]
+   }
+  }
+ },
+ {
+  "condition": "C6_id_switch",
+  "n_positive_regret": 20,
+  "mean_regret": -0.007681373177746693,
+  "cases": {
+   "worst": {
+    "seed": 8037,
+    "regret_J": 0.020060140157567186,
+    "files": [
+     "results\\next_method\\failures\\C6_id_switch__worst.pdf",
+     "results\\next_method\\failures\\C6_id_switch__worst.png"
+    ]
+   },
+   "median": {
+    "seed": 8020,
+    "regret_J": 0.00023280183748253247,
+    "files": [
+     "results\\next_method\\failures\\C6_id_switch__median.pdf",
+     "results\\next_method\\failures\\C6_id_switch__median.png"
+    ]
+   }
+  }
+ }
+]

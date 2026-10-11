@@ -1,0 +1,218 @@
+# TAORG next-method study (pre-registered; research/taorg_next_method_preregistration.md)
+#
+# Frozen with the pre-registration commit; later changes are amendments.  world, base_corruption,
+# conditions, metrics and statistics are copied VERBATIM from configs/experiments/episodes.yaml so
+# that the relapse-aware metric definitions and the corruption protocol are unchanged.
+# Seeds: calibration reuses the episode-study calibration seeds (tuning data only); evaluation seeds
+# 8000-8049 are new; development seeds 7000-7019 (failure audit / pilot) are never used here.
+study: next_method
+world:
+  num_frames: 360
+  fps: 30.0
+  num_subject_tracks: 2
+  num_object_tracks: 4
+  num_predicates: 6
+  num_keys: 8
+  first_start_max: 45
+  on_frames: [40, 120]
+  off_frames: [10, 60]
+  p_recur: 0.5
+  p_open: 0.2
+  min_tail: 20
+  p_succ: 0.4
+  succ_offset: [-8, 4]
+  succ_clearance: 10
+  predicate_partners: {0: 1, 1: 0, 2: 3, 3: 2, 4: 5, 5: 4}
+  score_mean_range: [0.6, 0.95]
+  score_noise_std: 0.05
+  score_min: 0.05
+  box_width: [50.0, 110.0]
+  box_aspect: [1.0, 1.8]
+  arena: [60.0, 60.0, 580.0, 420.0]
+  v0: 60.0
+  accel_std: 80.0
+  v_max: 200.0
+  box_jitter: 0.05
+base_corruption:
+  gap_prob: 0.6
+  gap_max_per_episode: 1
+  gap_frames: [3, 30]
+  gap_min_episode: 20
+  gap_margin: 3
+  miss_prob: 0.02
+  false_detection_prob: 0.004
+seeds:
+  calibration: [5000, 5001, 5002, 5003, 5004, 5005, 5006, 5007, 5008, 5009, 5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017,
+    5018, 5019]
+  evaluation: [8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8008, 8009, 8010, 8011, 8012, 8013, 8014, 8015, 8016, 8017,
+    8018, 8019, 8020, 8021, 8022, 8023, 8024, 8025, 8026, 8027, 8028, 8029, 8030, 8031, 8032, 8033, 8034, 8035, 8036, 8037,
+    8038, 8039, 8040, 8041, 8042, 8043, 8044, 8045, 8046, 8047, 8048, 8049]
+  smoke: [9400, 9401]
+  development_excluded: [7000, 7001, 7002, 7003, 7004, 7005, 7006, 7007, 7008, 7009, 7010, 7011, 7012, 7013, 7014, 7015, 7016,
+    7017, 7018, 7019]
+  sampler: 2026
+  bootstrap: 4344
+  half_control: 2028
+conditions:
+  C1_gaps:
+    role: ni
+    calibrate: true
+    base_overrides:
+      gap_prob: 1.0
+      gap_max_per_episode: 2
+      gap_frames: [3, 45]
+  C2_hidden_termination:
+    role: benefit
+    calibrate: true
+    hidden_termination:
+      prob: 1.0
+      pre_frames: [3, 15]
+      post_frames: [15, 45]
+  C3_misleading_post:
+    role: benefit
+    calibrate: true
+    misleading_post:
+      prob: 1.0
+      post_frames: [15, 60]
+  C4_recurrence:
+    role: ni
+    calibrate: true
+    world_overrides:
+      p_recur: 0.9
+      off_frames: [6, 30]
+  C5_boundary_flicker:
+    role: benefit
+    calibrate: true
+    boundary_flicker: {window: 12, miss_prob: 0.3, false_prob: 0.2}
+  C6_id_switch:
+    role: benefit
+    calibrate: true
+    id_switch: {swap_duration: 20, num_swaps: 2, require_same_class: true, min_pre_swap_frames: 2, min_post_swap_frames: 2}
+  C7_motion:
+    role: ni
+    calibrate: true
+    world_overrides: {v0: 250.0, accel_std: 400.0, v_max: 600.0}
+  S0_mixed:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination:
+      prob: 0.5
+      pre_frames: [3, 15]
+      post_frames: [15, 45]
+    misleading_post:
+      prob: 0.3
+      post_frames: [15, 60]
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+  S1_mixed_flagnoise:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination:
+      prob: 0.5
+      pre_frames: [3, 15]
+      post_frames: [15, 45]
+    misleading_post:
+      prob: 0.3
+      post_frames: [15, 60]
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+    visibility_noise: {occluded_to_visible_prob: 0.3, visible_to_occluded_prob: 0.3}
+  S2_mixed_unknown:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination:
+      prob: 0.5
+      pre_frames: [3, 15]
+      post_frames: [15, 45]
+    misleading_post:
+      prob: 0.3
+      post_frames: [15, 60]
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+    visibility_noise: {to_unknown_prob: 0.5}
+  S3_mixed_bursty:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination:
+      prob: 0.5
+      pre_frames: [3, 15]
+      post_frames: [15, 45]
+    misleading_post:
+      prob: 0.3
+      post_frames: [15, 60]
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+    bursty_visibility: {error_rate: 0.2, mean_burst_frames: 10}
+prior: {horizon_s: 3.0, fit_split: calibration, fit_conditions: calibrated (C1-C7)}
+search:
+  n_samples: 200
+  enumerated: {}
+  base_spaces:
+    gated:
+      alpha: [uniform, 0.1, 1.0]
+      decay_visible: [uniform, 0.0, 0.95]
+      decay_occluded: [one_minus_loguniform, 0.001, 0.3]
+      decay_unknown: [uniform, 0.0, 0.999]
+      score_threshold: [loguniform, 0.01, 0.6]
+  extension_spaces:
+    hysteresis:
+      off_ratio: [uniform, 0.1, 0.95]
+    runpost:
+      tau: [uniform, 0.05, 0.95]
+      kappa: [loguniform, 1.0, 1000.0]
+    buffer:
+      n_occ: [uniform, 0.0, 90.0]
+      n_unk: [uniform, 0.0, 90.0]
+  methods:
+    gated_ema_hyst:
+    - gated
+    - [hysteresis]
+    b2_hold_km:
+    - gated
+    - [hysteresis, runpost]
+    b2_hold_static:
+    - gated
+    - [hysteresis, runpost]
+    b2_hold_pooled:
+    - gated
+    - [hysteresis, runpost]
+    b2_hold_geometric:
+    - gated
+    - [hysteresis, runpost]
+    b2_hold_buffer:
+    - gated
+    - [hysteresis, buffer]
+methods_order: [gated_ema_hyst, b2_hold_buffer, b2_hold_geometric, b2_hold_static, b2_hold_pooled, b2_hold_km]
+prior_methods: [b2_hold_km, b2_hold_static, b2_hold_pooled, b2_hold_geometric]
+reference_methods:
+  note: episode-study frozen operating points, evaluated descriptively only (not re-tuned)
+  from: results/episodes/configs/frozen_parameters.json
+  methods: [hsmm, episode, va_hmm]
+method_labels: {gated_ema_hyst: B2 GatedEMA+hyst, b2_hold_buffer: BUF B2+per-flag buffer, b2_hold_geometric: GEO B2+geometric
+    adaptive, b2_hold_static: K1-static (prior only), b2_hold_pooled: K1-pooled (one stratum), b2_hold_km: K1 B2+online KM
+    hold, hsmm: ref HSMM (episode study), episode: ref P1 episode (episode study), va_hmm: ref VA-HMM (episode study)}
+metrics: {reactivation_min_dead: 10, sustained_off_frames: 15, episode_iou: 0.5, coverage_detected: 0.5, latency_condition: C1_gaps,
+  latency_instances: 10}
+statistics: {ci_level: 0.95, bootstrap_resamples: 5000, dz_min_sd: 1.0e-09, min_paired_rdd: 10}
+criteria:
+  treatment: b2_hold_km
+  baseline: gated_ema_hyst
+  buffer: b2_hold_buffer
+  geometric: b2_hold_geometric
+  static: b2_hold_static
+  pooled: b2_hold_pooled
+  primary_conditions: [C1_gaps, S2_mixed_unknown]
+  adapt_conditions: [C1_gaps, S1_mixed_flagnoise, S2_mixed_unknown, S3_mixed_bursty]
+  g_J: 0.02
+  churn_margin_abs: 0.005
+  churn_margin_rel: 0.1
+  churn_loss_rel: 0.25
+  harm_rel: 0.25
+  harm_floor: {fpt_s: 0.25, frr: 0.02, std_mean_s: 0.0333333333, ghost_time_s: 0.25, rdd_mean_s: 0.0333333333}
+  min_paired: 10
+  g3_min_wins: 2
+  g4_min_wins: 1
+  g5_min_wins: 1
+  stop_min_losses: 2
+  max_latency_ratio: 3.0
+  half_control_fraction: 0.5

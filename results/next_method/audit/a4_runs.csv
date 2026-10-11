@@ -1,0 +1,12 @@
+condition,runs_redetected_VISIBLE,runs_redetected_OCCLUDED_OR_UNRELIABLE,runs_redetected_UNKNOWN,runs_redetected_NONE,runs_open_at_end
+C1_gaps,40.35,25.45,0.0,0.0,8.75
+C2_hidden_termination,35.65,18.55,0.0,0.0,8.65
+C3_misleading_post,38.05,20.95,0.0,0.0,8.7
+C4_recurrence,67.9,17.95,0.0,0.0,9.4
+C5_boundary_flicker,174.75,11.1,0.0,0.0,8.8
+C6_id_switch,47.45,10.3,0.0,4.6,14.15
+C7_motion,47.8,11.2,0.0,0.0,8.7
+S0_mixed,108.3,31.25,0.0,0.0,8.9
+S1_mixed_flagnoise,81.9,57.65,0.0,0.0,8.9
+S2_mixed_unknown,51.6,14.5,73.45,0.0,8.9
+S3_mixed_bursty,91.95,47.6,0.0,0.0,8.9
