@@ -1,0 +1,264 @@
+# TAORG relationship-episode study (pre-registered; research/taorg_episode_preregistration.md)
+#
+# Frozen with the pre-registration commit.  Any later change is an amendment (prereg §12).
+# Seeds are disjoint from Phase 3 (1000-1019, 2000-2029, 9000-9001) and Phase 4
+# (3000-3019, 4000-4029, 9100-9101).
+
+study: episodes
+
+world:                               # taorg.data.episode_world.EpisodeWorldConfig
+  num_frames: 360
+  fps: 30.0
+  num_subject_tracks: 2
+  num_object_tracks: 4
+  num_predicates: 6
+  num_keys: 8
+  first_start_max: 45
+  on_frames: [40, 120]
+  off_frames: [10, 60]
+  p_recur: 0.5
+  p_open: 0.2
+  min_tail: 20
+  p_succ: 0.4
+  succ_offset: [-8, 4]
+  succ_clearance: 10
+  predicate_partners: {0: 1, 1: 0, 2: 3, 3: 2, 4: 5, 5: 4}
+  score_mean_range: [0.6, 0.95]
+  score_noise_std: 0.05
+  score_min: 0.05
+  box_width: [50.0, 110.0]
+  box_aspect: [1.0, 1.8]
+  arena: [60.0, 60.0, 580.0, 420.0]
+  v0: 60.0
+  accel_std: 80.0
+  v_max: 200.0
+  box_jitter: 0.05                   # observed centre jitter, in box diagonals
+
+base_corruption:                     # applied in every condition
+  gap_prob: 0.6
+  gap_max_per_episode: 1
+  gap_frames: [3, 30]
+  gap_min_episode: 20
+  gap_margin: 3
+  miss_prob: 0.02                    # background visible misses (Phase 3 flicker injector)
+  false_detection_prob: 0.004        # per GT-dead record of a maintained key
+
+seeds:
+  calibration: [5000, 5001, 5002, 5003, 5004, 5005, 5006, 5007, 5008, 5009,
+                5010, 5011, 5012, 5013, 5014, 5015, 5016, 5017, 5018, 5019]
+  evaluation: [6000, 6001, 6002, 6003, 6004, 6005, 6006, 6007, 6008, 6009,
+               6010, 6011, 6012, 6013, 6014, 6015, 6016, 6017, 6018, 6019,
+               6020, 6021, 6022, 6023, 6024, 6025, 6026, 6027, 6028, 6029,
+               6030, 6031, 6032, 6033, 6034, 6035, 6036, 6037, 6038, 6039,
+               6040, 6041, 6042, 6043, 6044, 6045, 6046, 6047, 6048, 6049]
+  smoke: [9300, 9301]                # pipeline checks only; never analysed
+  sampler: 2026
+  bootstrap: 4343
+  half_control: 2027
+
+# ---------------------------------------------------------------------------
+# Conditions.  role: ni | benefit | transfer.  calibrate: pooled tuning set.
+# ---------------------------------------------------------------------------
+conditions:
+  C1_gaps:
+    role: ni
+    calibrate: true
+    base_overrides: {gap_prob: 1.0, gap_max_per_episode: 2, gap_frames: [3, 45]}
+  C2_hidden_termination:
+    role: benefit
+    calibrate: true
+    hidden_termination: {prob: 1.0, pre_frames: [3, 15], post_frames: [15, 45]}
+  C3_misleading_post:
+    role: benefit
+    calibrate: true
+    misleading_post: {prob: 1.0, post_frames: [15, 60]}
+  C4_recurrence:
+    role: ni
+    calibrate: true
+    world_overrides: {p_recur: 0.9, off_frames: [6, 30]}
+  C5_boundary_flicker:
+    role: benefit
+    calibrate: true
+    boundary_flicker: {window: 12, miss_prob: 0.3, false_prob: 0.2}
+  C6_id_switch:
+    role: benefit
+    calibrate: true
+    id_switch: {swap_duration: 20, num_swaps: 2, require_same_class: true,
+                min_pre_swap_frames: 2, min_post_swap_frames: 2}
+  C7_motion:
+    role: ni
+    calibrate: true
+    world_overrides: {v0: 250.0, accel_std: 400.0, v_max: 600.0}
+  S0_mixed:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination: {prob: 0.5, pre_frames: [3, 15], post_frames: [15, 45]}
+    misleading_post: {prob: 0.3, post_frames: [15, 60]}
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+  S1_mixed_flagnoise:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination: {prob: 0.5, pre_frames: [3, 15], post_frames: [15, 45]}
+    misleading_post: {prob: 0.3, post_frames: [15, 60]}
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+    visibility_noise: {occluded_to_visible_prob: 0.3, visible_to_occluded_prob: 0.3}
+  S2_mixed_unknown:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination: {prob: 0.5, pre_frames: [3, 15], post_frames: [15, 45]}
+    misleading_post: {prob: 0.3, post_frames: [15, 60]}
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+    visibility_noise: {to_unknown_prob: 0.5}
+  S3_mixed_bursty:
+    role: transfer
+    calibrate: false
+    world_overrides: {p_recur: 0.6}
+    hidden_termination: {prob: 0.5, pre_frames: [3, 15], post_frames: [15, 45]}
+    misleading_post: {prob: 0.3, post_frames: [15, 60]}
+    boundary_flicker: {window: 12, miss_prob: 0.15, false_prob: 0.1}
+    bursty_visibility: {error_rate: 0.2, mean_burst_frames: 10}
+
+# ---------------------------------------------------------------------------
+# Methods and search.  Distributions: uniform | loguniform | one_minus_loguniform.
+# Families share base draws (common random numbers); extensions use separate streams.
+# ---------------------------------------------------------------------------
+search:
+  n_samples: 200
+  enumerated:
+    no_memory: {score_threshold: [0.0]}
+  base_spaces:
+    gated:
+      alpha: [uniform, 0.1, 1.0]
+      decay_visible: [uniform, 0.0, 0.95]
+      decay_occluded: [one_minus_loguniform, 0.001, 0.3]
+      decay_unknown: [uniform, 0.0, 0.999]
+      score_threshold: [loguniform, 0.01, 0.6]
+    episode:
+      miss: [loguniform, 0.005, 0.5]
+      false_pos: [loguniform, 0.0005, 0.2]
+      a_occ: [uniform, 0.0, 1.0]
+      a_unk: [uniform, 0.0, 1.0]
+      mu: [loguniform, 0.01, 5.0]
+      end_threshold: [uniform, 0.02, 0.5]
+      birth_threshold: [uniform, 0.5, 15.0]
+      refractory_boost: [uniform, 0.0, 15.0]
+      refractory_tau: [loguniform, 0.05, 3.0]
+    va_hmm:
+      p_stay: [one_minus_loguniform, 0.0001, 0.1]
+      p_birth: [loguniform, 0.0001, 0.1]
+      prior: [uniform, 0.05, 0.95]
+      theta_vis: [loguniform, 0.001, 0.5]
+      theta_occ: [uniform, 0.5, 1.0]
+      theta_unk: [uniform, 0.1, 1.0]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+    hsmm:
+      theta_vis: [loguniform, 0.001, 0.5]
+      theta_occ: [uniform, 0.5, 1.0]
+      theta_unk: [uniform, 0.1, 1.0]
+      false_pos: [loguniform, 0.0001, 0.2]
+      threshold: [uniform, 0.05, 0.95]
+      prior: [uniform, 0.05, 0.95]
+      on_shape: [uniform, 0.5, 4.0]
+      on_scale: [loguniform, 0.3, 10.0]       # seconds
+      off_shape: [uniform, 0.5, 4.0]
+      off_scale: [loguniform, 0.2, 20.0]      # seconds
+  extension_spaces:
+    hysteresis:
+      off_ratio: [uniform, 0.1, 0.95]         # theta_off = off_ratio * theta_on (theta_on = base score_threshold)
+    identity:
+      sigma_id: [loguniform, 0.02, 1.0]       # residual scale, box diagonals per frame
+      r_id: [loguniform, 0.3, 30.0]           # reliability recovery rate, 1/s
+    context:
+      kappa_c: [uniform, 0.0, 50.0]
+    history:
+      kappa_h: [uniform, 0.0, 50.0]
+      tau_h: [loguniform, 0.1, 5.0]           # seconds
+  # method -> (base family, [extensions in order])
+  methods:
+    gated_ema: [gated, []]
+    gated_ema_hyst: [gated, [hysteresis]]
+    va_hmm: [va_hmm, []]
+    hsmm: [hsmm, []]
+    gated_ema_id: [gated, [identity]]
+    episode: [episode, []]
+    episode_id: [episode, [identity]]
+    episode_ctx: [episode, [identity, context]]
+    episode_hist: [episode, [identity, context, history]]
+
+methods_order: [no_memory, gated_ema, gated_ema_hyst, va_hmm, hsmm, gated_ema_id,
+                episode, episode_id, episode_ctx, episode_hist]
+method_labels:
+  no_memory: "No Memory"
+  gated_ema: "B1 GatedEMA"
+  gated_ema_hyst: "B2 GatedEMA+hyst"
+  va_hmm: "B3 VA-HMM"
+  hsmm: "B4 HSMM"
+  gated_ema_id: "B5 GatedEMA+ID"
+  episode: "P1 Episode"
+  episode_id: "P2 +identity"
+  episode_ctx: "P3 +transition ctx"
+  episode_hist: "P4 +event history"
+context_methods: [episode_ctx, episode_hist]   # receive the fitted transition statistic E
+
+context_fit:                          # formulation §6
+  window_before: 10
+  window_after: 15
+
+# ---------------------------------------------------------------------------
+# Metrics, statistics, decisions (exact logic: taorg.experiments.episodes.decision)
+# ---------------------------------------------------------------------------
+metrics:
+  reactivation_min_dead: 10
+  sustained_off_frames: 15
+  episode_iou: 0.5
+  coverage_detected: 0.5
+  latency_condition: C1_gaps
+  latency_instances: 10
+
+statistics:
+  ci_level: 0.95
+  bootstrap_resamples: 5000
+  dz_min_sd: 1.0e-9
+  min_paired_rdd: 10
+
+criteria:
+  treatment_candidates: [episode, episode_id, episode_ctx, episode_hist]
+  comparators: [gated_ema, gated_ema_hyst, va_hmm, hsmm]
+  identity_comparator: gated_ema_id
+  identity_comparator_conditions: [C6_id_switch, C7_motion]
+  simple_baseline: gated_ema_hyst
+  target_harm:
+    C2_hidden_termination: std_mean_s
+    C3_misleading_post: fpt_s
+    C5_boundary_flicker: frr
+    C6_id_switch: ghost_time_s
+  g_J: 0.02
+  ni_J: -0.01
+  r_h: 0.25
+  rdd_margin_s: 0.1
+  gap_recall_ni: -0.03
+  churn_margin_abs: 0.005
+  churn_margin_rel: 0.10
+  benefit_conditions: [C2_hidden_termination, C3_misleading_post, C5_boundary_flicker, C6_id_switch]
+  relapse_conditions: [C2_hidden_termination, C3_misleading_post, C5_boundary_flicker]
+  ni_conditions: [C1_gaps, C4_recurrence, C7_motion]
+  transfer_conditions: [S0_mixed, S1_mixed_flagnoise, S2_mixed_unknown, S3_mixed_bursty]
+  go:
+    min_benefit_wins: 3
+    min_relapse_wins: 2
+    max_calibrated_losses: 0
+    max_transfer_losses: 1
+    max_latency_ms: 1.0
+    max_latency_ratio: 20.0
+  stop:
+    max_benefit_wins: 1
+  ladder:
+    identity: {target: C6_id_switch, harm: ghost_time_s, rel: 0.25}
+    context: {targets: [C2_hidden_termination, C3_misleading_post], std_gain_s: 0.1}
+    history: {targets: [C2_hidden_termination, C3_misleading_post], pooled_min: 0.01}
+  q5_min_transfer_wins: 2
+  half_control_fraction: 0.5
