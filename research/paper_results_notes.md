@@ -316,3 +316,26 @@ UNKNOWN, learned from calibration as "never returns", collapses S2 (J 0.568).
 2. The "no record = UNKNOWN" input convention.
 3. Synthetic world.
 4. A documented per-frame vs run-stratum implementation detail (exit report §1).
+
+---
+
+# Observation-interface audit (2026-10-12; REAL detector/tracker outputs; `results/observation/`)
+
+> MOT17 public FRCNN/SDP detections + ByteTrack (`trackers` 2.6.1); development sequences
+> 02/09/11; benchmark annotations used only for scoring. Detector/tracker level only: no
+> relationship results. Report: `research/taorg_observation_exit_report.md`.
+
+## Outcome
+
+- **The conflation is real:** 20% of real absence frames are identity takeovers and 41% are real
+  gaps.
+- **It is not observable from motion-only tracker outputs:** pre-stated verdict NOT USABLE.
+- Elapsed time is the only weakly informative signal, and it is what a fixed buffer uses.
+- **No comparison was run** and no algorithm contribution is claimed. The contract is an
+  interface fix.
+
+## Must-disclose
+
+1. Three development sequences; motion-only tracker; pedestrians only.
+2. The untouched evaluation sequences were not processed.
+3. Leave/re-enter under the same identity is absent from the sample.

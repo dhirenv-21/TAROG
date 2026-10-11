@@ -148,3 +148,110 @@ reported descriptively.
 ---
 
 *(Part 2, development results: §6 onward.)*
+
+## 6. Development results (dev sequences 02, 09, 11 × FRCNN / SDP; `results/observation/dev_audit/`)
+
+### 6.1 Required phenomena (`summary.json` → `phenomena`)
+
+| Phenomenon | Present? | Evidence |
+|---|---|---|
+| Temporary detection loss, resumed with the same identity | yes | 22–781 resumed absence segments per unit |
+| Annotated occlusion | yes | 2,171–11,293 ground-truth boxes with visibility < 0.5 per sequence |
+| Ordinary motion without identity change | yes | 10–36 ground-truth persons tracked by exactly one track ID |
+| Identity switches / fragmentation | yes | 14–45 ground-truth persons matched to ≥ 2 track IDs; 7,778 TAKEOVER absence frames |
+| **Leaving and re-entering the frame** | **absent** | No considered ground-truth identity has two separate presence segments in the dev sequences (MOT convention: a returning person is usually annotated with a new ID). It is reported as absent, not engineered |
+
+### 6.2 How common the conflation is (observation)
+
+| Category | Absence frames | Share |
+|---|---|---|
+| OCCLUDED_GAP | 14,622 | |
+| VISIBLE_MISS | 1,505 | |
+| **Real gaps (subtotal)** | **16,127** | **41%** |
+| **TAKEOVER** | **7,778** | **20%** |
+| GONE | 10,466 | 26% |
+| FALSE_TRACK | 5,163 | 13% |
+| **Total** | **39,534** | |
+
+Under the legacy contract, all of these reach a temporal method as the same "no record ⇒ UNKNOWN".
+**The conflation is real and frequent on real tracker outputs.**
+
+### 6.3 Pre-stated criteria (`summary.json` → `criteria`)
+
+| Detector | IDENTITY_SUSPECT precision / recall (TAKEOVER) | Real-gap frames given a drop-type label | U1 | U2 |
+|---|---|---|---|---|
+| FRCNN | 0.039 / 0.001 | 29.2% | fail | fail |
+| SDP | 0.559 / 0.010 | 25.6% | fail | fail |
+
+# **Verdict: NOT USABLE.**
+
+The available inference-time information does not reliably distinguish real gaps from
+identity-related missing records. By the pre-stated rule, **no downstream comparison is run**,
+and the untouched evaluation sequences (04, 05, 10, 13) were **never processed**.
+
+### 6.4 What the other signals do (observations)
+
+- **OUT_OF_VIEW_EVIDENCE** is recall-oriented for GONE (0.65 / 0.61), but its precision is low
+  (0.46 / 0.37). It is also assigned to 30% / 25% of OCCLUDED_GAP frames. *Explanation
+  (hypothesis):* the Kalman prediction of a lost track keeps extrapolating its last velocity and
+  drifts off-image, whether or not the person actually left.
+- **OCCLUSION_EVIDENCE** is the majority label for real gaps (precision for hold 0.66 / 0.55),
+  but it also covers 21–38% of TAKEOVER frames. Another track covering the predicted box looks the
+  same whether it is an occluder or the same person under a new ID.
+- **The tracker's own state** (in buffer vs deleted) is *inversely* related to correctness: the
+  AUC is 0.35–0.41 (`separability.json`). Many real gaps outlast the 30-frame buffer.
+- **Unspecified coverage** (no heuristic fired): 21% / 19% of absence frames.
+
+### 6.5 Exploratory separability (defined after the verdict; not a decision input)
+
+Single-signal AUC for TAKEOVER vs real gap (`separability.json`, Fig. 2):
+
+| Signal | FRCNN | SDP |
+|---|---|---|
+| Time since detection | 0.69 | 0.62 |
+| Predicted box outside image | 0.66 | 0.56 |
+| IoU with a newer track | 0.53 | 0.53 |
+| IoU with an older track | 0.38 | 0.43 |
+| Still in buffer | 0.35 | 0.41 |
+| Covered by another track | 0.34 | 0.36 |
+
+The composition of missing records vs elapsed time (`hold_vs_time.csv`, Fig. 3): the real-gap
+share falls from 0.75 at ≤ 0.1 s to 0.32 at 2–3 s (FRCNN), and from 0.63 to 0.27 (SDP), while the
+takeover share rises.
+
+**Interpretation (hypothesis):**
+- Elapsed time is the only usable cue, and it is exactly what a fixed buffer already uses.
+- Box geometry from a motion-only tracker carries almost no identity information.
+- Separating identity changes from gaps needs appearance / re-identification evidence or a
+  tracker that reports association confidence. Neither is available here.
+
+### 6.6 Representative examples (predefined rule; `examples.json`, Fig. 4)
+
+| Example | Track | Outcome |
+|---|---|---|
+| success_occlusion | MOT17-02-FRCNN track 4, frames 228–243 | All 16 frames oracle OCCLUDED_GAP and labelled OCCLUSION_EVIDENCE |
+| **success_identity** | **none found** | No absence segment of ≥ 10 frames was majority TAKEOVER *and* majority IDENTITY_SUSPECT |
+| fail_takeover | MOT17-02-FRCNN track 20, frames 159–248 | 86/90 frames TAKEOVER, but 77 labelled OUT_OF_VIEW (drifting prediction). 88 such segments exist |
+| fail_realgap | MOT17-02-FRCNN track 0, frames 207–296 | All 90 frames OCCLUDED_GAP, but 66 labelled OUT_OF_VIEW. 60 such segments exist |
+
+## 7. Which distinctions can and cannot be made reliably (this sample, these inputs)
+
+**Can be represented** (contract):
+- detected vs not detected;
+- time since detection;
+- tracker lost-buffer vs deleted;
+- predicted box;
+- "reason unspecified".
+
+**Can be inferred only weakly** (≈ 0.6–0.7 AUC):
+- that an absence is more likely an identity change or an exit the longer it lasts.
+
+**Cannot be inferred reliably:**
+- identity takeover vs occlusion;
+- leaving the image vs occlusion at the image border (the drifting prediction);
+- association reliability (not reported by ByteTrack).
+
+**Untested here:**
+- relationship-level "not evaluated" vs "evaluated negative" (no scene-graph predictor);
+- appearance-based re-identification;
+- trackers that report association scores.

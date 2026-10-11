@@ -13,7 +13,9 @@ Unrelated items were left untouched and are never staged:
 
 | # | Checkpoint | Commit |
 |---|---|---|
-| 1 | Audit part 1 (code trace, sampling rule, pre-stated criteria) and contract | (recorded after commit) |
+| 1 | Audit part 1 (code trace, sampling rule, pre-stated criteria) and contract | `bbf545e1e59b240d5809e0a8252ab84103f29452` |
+| 2 | Tested adapter/oracle and development audit results | `550f9f3b2584c3db2f8955ca9f64db0f7d6058d4` |
+| 3 | Exit report, audit part 2, supervisor update, records | the commit adding this row (hash in the PR description) |
 
 ## Log
 
@@ -29,3 +31,16 @@ Unrelated items were left untouched and are never staged:
   - DPM excluded by its score range.
 - 2026-10-12 — Code trace, contract and schema (`src/taorg/schemas/observation.py`, 4 tests).
   No tracker output yet.
+- 2026-10-12 — Adapter (MOT17 public detections → ByteTrack → contract records with a-priori
+  heuristics) and a separate oracle module.
+- 2026-10-12 — Development audit on 02/09/11 × FRCNN/SDP (39,534 absence frames).
+  - **Pre-stated verdict NOT USABLE.**
+  - Two test/figure issues were fixed in the test and figure code (no change to results):
+    - the AST-based ground-truth check had matched a docstring;
+    - a shared-axis figure label bug.
+- 2026-10-12 — Exploratory separability (labelled; after the verdict): elapsed time is the only
+  signal better than chance.
+- 2026-10-12 — **No pre-registration and no comparison**, because the pre-stated rule forbids
+  them. The evaluation sequences were never processed.
+  - Wrote the exit report, supervisor update, ledger L57–L60, results notes and Memory.
+  - 326 tests pass.
