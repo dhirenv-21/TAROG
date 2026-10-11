@@ -1,0 +1,17 @@
+{
+ "results/observation/dev_audit/absence_frames.csv.gz": "bb223799b2802e2171b02a4610f9109a301cc007ac8e37786636cf5b00ad090c",
+ "results/observation/dev_audit/examples.json": "5ed67f8e086b5befa5b2ee9888e847f058817cc544602e684cf84b83f125b846",
+ "results/observation/dev_audit/hold_vs_time.csv": "4fe9a8e3eb95bad2cb490ab636baaab90876e0b43ab17e82314c33ae8bf69d31",
+ "results/observation/dev_audit/separability.json": "308cde8292c78d11bcebd5a12593c66c25abf8f056681b443466bf79cce54a78",
+ "results/observation/dev_audit/summary.json": "d38cb1305b13d50de382aebf159af860e49667ec29e1c4d6cc371f692773c9ce",
+ "results/observation/manifests/sources.json": "ebc7ecd70ff9963681a80c62260332461b39ca28a6c86b21bfb2194ea5af8e6b",
+ "results/observation/plots/fig1_reason_vs_oracle.pdf": "2353d2718c1733f3f927d83aacf5ff4853834b8836f507063620a09e70ff4b38",
+ "results/observation/plots/fig1_reason_vs_oracle.png": "81d02c880d87549806e6823596035cc421ee3ab559043bb47c61e5c50613f893",
+ "results/observation/plots/fig2_signal_auc.pdf": "55990a3b962a9898e8140402a89f7bed4a9e529505a6f29abec0a23184ea6f9a",
+ "results/observation/plots/fig2_signal_auc.png": "87151698dc571ab2e0b6c113f5148baab62a7de906c12ed0e59d4b135555f2b4",
+ "results/observation/plots/fig3_composition_vs_time.pdf": "84b7efa25e271c38bfb9b3c4f901185e3c4b700560fa6b794b47af724fff1aa4",
+ "results/observation/plots/fig3_composition_vs_time.png": "6f5b04ac3b272b3be0331e0d366d7db4e6b3d801db6707e701c9dfcc46121d9e",
+ "results/observation/plots/fig4_examples.pdf": "84b36c520f52ce865136f49489d88972031e326f29ba3bcdda0d68b1344883f4",
+ "results/observation/plots/fig4_examples.png": "227f5cd59b08a7ad2332a644fece329473195501a6f35131bfaccab3d3246333",
+ "D:/TAORG_runs/observation/MOT17Labels.zip": "0aa79322e91583369f42f17c4d79a0b145380d8732487bba59272048dc82b2b9"
+}
