@@ -12,7 +12,7 @@ Unrelated working-tree items were left untouched and are never staged:
 | # | Checkpoint | Commit |
 |---|---|---|
 | 1 | Failure audit, formulation, pre-registration | `fe084a6cce6d5500b2b10b8c390bdfc0c4eb9df1` |
-| 2 | Tested implementation | |
+| 2 | Tested implementation | `ed9a021ba16e3a91191d882f93316ca74e4b68d9` |
 | 3 | Frozen parameters | |
 | 4 | Evaluation and analysis | |
 | 5 | Exit report and documentation | |
@@ -51,3 +51,14 @@ Unrelated working-tree items were left untouched and are never staged:
     - a malformed leftover assertion was removed.
   - Smoke run (seeds 9400–9401, 3 samples): all stages run; the completeness gate refuses smoke
     data.
+- 2026-10-11 (checkpoint 3, before any evaluation run):
+  - fit → calibrate → select: 140/140 instances × 1200 configurations, 0 failed, 1324 s, code
+    `ed9a021`, 4 workers.
+  - The prior used 2958 OCC runs and 254 UNKNOWN runs from the calibration input streams.
+  - B2 re-selected #0091 (identical to the episode study).
+  - **Calibration observation:** all prior-based modes selected τ = 0.376 and κ = 838. κ swamps
+    the per-video counts, so online adaptation is effectively off at the selected point.
+    Calibration J: K1 0.9233 = static 0.9233; BUF 0.9235; pooled 0.9249; GEO 0.9224;
+    B2 0.9029.
+  - The half-sample control picked the same points.
+  - Rationale: `results/next_method/configs/frozen_parameters.md`.
