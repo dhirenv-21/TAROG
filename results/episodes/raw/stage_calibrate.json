@@ -1,0 +1,28 @@
+{
+  "run_id": "episodes_calibrate_20261011_163855_89c52e",
+  "stage": "calibrate",
+  "smoke": false,
+  "start_time_utc": "2026-10-11T16:38:55.665385+00:00",
+  "git_commit": "e7e7804",
+  "git_dirty": true,
+  "git_branch": "codex/taorg-episodes",
+  "command": "scripts/episodes/run_episodes.py fit calibrate select --workers 6",
+  "config_path": "configs\\experiments\\episodes.yaml",
+  "config_sha256": "0854b851c4b7bb3c4223661fb2b37fcf2397e4489ba3e1f955ac78755453df00",
+  "environment": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.10.11",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "cpu_count": 32
+  },
+  "end_time_utc": "2026-10-11T16:56:59.482880+00:00",
+  "n_instances": 140,
+  "n_configs": 1801,
+  "status": {
+    "done": 140
+  },
+  "max_samples": null,
+  "elapsed_s": 1083.4740736484528,
+  "run_dir": "D:\\TAORG_runs\\episodes"
+}

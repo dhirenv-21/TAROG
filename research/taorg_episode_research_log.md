@@ -13,7 +13,7 @@ Unrelated working-tree changes found at start and **left untouched**:
 | # | Checkpoint | Commit |
 |---|---|---|
 | 1 | Formulation, related work, pre-registration, decision rules (before comparisons) | `42b61ea92583be8ef54cda97bf077e79da500e63` |
-| 2 | Tested implementation and experiment infrastructure | |
+| 2 | Tested implementation and experiment infrastructure | `e7e7804c0833de56bfa8f3f47e5bb514040dc85b` |
 | 3 | Calibrated parameters and selection rationale (before evaluation) | |
 | 4 | Evaluation summaries and analysis | |
 | 5 | Exit report, evidence ledger, documentation | |
@@ -42,3 +42,18 @@ Unrelated working-tree changes found at start and **left untouched**:
     One worker died at import with "paging file is too small": C: has about 1 GB free and only
     about 3 GB of RAM was free. The pool respawned the worker and no task was lost, but the full
     runs will use ≤ 6 workers.
+- 2026-10-11 (checkpoint 3, before any evaluation run):
+  - `fit` → `calibrate` → `select` with 6 workers. Calibration covered 140/140 instances × 1801
+    configurations, status `{'done': 140}`, 0 failed, 1083 s, code at `e7e7804`.
+    - `git_dirty = True` refers only to the unrelated demo files and the uncommitted
+      `results/episodes/README.md`; no code was modified.
+    - The heavy parts (53 MB) are in `D:/TAORG_runs/episodes/calibration/`, with checksums in
+      `results/episodes/raw/calibration_parts_sha256.json`.
+  - Selection rationale: `results/episodes/configs/frozen_parameters.md`.
+  - **Observations at calibration (not decisions):**
+    - Pooled J is highest for the episode ladder (P1 0.9286, P2 0.9291, P3 0.9303, P4 0.9302).
+      The ladder steps are ≤ 0.002 at calibration.
+    - The next are B2 0.9029, B4 0.8925, B3 0.8915, B1 0.8778 and B5 0.8575.
+    - Adding identity to GatedEMA lowered its pooled calibration J.
+    - P2–P4 selected the same base index (#0101, a common-random-numbers draw); P1 selected #0176.
+  - The decisions rest only on the registered evaluation analysis.
