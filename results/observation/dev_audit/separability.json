@@ -1,0 +1,53 @@
+{
+ "FRCNN": {
+  "n_hold": 6235,
+  "n_takeover": 2062,
+  "n_gone": 4204,
+  "auc_takeover_vs_hold__t_since_s": 0.6865996140494705,
+  "auc_gone_vs_hold__t_since_s": 0.6544044813165298,
+  "auc_takeover_vs_hold__in_buffer": 0.35238286728108664,
+  "auc_gone_vs_hold__in_buffer": 0.38224231018383226,
+  "auc_takeover_vs_hold__iou_new": 0.5252908046236282,
+  "auc_gone_vs_hold__iou_new": 0.47895714701010306,
+  "auc_takeover_vs_hold__iou_old": 0.3767063843622366,
+  "auc_gone_vs_hold__iou_old": 0.31908283019112665,
+  "auc_takeover_vs_hold__cover_any": 0.3432511937476325,
+  "auc_gone_vs_hold__cover_any": 0.3158974116375972,
+  "auc_takeover_vs_hold__outside": 0.6606825537448946,
+  "auc_gone_vs_hold__outside": 0.69984047346362
+ },
+ "SDP": {
+  "n_hold": 9892,
+  "n_takeover": 5716,
+  "n_gone": 6262,
+  "auc_takeover_vs_hold__t_since_s": 0.6148180351292913,
+  "auc_gone_vs_hold__t_since_s": 0.6709295992373979,
+  "auc_takeover_vs_hold__in_buffer": 0.40876066132849187,
+  "auc_gone_vs_hold__in_buffer": 0.3732614859453674,
+  "auc_takeover_vs_hold__iou_new": 0.5276946321178454,
+  "auc_gone_vs_hold__iou_new": 0.4797676290071385,
+  "auc_takeover_vs_hold__iou_old": 0.42587806957548807,
+  "auc_gone_vs_hold__iou_old": 0.30131974348837776,
+  "auc_takeover_vs_hold__cover_any": 0.36116741175585054,
+  "auc_gone_vs_hold__cover_any": 0.29533531769427285,
+  "auc_takeover_vs_hold__outside": 0.5607894865668888,
+  "auc_gone_vs_hold__outside": 0.67289313212526
+ },
+ "ALL": {
+  "n_hold": 16127,
+  "n_takeover": 7778,
+  "n_gone": 10466,
+  "auc_takeover_vs_hold__t_since_s": 0.6289908321711585,
+  "auc_gone_vs_hold__t_since_s": 0.6644792195087362,
+  "auc_takeover_vs_hold__in_buffer": 0.39580905232115304,
+  "auc_gone_vs_hold__in_buffer": 0.37662167227452464,
+  "auc_takeover_vs_hold__iou_new": 0.528647486029627,
+  "auc_gone_vs_hold__iou_new": 0.4791971548782049,
+  "auc_takeover_vs_hold__iou_old": 0.4208147153772026,
+  "auc_gone_vs_hold__iou_old": 0.30785191794857913,
+  "auc_takeover_vs_hold__cover_any": 0.36433945742733137,
+  "auc_gone_vs_hold__cover_any": 0.30326178751876454,
+  "auc_takeover_vs_hold__outside": 0.5847828928527792,
+  "auc_gone_vs_hold__outside": 0.6837906896353022
+ }
+}

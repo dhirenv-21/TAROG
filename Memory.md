@@ -3,8 +3,8 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Next-method study complete — STOP, algorithm contribution UNSUPPORTED** (synthetic; branch `codex/taorg-next-method`; workspace `D:\ADSA project`)
-- Earlier: episode study STOP; Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
+- Stage: **Observation-interface audit complete — distinction NOT USABLE on real MOT17 tracker outputs** (branch `codex/taorg-observation-audit`; workspace `D:\ADSA project`)
+- Earlier: next-method K1 STOP / UNSUPPORTED; episode study STOP; Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
 - Active phase: none — **awaiting user decision** (no supported algorithm contribution after three attempts; options: a new prereg on the 'no record' vs UNKNOWN representation, or consolidate the evaluation paper)
 - Last updated: 2026-10-11
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
@@ -100,6 +100,7 @@
 - [x] V-HPED reference implemented (eager; Phase 4).
 - [x] Relationship-episode study (pre-registered ladder P1–P4 vs 5 baselines; decision STOP).
 - [x] Next-method study (failure audit of B2; K1 survival hold; decision STOP, contribution UNSUPPORTED).
+- [x] Observation-interface audit on real MOT17 tracker outputs (distinction NOT USABLE; contract added).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -128,6 +129,12 @@ Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/
 - 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
 - Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
 
+Observation audit (2026-10-12; commits `bbf545e` (criteria before outputs), `550f9f3` (adapter + dev results); `results/observation/`; report `research/taorg_observation_exit_report.md`): **NOT USABLE**.
+- Real outputs: MOT17 public FRCNN/SDP detections + ByteTrack (trackers 2.6.1, defaults); dev seqs 02/09/11; eval seqs 04/05/10/13 untouched; data MOT17Labels.zip (10.1 MB, CC BY-NC-SA 3.0) at D:/TAORG_runs/observation.
+- Conflation real: absence frames = real gaps 41%, identity takeovers 20%, gone 26%, false tracks 13%.
+- Identity-suspect recall 0.1-1%; 26-29% of real gaps labelled drop-type (drifting Kalman predictions); only elapsed time separates (AUC 0.62-0.69) = fixed-buffer information.
+- New contract (src/taorg/schemas/observation.py): interface fix, legacy unchanged; not an algorithm contribution.
+
 Next-method study (2026-10-11; prereg `fe084a6`, impl `ed9a021`, freeze `8a7c916`, eval `320bc2e`; `results/next_method/`; report `research/taorg_next_method_exit_report.md`): **STOP / UNSUPPORTED**.
 - Audit (dev seeds 7000-7019): B2's main failure = non-visible-absence hold mismatch (matched headroom C1 0.134, S2 0.150 J).
 - K1 (B2 + online KM mixture-cure hold): C1 +0.129 J vs B2 but S2 -0.156, C3 -0.021, C2/S0 FPT +3-4 s; equal to its static prior (kappa 838 selected); the fixed buffer BUF matches or beats it (S2 0.864 vs 0.568); latency 3.71x B2.
@@ -144,6 +151,7 @@ Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-12 — Installed trackers 2.6.1 (+supervision 0.30.9, av, pydeprecate) and downloaded MOT17Labels.zip with user approval; personal local videos deliberately not used. — research/taorg_observation_research_log.md
 2026-10-11 — Workspace moved (copied) to D:\ADSA project; `pip install -e . --no-deps` re-pointed the package; the old C: copy still exists (the user will delete it). — research/taorg_next_method_failure_audit.md §0
 2026-10-11 — Episode study: one pooled operating point per method (max calibration J over C1–C7); heavy per-instance checkpoints on D:/TAORG_runs/episodes with committed SHA-256 manifests; ≤ 6 workers (C: nearly full, pagefile pressure). — research/taorg_episode_preregistration.md, results/episodes/README.md
 2026-10-08 — Phase 5H-1 amendments A1–A4 (aggregation/runner; N-jit pins censored endpoints; analysis details; max_iter 5000), all before freeze `289319e`. — research/phase5h1_preregistration.md §11
@@ -186,7 +194,7 @@ Add short entries only, newest first:
 - Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
-WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
+WAIT for user review of the observation-audit PR. Single next experiment (needs approval: MOT17 frames 1.95 GB + re-ID model): repeat the pre-stated audit with an appearance-based tracker exposing association evidence (e.g. BoT-SORT + re-ID); alternatively integrate one VidSGG model to audit 'not evaluated' vs 'evaluated negative'. Earlier: WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:

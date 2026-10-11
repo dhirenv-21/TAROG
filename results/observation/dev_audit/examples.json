@@ -1,0 +1,79 @@
+{
+ "success_identity": "none found",
+ "success_occlusion": {
+  "seq": "02",
+  "det": "FRCNN",
+  "track": 4,
+  "frames": [
+   228,
+   243
+  ],
+  "n_candidates": 157,
+  "categories": {
+   "OCCLUDED_GAP": 16
+  },
+  "reasons": {
+   "OCCLUSION_EVIDENCE": 16
+  }
+ },
+ "fail_takeover": {
+  "seq": "02",
+  "det": "FRCNN",
+  "track": 20,
+  "frames": [
+   159,
+   248
+  ],
+  "n_candidates": 88,
+  "categories": {
+   "VISIBLE_MISS": 4,
+   "TAKEOVER": 86
+  },
+  "reasons": {
+   "TRACK_LOST": 4,
+   "OCCLUSION_EVIDENCE": 9,
+   "OUT_OF_VIEW_EVIDENCE": 77
+  }
+ },
+ "fail_realgap": {
+  "seq": "02",
+  "det": "FRCNN",
+  "track": 0,
+  "frames": [
+   207,
+   296
+  ],
+  "n_candidates": 60,
+  "categories": {
+   "OCCLUDED_GAP": 90
+  },
+  "reasons": {
+   "OCCLUSION_EVIDENCE": 24,
+   "OUT_OF_VIEW_EVIDENCE": 66
+  }
+ },
+ "n_segments_ge10": 569,
+ "segment_majority_table": {
+  "OCCLUDED_GAP|OCCLUSION_EVIDENCE": 157,
+  "GONE|OUT_OF_VIEW_EVIDENCE": 89,
+  "OCCLUDED_GAP|OUT_OF_VIEW_EVIDENCE": 59,
+  "TAKEOVER|OCCLUSION_EVIDENCE": 45,
+  "TAKEOVER|OUT_OF_VIEW_EVIDENCE": 43,
+  "GONE|OCCLUSION_EVIDENCE": 33,
+  "FALSE_TRACK|OUT_OF_VIEW_EVIDENCE": 27,
+  "FALSE_TRACK|OCCLUSION_EVIDENCE": 25,
+  "OCCLUDED_GAP|TRACK_TERMINATED": 20,
+  "GONE|TRACK_TERMINATED": 16,
+  "TAKEOVER|TRACK_TERMINATED": 14,
+  "FALSE_TRACK|TRACK_TERMINATED": 9,
+  "GONE|TRACK_LOST": 7,
+  "FALSE_TRACK|TRACK_LOST": 7,
+  "OCCLUDED_GAP|TRACK_LOST": 6,
+  "TAKEOVER|TRACK_LOST": 4,
+  "VISIBLE_MISS|TRACK_LOST": 3,
+  "VISIBLE_MISS|OCCLUSION_EVIDENCE": 2,
+  "VISIBLE_MISS|TRACK_TERMINATED": 1,
+  "FALSE_TRACK|IDENTITY_SUSPECT": 1,
+  "VISIBLE_MISS|OUT_OF_VIEW_EVIDENCE": 1
+ }
+}

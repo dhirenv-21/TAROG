@@ -8,7 +8,7 @@
 > Companion files: `research/claims.md` (older Phase 0 ledger, kept for history),
 > `research/phase3_preregistration.md`, `research/paper_results_notes.md`.
 
-_Last updated: 2026-10-11 (next-method study, `N/` = `results/next_method/`; relationship-episode study; `E/` = `results/episodes/`). Earlier: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
+_Last updated: 2026-10-12 (observation audit, `O/` = `results/observation/`; next-method study, `N/` = `results/next_method/`; relationship-episode study; `E/` = `results/episodes/`). Earlier: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
 frozen-parameter commit `2ce7d1f`, artifacts commit `867b7be`). All Phase 3 evidence is **controlled
 synthetic evidence** (`R/` = `results/phase3/`)._
 
@@ -70,6 +70,10 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L54 | A survival-calibrated non-visible hold is an algorithm contribution over GatedEMA+hysteresis | Next-method gate | G1-G7 | Next-method study | Registered **STOP**, contribution **UNSUPPORTED**: S2 -0.156 J, 4 losses vs B2, latency 3.71x (`N/aggregated/analysis.json`) | NOT SUPPORTED | never |
 | L55 | The input convention 'no record = UNKNOWN' conflates two phenomena with opposite optimal holds (identity-swap ghosts vs unknown-visibility gaps) | — | Comparison across UNK-handling variants | Next-method study + episode study E2 | K1 (UNK hold 0): lowest C6 ghosts 2.19 s but S2 J 0.568; BUF / K1-pooled (UNK held): S2 J 0.864 but C6 ghosts 7.5-8.0 s; episode-study P1 ghosts linger after swaps (L45) | PARTIAL (synthetic; explanation consistent across two studies) | §9 (threats/limitations) |
 | L56 | Pooled in-distribution tuning disfavours adaptive components whose benefit appears only under shift | — | Selected kappa and transfer results | Next-method study | All prior-based modes selected kappa = 838 (adaptation off); the post-hoc dev check shows adaptation helps only under the S2 shift | PARTIAL (one study; methodological observation) | §6 (protocol) |
+| L57 | TAORG's temporal layer conflates 'no record', 'visibility UNKNOWN' and 'not evaluated', and ignores available track state | — | Code trace | Observation audit (`research/taorg_observation_audit.md` §2) | Every method maps a missing key to UNKNOWN (gated_ema.py:162-168, va_hmm.py:90, hsmm.py:100, episode.py:113, cure.py:40); TrackObservation.tracker_state / detector_confidence / visibility_state / occlusion_ratio are read by no temporal method | SUPPORTED (code fact) | §4 / threats |
+| L58 | On real tracker outputs, identity-related missing records are a substantial share of all missing records | — | MOT17 public detections + ByteTrack vs benchmark annotations | Observation audit (dev 02/09/11 x FRCNN/SDP) | 39,534 absence frames: real gaps 41%, identity takeovers 20%, object gone 26%, false tracks 13% (`O/dev_audit/summary.json`) | SUPPORTED (3 MOT17 sequences, motion-only tracker) | §7 / motivation |
+| L59 | Inference-time signals from a motion-only tracker distinguish real gaps from identity-related missing records | — | Pre-stated U1-U3 | Observation audit | **NOT USABLE**: identity-suspect recall 0.1% / 1.0% (precision 0.04 / 0.56); 29% / 26% of real-gap frames labelled drop-type. Exploratory: only elapsed time beats chance (AUC 0.69 / 0.62); geometric identity cues ~0.53 | NOT SUPPORTED | threats / future work |
+| L60 | A clarified missing-data contract is an algorithm contribution | — | — | Observation audit | Interface fix only; no comparison justified; no measured gain | NOT SUPPORTED (as algorithm) | never |
 
 ## Change log
 
@@ -95,3 +99,5 @@ synthetic evidence** (`R/` = `results/phase3/`)._
   exploratory diagnostics (`E/posthoc/`), labelled as such.
 - 2026-10-11 (next-method study, decision STOP / contribution UNSUPPORTED): added L51 (SUPPORTED, synthetic,
   with trade-off), L52-L54 (NOT SUPPORTED), L55-L56 (PARTIAL). Post-hoc kappa sensitivity on development seeds only.
+- 2026-10-12 (observation audit; real MOT17 detections + ByteTrack; verdict NOT USABLE): added L57 (SUPPORTED, code),
+  L58 (SUPPORTED, limited sample), L59 (NOT SUPPORTED), L60 (NOT SUPPORTED as algorithm).
