@@ -11,7 +11,7 @@ Unrelated working-tree items were left untouched and are never staged:
 
 | # | Checkpoint | Commit |
 |---|---|---|
-| 1 | Failure audit, formulation, pre-registration | (recorded after commit) |
+| 1 | Failure audit, formulation, pre-registration | `fe084a6cce6d5500b2b10b8c390bdfc0c4eb9df1` |
 | 2 | Tested implementation | |
 | 3 | Frozen parameters | |
 | 4 | Evaluation and analysis | |
@@ -36,3 +36,18 @@ Unrelated working-tree items were left untouched and are never staged:
   - Wrote the formulation, pre-registration, config and decision code (2 tests).
   - The final eager reference `src/taorg/temporal/cure.py` exists but is **not** part of
     checkpoint 1. The pilot prototype snapshot is committed for provenance.
+- 2026-10-11 (checkpoint 2):
+  - Implemented the eager reference `B2SurvivalHold` (modes km/static/pooled/geometric/buffer),
+    registered as `b2_hold_*`, plus the pipeline (prior → calibrate → select → evaluate →
+    latency), analysis, figures and failure rule.
+  - 11 unit tests in `test_cure.py`: B2 equivalence without non-visible absences; hold vs the
+    visible rule; P1; P2 (static == buffer); P3 by brute force on 200 random cure models; online
+    KM counts vs brute force; online learning moves the horizon; recurrence; irregular timestamps;
+    numerics, determinism and causality; prior uses inputs only.
+  - Plus 2 decision tests and 1 pipeline integration test. Full suite 316 passed.
+  - **Two test-design errors were fixed in the tests (no model change):**
+    - a flat prior hazard cannot show learning, so the test now uses a prior that says
+      "return within 5 bins or never";
+    - a malformed leftover assertion was removed.
+  - Smoke run (seeds 9400–9401, 3 samples): all stages run; the completeness gate refuses smoke
+    data.
