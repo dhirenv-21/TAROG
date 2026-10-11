@@ -27,3 +27,20 @@
   numbers verified against artifacts by `scripts/phase5h1/verify_showcase.py`.
 - Not started: full registered run, nulls, stability, hypothesis replication. Next decision:
   compute approval and an independent confirmatory dataset.
+
+## 2026-10-08
+- Moved heavy run state to `D:/TAORG_runs/phase5h1/main` (C: had 6.8 GB free; user request).
+- Benchmark on 1000 TRAIN videos replaced the 30–60 CPU-h estimate: G4 fit ≤ 0.75 s per target,
+  design build 21 s, aggregation 64 s (`results/phase5h1/full/provenance/benchmark_train1000.json`).
+- `c546591` execution infrastructure + amendments A1–A3 (aggregation, runner, N-jit construction,
+  analysis details) before any registered fit. Tests: 258 pass; serial = parallel on synthetic data.
+- First tuning attempt (max_iter 500): 35/157 early fits hit the iteration limit, plus a ~34-min
+  system pause. `8721fcb` A4 → 5000 iterations (decided from optimiser diagnostics only); the
+  attempt is preserved. A4 run: 2208/2208 converged; ridge selection identical to the attempt.
+- `289319e` FREEZE committed; EVAL unlocked afterwards. evaluate 1 min, nulls 3.7 h (7 workers),
+  stability 8 min, hypotheses 12 s. Matrix complete: 0 missing, 0 failed, 0 duplicate.
+- Registered decision: **NARROW** (K1–K3 pass, K4 fails, SPATIAL + MOTION pass).
+- Post-hoc (labelled): 17.0% exact cross-predicate boundary ties; fold-null strongest cells are
+  sparse ridge-shrunk cells (K4 statistic flaw); N-circ +16% / N-jit −9.3% to −9.8% events.
+- Exit report `research/phase5h1_exit_report.md`; supervisor materials updated. STOP here per
+  instructions; confirmatory protocol proposed, not started.

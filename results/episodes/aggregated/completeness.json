@@ -1,0 +1,23 @@
+{
+ "evaluation": {
+  "expected": 11000,
+  "actual_unique": 11000,
+  "rows": 11000,
+  "missing": [],
+  "n_missing": 0,
+  "unexpected": [],
+  "n_duplicates": 0,
+  "n_failed": 0,
+  "failed": [],
+  "instances_with_inconsistent_manifest": []
+ },
+ "calibration": {
+  "expected_instances": 140,
+  "actual_instances": 140,
+  "n_configs": 1801,
+  "max_samples": null,
+  "smoke": false,
+  "calibration_seed_leak": []
+ },
+ "complete": true
+}

@@ -3,10 +3,10 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Phase 4 complete — H2 = MIXED, H3 = MIXED, H4 = FAIL; METHOD CONTRIBUTION = NO** (synthetic only)
-- Active phase: none — **awaiting user approval** (recommended pivot: evaluation/failure-analysis paper)
-- Next phase: undecided (Phase 5 lazy/heap = ADSA deliverable; real-data validation of the protocol)
-- Last updated: 2026-09-29
+- Stage: **Relationship-episode study complete — decision STOP** (synthetic; branch `codex/taorg-episodes`)
+- Earlier: Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
+- Active phase: none — **awaiting user decision** (recommendation: simplify to GatedEMA + hysteresis; keep episode metrics)
+- Last updated: 2026-10-11
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
@@ -98,6 +98,7 @@
 - [x] Pilot completed — 182 tests passing.
 - [x] Phase 4: pre-registration `bad0ef9`, VA-HMM (M1), V-HPED eager reference M2–M6 (`src/taorg/temporal/vhped.py`), baseline freeze `07b01c2`, V-HPED freeze `490b28c`, evaluation complete (478,620 runs), exit report `research/phase4_exit_report.md`. 215 tests passing.
 - [x] V-HPED reference implemented (eager; Phase 4).
+- [x] Relationship-episode study (pre-registered ladder P1–P4 vs 5 baselines; decision STOP).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -119,10 +120,26 @@ Phase 4 (SYNTHETIC; `results/phase4/`): H2 MIXED (6/21 wins: F3 g20, F5 ×3, F8 
 
 Phase 5H (Hawkes feasibility, Track B) — DESIGN ONLY, 2026-09-30: HAWKES TRACK = MODIFY. Events = relation onsets/offsets (not frames); data = VidOR/PVSG (Action Genome too sparse); maths (censored/missing/noisy/inhibitory/marked Hawkes) already exists; identity-weighted history = marked Hawkes. Stage 0 DONE on VidOR ground truth (annotations only): HAWKES SIGNAL = WEAK-MIXED (C1, C2 pass; C3 excess/self = 0.07 < 0.10; C4 fails vs heterogeneity null). ~54% of the multivariate gain reproduced by the circular-shift null. Report research/phase5h_stage0_report.md. Awaiting user decision; no visibility-aware Hawkes / detector work started.
 Phase 5H-1 (2026-10-07): pre-registered (`07bf369`, EXPLORATORY: no untouched annotated VidOR data); point-process GLM engine with exact likelihood + tests (`4d810ce`); smoke on 300 TRAIN videos only. Full registered run NOT started (est. 30-60 CPU-h; needs parallel fitting). Supervisor showcase in results/phase5h1/showcase + research/phase5h1_supervisor_update.md. Branch phase5h-hawkes-feasibility is pushed (user authorised GitHub updates). See research/phase5h_hawkes_design.md, research/phase5h_hawkes_literature.md.
+Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/`; report `research/phase5h1_exit_report.md`): **NARROW**.
+- Δ(G4x,G2) +0.145 [0.135, 0.155], Δ(G4,G3) +0.083 [0.076, 0.090] nats/event on 84,715 EVAL events; null max 0.031 / 0.017 (38 nulls); K3 pass.
+- K4 FAIL: 0 discoveries (min FDR 0.16); registered fold t-statistic is ridge-shrinkage-inflated in sparse cells (post-hoc).
+- Families passing: SPATIAL, MOTION (contact fails practical size). Gain = ONSET→OFFSET at lags ≤ 2 s; signed > positive-only (−0.031).
+- 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
+- Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
+
+Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze `d027634`, eval `c312fb9`; `results/episodes/`; report `research/taorg_episode_exit_report.md`): **STOP**.
+- 11,000/11,000 evaluation rows complete (11 conditions × 50 seeds × 20 variants); calibration 140 instances × 1801 configs.
+- T = P1 episode estimator (identity rung not retained: C6 ΔJ −0.037); context retained vs P2 only; history not retained (pooled ΔJ +0.00004).
+- B2 GatedEMA+hysteresis never beaten in C2/C3/C5; beats P1 in C2 (STD 0.665 vs 0.922 s) and C5 (J 0.886 vs 0.823, FRR 0.142 vs 0.283).
+- P1 highest mean J in 6/7 calibrated conditions but fails churn guard vs VA-HMM/HSMM (0.014 vs 0.007); no recurrence delay; worse ghosts (8.23 vs ~2.3 s/video; post-hoc: ghosts linger after swaps).
+- Latency: P1 0.016 ms/frame (2.1× GatedEMA), HSMM 0.112 (14.5×).
 
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-11 — Episode study: one pooled operating point per method (max calibration J over C1–C7); heavy per-instance checkpoints on D:/TAORG_runs/episodes with committed SHA-256 manifests; ≤ 6 workers (C: nearly full, pagefile pressure). — research/taorg_episode_preregistration.md, results/episodes/README.md
+2026-10-08 — Phase 5H-1 amendments A1–A4 (aggregation/runner; N-jit pins censored endpoints; analysis details; max_iter 5000), all before freeze `289319e`. — research/phase5h1_preregistration.md §11
+2026-10-08 — Heavy run state on D: (C: nearly full); compact artifacts in results/phase5h1/full/. — research/phase5h1_exit_report.md §16
 2026-09-29 — Phase 4 ran baseline group first (calibrate→freeze→evaluate) before any V-HPED run; equal 200-sample random search per method. — research/phase4_preregistration.md
 2026-09-29 — Obsolete pre-registration pilot files archived to archive/pre_registration_pilot/ (not deleted). — research/phase4_preregistration.md §12
 2026-09-29 — `render_video` extracted from `generate_video` (Phase 3 outputs verified identical). — src/taorg/data/synthetic_world.py
@@ -154,10 +171,14 @@ Add short entries only, newest first:
 - Frozen termination-delay metric (first drop) is gameable by non-monotone estimators (relapse); any further method comparison needs a relapse-aware metric, pre-registered.
 - V-HPED evidence-rate tempering over-weights per-frame misses at low fps; flag reliabilities are tuned, not estimated online.
 - Calibration/ECE metric deferred (requires probabilistic method output).
+- Phase 5H-1 K4 statistic (fold t = mean/(SD/√5)) is inflated by ridge shrinkage in sparse cells; redesign before any confirmatory study.
+- Registered N-circ null manufactures events from censored intervals (+16%); N-jit clipping loses ~9.5% of events.
 - No external datasets. Not needed until Phase 3.
+- Episode estimator: 'no record' is treated as UNKNOWN (weak evidence), so ghost keys linger after identity swaps; the visible-miss likelihood selected on pooled J fragments episodes under boundary flicker (episode exit report §7–§8).
+- Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
-WAIT for explicit user approval. Options in research/phase4_exit_report.md §26–§28 (pivot to evaluation/failure-analysis paper; relapse-aware Phase 4b; real-data protocol validation). Do not start Action Genome or Phase 5 without approval.
+WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:
@@ -169,3 +190,5 @@ After each meaningful task:
 6. Set one concrete `Next action`.
 7. Keep this file concise; detailed derivations belong under `research/derivations/`, and experiment details belong in run artifacts.
 
+
+2026-10-07 - Added scripts/phase5h1/visual_demo.py: visual wrapper around the existing synthetic Stage 0 demo (not a Phase 5H-1 comparison). Generated PNG/PDF/JSON under outputs/showcase_demo. Verified run: planted alpha 0.6 recovered as 0.583; independent control 0.000. Five Stage 0 tests passed. Frozen research artifacts unchanged.

@@ -1,0 +1,202 @@
+{
+ "rows": [
+  {
+   "rung": "G0",
+   "ridge": 0.0,
+   "select_ll": -186099.28890601065,
+   "select_ll_per_event": -4.389444746232296,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G1",
+   "ridge": 0.3,
+   "select_ll": -163368.37945898465,
+   "select_ll_per_event": -3.8533004566121343,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G1",
+   "ridge": 1.0,
+   "select_ll": -163189.44899975968,
+   "select_ll_per_event": -3.849080100001408,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G1",
+   "ridge": 3.0,
+   "select_ll": -163174.17885839898,
+   "select_ll_per_event": -3.8487199296742456,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G1",
+   "ridge": 10.0,
+   "select_ll": -163444.9611326258,
+   "select_ll_per_event": -3.8551067559644734,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G2",
+   "ridge": 0.3,
+   "select_ll": -152689.12213954568,
+   "select_ll_per_event": -3.601413358009899,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G2",
+   "ridge": 1.0,
+   "select_ll": -152623.30209898297,
+   "select_ll_per_event": -3.5998608887181396,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G2",
+   "ridge": 3.0,
+   "select_ll": -152639.06294100295,
+   "select_ll_per_event": -3.60023263299297,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G2",
+   "ridge": 10.0,
+   "select_ll": -152785.80072364185,
+   "select_ll_per_event": -3.6036936746383437,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G3",
+   "ridge": 0.3,
+   "select_ll": -149228.38610446127,
+   "select_ll_per_event": -3.5197864496181634,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G3",
+   "ridge": 1.0,
+   "select_ll": -149133.82833007403,
+   "select_ll_per_event": -3.517556155625965,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G3",
+   "ridge": 3.0,
+   "select_ll": -149142.84477911144,
+   "select_ll_per_event": -3.5177688227731077,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G3",
+   "ridge": 10.0,
+   "select_ll": -149311.39205703628,
+   "select_ll_per_event": -3.5217442757043256,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4x",
+   "ridge": 0.3,
+   "select_ll": -146358.92900830935,
+   "select_ll_per_event": -3.4521057859827193,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4x",
+   "ridge": 1.0,
+   "select_ll": -146043.54214763344,
+   "select_ll_per_event": -3.444666890290196,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4x",
+   "ridge": 3.0,
+   "select_ll": -145976.71872679357,
+   "select_ll_per_event": -3.443090754694756,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4x",
+   "ridge": 10.0,
+   "select_ll": -146200.66484055587,
+   "select_ll_per_event": -3.448372876395874,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4",
+   "ridge": 0.3,
+   "select_ll": -145673.20976460513,
+   "select_ll_per_event": -3.4359320179400696,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4",
+   "ridge": 1.0,
+   "select_ll": -145303.51732117558,
+   "select_ll_per_event": -3.4272122395729787,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4",
+   "ridge": 3.0,
+   "select_ll": -145187.26421750707,
+   "select_ll_per_event": -3.424470227079913,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4",
+   "ridge": 10.0,
+   "select_ll": -145362.16593071577,
+   "select_ll_per_event": -3.4285955593724973,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4+",
+   "ridge": 0.3,
+   "select_ll": -147044.187940092,
+   "select_ll_per_event": -3.4682686968439276,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4+",
+   "ridge": 1.0,
+   "select_ll": -146793.49803321334,
+   "select_ll_per_event": -3.4623557806734757,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4+",
+   "ridge": 3.0,
+   "select_ll": -146731.31655673985,
+   "select_ll_per_event": -3.460889132644759,
+   "select_events": 42397.0
+  },
+  {
+   "rung": "G4+",
+   "ridge": 10.0,
+   "select_ll": -146891.1702909873,
+   "select_ll_per_event": -3.464659534660172,
+   "select_events": 42397.0
+  }
+ ],
+ "selected": {
+  "G0": 0.0,
+  "G1": 3.0,
+  "G2": 1.0,
+  "G3": 1.0,
+  "G4x": 3.0,
+  "G4": 3.0,
+  "G4+": 3.0
+ },
+ "grid": [
+  0.3,
+  1.0,
+  3.0,
+  10.0
+ ],
+ "at_grid_boundary": {
+  "G1": false,
+  "G2": false,
+  "G3": false,
+  "G4x": false,
+  "G4": false,
+  "G4+": false
+ }
+}

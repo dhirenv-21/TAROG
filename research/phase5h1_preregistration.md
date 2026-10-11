@@ -166,4 +166,99 @@ Even GO only licenses a confirmatory replication on independent data (§2). It i
 
 ## 11. Amendments
 
-None at registration.
+Amendments A1–A3 were written on 2026-10-08, **before any registered fit**, i.e. before any
+SELECT or EVAL quantity was computed. Only the 300-video TRAIN smoke run and a 1000-video TRAIN
+benchmark (both development data) had been run. None of them changes a model family, the search
+budget, a null, a metric or a decision criterion.
+
+### A1 — Execution infrastructure (technical)
+- **Exact row aggregation.** The target log-likelihood Σ_i [y_i z_i − d_i e^{z_i}] depends on the
+  rows only through (Σy, Σd) over rows with an identical covariate vector. Rows with identical
+  (group, duration bin, covariates) are merged before fitting. The objective, gradient and MLE are
+  unchanged up to floating-point summation order. Groups are TRAIN folds (so fold fits remain
+  possible) or EVAL videos (so per-video held-out log-likelihoods remain exact). Verified on 1000
+  TRAIN videos: max |Δw| = 1e-10 and |ΔLL| = 2e-10 against unaggregated fits
+  (`tests/unit/test_phase5h1_run.py`, benchmark JSON).
+- **Chunked design construction** (400 videos per chunk, then exact merge) to bound memory.
+- **Bounded parallel execution** (`src/taorg/hawkes/runner.py`). Each job runs in one fresh
+  spawned process at below-normal priority. Each task (one fit) has an id equal to the hash of
+  its full spec (data set, target, rung, ridge, fold, seeds via the data-set name, config hash,
+  layout hash, code hash). Checkpoints are written atomically and reused only on an identical
+  spec. Every attempt is logged append-only; failed jobs are recorded and their dependents
+  blocked. Completeness is checked against the expected task matrix.
+- **Serial/parallel agreement** was verified on synthetic data (identical task ids; parameters
+  within 1e-6; identical ridge selection). Scheduling cannot change seeds, tuning or splits,
+  because none of them depend on execution order.
+- Heavy run state lives outside the repository (`D:/TAORG_runs/phase5h1/main`; the C: drive had
+  6.8 GB free). Compact artifacts are copied to `results/phase5h1/full/`.
+- **Structural leakage guard.** EVAL-A/EVAL-B records are created only by `evaluate_prepare`,
+  which refuses to run unless `results/phase5h1/full/frozen/{frozen.json, params.npz}` are
+  committed and unchanged. Workers refuse to read EVAL records without an unlock token tied to
+  the committed freeze hash.
+- **Optimiser diagnostics** are stored per fit: convergence flag, iterations, projected-gradient
+  norm, objective, and the number of evaluations in which the linear predictor exceeded the
+  overflow cap of 50.
+
+### A2 — Null construction details (not specified at registration)
+- **N-jit** (`src/taorg/hawkes/nulls1.py`): offset d ~ U[−5, 5] s per (pair, predicate),
+  rounded to frames; the pair window is unchanged and intervals are clipped to it.
+  **Censored endpoints (begin frame 0, end frame T) are pinned, not shifted.** Shifting them
+  would manufacture onset/offset events that the annotation does not contain, which violates the
+  registered event rules (§3). Intervals that leave the window are dropped, and pinned endpoints
+  can merge intervals; both are counted per replicate. Randomness is drawn per video from
+  `Random(f"{seed}|{part}|{video_id}")`, so it is order- and chunk-independent. TRAIN and EVAL
+  use the part labels "TRAIN" / "EVAL" under the same registered seed.
+- **This is a shift-jitter variant, not the interval-jitter test of Amarasingham et al. (2012).**
+  No exactness property of interval jitter is claimed for it.
+- **N-circ** is the registered Stage 0 function, applied unchanged; EVAL uses seed + 100000, as in
+  Stage 0. **Disclosed property:** it shifts left-censored intervals too, so it can create onset
+  events at the shift point, and it re-derives the pair window as a hull, which enlarges some
+  risk sets. Event counts of every null replicate are recorded and reported. N-circ is not
+  modified, because it is registered.
+- EVAL for nulls = EVAL-A followed by EVAL-B (each sorted by video id). Null Δ = per-event
+  difference on the null EVAL data with its own event count.
+- Hypothesis null (§8): replicate i ∈ {0..198} uses the N-jit transform with seed string
+  "6600:i" on EVAL.
+
+### A3 — Analysis details left open at registration (fixed before any result)
+- **Bootstrap (§5):** the per-event Δ is the ratio Σ_v ΔLL_v / Σ_v n_v, and the percentile CI
+  comes from 2000 video resamples. One index matrix is drawn per video set (EVAL, EVAL-A,
+  EVAL-B) from `numpy.random.default_rng(6500)` and shared by all comparisons on that set
+  (paired).
+- **Families:** a target belongs to the family of its predicate (`families.py`). Δ_F is computed
+  over F's target types and normalised by F's EVAL events. Δ_F(G2, G1) is the point estimate on
+  EVAL. null_max_F and null_med_F are over the 38 replicates.
+- **K4:** for every HIST cell of G4 (target, other-predicate source, lag) a discovery requires
+  5/5 strictly agreeing signs and |t| ≥ τ. Candidate τ values are the |t| of real sign-agreeing
+  cells, scanned in ascending order; τ is the first value with mean N-jit fold-null discoveries /
+  real discoveries ≤ 0.10. The inter-fold Spearman is the mean over the 10 fold pairs, computed
+  over all G4 HIST cells; it is compared with each of the 5 fold-null replicates. Support follows
+  the registered definition (TRAIN source events with the target at risk just after the event).
+  At-risk exposure and target events with the cell active are reported as well.
+- **Hypotheses (§8):** two-sided permutation p = (1 + #{|log RR_null| ≥ |log RR_obs|}) / 200,
+  with Holm correction over the four hypotheses. The CI is a video bootstrap from
+  default_rng(6500) on EVAL. A hypothesis is underpowered if fewer than 20 target offsets fall in
+  the window; its p-value is then reported but not interpreted.
+- **Next-event metric (§5):** the competing set is the modelled target types at risk on the same
+  pair at the event time; p = λ_k / Σ λ. Log-loss and top-1 accuracy per event; descriptive only.
+- The decision is computed by `decide_phase5h1` exactly as registered. These details do not
+  create an alternative rule.
+
+
+### A4 — Optimiser iteration limit (technical; 2026-10-08, before any selection quantity was viewed)
+- In the first registered tuning attempt (`max_iter` = 500), 35 of the first 157 completed fits
+  stopped at the L-BFGS-B iteration limit ("TOTAL NO. OF ITERATIONS REACHED LIMIT") instead of
+  meeting the convergence tolerance. They therefore had not reached the registered estimator
+  (penalised MLE). The failures were spread over all rungs (G1 7, G2 5, G3 6, G4x 6, G4 6,
+  G4+ 5).
+- On TRAIN only, four of these cases were refitted with 2000 and 10000 iterations. All converged
+  within ≤ 1091 iterations, and the penalised objective changed by ≤ 0.011 nats (totals of
+  1.2e4–4.8e4). The limit is raised to 5000 for **every** fit (all rungs, folds and nulls). The
+  model, ridge grid, tolerances and data are unchanged.
+- The decision used only optimiser diagnostics. No SELECT log-likelihood had been read. The
+  500-iteration attempt is preserved under the run root (its checkpoints carry max_iter = 500 in
+  their spec). Its selected ridges are compared with the A4 run in the exit report as a
+  sensitivity disclosure.
+- Operational note: the same attempt shows a ~34-minute system-wide pause (10:09–10:43 local
+  time) during which every running fit stalled. A keep-awake hold was requested for the rest of
+  the run. Fit times are therefore reported from the A4 run.
