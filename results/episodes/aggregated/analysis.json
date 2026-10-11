@@ -1,0 +1,786 @@
+{
+ "study_decision": {
+  "decision": "STOP",
+  "benefit_wins": [],
+  "relapse_wins": [],
+  "calibrated_losses": [
+   "C2_hidden_termination",
+   "C5_boundary_flicker",
+   "C6_id_switch"
+  ],
+  "transfer_losses": [
+   "S0_mixed",
+   "S1_mixed_flagnoise",
+   "S3_mixed_bursty"
+  ],
+  "wins_all": 1,
+  "losses_all": 6,
+  "simple_baseline_beaten_in": [],
+  "go_checks": {
+   "benefit_wins": false,
+   "relapse_wins": false,
+   "no_calibrated_losses": false,
+   "transfer_losses": false,
+   "latency": true,
+   "half_control_not_stop": false
+  },
+  "stop_checks": {
+   "benefit_wins_le_max": true,
+   "losses_ge_wins": true,
+   "simple_baseline_not_beaten": true
+  }
+ },
+ "half_control_decision": {
+  "decision": "STOP",
+  "benefit_wins": [],
+  "relapse_wins": [],
+  "calibrated_losses": [
+   "C6_id_switch"
+  ],
+  "transfer_losses": [],
+  "wins_all": 1,
+  "losses_all": 1,
+  "simple_baseline_beaten_in": [
+   "C2_hidden_termination",
+   "C3_misleading_post",
+   "C5_boundary_flicker"
+  ],
+  "go_checks": {
+   "benefit_wins": false,
+   "relapse_wins": false,
+   "no_calibrated_losses": false,
+   "transfer_losses": true,
+   "latency": true,
+   "half_control_not_stop": true
+  },
+  "stop_checks": {
+   "benefit_wins_le_max": true,
+   "losses_ge_wins": true,
+   "simple_baseline_not_beaten": false
+  }
+ },
+ "T": "episode",
+ "T_half": "episode",
+ "cells": {
+  "C1_gaps": "neutral",
+  "C2_hidden_termination": "loss",
+  "C3_misleading_post": "neutral",
+  "C4_recurrence": "neutral",
+  "C5_boundary_flicker": "loss",
+  "C6_id_switch": "loss",
+  "C7_motion": "neutral",
+  "S0_mixed": "loss",
+  "S1_mixed_flagnoise": "loss",
+  "S2_mixed_unknown": "win",
+  "S3_mixed_bursty": "loss"
+ },
+ "cells_half": {
+  "C1_gaps": "neutral",
+  "C2_hidden_termination": "neutral",
+  "C3_misleading_post": "neutral",
+  "C4_recurrence": "neutral",
+  "C5_boundary_flicker": "neutral",
+  "C6_id_switch": "loss",
+  "C7_motion": "neutral",
+  "S0_mixed": "neutral",
+  "S1_mixed_flagnoise": "neutral",
+  "S2_mixed_unknown": "win",
+  "S3_mixed_bursty": "neutral"
+ },
+ "latency_ms": {
+  "no_memory": 0.0008884167537972744,
+  "gated_ema": 0.00770472224556013,
+  "gated_ema_hyst": 0.013055138923745189,
+  "va_hmm": 0.011495305758823331,
+  "hsmm": 0.11196483337294519,
+  "gated_ema_id": 0.020412888875903767,
+  "episode": 0.015912278063802254,
+  "episode_id": 0.027407583305224154,
+  "episode_ctx": 0.030304138781502843,
+  "episode_hist": 0.032956972394862935
+ },
+ "latency_T_ms": 0.015912278063802254,
+ "latency_ratio": 2.06526303696045,
+ "ladder": {
+  "identity": {
+   "retained": false,
+   "target_ok": false,
+   "J_losses": [
+    "C6_id_switch"
+   ]
+  },
+  "context": {
+   "retained": true,
+   "target_hits": [
+    "C3_misleading_post"
+   ],
+   "J_losses": []
+  },
+  "history": {
+   "retained": false,
+   "pooled_ok": false,
+   "target_hits": [],
+   "J_losses": [],
+   "pooled_J": {
+    "n": 50,
+    "n_dropped": 0,
+    "mean_a": 0.9290292927678319,
+    "mean_b": 0.9289940285666703,
+    "mean_diff": 3.526420116157114e-05,
+    "sd_diff": 0.0010290415227428987,
+    "ci_lo": -0.00024412521603650616,
+    "ci_hi": 0.0003234434021333755,
+    "dz": 0.03426897786162681,
+    "p_wilcoxon": 0.0018106206982899664
+   }
+  }
+ },
+ "pairwise_results": {
+  "C1_gaps": {
+   "gated_ema": {
+    "win": false,
+    "loss": false,
+    "route": "",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  },
+  "C2_hidden_termination": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": true,
+    "route": "",
+    "failed_guards": [],
+    "loss_reasons": [
+     "std_mean_s"
+    ]
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  },
+  "C3_misleading_post": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": false,
+    "route": "",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  },
+  "C4_recurrence": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   }
+  },
+  "C5_boundary_flicker": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": true,
+    "route": "",
+    "failed_guards": [
+     "J_noninferior",
+     "churn_noninferior"
+    ],
+    "loss_reasons": [
+     "J",
+     "frr"
+    ]
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  },
+  "C6_id_switch": {
+   "gated_ema": {
+    "win": false,
+    "loss": true,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": [
+     "ghost_time_s"
+    ]
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": true,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": [
+     "ghost_time_s"
+    ]
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": true,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": [
+     "ghost_time_s"
+    ]
+   },
+   "gated_ema_id": {
+    "win": false,
+    "loss": true,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": [
+     "ghost_time_s"
+    ]
+   }
+  },
+  "C7_motion": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "gated_ema_id": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   }
+  },
+  "S0_mixed": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": true,
+    "route": "",
+    "failed_guards": [
+     "J_noninferior"
+    ],
+    "loss_reasons": [
+     "J"
+    ]
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  },
+  "S1_mixed_flagnoise": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": true,
+    "route": "",
+    "failed_guards": [
+     "J_noninferior",
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": [
+     "J"
+    ]
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior",
+     "churn_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  },
+  "S2_mixed_unknown": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "va_hmm": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   }
+  },
+  "S3_mixed_bursty": {
+   "gated_ema": {
+    "win": true,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [],
+    "loss_reasons": []
+   },
+   "gated_ema_hyst": {
+    "win": false,
+    "loss": true,
+    "route": "",
+    "failed_guards": [
+     "J_noninferior",
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": [
+     "J"
+    ]
+   },
+   "va_hmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   },
+   "hsmm": {
+    "win": false,
+    "loss": false,
+    "route": "J",
+    "failed_guards": [
+     "gap_recall_noninferior"
+    ],
+    "loss_reasons": []
+   }
+  }
+ },
+ "vs_simple": {
+  "C2_hidden_termination": {
+   "win": false,
+   "loss": true,
+   "route": "",
+   "failed_guards": [],
+   "loss_reasons": [
+    "std_mean_s"
+   ]
+  },
+  "C3_misleading_post": {
+   "win": false,
+   "loss": false,
+   "route": "",
+   "failed_guards": [],
+   "loss_reasons": []
+  },
+  "C5_boundary_flicker": {
+   "win": false,
+   "loss": true,
+   "route": "",
+   "failed_guards": [
+    "J_noninferior",
+    "churn_noninferior"
+   ],
+   "loss_reasons": [
+    "J",
+    "frr"
+   ]
+  }
+ },
+ "answers": {
+  "Q1": {
+   "answer": "NO",
+   "conditions": []
+  },
+  "Q1_detail": {
+   "C3_misleading_post": {
+    "gated_ema": {
+     "win": true,
+     "loss": false,
+     "route": "J",
+     "failed_guards": [],
+     "loss_reasons": []
+    },
+    "gated_ema_hyst": {
+     "win": false,
+     "loss": false,
+     "route": "",
+     "failed_guards": [],
+     "loss_reasons": []
+    },
+    "va_hmm": {
+     "win": false,
+     "loss": false,
+     "route": "J",
+     "failed_guards": [
+      "churn_noninferior"
+     ],
+     "loss_reasons": []
+    },
+    "hsmm": {
+     "win": false,
+     "loss": false,
+     "route": "",
+     "failed_guards": [
+      "churn_noninferior"
+     ],
+     "loss_reasons": []
+    }
+   },
+   "C5_boundary_flicker": {
+    "gated_ema": {
+     "win": true,
+     "loss": false,
+     "route": "J",
+     "failed_guards": [],
+     "loss_reasons": []
+    },
+    "gated_ema_hyst": {
+     "win": false,
+     "loss": true,
+     "route": "",
+     "failed_guards": [
+      "J_noninferior",
+      "churn_noninferior"
+     ],
+     "loss_reasons": [
+      "J",
+      "frr"
+     ]
+    },
+    "va_hmm": {
+     "win": false,
+     "loss": false,
+     "route": "J",
+     "failed_guards": [
+      "gap_recall_noninferior"
+     ],
+     "loss_reasons": []
+    },
+    "hsmm": {
+     "win": false,
+     "loss": false,
+     "route": "J",
+     "failed_guards": [
+      "gap_recall_noninferior"
+     ],
+     "loss_reasons": []
+    }
+   }
+  },
+  "Q2": {
+   "answer": "NO",
+   "cells": []
+  },
+  "Q3": {
+   "answer": "NO",
+   "p2_wins_vs_b5": false,
+   "interaction_negative": true
+  },
+  "Q3_interaction": {
+   "n": 50,
+   "n_dropped": 0,
+   "mean_a": -4.509333333333333,
+   "mean_b": -0.15133333333333332,
+   "mean_diff": -4.3580000000000005,
+   "sd_diff": 2.8299003612180003,
+   "ci_lo": -5.144666666666667,
+   "ci_hi": -3.610616666666667,
+   "dz": -1.5399835484399529,
+   "p_wilcoxon": 3.760110393999434e-09
+  },
+  "Q4": {
+   "answer": "NO",
+   "pooled_ok": false,
+   "target_hits": [],
+   "J_losses": []
+  },
+  "Q5": {
+   "answer": "NO IN-DISTRIBUTION ADVANTAGE TO TRANSFER",
+   "transfer_wins": [
+    "S2_mixed_unknown"
+   ],
+   "transfer_losses": [
+    "S0_mixed",
+    "S1_mixed_flagnoise",
+    "S3_mixed_bursty"
+   ]
+  },
+  "Q6": {
+   "answer": "NO",
+   "T": "episode",
+   "retained": {
+    "identity": false,
+    "context": true,
+    "history": false
+   }
+  }
+ },
+ "holm_J_T_vs_comparators": {
+  "C1_gaps|gated_ema": 1.9154129375920093e-05,
+  "C1_gaps|gated_ema_hyst": 8.171241461241152e-14,
+  "C1_gaps|va_hmm": 8.171241461241152e-14,
+  "C1_gaps|hsmm": 1.1546319456101628e-09,
+  "C2_hidden_termination|gated_ema": 1.1116441100966767e-11,
+  "C2_hidden_termination|gated_ema_hyst": 0.33177359758878566,
+  "C2_hidden_termination|va_hmm": 3.517186542012496e-12,
+  "C2_hidden_termination|hsmm": 3.161204631396686e-11,
+  "C3_misleading_post|gated_ema": 2.362554596402333e-12,
+  "C3_misleading_post|gated_ema_hyst": 0.33177359758878566,
+  "C3_misleading_post|va_hmm": 1.7943328600722452e-08,
+  "C3_misleading_post|hsmm": 2.1349096268608037e-06,
+  "C4_recurrence|gated_ema": 1.0658141036401503e-13,
+  "C4_recurrence|gated_ema_hyst": 8.171241461241152e-14,
+  "C4_recurrence|va_hmm": 2.4868995751603507e-13,
+  "C4_recurrence|hsmm": 1.6040502259784262e-12,
+  "C5_boundary_flicker|gated_ema": 8.171241461241152e-14,
+  "C5_boundary_flicker|gated_ema_hyst": 8.171241461241152e-14,
+  "C5_boundary_flicker|va_hmm": 1.0658141036401503e-13,
+  "C5_boundary_flicker|hsmm": 8.171241461241152e-14,
+  "C6_id_switch|gated_ema": 1.759659085109888e-11,
+  "C6_id_switch|gated_ema_hyst": 3.4773783852415363e-10,
+  "C6_id_switch|va_hmm": 4.137135078963183e-12,
+  "C6_id_switch|hsmm": 1.2896350654045818e-12,
+  "C6_id_switch|gated_ema_id": 1.1727507853720454e-10,
+  "C7_motion|gated_ema": 1.6040502259784262e-12,
+  "C7_motion|gated_ema_hyst": 2.4868995751603507e-13,
+  "C7_motion|va_hmm": 8.171241461241152e-14,
+  "C7_motion|hsmm": 5.719869022868806e-13,
+  "C7_motion|gated_ema_id": 8.171241461241152e-14,
+  "S0_mixed|gated_ema": 8.171241461241152e-14,
+  "S0_mixed|gated_ema_hyst": 7.665877903662022e-05,
+  "S0_mixed|va_hmm": 8.171241461241152e-14,
+  "S0_mixed|hsmm": 8.171241461241152e-14,
+  "S1_mixed_flagnoise|gated_ema": 8.171241461241152e-14,
+  "S1_mixed_flagnoise|gated_ema_hyst": 4.137135078963183e-12,
+  "S1_mixed_flagnoise|va_hmm": 3.161204631396686e-11,
+  "S1_mixed_flagnoise|hsmm": 2.4868995751603507e-13,
+  "S2_mixed_unknown|gated_ema": 8.171241461241152e-14,
+  "S2_mixed_unknown|gated_ema_hyst": 4.263256414560601e-13,
+  "S2_mixed_unknown|va_hmm": 3.1086244689504383e-13,
+  "S2_mixed_unknown|hsmm": 4.137135078963183e-12,
+  "S3_mixed_bursty|gated_ema": 8.171241461241152e-14,
+  "S3_mixed_bursty|gated_ema_hyst": 2.4344995352976184e-08,
+  "S3_mixed_bursty|va_hmm": 8.171241461241152e-14,
+  "S3_mixed_bursty|hsmm": 8.171241461241152e-14
+ },
+ "holm_J_ladder": {
+  "identity|C2_hidden_termination": 1.2669493454353642e-06,
+  "identity|C3_misleading_post": 3.4394691539318956e-09,
+  "identity|C5_boundary_flicker": 1.1191048088221578e-13,
+  "identity|C6_id_switch": 1.9724541999721623e-08,
+  "identity|C1_gaps": 0.011197442999268503,
+  "identity|C4_recurrence": 1.7763568394002505e-13,
+  "identity|C7_motion": 3.582384902500735e-06,
+  "context|C2_hidden_termination": 4.73509658149851e-08,
+  "context|C3_misleading_post": 1.9078271407124703e-08,
+  "context|C5_boundary_flicker": 1.2669493454353642e-06,
+  "context|C6_id_switch": 0.00029583496568008627,
+  "context|C1_gaps": 0.10106338153677719,
+  "context|C4_recurrence": 3.582384902500735e-06,
+  "context|C7_motion": 4.207446548853966e-05,
+  "history|C2_hidden_termination": 4.092726157978177e-12,
+  "history|C3_misleading_post": 5.400124791776761e-13,
+  "history|C5_boundary_flicker": 0.8333645814564079,
+  "history|C6_id_switch": 3.0994415283203125e-05,
+  "history|C1_gaps": 1.0,
+  "history|C4_recurrence": 0.00010979175567626953,
+  "history|C7_motion": 1.71661376953125e-05
+ },
+ "completeness": {
+  "complete": true,
+  "rows": 11000
+ }
+}

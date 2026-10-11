@@ -14,7 +14,7 @@ Unrelated working-tree changes found at start and **left untouched**:
 |---|---|---|
 | 1 | Formulation, related work, pre-registration, decision rules (before comparisons) | `42b61ea92583be8ef54cda97bf077e79da500e63` |
 | 2 | Tested implementation and experiment infrastructure | `e7e7804c0833de56bfa8f3f47e5bb514040dc85b` |
-| 3 | Calibrated parameters and selection rationale (before evaluation) | |
+| 3 | Calibrated parameters and selection rationale (before evaluation) | `d0276343ec39e6a0a413a189904cf302636cca06` |
 | 4 | Evaluation summaries and analysis | |
 | 5 | Exit report, evidence ledger, documentation | |
 
@@ -57,3 +57,17 @@ Unrelated working-tree changes found at start and **left untouched**:
     - Adding identity to GatedEMA lowered its pooled calibration J.
     - P2–P4 selected the same base index (#0101, a common-random-numbers draw); P1 selected #0176.
   - The decisions rest only on the registered evaluation analysis.
+- 2026-10-11 (checkpoint 4):
+  - `evaluate` (550 instances, 11,000 rows, 45 s, code `d027634`), `latency`, `analyze`, `figures`
+    and `failures` completed.
+  - Completeness: 11,000/11,000 rows; 0 missing, 0 duplicate, 0 failed; manifests consistent;
+    calibration 140/140 instances; no calibration-seed leak (`aggregated/completeness.json`).
+  - **Registered decision: STOP.** All three STOP clauses hold:
+    - 0 benefit-condition wins (≤ 1);
+    - 6 losses vs 1 win over the 11 conditions;
+    - GatedEMA + hysteresis is never beaten in C2/C3/C5.
+  - The half-sample control also gives STOP.
+  - Ladder: identity not retained (J loss in C6); context retained vs P2 (C3 ΔJ +0.024); history
+    not retained (pooled ΔJ +0.00004). T = P1.
+  - Q1 NO, Q2 NO, Q3 NO, Q4 NO, Q5 "no in-distribution advantage to transfer", Q6 NO.
+  - The details go to the exit report. No post-hoc analysis has been run yet.

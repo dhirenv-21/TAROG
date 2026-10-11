@@ -1,0 +1,110 @@
+[
+ {
+  "condition": "C2_hidden_termination",
+  "treatment": "episode",
+  "best_comparator": "gated_ema_hyst",
+  "n_positive_regret": 26,
+  "mean_regret": -0.006417418525775613,
+  "cases": {
+   "worst": {
+    "seed": 6040,
+    "regret_J": 0.060371107315150274,
+    "files": [
+     "results\\episodes\\failures\\C2_hidden_termination__worst.pdf",
+     "results\\episodes\\failures\\C2_hidden_termination__worst.png"
+    ]
+   },
+   "median": {
+    "seed": 6026,
+    "regret_J": 0.011435368955267089,
+    "files": [
+     "results\\episodes\\failures\\C2_hidden_termination__median.pdf",
+     "results\\episodes\\failures\\C2_hidden_termination__median.png"
+    ]
+   }
+  }
+ },
+ {
+  "condition": "C3_misleading_post",
+  "treatment": "episode",
+  "best_comparator": "gated_ema_hyst",
+  "n_positive_regret": 22,
+  "mean_regret": -0.010941612633326539,
+  "cases": {
+   "worst": {
+    "seed": 6016,
+    "regret_J": 0.12890753570502556,
+    "files": [
+     "results\\episodes\\failures\\C3_misleading_post__worst.pdf",
+     "results\\episodes\\failures\\C3_misleading_post__worst.png"
+    ]
+   },
+   "median": {
+    "seed": 6015,
+    "regret_J": 0.030943432857322928,
+    "files": [
+     "results\\episodes\\failures\\C3_misleading_post__median.pdf",
+     "results\\episodes\\failures\\C3_misleading_post__median.png"
+    ]
+   }
+  }
+ },
+ {
+  "condition": "C5_boundary_flicker",
+  "treatment": "episode",
+  "best_comparator": "gated_ema_hyst",
+  "n_positive_regret": 50,
+  "mean_regret": 0.06207101493570797,
+  "cases": {
+   "worst": {
+    "seed": 6015,
+    "regret_J": 0.12133018938543283,
+    "files": [
+     "results\\episodes\\failures\\C5_boundary_flicker__worst.pdf",
+     "results\\episodes\\failures\\C5_boundary_flicker__worst.png"
+    ]
+   },
+   "median": {
+    "seed": 6039,
+    "regret_J": 0.06242735308140834,
+    "files": [
+     "results\\episodes\\failures\\C5_boundary_flicker__median.pdf",
+     "results\\episodes\\failures\\C5_boundary_flicker__median.png"
+    ]
+   }
+  }
+ },
+ {
+  "condition": "C6_id_switch",
+  "treatment": "episode",
+  "best_comparator": "va_hmm",
+  "n_positive_regret": 5,
+  "mean_regret": -0.02234969113711024,
+  "cases": {
+   "worst": {
+    "seed": 6038,
+    "regret_J": 0.0032499840687054693,
+    "files": [
+     "results\\episodes\\failures\\C6_id_switch__worst.pdf",
+     "results\\episodes\\failures\\C6_id_switch__worst.png"
+    ]
+   },
+   "median": {
+    "seed": 6032,
+    "regret_J": 0.0011283574173537314,
+    "files": [
+     "results\\episodes\\failures\\C6_id_switch__median.pdf",
+     "results\\episodes\\failures\\C6_id_switch__median.png"
+    ]
+   }
+  }
+ },
+ {
+  "condition": "C4_recurrence",
+  "treatment": "episode",
+  "best_comparator": "gated_ema_hyst",
+  "n_positive_regret": 0,
+  "mean_regret": -0.02106343981273123,
+  "result": "No failure observed"
+ }
+]
