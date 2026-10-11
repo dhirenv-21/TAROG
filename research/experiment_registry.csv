@@ -1,2 +1,7 @@
 # Experiment registry — populated as experiments are run.
 # Fields: run_id, date, phase, method, dataset, seed, status, notes
+episodes_fit_20261011_163854_b22a01,2026-10-11,episode-study,fit (B1-B5 + P1-P4),synthetic episode world,5000-5019,complete,code e7e7804; results/episodes/raw/stage_fit.json
+episodes_calibrate_20261011_163855_89c52e,2026-10-11,episode-study,calibrate (B1-B5 + P1-P4),synthetic episode world,5000-5019,complete,code e7e7804; results/episodes/raw/stage_calibrate.json
+episodes_select_20261011_165659_1da221,2026-10-11,episode-study,select (B1-B5 + P1-P4),synthetic episode world,-,complete,code e7e7804; results/episodes/raw/stage_select.json
+episodes_evaluate_20261011_165751_227e31,2026-10-11,episode-study,evaluate (B1-B5 + P1-P4),synthetic episode world,6000-6049,complete,code d027634; results/episodes/raw/stage_evaluate.json
+episodes_latency_20261011_165836_4f9bd1,2026-10-11,episode-study,latency (B1-B5 + P1-P4),synthetic episode world,6000-6049,complete,code d027634; results/episodes/raw/stage_latency.json

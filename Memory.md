@@ -3,10 +3,10 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Phase 5H-1 complete — HAWKES TRACK = NARROW (MIXED)**, EXPLORATORY, VidOR annotations only
-- Earlier: Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 HAWKES SIGNAL = WEAK-MIXED
-- Active phase: none — **awaiting user decision** (accept NARROW; optional independent confirmation protocol, not started)
-- Last updated: 2026-10-08
+- Stage: **Relationship-episode study complete — decision STOP** (synthetic; branch `codex/taorg-episodes`)
+- Earlier: Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
+- Active phase: none — **awaiting user decision** (recommendation: simplify to GatedEMA + hysteresis; keep episode metrics)
+- Last updated: 2026-10-11
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
@@ -98,6 +98,7 @@
 - [x] Pilot completed — 182 tests passing.
 - [x] Phase 4: pre-registration `bad0ef9`, VA-HMM (M1), V-HPED eager reference M2–M6 (`src/taorg/temporal/vhped.py`), baseline freeze `07b01c2`, V-HPED freeze `490b28c`, evaluation complete (478,620 runs), exit report `research/phase4_exit_report.md`. 215 tests passing.
 - [x] V-HPED reference implemented (eager; Phase 4).
+- [x] Relationship-episode study (pre-registered ladder P1–P4 vs 5 baselines; decision STOP).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -126,9 +127,17 @@ Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/
 - 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
 - Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
 
+Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze `d027634`, eval `c312fb9`; `results/episodes/`; report `research/taorg_episode_exit_report.md`): **STOP**.
+- 11,000/11,000 evaluation rows complete (11 conditions × 50 seeds × 20 variants); calibration 140 instances × 1801 configs.
+- T = P1 episode estimator (identity rung not retained: C6 ΔJ −0.037); context retained vs P2 only; history not retained (pooled ΔJ +0.00004).
+- B2 GatedEMA+hysteresis never beaten in C2/C3/C5; beats P1 in C2 (STD 0.665 vs 0.922 s) and C5 (J 0.886 vs 0.823, FRR 0.142 vs 0.283).
+- P1 highest mean J in 6/7 calibrated conditions but fails churn guard vs VA-HMM/HSMM (0.014 vs 0.007); no recurrence delay; worse ghosts (8.23 vs ~2.3 s/video; post-hoc: ghosts linger after swaps).
+- Latency: P1 0.016 ms/frame (2.1× GatedEMA), HSMM 0.112 (14.5×).
+
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-11 — Episode study: one pooled operating point per method (max calibration J over C1–C7); heavy per-instance checkpoints on D:/TAORG_runs/episodes with committed SHA-256 manifests; ≤ 6 workers (C: nearly full, pagefile pressure). — research/taorg_episode_preregistration.md, results/episodes/README.md
 2026-10-08 — Phase 5H-1 amendments A1–A4 (aggregation/runner; N-jit pins censored endpoints; analysis details; max_iter 5000), all before freeze `289319e`. — research/phase5h1_preregistration.md §11
 2026-10-08 — Heavy run state on D: (C: nearly full); compact artifacts in results/phase5h1/full/. — research/phase5h1_exit_report.md §16
 2026-09-29 — Phase 4 ran baseline group first (calibrate→freeze→evaluate) before any V-HPED run; equal 200-sample random search per method. — research/phase4_preregistration.md
@@ -165,9 +174,11 @@ Add short entries only, newest first:
 - Phase 5H-1 K4 statistic (fold t = mean/(SD/√5)) is inflated by ridge shrinkage in sparse cells; redesign before any confirmatory study.
 - Registered N-circ null manufactures events from censored intervals (+16%); N-jit clipping loses ~9.5% of events.
 - No external datasets. Not needed until Phase 3.
+- Episode estimator: 'no record' is treated as UNKNOWN (weak evidence), so ghost keys linger after identity swaps; the visible-miss likelihood selected on pooled J fragments episodes under boundary flicker (episode exit report §7–§8).
+- Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
-WAIT for user decision on Phase 5H-1 NARROW: (a) keep robustness/evaluation paper as main track with Phase 5H-1 as exploratory section (draft `research/paper_notes/phase5h1_exploratory_section.md`); (b) optionally pre-register confirmatory protocol C1 (exit report §15: VidVRD/PVSG, repaired nulls, boundary-tie control). Do not start detector integration, another dataset, or a later phase without approval.
+WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:

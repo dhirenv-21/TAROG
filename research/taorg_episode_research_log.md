@@ -15,8 +15,8 @@ Unrelated working-tree changes found at start and **left untouched**:
 | 1 | Formulation, related work, pre-registration, decision rules (before comparisons) | `42b61ea92583be8ef54cda97bf077e79da500e63` |
 | 2 | Tested implementation and experiment infrastructure | `e7e7804c0833de56bfa8f3f47e5bb514040dc85b` |
 | 3 | Calibrated parameters and selection rationale (before evaluation) | `d0276343ec39e6a0a413a189904cf302636cca06` |
-| 4 | Evaluation summaries and analysis | |
-| 5 | Exit report, evidence ledger, documentation | |
+| 4 | Evaluation summaries and analysis | `c312fb951b21de79d065dbdd16875a0719faf335` |
+| 5 | Exit report, evidence ledger, documentation | the commit that adds this row (its hash is reported in the PR description) |
 
 ## Log
 
@@ -71,3 +71,11 @@ Unrelated working-tree changes found at start and **left untouched**:
     not retained (pooled ΔJ +0.00004). T = P1.
   - Q1 NO, Q2 NO, Q3 NO, Q4 NO, Q5 "no in-distribution advantage to transfer", Q6 NO.
   - The details go to the exit report. No post-hoc analysis has been run yet.
+- 2026-10-11 (checkpoint 5):
+  - **Post-hoc, exploratory** diagnostics, defined after the registered STOP
+    (`scripts/episodes/posthoc_diagnostics.py`, `results/episodes/posthoc/`):
+    - E1, attribution: with the base configuration held fixed, the identity mechanism changes C6
+      ghost time by +0.03 s. The ladder's identity effect comes from base-parameter selection.
+    - E2, ghost timing: P1's ghosts mostly linger after swaps end.
+  - Wrote the exit report, ledger L43–L50, results notes, Memory.md and registry rows.
+  - Full suite: 302 passed.

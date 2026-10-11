@@ -8,7 +8,7 @@
 > Companion files: `research/claims.md` (older Phase 0 ledger, kept for history),
 > `research/phase3_preregistration.md`, `research/paper_results_notes.md`.
 
-_Last updated: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
+_Last updated: 2026-10-11 (relationship-episode study; `E/` = `results/episodes/`). Earlier: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
 frozen-parameter commit `2ce7d1f`, artifacts commit `867b7be`). All Phase 3 evidence is **controlled
 synthetic evidence** (`R/` = `results/phase3/`)._
 
@@ -56,6 +56,14 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L40 | Stage-0-generated contact transitions replicate out of sample | — | §8 hypotheses, Holm | Phase 5H-1 | H-a ON(hold)→OFF(grab) RR 4.93, H-b ON(release)→OFF(hold) RR 44.5, both Holm p 0.015 (permutation floor); H-c/H-d underpowered (1/0 events) (`F/tables.md` T9) | PARTIAL (exploratory; possibly annotation convention) | exploratory section |
 | L41 | Heterogeneity controls remove most of the null-reproduced share of the cross-history gain | — | Stage 0 vs Phase 5H-1 null shares | Phase 5H Stage 0 + 5H-1 | Null median / observed: 54% in Stage 0 (HK2 − HK1) vs 15% in Phase 5H-1 (Δ(G4x,G2) 0.021 / 0.145) — different model classes, so descriptive only | PARTIAL | exploratory section |
 | L42 | A Hawkes-based method contribution is justified | — | GO on the Phase 5H-1 rule + independent confirmation | Phase 5H-1 | NARROW, not GO; model class is a standard GLM; positive-only Hawkes worse (L37); interactions not reproducible (L38) | NOT SUPPORTED | never (unless confirmed) |
+| L43 | Explicit relationship episodes (absorbing termination + CUSUM rebirth) reduce false reactivation beyond simple temporal baselines | Episode Q1 | Registered win vs B1–B4 in C3 or C5 | Episode study (prereg `42b61ea`, freeze `d027634`) | Q1 = **NO** (`E/aggregated/analysis.json`). C5 FRR: P1 0.283 vs B2 (GatedEMA+hysteresis) 0.142, B1 0.594, B3/B4 0.382. P1 beats B1/B3/B4 on FRR but has ~2× B2's FRR (registered loss). Relapse is rare outside flicker (FRR ≤ 0.009 for all baselines in C1–C4, C7). Synthetic, pooled tuning | NOT SUPPORTED | §7 (negative) |
+| L44 | Episode birth confirmation does not delay genuine recurrence detection | Episode Q2 | ΔRDD non-inferiority 0.1 s vs B1–B4 in C4, C5 | Episode study | Q2 = NO delay: RDD P1 0.034 s vs B2 0.086 s (C4), 0.085 vs 0.151 s (C5); no ΔRDD loss (`E/tables/descriptive.md`) | SUPPORTED (synthetic) | §7 |
+| L45 | An episode estimator suppresses identity-switch ghosts | Episode C6 | Ghost-time win vs B1–B5 | Episode study | Opposite: P1 ghost 8.23 s/video vs B1 2.34, B2 2.28, B5 2.19 (+5.9 s [4.9, 6.9] vs B1). Post-hoc E2: ghosts mostly AFTER swaps (169.7 vs 77.3 frames/video) — 'no record' treated as weak evidence keeps ghost keys alive (`E/posthoc/posthoc.md`, exploratory) | NOT SUPPORTED | §9 (failure mode) |
+| L46 | Identity reliability helps beyond the identical addition to GatedEMA | Episode Q3 | P2 win vs B5 in C6 + interaction | Episode study | Q3 = NO: P2 ghost 3.72 vs B5 2.19 s. Registered interaction (P2−P1)−(B5−B1) −4.36 s [−5.14, −3.61], but post-hoc E1 attributes it to base-parameter selection: identity at a fixed base changes ghost time by +0.03 s [−0.01, 0.07] (selected σ_id ≈ 0.7–0.8 diag, nearly inert) | NOT SUPPORTED | — |
+| L47 | Event-history context improves on simple transition context | Episode Q4 | Pooled ΔJ ≥ 0.01, CI > 0, + target win | Episode study | Pooled ΔJ (P4−P3) +0.00004 [−0.0002, 0.0003]; no target win | NOT SUPPORTED | — |
+| L48 | GatedEMA + hysteresis is a sufficient relapse/termination control (the episode estimator adds nothing on the relapse conditions) | Episode STOP (c) | P1 vs B2 in C2, C3, C5 | Episode study | P1 never beats B2 in C2/C3/C5; B2 better in C2 (STD 0.665 vs 0.922 s) and C5 (J 0.886 vs 0.823; FRR 0.142 vs 0.283); C3 n.s. Decision **STOP** (all three clauses; half-sample control STOP) | SUPPORTED (synthetic, pooled single-point tuning) | §7 |
+| L49 | Episode-level metrics separate methods that frame-level metrics do not | — | Descriptive comparison | Episode study | e.g. C1: B2 frame-F1 0.941 but episode-F1 0.748 (fragmentation 0.41); C5: B1 frame-F1 0.944 but episode-F1 0.326; B5 bridges 52–66% of recurrences in C2/C3 (merged episodes) at unchanged frame recall | PARTIAL (descriptive, synthetic) | §6 |
+| L50 | Transition (successor) context speeds termination when the old relation is hidden | — | P3 vs P2 ladder rule | Episode study | Retained vs P2: C3 ΔJ +0.024 [0.016, 0.032], C2 ΔSTD −0.053 s; depends on per-edge visibility (successor visible while predecessor hidden) | PARTIAL (world-assumption dependent) | — |
 
 ## Change log
 
@@ -75,3 +83,7 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 - 2026-09-30 (Phase 5H Stage 0): L29 UNTESTED→PARTIAL; added L34.
 - 2026-10-07 (Phase 5H-1 milestone): added L35 (UNTESTED), L36 (NOT SUPPORTED).
 - 2026-10-08 (Phase 5H-1 registered run, decision NARROW): L35 UNTESTED→PARTIAL (exploratory, annotation timing); added L37 (NOT SUPPORTED), L38 (NOT SUPPORTED), L39 (SUPPORTED, post-hoc descriptive), L40 (PARTIAL), L41 (PARTIAL), L42 (NOT SUPPORTED). No claim upgraded on p-values; every entry points to `results/phase5h1/full/`.
+- 2026-10-11 (relationship-episode study, decision STOP): added L43 (NOT SUPPORTED), L44 (SUPPORTED,
+  synthetic), L45 (NOT SUPPORTED), L46 (NOT SUPPORTED), L47 (NOT SUPPORTED), L48 (SUPPORTED, synthetic),
+  L49 (PARTIAL), L50 (PARTIAL). No claim upgraded on p-values; L45/L46 explanations use post-hoc
+  exploratory diagnostics (`E/posthoc/`), labelled as such.
