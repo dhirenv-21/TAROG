@@ -283,3 +283,36 @@ Identity ghosts: the episode estimator is **worse** than every GatedEMA variant 
    see E1).
 4. Per-edge visibility (it matters for the transition-context rung); a synthetic identity cue.
 5. The run records show `git_dirty` because of unrelated demo files only.
+
+---
+
+# Next-method study (2026-10-11; controlled SYNTHETIC evidence; `results/next_method/`)
+
+> Failure audit on development seeds; pre-registered (`fe084a6`); parameters frozen (`8a7c916`)
+> before evaluation; evaluation seeds 8000-8049, n = 50 per condition. Report:
+> `research/taorg_next_method_exit_report.md`.
+
+## Pre-registered outcome
+
+**STOP**, and the algorithm contribution is **UNSUPPORTED**. All gates G1-G7 fail:
+- K1 loses to B2 in S2 (-0.156 J);
+- 4 losses vs B2;
+- no gain over a tuned fixed buffer, the static prior or a geometric learner;
+- latency 3.71x B2.
+
+## Strongest result
+
+Holding non-visible absences for a calibrated duration fixes B2's gap failure: C1 J 0.844 -> 0.974
+with K1, and 0.944 with the established fixed buffer. This is an established rule.
+
+## Weakest result
+
+Online label-free recalibration contributes nothing at the selected prior strength (kappa = 838).
+UNKNOWN, learned from calibration as "never returns", collapses S2 (J 0.568).
+
+## Must-disclose caveats
+
+1. One pooled operating point per method; in-distribution tuning disfavours adaptation.
+2. The "no record = UNKNOWN" input convention.
+3. Synthetic world.
+4. A documented per-frame vs run-stratum implementation detail (exit report §1).

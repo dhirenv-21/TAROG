@@ -8,7 +8,7 @@
 > Companion files: `research/claims.md` (older Phase 0 ledger, kept for history),
 > `research/phase3_preregistration.md`, `research/paper_results_notes.md`.
 
-_Last updated: 2026-10-11 (relationship-episode study; `E/` = `results/episodes/`). Earlier: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
+_Last updated: 2026-10-11 (next-method study, `N/` = `results/next_method/`; relationship-episode study; `E/` = `results/episodes/`). Earlier: 2026-10-08 (Phase 5H-1 registered run; `F/` = `results/phase5h1/full/`). Earlier: 2026-09-29 (after Phase 4; `Q/` = `results/phase4/`). Phase 3 entry follows: (after Phase 3 evaluation; run `phase3_evaluate_20260929_055335_6ac64a`,
 frozen-parameter commit `2ce7d1f`, artifacts commit `867b7be`). All Phase 3 evidence is **controlled
 synthetic evidence** (`R/` = `results/phase3/`)._
 
@@ -64,6 +64,12 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L48 | GatedEMA + hysteresis is a sufficient relapse/termination control (the episode estimator adds nothing on the relapse conditions) | Episode STOP (c) | P1 vs B2 in C2, C3, C5 | Episode study | P1 never beats B2 in C2/C3/C5; B2 better in C2 (STD 0.665 vs 0.922 s) and C5 (J 0.886 vs 0.823; FRR 0.142 vs 0.283); C3 n.s. Decision **STOP** (all three clauses; half-sample control STOP) | SUPPORTED (synthetic, pooled single-point tuning) | §7 |
 | L49 | Episode-level metrics separate methods that frame-level metrics do not | — | Descriptive comparison | Episode study | e.g. C1: B2 frame-F1 0.941 but episode-F1 0.748 (fragmentation 0.41); C5: B1 frame-F1 0.944 but episode-F1 0.326; B5 bridges 52–66% of recurrences in C2/C3 (merged episodes) at unchanged frame recall | PARTIAL (descriptive, synthetic) | §6 |
 | L50 | Transition (successor) context speeds termination when the old relation is hidden | — | P3 vs P2 ladder rule | Episode study | Retained vs P2: C3 ΔJ +0.024 [0.016, 0.032], C2 ΔSTD −0.053 s; depends on per-edge visibility (successor visible while predecessor hidden) | PARTIAL (world-assumption dependent) | — |
+| L51 | Holding non-visible (OCC/UNK) absences for a calibrated duration fixes GatedEMA+hysteresis's gap failure | Next-method | K1/BUF vs B2 in C1 | Next-method study (prereg `fe084a6`, freeze `8a7c916`) | C1 J: K1 0.974, BUF 0.944 vs B2 0.844 (K1 dJ +0.129 [0.117, 0.142]); gap recall 0.984 vs 0.866. Paid for elsewhere: C2 FPT +3.9 s, STD +0.24 s (registered harm losses) (`N/tables/descriptive.md`) | SUPPORTED (synthetic; with stated trade-off) | §7 |
+| L52 | Online, label-free (Kaplan-Meier mixture-cure) recalibration of the hold adds value beyond a static prior / tuned fixed coasting buffer | Next-method G3/G4 | K1 vs K1-static, BUF | Next-method study | K1 - static: abs(dJ) <= 0.005 everywhere (selected kappa = 838 swamps per-video counts; hold horizon moved <= 1 bin); K1 vs BUF: 1 win (C1; a different selected hold length, formulation P2), losses S2 (-0.297) and C6 (-0.021). Post-hoc (dev seeds): a weak prior lets it adapt in S2 (0.573 -> 0.826) but it stays below BUF (0.885) and adds C6 ghosts | NOT SUPPORTED | — |
+| L53 | The nonparametric (KM) duration model beats a geometric adaptive detection-profile learner (Mahler-style) | Next-method G5 | K1 vs GEO | Next-method study | Identical within abs(dJ) <= 0.005 in all 11 conditions | NOT SUPPORTED | — |
+| L54 | A survival-calibrated non-visible hold is an algorithm contribution over GatedEMA+hysteresis | Next-method gate | G1-G7 | Next-method study | Registered **STOP**, contribution **UNSUPPORTED**: S2 -0.156 J, 4 losses vs B2, latency 3.71x (`N/aggregated/analysis.json`) | NOT SUPPORTED | never |
+| L55 | The input convention 'no record = UNKNOWN' conflates two phenomena with opposite optimal holds (identity-swap ghosts vs unknown-visibility gaps) | — | Comparison across UNK-handling variants | Next-method study + episode study E2 | K1 (UNK hold 0): lowest C6 ghosts 2.19 s but S2 J 0.568; BUF / K1-pooled (UNK held): S2 J 0.864 but C6 ghosts 7.5-8.0 s; episode-study P1 ghosts linger after swaps (L45) | PARTIAL (synthetic; explanation consistent across two studies) | §9 (threats/limitations) |
+| L56 | Pooled in-distribution tuning disfavours adaptive components whose benefit appears only under shift | — | Selected kappa and transfer results | Next-method study | All prior-based modes selected kappa = 838 (adaptation off); the post-hoc dev check shows adaptation helps only under the S2 shift | PARTIAL (one study; methodological observation) | §6 (protocol) |
 
 ## Change log
 
@@ -87,3 +93,5 @@ synthetic evidence** (`R/` = `results/phase3/`)._
   synthetic), L45 (NOT SUPPORTED), L46 (NOT SUPPORTED), L47 (NOT SUPPORTED), L48 (SUPPORTED, synthetic),
   L49 (PARTIAL), L50 (PARTIAL). No claim upgraded on p-values; L45/L46 explanations use post-hoc
   exploratory diagnostics (`E/posthoc/`), labelled as such.
+- 2026-10-11 (next-method study, decision STOP / contribution UNSUPPORTED): added L51 (SUPPORTED, synthetic,
+  with trade-off), L52-L54 (NOT SUPPORTED), L55-L56 (PARTIAL). Post-hoc kappa sensitivity on development seeds only.

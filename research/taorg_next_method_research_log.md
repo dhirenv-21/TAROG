@@ -13,9 +13,9 @@ Unrelated working-tree items were left untouched and are never staged:
 |---|---|---|
 | 1 | Failure audit, formulation, pre-registration | `fe084a6cce6d5500b2b10b8c390bdfc0c4eb9df1` |
 | 2 | Tested implementation | `ed9a021ba16e3a91191d882f93316ca74e4b68d9` |
-| 3 | Frozen parameters | |
-| 4 | Evaluation and analysis | |
-| 5 | Exit report and documentation | |
+| 3 | Frozen parameters | `8a7c916568bc4fd6eb95d599fb2b392107a80448` |
+| 4 | Evaluation and analysis | `320bc2e984f31053e83500857ec0528483349f19` |
+| 5 | Exit report and documentation | the commit adding this row (hash in the PR description) |
 
 ## Log
 
@@ -62,3 +62,15 @@ Unrelated working-tree items were left untouched and are never staged:
     B2 0.9029.
   - The half-sample control picked the same points.
   - Rationale: `results/next_method/configs/frozen_parameters.md`.
+- 2026-10-11 (checkpoint 4):
+  - evaluate (550 instances, 8250 rows, 77 s, code `8a7c916`), latency, analyze, figures and
+    failures. Complete: 0 missing, failed or duplicate rows.
+  - **Registered: STOP, contribution UNSUPPORTED.** All gates fail.
+- 2026-10-11 (checkpoint 5):
+  - **Post-hoc, exploratory, dev seeds only** (`scripts/next_method/posthoc_kappa_dev.py`): a
+    weak prior lets K1 adapt in S2 (J 0.573 -> 0.826), but it stays below BUF (0.885) and gains
+    C6 ghosts. No variant was re-evaluated on evaluation seeds.
+  - **Implementation detail documented** (exit report §1): decisions use the current frame's
+    flag stratum, while learning uses the run onset stratum. These are identical for runs with
+    constant flags; the registered result is unchanged.
+  - Wrote the exit report, supervisor update, ledger L51-L56, results notes and Memory.

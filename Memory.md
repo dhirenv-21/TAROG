@@ -3,9 +3,9 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Relationship-episode study complete — decision STOP** (synthetic; branch `codex/taorg-episodes`)
-- Earlier: Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
-- Active phase: none — **awaiting user decision** (recommendation: simplify to GatedEMA + hysteresis; keep episode metrics)
+- Stage: **Next-method study complete — STOP, algorithm contribution UNSUPPORTED** (synthetic; branch `codex/taorg-next-method`; workspace `D:\ADSA project`)
+- Earlier: episode study STOP; Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
+- Active phase: none — **awaiting user decision** (no supported algorithm contribution after three attempts; options: a new prereg on the 'no record' vs UNKNOWN representation, or consolidate the evaluation paper)
 - Last updated: 2026-10-11
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
@@ -99,6 +99,7 @@
 - [x] Phase 4: pre-registration `bad0ef9`, VA-HMM (M1), V-HPED eager reference M2–M6 (`src/taorg/temporal/vhped.py`), baseline freeze `07b01c2`, V-HPED freeze `490b28c`, evaluation complete (478,620 runs), exit report `research/phase4_exit_report.md`. 215 tests passing.
 - [x] V-HPED reference implemented (eager; Phase 4).
 - [x] Relationship-episode study (pre-registered ladder P1–P4 vs 5 baselines; decision STOP).
+- [x] Next-method study (failure audit of B2; K1 survival hold; decision STOP, contribution UNSUPPORTED).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -127,6 +128,12 @@ Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/
 - 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
 - Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
 
+Next-method study (2026-10-11; prereg `fe084a6`, impl `ed9a021`, freeze `8a7c916`, eval `320bc2e`; `results/next_method/`; report `research/taorg_next_method_exit_report.md`): **STOP / UNSUPPORTED**.
+- Audit (dev seeds 7000-7019): B2's main failure = non-visible-absence hold mismatch (matched headroom C1 0.134, S2 0.150 J).
+- K1 (B2 + online KM mixture-cure hold): C1 +0.129 J vs B2 but S2 -0.156, C3 -0.021, C2/S0 FPT +3-4 s; equal to its static prior (kappa 838 selected); the fixed buffer BUF matches or beats it (S2 0.864 vs 0.568); latency 3.71x B2.
+- The 'no record = UNKNOWN' convention conflates swap ghosts and unknown-visibility gaps (ledger L55).
+- Relocation: repository copied to D:\ADSA project; editable install re-pointed; checkpoints verified; about 1.6 GB RAM free, so <= 4 workers.
+
 Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze `d027634`, eval `c312fb9`; `results/episodes/`; report `research/taorg_episode_exit_report.md`): **STOP**.
 - 11,000/11,000 evaluation rows complete (11 conditions × 50 seeds × 20 variants); calibration 140 instances × 1801 configs.
 - T = P1 episode estimator (identity rung not retained: C6 ΔJ −0.037); context retained vs P2 only; history not retained (pooled ΔJ +0.00004).
@@ -137,6 +144,7 @@ Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-11 — Workspace moved (copied) to D:\ADSA project; `pip install -e . --no-deps` re-pointed the package; the old C: copy still exists (the user will delete it). — research/taorg_next_method_failure_audit.md §0
 2026-10-11 — Episode study: one pooled operating point per method (max calibration J over C1–C7); heavy per-instance checkpoints on D:/TAORG_runs/episodes with committed SHA-256 manifests; ≤ 6 workers (C: nearly full, pagefile pressure). — research/taorg_episode_preregistration.md, results/episodes/README.md
 2026-10-08 — Phase 5H-1 amendments A1–A4 (aggregation/runner; N-jit pins censored endpoints; analysis details; max_iter 5000), all before freeze `289319e`. — research/phase5h1_preregistration.md §11
 2026-10-08 — Heavy run state on D: (C: nearly full); compact artifacts in results/phase5h1/full/. — research/phase5h1_exit_report.md §16
@@ -178,7 +186,7 @@ Add short entries only, newest first:
 - Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
-WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
+WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:
