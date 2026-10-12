@@ -3,10 +3,10 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Observation-interface audit complete — distinction NOT USABLE on real MOT17 tracker outputs** (branch `codex/taorg-observation-audit`; workspace `D:\ADSA project`)
+- Stage: **Appearance-based tracking audit complete — decision NARROW** (branch `codex/taorg-appearance-audit`; workspace `D:\ADSA project`). Earlier: observation audit NOT USABLE (motion-only)
 - Earlier: next-method K1 STOP / UNSUPPORTED; episode study STOP; Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
-- Active phase: none — **awaiting user decision** (no supported algorithm contribution after three attempts; options: a new prereg on the 'no record' vs UNKNOWN representation, or consolidate the evaluation paper)
-- Last updated: 2026-10-11
+- Active phase: none — **awaiting user decision** on one pre-registered downstream test of the frozen takeover signal (needs relationship labels / VidSGG approval)
+- Last updated: 2026-10-12
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
@@ -101,6 +101,7 @@
 - [x] Relationship-episode study (pre-registered ladder P1–P4 vs 5 baselines; decision STOP).
 - [x] Next-method study (failure audit of B2; K1 survival hold; decision STOP, contribution UNSUPPORTED).
 - [x] Observation-interface audit on real MOT17 tracker outputs (distinction NOT USABLE; contract added).
+- [x] Appearance-based tracking audit (BoT-SORT appearance off/on + OSNet; MOT17 held-back; decision NARROW).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -129,6 +130,13 @@ Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/
 - 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
 - Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
 
+Appearance audit (2026-10-12; prereg `ac34d2f`, impl `e7ae883`, freeze `85a839c`, A3 fix `1ff4387`; `results/appearance/`; report `research/taorg_appearance_audit_exit_report.md`): **NARROW**.
+- BoxMOT 25.0.0 BotSort (V2 appearance off / V3 on, identical settings, ECC CMC) + OSNet x1.0 MSMT17 (sha256 b7d73dc6…; not MOT17-trained); ByteTrack V1; MOT17Det frames fetched by HTTP range (dev 357 MB, held-back 568 MB after freeze).
+- Held-back V3 TAKEOVER vs GAP: AUC T 0.670 → T+A 0.864 (FRCNN, +0.194 [97.5% 0.151, 0.240]); 0.654 → 0.766 (SDP, +0.112 [0.045, 0.183]); 8/8 units positive. At frozen θ: recall 0.56 / 0.47, gap rejection 0.07 / 0.12 (SDP fails recall ≥ 0.50 → NARROW).
+- Available during the gap: coverage 0.95 / 0.97; incident A AUC 0.77 / 0.76 at τ = 0.2 s (retrospective 0.81).
+- Mostly diagnosis, not tracking: same cue on V2 records ΔAUC +0.22 / +0.15; V3 vs V2 IDSW 363→357 / 504→428. Exploratory: proximity-only cue explains little (T+G 0.70 vs T+A 0.86/0.77).
+- trackers 2.6.1 BoTSORTTracker has NO re-ID (correction to observation report §9). Not an algorithm contribution (standard re-ID distance).
+
 Observation audit (2026-10-12; commits `bbf545e` (criteria before outputs), `550f9f3` (adapter + dev results); `results/observation/`; report `research/taorg_observation_exit_report.md`): **NOT USABLE**.
 - Real outputs: MOT17 public FRCNN/SDP detections + ByteTrack (trackers 2.6.1, defaults); dev seqs 02/09/11; eval seqs 04/05/10/13 untouched; data MOT17Labels.zip (10.1 MB, CC BY-NC-SA 3.0) at D:/TAORG_runs/observation.
 - Conflation real: absence frames = real gaps 41%, identity takeovers 20%, gone 26%, false tracks 13%.
@@ -151,6 +159,7 @@ Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-12 — Appearance audit: BoxMOT installed in isolated venv D:/TAORG_runs/appearance/venv (AGPL-3.0, --no-deps; C: full); OSNet x1.0 MSMT17 weights and MOT17Det frames (range-fetched) downloaded with user authorisation; heavy state on D:. Amendments A1 (strict conf > 0.5), A2 (smooth_feat creation seed; cue unchanged), A3 (post-freeze memory fix, outputs verified identical). — research/taorg_appearance_audit_preregistration.md §13
 2026-10-12 — Installed trackers 2.6.1 (+supervision 0.30.9, av, pydeprecate) and downloaded MOT17Labels.zip with user approval; personal local videos deliberately not used. — research/taorg_observation_research_log.md
 2026-10-11 — Workspace moved (copied) to D:\ADSA project; `pip install -e . --no-deps` re-pointed the package; the old C: copy still exists (the user will delete it). — research/taorg_next_method_failure_audit.md §0
 2026-10-11 — Episode study: one pooled operating point per method (max calibration J over C1–C7); heavy per-instance checkpoints on D:/TAORG_runs/episodes with committed SHA-256 manifests; ≤ 6 workers (C: nearly full, pagefile pressure). — research/taorg_episode_preregistration.md, results/episodes/README.md
@@ -181,6 +190,7 @@ Add short entries only, newest first:
 2026-09-27 — Edge visibility derived conservatively — Edge is VISIBLE only if both subject and object are VISIBLE. — src/taorg/schemas/edges.py
 
 ## Known issues / blockers
+- C: drive is full: the Windows commit limit binds (OOM at ~4 GB free RAM). Keep one tracker run in memory; avoid parallel jobs. Recorded *.csv.gz SHA-256 values include gzip timestamps (not content hashes).
 - GatedEMA treats edge keys with no record as UNKNOWN and decay_unknown defaults to decay_occluded → holds ID-switch ghosts and all-UNKNOWN streams (Phase 3 S2/S4). Untested alternative policy; Phase 4 ablation.
 - Cohen's d_z is printed as ~1e15/inf when paired SD ≈ 0 (reporting issue; not in H1 rule).
 - Fig. E panel titles overlap (cosmetic).
@@ -194,7 +204,7 @@ Add short entries only, newest first:
 - Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
-WAIT for user review of the observation-audit PR. Single next experiment (needs approval: MOT17 frames 1.95 GB + re-ID model): repeat the pre-stated audit with an appearance-based tracker exposing association evidence (e.g. BoT-SORT + re-ID); alternatively integrate one VidSGG model to audit 'not evaluated' vs 'evaluated negative'. Earlier: WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
+WAIT for user review of the appearance-audit PR (decision NARROW). Single justified next step (needs approval): one pre-registered downstream test feeding the FROZEN T+A takeover flag into GatedEMA+hysteresis / fixed buffer via the observation contract, measuring relationship ghost time and false termination; requires relationship labels (VidSGG model or a pre-registered proxy) and must not tune on the MOT17 sequences used here; stop the line if no gain over the fixed buffer. Earlier: Single next experiment (needs approval: MOT17 frames 1.95 GB + re-ID model): repeat the pre-stated audit with an appearance-based tracker exposing association evidence (e.g. BoT-SORT + re-ID); alternatively integrate one VidSGG model to audit 'not evaluated' vs 'evaluated negative'. Earlier: WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:

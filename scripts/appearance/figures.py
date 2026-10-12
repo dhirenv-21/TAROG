@@ -181,6 +181,7 @@ def fig_examples(split: str, chosen: dict, P: Path) -> list:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", default="dev")
+    ap.add_argument("--no-examples", action="store_true", help="the prereg example rule is development-only")
     a = ap.parse_args()
     _setup()
     out = Path(f"results/appearance/{a.split}")
@@ -188,6 +189,9 @@ def main() -> None:
     P.mkdir(parents=True, exist_ok=True)
     R = json.loads((out / "analysis.json").read_text(encoding="utf-8"))
     files = fig_coverage(R, P) + fig_comparison(R, P) + fig_incidents(R, P)
+    if a.no_examples:
+        print("\n".join(str(f) for f in files))
+        return
     chosen = pick_examples(a.split)
     (out / "examples.json").write_text(json.dumps(chosen, indent=1), encoding="utf-8")
     files += fig_examples(a.split, chosen, P)

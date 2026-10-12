@@ -45,3 +45,16 @@ Unrelated items were left untouched and are never staged:
   - V3 ΔAUC(T+A − T): FRCNN +0.177 [97.5% 0.102, 0.251]; SDP +0.127 [0.065, 0.187];
   - coverage 0.97.
 - 2026-10-12 — **Freeze** (`results/appearance/freeze/`) committed before any held-back access.
+- 2026-10-12 — **Held-back stage.**
+  - Frames for 04/05/10/13 were fetched only after the freeze was pushed (568 MB).
+  - The first attempt aborted on out-of-memory in `load_embs` (per-frame decompression).
+  - Fixed in A3 (`1ff4387`). The development re-run is content-identical: 54/54 files, 12/12
+    association logs. The gzip file hashes differ only by the timestamp.
+  - Held-back run: 24/24 runs complete at `1ff4387` (clean); all implementation checks 100%.
+- 2026-10-12 — **Frozen held-back analysis. Decision NARROW.**
+  - FRCNN meets all GO criteria. SDP fails only takeover recall (0.468 < 0.50).
+  - V3 ΔAUC: +0.194 [0.151, 0.240] (FRCNN); +0.112 [0.045, 0.183] (SDP).
+- 2026-10-12 — **EXPLORATORY** proximity-only control (`exploratory_proximity.json`): T+G
+  0.70/0.70 vs T+A 0.86/0.77 on held-back data. Labelled; no effect on the decision.
+- 2026-10-12 — Wrote the exit report, supervisor update, ledger L61–L64, results notes and
+  Memory.

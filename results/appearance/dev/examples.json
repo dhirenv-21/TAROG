@@ -1,0 +1,54 @@
+{
+ "TP": {
+  "unit": "11-FRCNN",
+  "track": 56,
+  "start": 865,
+  "length": 18,
+  "decision_frame": 879,
+  "score": 0.36903,
+  "theta": 0.35305,
+  "a_loc": 0.1852,
+  "dt": 0.5,
+  "label": "TAKEOVER",
+  "n_in_cell": 1
+ },
+ "TN": {
+  "unit": "02-FRCNN",
+  "track": 0,
+  "start": 207,
+  "length": 90,
+  "decision_frame": 221,
+  "score": 0.04678,
+  "theta": 0.33488,
+  "a_loc": 0.36592,
+  "dt": 0.5,
+  "label": "GAP",
+  "n_in_cell": 78
+ },
+ "FN": {
+  "unit": "02-FRCNN",
+  "track": 22,
+  "start": 157,
+  "length": 90,
+  "decision_frame": 171,
+  "score": 0.32304,
+  "theta": 0.33488,
+  "a_loc": 0.23032,
+  "dt": 0.5,
+  "label": "TAKEOVER",
+  "n_in_cell": 7
+ },
+ "FP": {
+  "unit": "02-FRCNN",
+  "track": 88,
+  "start": 552,
+  "length": 49,
+  "decision_frame": 566,
+  "score": 0.5443,
+  "theta": 0.33488,
+  "a_loc": 0.17563,
+  "dt": 0.5,
+  "label": "GAP",
+  "n_in_cell": 7
+ }
+}
