@@ -1,0 +1,719 @@
+{
+ "split": "eval",
+ "git_commit": "1ff43873ae2fb4f13155f76589defefe7196dd08",
+ "git_dirty_src": false,
+ "seed": 20261012,
+ "python": "3.10.11",
+ "torch": "2.14.0+cu132",
+ "boxmot": "25.0.0",
+ "cuda": true,
+ "platform": "Windows-10-10.0.26200-SP0",
+ "botsort_settings": {
+  "track_high_thresh": 0.5,
+  "track_low_thresh": 0.1,
+  "new_track_thresh": 0.6,
+  "track_buffer": 30,
+  "match_thresh": 0.8,
+  "proximity_thresh": 0.5,
+  "appearance_thresh": 0.25,
+  "use_cmc": true,
+  "cmc_method": "ecc",
+  "fuse_first_associate": false,
+  "second_match_thresh": 0.5,
+  "unconfirmed_match_thresh": 0.7,
+  "unconfirmed_emb_scale": 2.0,
+  "removed_stracks_buffer": 100
+ },
+ "high_conf": 0.5,
+ "units": {
+  "04-FRCNN": {
+   "seq": "04",
+   "det": "FRCNN",
+   "fps": 30.0,
+   "length": 1050,
+   "size": [
+    1920,
+    1080
+   ],
+   "alignment": {
+    "seq": "MOT17-04-FRCNN",
+    "n_files": 1050,
+    "length": 1050,
+    "sizes": [
+     [
+      1080,
+      1920
+     ],
+     [
+      1080,
+      1920
+     ]
+    ],
+    "expected_size": [
+     1080,
+     1920
+    ],
+    "ok": true
+   },
+   "n_detections": 28406,
+   "n_embeddings": 28406,
+   "emb_norm_min": 0.9999166131019592,
+   "emb_norm_max": 1.0000903606414795,
+   "embeddings_sha256": "5bb47c6b70a878bfcf1decd0ae735b30db5aaf1bd6ca03e92fbc03cb3ee52a84",
+   "reid_timing": {
+    "reid_s_total": 36.35376440070104,
+    "reid_ms_per_frame": 34.622632762572415
+   },
+   "gpu_peak_mb_reid": 445.071872,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 2.379477904732561
+     },
+     "n_tracks": 100,
+     "n_outputs": 28086,
+     "n_missing_records": 6993,
+     "outputs_sha256": "bbc893299b41211b5d6c738c10feb5a430bf2b53a6b4ac270381917251fa0a19",
+     "cues_sha256": "805ac883c75aa2f0519cfc1edb5046fba004b6e4490b3ba5f3f97e18003483ce"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 18.019504190112155
+     },
+     "n_tracks": 100,
+     "n_outputs": 27875,
+     "n_missing_records": 6898,
+     "outputs_sha256": "8032eb049d6cb0dda913534707ffa3e8d2f8ca02dc422cdb190b98de6d8c6273",
+     "cues_sha256": "93a0b3a73a77819a7b1ccd1f4ede1e4c3955711dd3fd0ed6c436da26983d54fa"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 18.157508188880804
+     },
+     "n_tracks": 100,
+     "n_outputs": 27875,
+     "n_missing_records": 6898,
+     "outputs_sha256": "d6c99a3d42efc250402fb336ab644d43a18844adf929df3b9ab1c3900fca511b",
+     "cues_sha256": "1e8eb9d9bff94e25db88d31ba1dcc41a27de1d8b37683fc1ffe6db3ffb0f43d6",
+     "feasibility": {
+      "assoc_rows": 825464,
+      "n_created_recorded": 80,
+      "share_final_cost_ne_geom": 0.009439539459019411,
+      "raw_emb_checked": 50000,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.8998980522155762e-07,
+      "smooth_feat_checked": 280,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 0,
+   "share_frames_V2_V3_differ": 0.0,
+   "unit_wall_s": 113.72159051895142
+  },
+  "04-SDP": {
+   "seq": "04",
+   "det": "SDP",
+   "fps": 30.0,
+   "length": 1050,
+   "size": [
+    1920,
+    1080
+   ],
+   "alignment": {
+    "seq": "MOT17-04-SDP",
+    "n_files": 1050,
+    "length": 1050,
+    "sizes": [
+     [
+      1080,
+      1920
+     ],
+     [
+      1080,
+      1920
+     ]
+    ],
+    "expected_size": [
+     1080,
+     1920
+    ],
+    "ok": true
+   },
+   "n_detections": 37150,
+   "n_embeddings": 37150,
+   "emb_norm_min": 0.9999110102653503,
+   "emb_norm_max": 1.0001046657562256,
+   "embeddings_sha256": "8ef745960c759e04c4526630222d6b945b009ae906b6f56a70e2e2f7dcd7aa92",
+   "reid_timing": {
+    "reid_s_total": 56.038642699830234,
+    "reid_ms_per_frame": 53.370135904600225
+   },
+   "gpu_peak_mb_reid": 555.04128,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 1.8352455237791652
+     },
+     "n_tracks": 104,
+     "n_outputs": 36710,
+     "n_missing_records": 7027,
+     "outputs_sha256": "6a39c6c4208b3f760fdb10f90e593d3a1f173bba3ffb30c63c1b818b8305849c",
+     "cues_sha256": "de98dcc49e4dc8dbdf5d47e9d21a2ea350fe1bbf9c42c12c7276dcf3a9340c93"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 24.317931047463347
+     },
+     "n_tracks": 98,
+     "n_outputs": 36813,
+     "n_missing_records": 6862,
+     "outputs_sha256": "44e21a87e3e19bb226d10b07665b91a63c77baf2afe2eb969e10e017d357897d",
+     "cues_sha256": "e92d068aee7d3d0249f0ddbb9f6df786e2c91fb33c4303bf77a0a617fe03d510"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 23.414890474440263
+     },
+     "n_tracks": 104,
+     "n_outputs": 36791,
+     "n_missing_records": 7220,
+     "outputs_sha256": "520f08454416285fb7379652e9bf366b0a8daf6ec205874ebc22aafd58532010",
+     "cues_sha256": "6300891b0a9600076b1e9b3d05591824339af06dc986b7d8c88fffdcfacdec5b",
+     "feasibility": {
+      "assoc_rows": 1427111,
+      "n_created_recorded": 121,
+      "share_final_cost_ne_geom": 0.022756463933078785,
+      "raw_emb_checked": 50000,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.7695128917694092e-07,
+      "smooth_feat_checked": 357,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 1048,
+   "share_frames_V2_V3_differ": 0.9980952380952381,
+   "unit_wall_s": 150.21915817260742
+  },
+  "05-FRCNN": {
+   "seq": "05",
+   "det": "FRCNN",
+   "fps": 14.0,
+   "length": 837,
+   "size": [
+    640,
+    480
+   ],
+   "alignment": {
+    "seq": "MOT17-05-FRCNN",
+    "n_files": 837,
+    "length": 837,
+    "sizes": [
+     [
+      480,
+      640
+     ],
+     [
+      480,
+      640
+     ]
+    ],
+    "expected_size": [
+     480,
+     640
+    ],
+    "ok": true
+   },
+   "n_detections": 3848,
+   "n_embeddings": 3848,
+   "emb_norm_min": 0.9999205470085144,
+   "emb_norm_max": 1.000087857246399,
+   "embeddings_sha256": "3ff663048b1f82991aacd41d0bc64a3b4f5c07131d1b8d251e5ffee071be4cda",
+   "reid_timing": {
+    "reid_s_total": 16.437922900076956,
+    "reid_ms_per_frame": 19.63909546006805
+   },
+   "gpu_peak_mb_reid": 145.179136,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 0.2425623655134507
+     },
+     "n_tracks": 91,
+     "n_outputs": 3611,
+     "n_missing_records": 3676,
+     "outputs_sha256": "e01683d986063147cf4966865f53ca48fd3dea944badcb8035f354d6a121f39d",
+     "cues_sha256": "4c40fea0429244ff0c202f1a5eb7c8a7e2c81a76be974e3210669e7e4985afcb"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 7.1042369191035215
+     },
+     "n_tracks": 105,
+     "n_outputs": 3519,
+     "n_missing_records": 4241,
+     "outputs_sha256": "b1a2bdaffd1dc5da24d94b45e553c322687eaf73e3e2b32084ced4e84e2f500c",
+     "cues_sha256": "47e35bf1289fbff8690d962a54153fc0a17cd8a39ae7ce7d00ff9da9609e624e"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 6.816101192887271
+     },
+     "n_tracks": 105,
+     "n_outputs": 3519,
+     "n_missing_records": 4240,
+     "outputs_sha256": "08ba06f2a2db48cb9197dad7c16a1ed88ce8ac467e6dc583800944c0639d55b4",
+     "cues_sha256": "084e4ba8131c545bb48896af996972c9011f3bab07e1576bbcf09f29326bf4c3",
+     "feasibility": {
+      "assoc_rows": 24524,
+      "n_created_recorded": 113,
+      "share_final_cost_ne_geom": 0.09627303865601045,
+      "raw_emb_checked": 24524,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 2.1979212760925293e-07,
+      "smooth_feat_checked": 164,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 81,
+   "share_frames_V2_V3_differ": 0.0967741935483871,
+   "unit_wall_s": 38.54494094848633
+  },
+  "05-SDP": {
+   "seq": "05",
+   "det": "SDP",
+   "fps": 14.0,
+   "length": 837,
+   "size": [
+    640,
+    480
+   ],
+   "alignment": {
+    "seq": "MOT17-05-SDP",
+    "n_files": 837,
+    "length": 837,
+    "sizes": [
+     [
+      480,
+      640
+     ],
+     [
+      480,
+      640
+     ]
+    ],
+    "expected_size": [
+     480,
+     640
+    ],
+    "ok": true
+   },
+   "n_detections": 4767,
+   "n_embeddings": 4767,
+   "emb_norm_min": 0.9999333024024963,
+   "emb_norm_max": 1.000087857246399,
+   "embeddings_sha256": "f35a2738ac1d91a83f3206c8eb494eda1b53cdf7687d8409cc55bdb83cb4e1dc",
+   "reid_timing": {
+    "reid_s_total": 16.06817469955422,
+    "reid_ms_per_frame": 19.19734133757971
+   },
+   "gpu_peak_mb_reid": 206.38976,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 0.29253094385321315
+     },
+     "n_tracks": 131,
+     "n_outputs": 4510,
+     "n_missing_records": 5642,
+     "outputs_sha256": "09bfe9ef65685c9a2cab243b3c2bc0641c49ada3d15441bf6b6d61a12f8cb872",
+     "cues_sha256": "ddd5c54109cf2bc51d64239452a95ddd981e0fcd653262924eb5eb233236f776"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 7.551376702427517
+     },
+     "n_tracks": 124,
+     "n_outputs": 4465,
+     "n_missing_records": 5420,
+     "outputs_sha256": "c1bc3459b1566dc66d8e33c22e31207007cdf8dd8eef11ea2e977cfa1afd3bc4",
+     "cues_sha256": "54bf7e634d4375bffa922f5bc195821a6bbb2507803cea95f6bfa1c470d4ebae"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 8.120878854807657
+     },
+     "n_tracks": 123,
+     "n_outputs": 4467,
+     "n_missing_records": 5392,
+     "outputs_sha256": "1a00092afb20dcd30ed66bfcacef54522f638eef4b28a50ca6231cc48e71c1f7",
+     "cues_sha256": "dfbadd949f6220b83046818ca0b41514211e41dce54f9b961caf5213fb226154",
+     "feasibility": {
+      "assoc_rows": 40228,
+      "n_created_recorded": 192,
+      "share_final_cost_ne_geom": 0.08481654568956945,
+      "raw_emb_checked": 40228,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.862645149230957e-07,
+      "smooth_feat_checked": 231,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 730,
+   "share_frames_V2_V3_differ": 0.8721624850657109,
+   "unit_wall_s": 35.51939940452576
+  },
+  "10-FRCNN": {
+   "seq": "10",
+   "det": "FRCNN",
+   "fps": 30.0,
+   "length": 654,
+   "size": [
+    1920,
+    1080
+   ],
+   "alignment": {
+    "seq": "MOT17-10-FRCNN",
+    "n_files": 654,
+    "length": 654,
+    "sizes": [
+     [
+      1080,
+      1920
+     ],
+     [
+      1080,
+      1920
+     ]
+    ],
+    "expected_size": [
+     1080,
+     1920
+    ],
+    "ok": true
+   },
+   "n_detections": 9701,
+   "n_embeddings": 9701,
+   "emb_norm_min": 0.9999182224273682,
+   "emb_norm_max": 1.0000948905944824,
+   "embeddings_sha256": "afbc0ba414aa5a49d4e9028b5252b03f9c51b0f9aa24f1b8f2428789ddfc0a8d",
+   "reid_timing": {
+    "reid_s_total": 17.44842110038735,
+    "reid_ms_per_frame": 26.679542966953136
+   },
+   "gpu_peak_mb_reid": 281.1008,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 0.6591472477475552
+     },
+     "n_tracks": 134,
+     "n_outputs": 9048,
+     "n_missing_records": 11430,
+     "outputs_sha256": "9e6cd2b3f2001da3245b6cfac478d95a0b9126a011dbd756f814d83bcbaeaf39",
+     "cues_sha256": "db93d934fed503cb39cc017e068d4ac72ada9bc6ec244e6957f05dc1dde4be25"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 30.19903409946283
+     },
+     "n_tracks": 103,
+     "n_outputs": 8721,
+     "n_missing_records": 8898,
+     "outputs_sha256": "3f382981a682e6e13f6736a4de42b921a2123bd4b2a69ce4bf262c859471017f",
+     "cues_sha256": "0c5e2895772170cf542e970cf55926507366ac5a8b25ac71f06712543c0cced0"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 25.378634864272158
+     },
+     "n_tracks": 105,
+     "n_outputs": 8718,
+     "n_missing_records": 9106,
+     "outputs_sha256": "f32f63e6bc68f13aaf068622fd9f25e913bed6c0db24bc7d1ce8bad2dcc76647",
+     "cues_sha256": "11aa9faf5de444d8088dc48c9954bd6505a3f7b66f682d666deb5aab5999a11e",
+     "feasibility": {
+      "assoc_rows": 172182,
+      "n_created_recorded": 184,
+      "share_final_cost_ne_geom": 0.025821514444018537,
+      "raw_emb_checked": 50000,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.7136335372924805e-07,
+      "smooth_feat_checked": 391,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 603,
+   "share_frames_V2_V3_differ": 0.9220183486238532,
+   "unit_wall_s": 81.00546002388
+  },
+  "10-SDP": {
+   "seq": "10",
+   "det": "SDP",
+   "fps": 30.0,
+   "length": 654,
+   "size": [
+    1920,
+    1080
+   ],
+   "alignment": {
+    "seq": "MOT17-10-SDP",
+    "n_files": 654,
+    "length": 654,
+    "sizes": [
+     [
+      1080,
+      1920
+     ],
+     [
+      1080,
+      1920
+     ]
+    ],
+    "expected_size": [
+     1080,
+     1920
+    ],
+    "ok": true
+   },
+   "n_detections": 10371,
+   "n_embeddings": 10371,
+   "emb_norm_min": 0.9998947978019714,
+   "emb_norm_max": 1.0000923871994019,
+   "embeddings_sha256": "d5a6b97e53a7fa52ea2fb165bcb981dc8bb9eae80250499a51722d85428bff29",
+   "reid_timing": {
+    "reid_s_total": 15.024458200437948,
+    "reid_ms_per_frame": 22.973177676510623
+   },
+   "gpu_peak_mb_reid": 319.242752,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 0.6224396024454693
+     },
+     "n_tracks": 127,
+     "n_outputs": 9961,
+     "n_missing_records": 10964,
+     "outputs_sha256": "004925f3fbf099e29e089dfe4a4f44ba413ffb8af9997088bc28507d39b9a883",
+     "cues_sha256": "62fa860b3b2d5d7218648d89151c4314d266103d239959e761633781a5dfc466"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 25.179351990955627
+     },
+     "n_tracks": 81,
+     "n_outputs": 9988,
+     "n_missing_records": 7306,
+     "outputs_sha256": "996520c3cb1e577f84c0038d1a27305d3cf74f29c27b1c37071a1f0e468bc1ae",
+     "cues_sha256": "2858c39fb928c1adb2d97981509e14aeb18a9f5f008efb39c91a7b19597692ad"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 25.12540290629155
+     },
+     "n_tracks": 85,
+     "n_outputs": 9975,
+     "n_missing_records": 7395,
+     "outputs_sha256": "9d3622425388a0a6d7526e8097fd695ea8cfdd22e0e05598f445589008f4d2a0",
+     "cues_sha256": "2170ceaf69d03e600d30affa60a9e5a2b5a8193bd811fcef11deb0587d2e49c1",
+     "feasibility": {
+      "assoc_rows": 210037,
+      "n_created_recorded": 157,
+      "share_final_cost_ne_geom": 0.037669553459628545,
+      "raw_emb_checked": 50000,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.7881393432617188e-07,
+      "smooth_feat_checked": 327,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 639,
+   "share_frames_V2_V3_differ": 0.9770642201834863,
+   "unit_wall_s": 68.56194829940796
+  },
+  "13-FRCNN": {
+   "seq": "13",
+   "det": "FRCNN",
+   "fps": 25.0,
+   "length": 750,
+   "size": [
+    1920,
+    1080
+   ],
+   "alignment": {
+    "seq": "MOT17-13-FRCNN",
+    "n_files": 750,
+    "length": 750,
+    "sizes": [
+     [
+      1080,
+      1920
+     ],
+     [
+      1080,
+      1920
+     ]
+    ],
+    "expected_size": [
+     1080,
+     1920
+    ],
+    "ok": true
+   },
+   "n_detections": 8442,
+   "n_embeddings": 8442,
+   "emb_norm_min": 0.9999237656593323,
+   "emb_norm_max": 1.0000773668289185,
+   "embeddings_sha256": "700c96158ed82576e4b0ec20b65cdfcaa36008fac53892c65b59086c161c46ca",
+   "reid_timing": {
+    "reid_s_total": 19.963950399425812,
+    "reid_ms_per_frame": 26.61860053256775
+   },
+   "gpu_peak_mb_reid": 393.16736,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 0.8531593334240218
+     },
+     "n_tracks": 175,
+     "n_outputs": 7480,
+     "n_missing_records": 13986,
+     "outputs_sha256": "36c89a80f97023c677c40364c809c5fe29f07f88474111b3102085e79ed309ac",
+     "cues_sha256": "80e64dc74695bbd6b6d823d123e4f5523ff08805b3495d9224ebcf822bb213a9"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 33.62614333194991
+     },
+     "n_tracks": 132,
+     "n_outputs": 7192,
+     "n_missing_records": 10784,
+     "outputs_sha256": "d1577778db451c9dfa2afa522ba886c86cdce7568b69eba8b955befcf56eba5a",
+     "cues_sha256": "6dd53fee8901bf00311a796b2a149d88eb1e6c370f7a7060079dc8966e281970"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 29.36990760235737
+     },
+     "n_tracks": 129,
+     "n_outputs": 7192,
+     "n_missing_records": 10506,
+     "outputs_sha256": "c3246ba62717421455949ed5a66916ba746255ce57c1298ebe0d60ce86dd25c1",
+     "cues_sha256": "755144d62246dc2f5ae07c3553dd07eced87cdd28662928f79c1215e57e66541",
+     "feasibility": {
+      "assoc_rows": 147391,
+      "n_created_recorded": 209,
+      "share_final_cost_ne_geom": 0.026161705938625834,
+      "raw_emb_checked": 50000,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.7881393432617188e-07,
+      "smooth_feat_checked": 431,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 704,
+   "share_frames_V2_V3_differ": 0.9386666666666666,
+   "unit_wall_s": 103.29247665405273
+  },
+  "13-SDP": {
+   "seq": "13",
+   "det": "SDP",
+   "fps": 25.0,
+   "length": 750,
+   "size": [
+    1920,
+    1080
+   ],
+   "alignment": {
+    "seq": "MOT17-13-SDP",
+    "n_files": 750,
+    "length": 750,
+    "sizes": [
+     [
+      1080,
+      1920
+     ],
+     [
+      1080,
+      1920
+     ]
+    ],
+    "expected_size": [
+     1080,
+     1920
+    ],
+    "ok": true
+   },
+   "n_detections": 7744,
+   "n_embeddings": 7744,
+   "emb_norm_min": 0.9999199509620667,
+   "emb_norm_max": 1.0000832080841064,
+   "embeddings_sha256": "d0e3ba592351620244bd4962b805dba715303ce7136d37263c4223cf14940d58",
+   "reid_timing": {
+    "reid_s_total": 17.650472601060756,
+    "reid_ms_per_frame": 23.53396346808101
+   },
+   "gpu_peak_mb_reid": 368.26368,
+   "runs": {
+    "V1": {
+     "timing": {
+      "track_ms_per_frame": 0.6201035999692976
+     },
+     "n_tracks": 125,
+     "n_outputs": 7236,
+     "n_missing_records": 9958,
+     "outputs_sha256": "faeae86ed61863b9db03cf44e446ba1539f518c4a26d4c6de24ea3f07a2d5788",
+     "cues_sha256": "c49e5be673e37848181b9329b22eed85a6114ef32af05d5e20e882d64149fbf2"
+    },
+    "V2": {
+     "timing": {
+      "track_ms_per_frame": 27.797745201271027
+     },
+     "n_tracks": 112,
+     "n_outputs": 7148,
+     "n_missing_records": 8832,
+     "outputs_sha256": "619cc822088207b63e409d46258f56da8348183af66115c57bad3f6d89954af6",
+     "cues_sha256": "55a6c8eb9e0fe22a452de91d35e057f4f4b48ac1eb7268d0c1e9d265c7d5f3fe"
+    },
+    "V3": {
+     "timing": {
+      "track_ms_per_frame": 26.664659864579637
+     },
+     "n_tracks": 109,
+     "n_outputs": 7137,
+     "n_missing_records": 8536,
+     "outputs_sha256": "a85edb0532c8b07cd0820b91bdbfe90f96b816ec55db8a87d316e38c5e7c48d6",
+     "cues_sha256": "d14a75de92f0ca96b33baec362f94a6f5125f73d0f914e7f3435e16dd407a12b",
+     "feasibility": {
+      "assoc_rows": 143142,
+      "n_created_recorded": 256,
+      "share_final_cost_ne_geom": 0.04066591217113077,
+      "raw_emb_checked": 50000,
+      "raw_emb_equal_share": 1.0,
+      "raw_emb_max_abs_err": 1.862645149230957e-07,
+      "smooth_feat_checked": 331,
+      "smooth_feat_equal_share": 1.0,
+      "smooth_feat_min_cos": 0.9999998807907104
+     }
+    }
+   },
+   "frames_V2_V3_outputs_differ": 711,
+   "share_frames_V2_V3_differ": 0.948,
+   "unit_wall_s": 84.23643851280212
+  }
+ },
+ "peak_rss_mb": 1510.641664
+}

@@ -74,6 +74,10 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L58 | On real tracker outputs, identity-related missing records are a substantial share of all missing records | — | MOT17 public detections + ByteTrack vs benchmark annotations | Observation audit (dev 02/09/11 x FRCNN/SDP) | 39,534 absence frames: real gaps 41%, identity takeovers 20%, object gone 26%, false tracks 13% (`O/dev_audit/summary.json`) | SUPPORTED (3 MOT17 sequences, motion-only tracker) | §7 / motivation |
 | L59 | Inference-time signals from a motion-only tracker distinguish real gaps from identity-related missing records | — | Pre-stated U1-U3 | Observation audit | **NOT USABLE**: identity-suspect recall 0.1% / 1.0% (precision 0.04 / 0.56); 29% / 26% of real-gap frames labelled drop-type. Exploratory: only elapsed time beats chance (AUC 0.69 / 0.62); geometric identity cues ~0.53 | NOT SUPPORTED | threats / future work |
 | L60 | A clarified missing-data contract is an algorithm contribution | — | — | Observation audit | Interface fix only; no comparison justified; no measured gain | NOT SUPPORTED (as algorithm) | never |
+| L61 | Appearance evidence distinguishes identity takeovers from genuine gaps beyond elapsed time, at inference time | — | ΔAUC(T+A − T), frozen logistic, Bonferroni 97.5% cluster bootstrap | Appearance audit (prereg `ac34d2f`, freeze `85a839c`; held-back 04/05/10/13 × FRCNN/SDP; BoT-SORT + OSNet MSMT17) | V3 records: FRCNN 0.670 → 0.864 (+0.194 [0.151, 0.240]); SDP 0.654 → 0.766 (+0.112 [0.045, 0.183]); positive in 8/8 units; registered decision **NARROW** (SDP takeover recall 0.47 < 0.50) (`results/appearance/eval/analysis.json`) | PARTIAL (NARROW; 7 MOT17 sequences, one re-ID model) | §7 / threats / future work |
+| L62 | The appearance evidence is available during the gap (not only retrospectively) | — | Coverage; incident AUC at τ | Appearance audit (held-back) | a_loc coverage 0.95 / 0.97 (~0.9 within 0.25 s); incident A AUC 0.77 / 0.76 at τ = 0.2 s vs RETROSPECTIVE 0.81 | SUPPORTED (held-back; few takeover incidents: 34 / 45 at τ = 0.2 s) | §7 |
+| L63 | The gain comes from better tracking rather than better diagnosis of missing records | — | V2 vs V3 tracking metrics; cue on V2 records | Appearance audit | Tracking gain small (IDSW 363 → 357 / 504 → 428; IDF1 +0.008 / +0.015); the same cue on appearance-off V2 records gives ΔAUC +0.22 / +0.15 → mostly diagnosis | NOT SUPPORTED (mostly diagnosis) | §7 |
+| L64 | The appearance-based missing-record diagnosis is a novel TAORG algorithm | — | — | Appearance audit | The cue is standard BoT-SORT / DeepSORT re-ID distance; no relationship model run | NOT SUPPORTED (as algorithm) | never |
 
 ## Change log
 
@@ -101,3 +105,5 @@ synthetic evidence** (`R/` = `results/phase3/`)._
   with trade-off), L52-L54 (NOT SUPPORTED), L55-L56 (PARTIAL). Post-hoc kappa sensitivity on development seeds only.
 - 2026-10-12 (observation audit; real MOT17 detections + ByteTrack; verdict NOT USABLE): added L57 (SUPPORTED, code),
   L58 (SUPPORTED, limited sample), L59 (NOT SUPPORTED), L60 (NOT SUPPORTED as algorithm).
+- 2026-10-12 (appearance audit; MOT17 frames + BoT-SORT appearance off/on + OSNet; decision NARROW): added L61 (PARTIAL),
+  L62 (SUPPORTED, held-back), L63 (NOT SUPPORTED: mostly diagnosis), L64 (NOT SUPPORTED as algorithm). L59 unchanged (motion-only).

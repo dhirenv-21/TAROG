@@ -339,3 +339,35 @@ UNKNOWN, learned from calibration as "never returns", collapses S2 (J 0.568).
 1. Three development sequences; motion-only tracker; pedestrians only.
 2. The untouched evaluation sequences were not processed.
 3. Leave/re-enter under the same identity is absent from the sample.
+
+---
+
+# Appearance-based tracking audit (2026-10-12; REAL frames and detections; `results/appearance/`)
+
+> MOT17 frames and public FRCNN/SDP detections. Trackers: ByteTrack (V1), and BoT-SORT
+> (BoxMOT 25.0.0) with appearance off (V2) and on (V3). ReID: OSNet x1.0 MSMT17 (not trained on
+> MOT17). Pre-registered (`ac34d2f`), frozen (`85a839c`), held-back 04/05/10/13.
+> Tracker-information audit only: no relationship results.
+> Report: `research/taorg_appearance_audit_exit_report.md`.
+
+## Outcome: NARROW
+
+- **Discrimination.** TAKEOVER vs GAP, beyond elapsed time, on held-back V3 records:
+  - FRCNN AUC 0.67 → 0.86 (ΔAUC +0.19, 97.5% CI [0.15, 0.24]);
+  - SDP AUC 0.65 → 0.77 (ΔAUC +0.11, 97.5% CI [0.05, 0.18]).
+- **Timing.** The evidence is available within 0.2 s for about 95% of missing frames.
+- **Operating point.** It catches about half of takeovers at 7–12% false rejection of real gaps.
+- **Source of the gain.** Mostly diagnosis: it works equally on the appearance-off tracker's
+  records. The tracking gain is small.
+- **Exploratory control.** A proximity-only cue explains little of the gain.
+
+## Must-disclose
+
+1. There are 7 sequences from one benchmark. Between-sequence variance is large and not in the
+   CIs.
+2. The θ threshold transferred unstably (development folds 18–27% gap rejection; held-back
+   7–12%).
+3. TAKEOVER labels make the cue partly structural, because another output covers the same
+   person.
+4. The tracker defaults were originally chosen on MOT17 by their authors.
+5. Recorded gzip file hashes are not content hashes (contents verified).
