@@ -32,3 +32,16 @@ Unrelated items were left untouched and are never staged:
 - 2026-10-12 — **Engineering smoke test** (no labels): about 16 ms/frame tracker time, about
   20–27 ms/frame ReID time, and 233 MB peak GPU memory.
 - 2026-10-12 — **Pre-registration written** before any comparative analysis.
+- 2026-10-12 — **Implementation.** Amendments A1 (strict conf > 0.5) and A2 (the creation-frame
+  seed of `smooth_feat`; the registered cue is unchanged) were made before any label was computed.
+  - Two out-of-memory aborts (C: full, commit limit) and one JSON bug produced no results.
+  - Implementation commit `e7ae883`.
+- 2026-10-12 — **Development run stage at `e7ae883` (clean):**
+  - all checks pass (raw-cost and `smooth_feat` mirror 100%);
+  - appearance changes 2–9% of first-association costs, and V2/V3 outputs on 0–99% of frames
+    (09-FRCNN: 0%);
+  - ReID 17–25 ms/frame, tracker 10–18 ms/frame, GPU peak ≤ 357 MB, peak working set 6.0 GB.
+- 2026-10-12 — **Registered development analysis. Gate PASS:**
+  - V3 ΔAUC(T+A − T): FRCNN +0.177 [97.5% 0.102, 0.251]; SDP +0.127 [0.065, 0.187];
+  - coverage 0.97.
+- 2026-10-12 — **Freeze** (`results/appearance/freeze/`) committed before any held-back access.
