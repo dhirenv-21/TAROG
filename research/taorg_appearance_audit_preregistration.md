@@ -421,3 +421,43 @@ and cannot change the decision.
 | 2 | Tested implementation |
 | 3 | Parameter freeze (only if the gate passes) |
 | 4 | Results and the exit report |
+
+## 13. Amendments (each made before any label, cue value or comparison was computed)
+
+**A1 (2026-10-12).** BoT-SORT's high-confidence split is **strict**: `conf > track_high_thresh`
+(BoxMOT `split_by_confidence`). Everywhere this document says "confidence ≥ 0.5" (`s_X` and the
+candidates in §4), it means **conf > 0.5**, so that `s_X` mirrors the tracker's `smooth_feat`
+exactly. The public detection scores are continuous, so the change affects at most measure-zero
+ties.
+
+**A2 (2026-10-12; after the label-free run stage, before any label or comparison).**
+
+*What failed.* Feasibility check 4 failed on the first run:
+- `s_X` equalled `smooth_feat` in only 58–83% of the checked pairs (minimum cosine 0.74);
+- the raw-`emb` equality held for only 58–65% of rows.
+
+*Diagnosis* (scratch instrumentation of `STrack._after_update` / `_after_reactivate`):
+- the feature-update sequence equals the output sequence for every track;
+- tracks confirmed on frame 1 match exactly (cosine 1.0);
+- every later track's `smooth_feat` is **seeded at creation** with the embedding of the
+  detection that spawned it, one frame **before** its first output. That pre-confirmation
+  detection is not part of any tracker's public output;
+- its influence decays as 0.9ⁿ, which explains both failures.
+
+*Resolution.*
+- The **registered cue definition is unchanged**: `s_X` is the EMA over X's **output**
+  detections. This keeps it tracker-independent and identical for V1, V2 and V3.
+- The **implementation check** now compares `smooth_feat` with a mirror that also prepends the
+  recorded creation detection (`TrackerRun.created`, captured from BoxMOT's unconfirmed tracks).
+  The pass criterion is unchanged (cosine ≥ 0.999; raw-`emb` absolute error < 1e-4).
+- For V3, `a_glob`/`a_loc` therefore differ from the tracker's own internal costs on young tracks
+  by the creation term. This is disclosed, not corrected.
+- The failed run's log is kept at `D:/TAORG_runs/appearance/dev_run_check4_failed.log`, and its
+  `run_records.json` at `results/appearance/dev/run_records_check4_failed.json`.
+
+*Earlier operational failures* (no outputs used): two runs aborted on out-of-memory in OpenCV,
+because C: is full, so the pagefile cannot grow and the commit limit binds. A third run aborted
+on a JSON float32 serialisation bug.
+- The OOM fix: the association log was made compact, and one tracker run is kept in memory at a
+  time.
+- No result was produced by these runs. Their logs are kept on D:.
