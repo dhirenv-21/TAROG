@@ -1,0 +1,217 @@
+{
+"source": "https://huggingface.co/datasets/shangxd/vidor/resolve/main/",
+"split": "training",
+"bytes_transferred": 134354856,
+"files": [
+{
+"zip": "training-video-part1.zip",
+"member": "video/0018/3253849626.mp4",
+"bytes": 2167126,
+"crc32": "6f4000bd",
+"sha256": "eca95aa50d0f5164c93835cc1e633aeba672b2b04f5ee0be06ae9dced2d80d46"
+},
+{
+"zip": "training-video-part1.zip",
+"member": "video/0044/3225620425.mp4",
+"bytes": 5525188,
+"crc32": "589e3613",
+"sha256": "35d218aad853b9f0121e61a9dd8bc02c47101333bed765e225d57401831be52d"
+},
+{
+"zip": "training-video-part1.zip",
+"member": "video/0052/3085010702.mp4",
+"bytes": 2976592,
+"crc32": "3cbf36c2",
+"sha256": "c9d8000995ff259b6d59c1b81c485dbeb4d99e4f4321cb7b02d846e398b07416"
+},
+{
+"zip": "training-video-part1.zip",
+"member": "video/0068/9179929638.mp4",
+"bytes": 1678142,
+"crc32": "d5e85bc3",
+"sha256": "edf49486725962a215bf20711c4145ccba1957bf97095ecdd4af3f313cf7784d"
+},
+{
+"zip": "training-video-part2.zip",
+"member": "video/0094/10274570313.mp4",
+"bytes": 944464,
+"crc32": "87f1b4a6",
+"sha256": "098bb04415aa2a72faf389d9276ef256285186feaa2c2d765a6eae0eb47cd700"
+},
+{
+"zip": "training-video-part2.zip",
+"member": "video/0099/4101793172.mp4",
+"bytes": 1190204,
+"crc32": "b10add66",
+"sha256": "c1a135085b3059845a127041db2ed2ca7a5947d6189d474a789f7fb528897bba"
+},
+{
+"zip": "training-video-part2.zip",
+"member": "video/1001/4892615149.mp4",
+"bytes": 5759889,
+"crc32": "889c83d8",
+"sha256": "b6a81befc15c755f649afbac04be825f0caed2803bc0d5e24590fad262a561eb"
+},
+{
+"zip": "training-video-part2.zip",
+"member": "video/1002/3406071161.mp4",
+"bytes": 3407956,
+"crc32": "33a25dd8",
+"sha256": "64e22380c73415cfa04a59f227889266cc258a277a7ab2f911beabc419abd399"
+},
+{
+"zip": "training-video-part2.zip",
+"member": "video/1005/12028339293.mp4",
+"bytes": 1251712,
+"crc32": "2f399d1d",
+"sha256": "0fcc88741b2d39397471d81402e10755c7ef347e80a2c7b4b52ac7a74345f26a"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1007/10163970336.mp4",
+"bytes": 958192,
+"crc32": "365ef3c6",
+"sha256": "d7935efeeb03a50acf4befa015d80f8e7c5b113d666f59bf7522a3d6017bf97f"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1008/2957162127.mp4",
+"bytes": 2485071,
+"crc32": "5f93179c",
+"sha256": "14d644f52631640d60158e9aa57b89739bcbc59f1c06fa0fe9f544cdf845f45e"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1008/5901839398.mp4",
+"bytes": 4878018,
+"crc32": "b6c3b399",
+"sha256": "c591767c25084a690aca2561cf16dd8d441ef078b550cf8789633f3abb7f1439"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1010/4061710233.mp4",
+"bytes": 1487470,
+"crc32": "5cd958c6",
+"sha256": "33aed73366779dcea2fd09b5468af1e0b24f87aeab7417f7567aa21f04c230eb"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1010/5176837860.mp4",
+"bytes": 1743041,
+"crc32": "e536e2aa",
+"sha256": "3fcedf9d9ce7086814962b3f3ef5f39ac7f71149de0069de782435c455de82d9"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1011/4957632295.mp4",
+"bytes": 3178121,
+"crc32": "edbac72c",
+"sha256": "c9f8efd4a57e267c310e410e1766877b5c042e11a321ce6892b0580e8cd408b0"
+},
+{
+"zip": "training-video-part3.zip",
+"member": "video/1012/7050206723.mp4",
+"bytes": 1183565,
+"crc32": "9f8d2c5f",
+"sha256": "e0209b56d4186e13c5c047a83b92fb53f9d9888b8388e23abdeea2ab9a6bc9e1"
+},
+{
+"zip": "training-video-part4.zip",
+"member": "video/1019/5621615066.mp4",
+"bytes": 5904871,
+"crc32": "7ccf244b",
+"sha256": "3f47d272cd3d38b619aa2b0c54c1f01344e0ad412263003b682b1aad132ede7f"
+},
+{
+"zip": "training-video-part4.zip",
+"member": "video/1019/8093267471.mp4",
+"bytes": 5157689,
+"crc32": "ef856299",
+"sha256": "b1c3c9bcb864fcaf9226cb1cbcab93728fb3acba81e18534bc314d278b7dba86"
+},
+{
+"zip": "training-video-part4.zip",
+"member": "video/1021/5513186064.mp4",
+"bytes": 1445965,
+"crc32": "5799d40c",
+"sha256": "405e5dfba78f8bb81f0eb566539e90cadadb3e3bda0ea7010ac083d1c362f3a7"
+},
+{
+"zip": "training-video-part5.zip",
+"member": "video/1028/5909774623.mp4",
+"bytes": 2715611,
+"crc32": "161bc10f",
+"sha256": "59c78e5ad410d1035c5d4ecbe2b75de84f1f6ad50caaae4b8f4f434334d35c5c"
+},
+{
+"zip": "training-video-part6.zip",
+"member": "video/1100/2973658146.mp4",
+"bytes": 2627232,
+"crc32": "12296723",
+"sha256": "3d82178116a5bf9224b46263f45dadf753337a6df8ec62049172bc44ac00f5e8"
+},
+{
+"zip": "training-video-part6.zip",
+"member": "video/1100/3779800369.mp4",
+"bytes": 3322595,
+"crc32": "01cf5034",
+"sha256": "456d9dd9fa00e2ec3659d744341e66414f5f98d75deb5ecccce7d88e0ce9cbc2"
+},
+{
+"zip": "training-video-part6.zip",
+"member": "video/1104/8069014507.mp4",
+"bytes": 4189088,
+"crc32": "993e785e",
+"sha256": "099463598fcedaa981aa94faac902ee05d5549e05126016a2adebe7d8d0b1a88"
+},
+{
+"zip": "training-video-part6.zip",
+"member": "video/1105/5568248185.mp4",
+"bytes": 1676920,
+"crc32": "bbce667c",
+"sha256": "d35c0ec92ce697117a01502d2426e491b25e1cc7276fe6f90b016e6c57968e37"
+},
+{
+"zip": "training-video-part6.zip",
+"member": "video/1107/12681261204.mp4",
+"bytes": 1339359,
+"crc32": "7875d0fd",
+"sha256": "efdbe5b4428a55241a3732490b4cc6e747a219c3d0a5685e9c8115942757f6f2"
+},
+{
+"zip": "training-video-part6.zip",
+"member": "video/1107/5114141409.mp4",
+"bytes": 1087639,
+"crc32": "997ca258",
+"sha256": "7908b10f83df63f74e8d13c58fd847e67443cdf759c612df893f4ba0b3f47ccb"
+},
+{
+"zip": "training-video-part7.zip",
+"member": "video/1120/3926030596.mp4",
+"bytes": 1540936,
+"crc32": "2b7ca707",
+"sha256": "c9457197186ad3979ed589de8a6cf94e5a4b603067da8996d0346902144fa565"
+},
+{
+"zip": "training-video-part8.zip",
+"member": "video/1201/2934818100.mp4",
+"bytes": 1317106,
+"crc32": "6b410e62",
+"sha256": "3dc630a02600f7492123d016fd603dee3aeb8211763c7ead3d945fc33d5aa7e2"
+},
+{
+"zip": "training-video-part8.zip",
+"member": "video/1203/4612106647.mp4",
+"bytes": 1854718,
+"crc32": "bb47ce74",
+"sha256": "10d57041be7e78a8962b99d6c640e427f88d1d16c2114b8edac8448e525fad93"
+},
+{
+"zip": "training-video-part8.zip",
+"member": "video/1203/5124781697.mp4",
+"bytes": 3516162,
+"crc32": "2528a675",
+"sha256": "70d6b076be5255c8c8ffa6e8fe4937a567bad4aaf57c801826eb5379ff055d6c"
+}
+]
+}
