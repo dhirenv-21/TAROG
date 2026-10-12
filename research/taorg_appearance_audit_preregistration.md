@@ -461,3 +461,19 @@ on a JSON float32 serialisation bug.
 - The OOM fix: the association log was made compact, and one tracker run is kept in memory at a
   time.
 - No result was produced by these runs. Their logs are kept on D:.
+
+**A3 (2026-10-12; after the freeze `85a839c`, before any held-back result existed).**
+
+*What failed.* The first held-back run aborted on out-of-memory while loading the MOT17-04
+embedding cache. `load_embs` indexed `np.load(...)["emb"]` once per frame, which decompresses the
+whole array each time; with C: full, the commit limit binds.
+
+*Fix.* The array is decompressed once. The values are identical; no setting, model, cue, threshold
+or analysis step changed.
+
+*Verification.* Before the held-back run, the development run stage was re-run with the fix, and
+every output and cue checksum was compared with the committed development `run_records.json`
+(research log).
+
+*Status.* The aborted held-back attempt produced only the 04-FRCNN embedding file. It was
+discarded and regenerated, and no held-back analysis had been run.

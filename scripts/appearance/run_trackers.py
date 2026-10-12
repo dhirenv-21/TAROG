@@ -64,9 +64,10 @@ def save_embs(p: Path, embs: dict[int, np.ndarray]) -> None:
 
 def load_embs(p: Path) -> dict[int, np.ndarray]:
     z = np.load(p)
+    emb = z["emb"]   # decompress once (indexing z["emb"] per frame re-reads the whole array)
     out, o = {}, 0
     for f, c in zip(z["frames"], z["counts"]):
-        out[int(f)] = z["emb"][o:o + c]
+        out[int(f)] = emb[o:o + c]
         o += c
     return out
 
