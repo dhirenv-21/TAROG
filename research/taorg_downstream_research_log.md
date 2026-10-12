@@ -26,3 +26,17 @@ Unrelated items are never staged:
   the annotated frame count and size.
 - 2026-10-12 — **Pre-registration written** before any observation stream, method output or
   label was computed.
+- 2026-10-12 — **Implementation** committed at `bf7749d` (16 new tests; 353 passed, 2 skipped).
+- 2026-10-12 — **Development perception at `bf7749d` (clean):** 30/30 videos, 22,017 frames.
+  - Missing records: 83,338; appearance available: 64,567; flagged: 11,712.
+  - Timing: detection 115 ms/frame, ReID 31 ms/frame, tracker 9 ms/frame.
+- 2026-10-12 — **Calibration** (unflagged only).
+  - Selected: FB W = 5 (mean J 0.574); B2 α 0.5, decay_visible 0.3, decay_unknown 0.8, θ_on 0.5
+    (mean J 0.679).
+  - **Both are at the low-hold edge of their grids.** This is disclosed; the grids were not
+    extended after seeing it.
+- 2026-10-12 — **Gate PASS:**
+  - F2: 20,517 takeover-incident runs on scored keys in 28 videos; IGT(B2) 56.8 s;
+  - F3: coverage 0.775.
+- 2026-10-12 — **Freeze** (`results/downstream/freeze/frozen.json`), committed before any
+  evaluation video was fetched.

@@ -271,3 +271,22 @@ Stopped after the audit, this report and the PR handoff. Not started:
 - a scene-graph integration;
 - a new temporal estimator;
 - any further dataset or cue redesign.
+
+## 11. Terminology clarification (added 2026-10-12, during the downstream study; no number changed)
+
+The intervals in this report are **percentile cluster-bootstrap intervals**.
+- **Resampling unit.** Tracks are resampled with replacement *within* each (sequence, detector)
+  unit, with 2,000 resamples.
+- **Scores held fixed.** The predictor scores are fixed: out-of-fold scores on development, and
+  frozen-model scores on held-back data. Model-fitting variance is therefore excluded.
+- **Primary ΔAUC.** Reported at the **two-sided 97.5%** level per detector. This is the
+  Bonferroni adjustment for two detectors, so the pair has familywise coverage of at least 95%.
+  The handoff message's phrase "95% CIs, Bonferroni-corrected" should be read this way.
+- **Secondary intervals.** Unadjusted 95%.
+- **What the intervals do not capture:**
+  - between-sequence variability, which is large here: per-sequence ΔAUC 0.04–0.20;
+  - variability over detectors beyond the two tested;
+  - variability over tracker families.
+
+They are best described as **within-sample uncertainty over tracks**, not as confidence intervals
+for performance on new sequences.

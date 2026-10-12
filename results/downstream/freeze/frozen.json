@@ -1,0 +1,147 @@
+{
+ "freeze_id": "downstream-freeze-2026-10-12",
+ "code_commit": "bf7749dcbf77e031c8d27a70ef944880e84d9f15",
+ "gate": {
+  "F2": {
+   "takeover_incidents": 20517,
+   "videos_with_incidents": 28,
+   "igt_s_B2_unflagged": 56.75700067567568,
+   "pass": true
+  },
+  "F3": {
+   "missing_records": 83338,
+   "appearance_available": 64567,
+   "coverage": 0.7747606134056493,
+   "pass": true
+  },
+  "PASS": true
+ },
+ "params": {
+  "FB": {
+   "window_size": 5
+  },
+  "B2": {
+   "alpha": 0.5,
+   "decay_visible": 0.3,
+   "decay_occluded": 0.8,
+   "score_threshold": 0.5,
+   "off_ratio": 0.5
+  }
+ },
+ "selection": {
+  "FB": {
+   "config": 0,
+   "dev_mean_J": 0.574004413062888
+  },
+  "B2": {
+   "config": 182,
+   "dev_mean_J": 0.678591092624335
+  }
+ },
+ "flag": {
+  "artifact": "results/appearance/freeze/frozen_models.pkl",
+  "sha256": "98d7e46a6ea2cc44a4e989165a8783618ae16683e93074b3644a085995427f5a",
+  "entry": [
+   "V3",
+   "T+A"
+  ],
+  "theta": 0.37567710275995964,
+  "rule": "flag iff missing record, a_loc defined, P>=theta"
+ },
+ "policy": "EndpointInvalidation (delete keys touching a flagged endpoint before step)",
+ "pipeline": {
+  "detector_sha256": "dd69338a24b8d7381807e247652bdc356325bcbaf1cd3e092e00e0a1a58706bf",
+  "person_min_score": 0.1,
+  "jpeg_quality": 95,
+  "reid_sha256": "b7d73dc67c016fd044e4027ff856019496392a7aca8fa0ed56d862a1632c1cf2",
+  "botsort": {
+   "track_high_thresh": 0.5,
+   "track_low_thresh": 0.1,
+   "new_track_thresh": 0.6,
+   "track_buffer": 30,
+   "match_thresh": 0.8,
+   "proximity_thresh": 0.5,
+   "appearance_thresh": 0.25,
+   "use_cmc": true,
+   "cmc_method": "ecc",
+   "fuse_first_associate": false,
+   "second_match_thresh": 0.5,
+   "unconfirmed_match_thresh": 0.7,
+   "unconfirmed_emb_scale": 2.0,
+   "removed_stracks_buffer": 100
+  },
+  "horizon_s": 3.0
+ },
+ "analysis": {
+  "bootstrap": "paired video cluster, B=2000, seed 20261015",
+  "primary_level": 0.975,
+  "thresholds": {
+   "ghost_reduction": 0.25,
+   "dPGG_min": -0.05,
+   "dSTD_g_max_s": 0.2,
+   "dRDD_max_s": 0.2
+  }
+ },
+ "eval_sample": [
+  "1007/2495861393.mp4",
+  "1002/5863411262.mp4",
+  "1164/6356067859.mp4",
+  "1025/6244382586.mp4",
+  "1051/5902452647.mp4",
+  "1022/7863692240.mp4",
+  "1051/4561932357.mp4",
+  "1005/3076630395.mp4",
+  "1161/5008618500.mp4",
+  "1017/11670386946.mp4",
+  "1011/4886753053.mp4",
+  "1106/2500343755.mp4",
+  "1005/5133787349.mp4",
+  "1150/4688219212.mp4",
+  "1011/6025238212.mp4",
+  "1011/4674481985.mp4",
+  "1001/8509844770.mp4",
+  "1000/6272786009.mp4",
+  "0040/6711090395.mp4",
+  "1028/8318310610.mp4",
+  "1110/2584172238.mp4",
+  "1011/9218760111.mp4",
+  "1051/4164771889.mp4",
+  "1005/6168295272.mp4",
+  "1202/4626535366.mp4",
+  "1014/7288107396.mp4",
+  "1103/5138093706.mp4",
+  "1021/5235909148.mp4",
+  "1018/6016539775.mp4",
+  "1161/13624759154.mp4",
+  "1009/5940941487.mp4",
+  "1201/5789897457.mp4",
+  "1103/3963997053.mp4",
+  "1001/4378803532.mp4",
+  "1102/2589540862.mp4",
+  "1011/2973331780.mp4",
+  "1018/4178478570.mp4",
+  "0088/4839878698.mp4",
+  "0048/3626788516.mp4",
+  "1164/13180519753.mp4",
+  "1006/6018490041.mp4",
+  "1000/2741077942.mp4",
+  "0060/5608194207.mp4",
+  "1007/8505893258.mp4",
+  "0057/2697214342.mp4",
+  "0012/5786394363.mp4",
+  "1099/3581585756.mp4",
+  "0029/10127533784.mp4",
+  "1007/4984331176.mp4",
+  "1001/8968742990.mp4",
+  "1008/5783819683.mp4",
+  "0063/6854746224.mp4",
+  "1201/4333544549.mp4",
+  "1120/10607095936.mp4",
+  "0054/6818241178.mp4",
+  "0066/5587257558.mp4",
+  "0067/4774302357.mp4",
+  "1110/3935853204.mp4",
+  "1102/2735019707.mp4",
+  "1202/7531285946.mp4"
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "F1_pipeline_complete": true,
+ "F2": {
+  "takeover_incidents": 20517,
+  "videos_with_incidents": 28,
+  "igt_s_B2_unflagged": 56.75700067567568,
+  "pass": true
+ },
+ "F3": {
+  "missing_records": 83338,
+  "appearance_available": 64567,
+  "coverage": 0.7747606134056493,
+  "pass": true
+ },
+ "selected": {
+  "FB": {
+   "config": 0,
+   "params": {
+    "window_size": 5
+   },
+   "mean_J": 0.574004413062888
+  },
+  "B2": {
+   "config": 182,
+   "params": {
+    "alpha": 0.5,
+    "decay_visible": 0.3,
+    "decay_occluded": 0.8,
+    "score_threshold": 0.5,
+    "off_ratio": 0.5
+   },
+   "mean_J": 0.678591092624335
+  }
+ },
+ "per_video": {
+  "5568248185": {
+   "takeover_incidents": 128,
+   "igt_s_B2": 0.125,
+   "n_keys": 21
+  },
+  "2957162127": {
+   "takeover_incidents": 14,
+   "igt_s_B2": 0.0,
+   "n_keys": 2
+  },
+  "5124781697": {
+   "takeover_incidents": 48,
+   "igt_s_B2": 0.16683333333333333,
+   "n_keys": 14
+  },
+  "8093267471": {
+   "takeover_incidents": 2209,
+   "igt_s_B2": 0.8008000000000001,
+   "n_keys": 59
+  },
+  "5114141409": {
+   "takeover_incidents": 0,
+   "igt_s_B2": 0.0,
+   "n_keys": 10
+  },
+  "10274570313": {
+   "takeover_incidents": 399,
+   "igt_s_B2": 2.04,
+   "n_keys": 80
+  },
+  "2973658146": {
+   "takeover_incidents": 356,
+   "igt_s_B2": 1.4681333333333333,
+   "n_keys": 37
+  },
+  "3085010702": {
+   "takeover_incidents": 124,
+   "igt_s_B2": 0.0,
+   "n_keys": 29
+  },
+  "4957632295": {
+   "takeover_incidents": 2359,
+   "igt_s_B2": 5.739066666666667,
+   "n_keys": 162
+  },
+  "9179929638": {
+   "takeover_incidents": 1295,
+   "igt_s_B2": 8.141474808141474,
+   "n_keys": 137
+  },
+  "3253849626": {
+   "takeover_incidents": 11,
+   "igt_s_B2": 0.0,
+   "n_keys": 14
+  },
+  "4061710233": {
+   "takeover_incidents": 490,
+   "igt_s_B2": 2.6026000000000002,
+   "n_keys": 35
+  },
+  "4612106647": {
+   "takeover_incidents": 45,
+   "igt_s_B2": 0.0,
+   "n_keys": 3
+  },
+  "2934818100": {
+   "takeover_incidents": 0,
+   "igt_s_B2": 0.0,
+   "n_keys": 7
+  },
+  "4101793172": {
+   "takeover_incidents": 254,
+   "igt_s_B2": 1.3013000000000001,
+   "n_keys": 40
+  },
+  "7050206723": {
+   "takeover_incidents": 78,
+   "igt_s_B2": 0.0,
+   "n_keys": 17
+  },
+  "4892615149": {
+   "takeover_incidents": 232,
+   "igt_s_B2": 1.3013000000000001,
+   "n_keys": 24
+  },
+  "5901839398": {
+   "takeover_incidents": 7214,
+   "igt_s_B2": 21.855166666666666,
+   "n_keys": 330
+  },
+  "8069014507": {
+   "takeover_incidents": 404,
+   "igt_s_B2": 0.5005000000000001,
+   "n_keys": 61
+  },
+  "3926030596": {
+   "takeover_incidents": 87,
+   "igt_s_B2": 0.0,
+   "n_keys": 26
+  },
+  "12028339293": {
+   "takeover_incidents": 703,
+   "igt_s_B2": 0.7340666666666666,
+   "n_keys": 145
+  },
+  "3225620425": {
+   "takeover_incidents": 2045,
+   "igt_s_B2": 4.796458333333333,
+   "n_keys": 115
+  },
+  "3406071161": {
+   "takeover_incidents": 632,
+   "igt_s_B2": 0.7340666666666666,
+   "n_keys": 61
+  },
+  "5176837860": {
+   "takeover_incidents": 115,
+   "igt_s_B2": 0.88,
+   "n_keys": 25
+  },
+  "10163970336": {
+   "takeover_incidents": 86,
+   "igt_s_B2": 0.0,
+   "n_keys": 23
+  },
+  "5621615066": {
+   "takeover_incidents": 404,
+   "igt_s_B2": 1.2012,
+   "n_keys": 58
+  },
+  "5909774623": {
+   "takeover_incidents": 68,
+   "igt_s_B2": 0.33366666666666667,
+   "n_keys": 32
+  },
+  "3779800369": {
+   "takeover_incidents": 82,
+   "igt_s_B2": 1.1678333333333333,
+   "n_keys": 23
+  },
+  "5513186064": {
+   "takeover_incidents": 18,
+   "igt_s_B2": 0.0,
+   "n_keys": 8
+  },
+  "12681261204": {
+   "takeover_incidents": 617,
+   "igt_s_B2": 0.8675342008675342,
+   "n_keys": 32
+  }
+ },
+ "PASS": true
+}
