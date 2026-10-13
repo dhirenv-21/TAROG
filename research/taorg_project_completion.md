@@ -46,3 +46,22 @@ The scheduler itself does not derive deadlines or establish filter equivalence.
 cancellation, globally unique generations, stale-entry checks, bounded compaction,
 and counters. Three tests pass, including 2,000 seeded operations against a
 dictionary oracle. Full Phase 5 integration and scaling benchmarks remain open.
+
+## Phase 5 status: COMPLETE (2026-10-13)
+
+**Exit gate met.**
+- Optimised decisions match the eager reference: 28/28 benchmark runs with 0 decision mismatches
+  and maximum |Δscore| 5.6e-16, plus 25 randomized/property tests.
+- Complexity and latency are reproducible: `scripts/phase5/benchmark.py`, `results/phase5/`.
+
+**Documents.**
+- Derivation and report: `research/derivations/lazy_maintenance.md`. It covers the Birkhoff
+  certificate (no monotonicity assumed), exact materialisation, the termination-delay bound and the
+  per-frame complexity.
+
+**Results.**
+- Key updates fall about 4×. Wall-clock speed-up is 1.6–3.1× in typical settings.
+- Lazy is **slower** when most keys are alive (0.79×) and under frequent frame-interval changes
+  (0.47×).
+- M5 identity is an eager fallback.
+- Output enumeration Ω(E_t) remains; there is no sublinear claim.
