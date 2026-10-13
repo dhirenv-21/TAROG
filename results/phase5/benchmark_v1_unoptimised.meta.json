@@ -1,0 +1,17 @@
+{
+ "git_commit": "ed105f5dcaf7e9d83bbc839b23051e4441e37613",
+ "platform": "Windows-10-10.0.26200-SP0",
+ "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+ "python": "3.10.11",
+ "params": {
+  "mu": 0.5,
+  "nu": 0.01,
+  "gamma_o": 0.5,
+  "gamma_v": 3.0,
+  "miss": 0.05,
+  "false_pos": 0.01,
+  "threshold": 0.5,
+  "r_ov": 0.05,
+  "r_vo": 0.05
+ }
+}

@@ -42,6 +42,7 @@ SAFETY = 1e-9            # absolute margin on the log-odds certificate
 DIRECT_STEPS = 16        # materialise spans this short by direct stepping (eager arithmetic)
 MAX_BLOCK_LOG2 = 14      # block contraction coefficients for m = 1, 2, 4, ..., 2^14 frames
 RECHECK = 1024           # conservative re-evaluation horizon when no finite deadline exists
+MIN_QUIET = 15           # cost policy: a key is frozen only after >= MIN_QUIET constant-evidence frames
 
 
 def projective_diameter(M: np.ndarray) -> float:
@@ -62,6 +63,16 @@ def hilbert_distance(x: np.ndarray, y: np.ndarray) -> float:
     return float(r.max() - r.min())
 
 
+def distance_to_fixed_point(x: list[float], cert: "Certificate") -> float:
+    """Pure-Python Hilbert distance of a 4-state posterior to the certificate's fixed point."""
+    if x[0] <= 0 or x[1] <= 0 or x[2] <= 0 or x[3] <= 0:
+        return math.inf
+    ls = cert.log_x_star
+    r0, r1, r2, r3 = (math.log(x[0]) - ls[0], math.log(x[1]) - ls[1], math.log(x[2]) - ls[2],
+                      math.log(x[3]) - ls[3])
+    return max(r0, r1, r2, r3) - min(r0, r1, r2, r3)
+
+
 def logit(p: float) -> float:
     return math.log(p / (1.0 - p))
 
@@ -74,6 +85,7 @@ class Certificate:
     M: np.ndarray                     # P(Δ) diag(L_unk^a)
     L: tuple[float, ...]
     x_star: np.ndarray                # Perron (left) fixed point, sums to 1
+    log_x_star: tuple[float, ...]
     p_star: float
     target: Optional[float]           # log(odds τ / odds p*) - SAFETY; None if p* >= τ (no freezing)
     kappas: tuple[tuple[int, float], ...]   # (block length m, κ(M^m)) with κ < 1
@@ -95,7 +107,7 @@ def make_certificate(P: np.ndarray, L: tuple[float, ...], threshold: float) -> C
             kap.append((2 ** e, k))
         B = B @ B
         B /= B.max()
-    return Certificate(np.asarray(P, float), M, L, v, p_star, target, tuple(kap))
+    return Certificate(np.asarray(P, float), M, L, v, tuple(math.log(c) for c in v), p_star, target, tuple(kap))
 
 
 def steps_to_certify(cert: Certificate, d0: float) -> Optional[int]:
@@ -217,8 +229,7 @@ class LazyVHPED(VHPED):
         if self._regime is not None and dt_key != self._regime:
             for k in list(self._frozen):
                 self._materialize(k, s - 1, "regime")
-            for k in list(self._x):
-                self._queue.cancel(k)
+            self._queue.cancel_all()
         self._regime = dt_key
         cert = self._cert(dt_key, P, a, temper)
         if self.identity:
@@ -294,7 +305,7 @@ class LazyVHPED(VHPED):
                     observed=bool(o is not None and o.observed), source_model=f"vhped_{self.rung}"))
             if const:
                 constant_keys.append(k)
-            else:
+            elif k in self._queue:
                 self._queue.cancel(k)
         self.stats["key_updates"] += len(self._x)
         self.stats["emitted"] += len(out)
@@ -304,16 +315,14 @@ class LazyVHPED(VHPED):
                 if k in self._queue:
                     continue
                 self.stats["certify_calls"] += 1
-                n1 = steps_to_certify(cert, hilbert_distance(np.asarray(self._x[k]), cert.x_star))
-                if n1 == 0:
-                    self._freeze(k, self._x[k])
-                else:
-                    self._queue.schedule(k, float(s + (n1 if n1 is not None else RECHECK)))
-                    self.stats["deadlines"] += 1
+                n1 = steps_to_certify(cert, distance_to_fixed_point(self._x[k], cert))
+                n1 = RECHECK if n1 is None else max(n1, MIN_QUIET)       # cost policy only
+                self._queue.schedule(k, float(s + n1))
+                self.stats["deadlines"] += 1
             for k in self._queue.pop_due(float(s)):
                 if k not in self._x:
                     continue
-                d = hilbert_distance(np.asarray(self._x[k]), cert.x_star)
+                d = distance_to_fixed_point(self._x[k], cert)
                 if d <= cert.target:
                     self._freeze(k, self._x[k])
                 else:                                   # verification failed: conservative reschedule

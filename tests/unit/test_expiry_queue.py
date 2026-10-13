@@ -62,3 +62,13 @@ def test_growth_reset_and_validation():
             q.schedule(k, bad)
         with pytest.raises(ValueError):
             q.pop_due(bad)
+
+
+def test_cancel_all_keeps_counters():
+    q = ExpiryQueue()
+    k = EdgeKey(1, 2, 0)
+    q.schedule(k, 1)
+    q.pop_due(1)
+    q.schedule(k, 5)
+    q.cancel_all()
+    assert k not in q and q.pop_due(10) == [] and q.counters()["valid_pops"] == 1

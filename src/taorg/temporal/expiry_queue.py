@@ -70,6 +70,11 @@ class ExpiryQueue:
             heapq.heapify(self._heap)
             self.rebuilds += 1
 
+    def cancel_all(self) -> None:
+        """Invalidate every deadline at once (instrumentation counters are kept)."""
+        self._heap.clear()
+        self._current.clear()
+
     def reset(self) -> None:
         """Clear deadlines and instrumentation for a new video."""
         self._heap.clear()
