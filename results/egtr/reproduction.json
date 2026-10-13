@@ -1,0 +1,34 @@
+{
+ "n_images": 200,
+ "subset_seed": 20261013,
+ "official_metrics_on_subset": {
+  "AP50": 0.3566810753578061,
+  "(single)R@20": 0.21629019289533996,
+  "(single)R@50": 0.28061828351387175,
+  "(single)R@100": 0.3267450006434913,
+  "(single)mR@20": 0.04543043544714058,
+  "(single)mR@50": 0.07216222017465516,
+  "(single)mR@100": 0.08628253701159627
+ },
+ "authors_full_test_reference": {
+  "AP50": 0.30826790292037237,
+  "(single)R@20": 0.2353710986600539,
+  "(single)R@50": 0.3021079916124391,
+  "(single)R@100": 0.3434980943294678,
+  "(single)mR@20": 0.05460445636512243,
+  "(single)mR@50": 0.07937141689949741,
+  "(single)mR@100": 0.10050197068472329
+ },
+ "adapter_vs_official": {
+  "images": 200,
+  "identical_classes": 200,
+  "identical_ranked_pairs": 200,
+  "max_abs_error": {
+   "boxes": 0.0,
+   "obj_scores": 0.0,
+   "rel_scores": 0.0
+  }
+ },
+ "torch": "2.14.0+cu132",
+ "deviation": "Cython bbox_overlaps replaced by NumPy port (evaluator only); backbone built with pretrained=False then strict checkpoint load; local feature-extractor parameters"
+}

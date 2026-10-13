@@ -89,29 +89,58 @@ def make_method(name: str, params: dict[str, Any], flags):
     return EndpointInvalidation(m, flags) if name.endswith("+F") else m
 
 
-def score_video(d: FinalVideo, tau: float, configs: dict[str, dict], methods=METHODS) -> dict[str, dict]:
-    """Build the predicted stream at threshold tau, label, run every method, return outcomes."""
-    ps: PredStream = build_predicted_stream(d.video.video_id, d.video.fps, d.frames, d.sgg, d.sampled, tau)
-    labels0, matches = scoring_labels(d.video, d.frames, [], d.sampled)
+@dataclass
+class Prepared:
+    """Stream and labels of one video at one tau (shared by every method)."""
+
+    d: FinalVideo
+    ps: PredStream
+    keys: list[EdgeKey]
+    labels: dict
+
+
+def prepare(d: FinalVideo, tau: float) -> Prepared:
+    """Build the predicted stream at threshold tau and the oracle labels of the scored keys."""
+    ps = build_predicted_stream(d.video.video_id, d.video.fps, d.frames, d.sgg, d.sampled, tau)
+    _, matches = scoring_labels(d.video, d.frames, [], d.sampled)
     keys = list(dict.fromkeys(ps.predicted_keys + oracle_keys(d.video, d.frames, matches, d.sampled)))
     labels, _ = scoring_labels(d.video, d.frames, keys, d.sampled)
+    return Prepared(d, ps, keys, labels)
+
+
+def run_outputs(p: Prepared, name: str, params: dict[str, Any]) -> tuple[dict[EdgeKey, np.ndarray], Any]:
+    """Per scored key, bool[n+1] output over the sampled steps (index 0 unused); the method object."""
+    d = p.d
     n = len(d.sampled)
     pos = {f: i for i, f in enumerate(d.sampled, start=1)}
+    m = make_method(name, params, d.flags)
+    out = {k: np.zeros(n + 1, bool) for k in p.keys}
+    m.reset_video(d.video.video_id)
+    for g in p.ps.graphs:
+        for o in m.step(g).edge_observations:
+            if o.edge_key in out:
+                out[o.edge_key][pos[g.frame_idx]] = True
+    return out, m
+
+
+def outcomes(p: Prepared, out: dict[EdgeKey, np.ndarray]) -> dict[str, float]:
+    """Registered outcomes of one method on one video."""
+    r = video_outcomes(out, p.labels, p.d.fps_eff)
+    r.update(genuine_outcomes(out, p.labels, p.d.fps_eff))
+    tp = sum(int((out[k] & p.labels[k]["alive"])[1:].sum()) for k in p.keys)
+    fp = sum(int((out[k] & ~p.labels[k]["alive"])[1:].sum()) for k in p.keys)
+    fn = sum(int((~out[k] & p.labels[k]["alive"])[1:].sum()) for k in p.keys)
+    r.update({"tp": float(tp), "fp": float(fp), "fn": float(fn), "n_predicted_keys": float(len(p.ps.predicted_keys))})
+    return r
+
+
+def score_video(d: FinalVideo, tau: float, configs: dict[str, dict], methods=METHODS) -> dict[str, dict]:
+    """Prepare once, run every method, return outcomes (VH also reports lazy counters)."""
+    p = prepare(d, tau)
     res = {}
     for name in methods:
-        m = make_method(name, configs.get(name.split("+")[0], {}), d.flags)
-        out = {k: np.zeros(n + 1, bool) for k in keys}
-        m.reset_video(d.video.video_id)
-        for g in ps.graphs:
-            for o in m.step(g).edge_observations:
-                if o.edge_key in out:
-                    out[o.edge_key][pos[g.frame_idx]] = True
-        r = video_outcomes(out, labels, d.fps_eff)
-        r.update(genuine_outcomes(out, labels, d.fps_eff))
-        tp = sum(int((out[k] & labels[k]["alive"])[1:].sum()) for k in keys)
-        fp = sum(int((out[k] & ~labels[k]["alive"])[1:].sum()) for k in keys)
-        fn = sum(int((~out[k] & labels[k]["alive"])[1:].sum()) for k in keys)
-        r.update({"tp": float(tp), "fp": float(fp), "fn": float(fn), "n_predicted_keys": float(len(ps.predicted_keys))})
+        out, m = run_outputs(p, name, configs.get(name.split("+")[0], {}))
+        r = outcomes(p, out)
         if name == "VH":
             r.update({f"lazy_{k}": float(v) for k, v in m.counters().items()})
         res[name] = r
