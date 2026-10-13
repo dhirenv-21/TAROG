@@ -1,0 +1,427 @@
+{
+"source": "https://huggingface.co/datasets/shangxd/vidor/resolve/main/",
+"split": "validation",
+"bytes_transferred": 233043012,
+"files": [
+{
+"zip": "validation-video.zip",
+"member": "video/0012/5786394363.mp4",
+"bytes": 1072167,
+"crc32": "f0815cf1",
+"sha256": "476b6b383d9a0785b862841e2d2d22d75203eee20376147609d1131b201ae84f"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0029/10127533784.mp4",
+"bytes": 2111336,
+"crc32": "d23eb0a1",
+"sha256": "1187001b85abc3e83c3dcbf77b1e315a6b2cf219ac40e0e72a7ed67193e6acce"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0040/6711090395.mp4",
+"bytes": 544626,
+"crc32": "7f52c132",
+"sha256": "154edb15d69d5e7e0faf60aa301fa63a454136c44c81962dfeb64359d63ba49e"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0048/3626788516.mp4",
+"bytes": 1460207,
+"crc32": "f735756c",
+"sha256": "8ff25b60733fff9d65fdbf8c35eb5830ca503869efe47bb4a700fbac03a6fa9e"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0054/6818241178.mp4",
+"bytes": 1151113,
+"crc32": "6e04a2b0",
+"sha256": "a1f7168aa46e2022949c9a8a8644687559641925675d5ae26b4a0f0ffe5e38db"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0057/2697214342.mp4",
+"bytes": 4798451,
+"crc32": "26b4fc70",
+"sha256": "6ad9634cffa28e1ba40862ff96849f3b05b54a9425b1e009016984ccff68cbda"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0060/5608194207.mp4",
+"bytes": 2278361,
+"crc32": "25e9db93",
+"sha256": "969254e0226fd41057d85c13dffe517baa24faa357d7737798622cb4c682ad3c"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0063/6854746224.mp4",
+"bytes": 516087,
+"crc32": "0e276565",
+"sha256": "c95830f6d679171151f70b408c70d6c2c964a65041ef6bb37b65f7670d31d0bc"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0066/5587257558.mp4",
+"bytes": 1858894,
+"crc32": "2a416e4a",
+"sha256": "8d67853e6754a24c1014adc4d03261bdb566ec0b3c6177cef03f4162f95478f3"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0067/4774302357.mp4",
+"bytes": 1553892,
+"crc32": "6dd778b4",
+"sha256": "8a760a0a10d252291780b06254958978811e160a4447866515bcfcee69e7d242"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/0088/4839878698.mp4",
+"bytes": 1926856,
+"crc32": "8bd650b6",
+"sha256": "0a8999160f7f5f6b35499da653d04f4e7ab32d5aecb34b7d23a268cdeef48927"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1000/2741077942.mp4",
+"bytes": 911673,
+"crc32": "59213b88",
+"sha256": "53e69b356d1229be5b2ea584cff20179b7228cb39b19691d93bc3087279c6894"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1000/6272786009.mp4",
+"bytes": 1901879,
+"crc32": "bb3f8859",
+"sha256": "12aafc6f7847d7d8a9d2a1c7825ef42450f8355ac59f8dcd7ff51b5799fa6a08"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1001/4378803532.mp4",
+"bytes": 4522518,
+"crc32": "9c6636b4",
+"sha256": "6d15a0dd71fe6b94e238cbcf409aee92e9823457d2647a62b438f18fa038cf94"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1001/8509844770.mp4",
+"bytes": 449889,
+"crc32": "370753cc",
+"sha256": "87e22891cc6c92be1b0d54a392526e32c2b75d29581dd2053c2c887586e6180a"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1001/8968742990.mp4",
+"bytes": 1275374,
+"crc32": "4ee95f28",
+"sha256": "eeefe5c027292cbdce203bc580637f3f099146d1cec9ff48e66170c421d4cf50"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1002/5863411262.mp4",
+"bytes": 3567651,
+"crc32": "9cc11021",
+"sha256": "b04db53c50f93a6d50cf2f47919c820de9e9b20b884ef70b1be5e87c7929d853"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1005/3076630395.mp4",
+"bytes": 2276532,
+"crc32": "eb0b5713",
+"sha256": "702545cb20470744a0c2e381ae0b2d4f3deba7dc400bd1e4f47677c72120142d"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1005/5133787349.mp4",
+"bytes": 1569920,
+"crc32": "80737116",
+"sha256": "dbf6f2088d117dc1101cfa570665050db6166de0077e16a2706f576ef5d09ac8"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1005/6168295272.mp4",
+"bytes": 1964894,
+"crc32": "f800681a",
+"sha256": "38309256639191478e7f9bfdc73d15faadee36ab37be058f29bf4692285821bd"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1006/6018490041.mp4",
+"bytes": 2893825,
+"crc32": "44959fc1",
+"sha256": "8927c09f556a6c50277dda4ff9d2edbd62d32e30b8f9e4e200e734ba1e1f99ab"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1007/2495861393.mp4",
+"bytes": 5386847,
+"crc32": "f3cea759",
+"sha256": "dce508d7da61bad8a054d130238b88875a772cb90ed52588ed1eb15546a9879d"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1007/4984331176.mp4",
+"bytes": 1034267,
+"crc32": "0c900750",
+"sha256": "f4d25e7f171881aef23463946409967a8691194ca5678e1c3a094f3c57cd57b6"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1007/8505893258.mp4",
+"bytes": 3882285,
+"crc32": "d9f3e031",
+"sha256": "d28d376db05c0635337e178a9c53950ae36ef83f16495719523e8e3d90b1c830"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1008/5783819683.mp4",
+"bytes": 745604,
+"crc32": "c733a7d8",
+"sha256": "503b111e40905e80f538a5e628e8cb34519c2d68fdd3c2385e7d2353e19adc8b"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1009/5940941487.mp4",
+"bytes": 3513492,
+"crc32": "24eacfdb",
+"sha256": "32ee4120b754c2e3e439c9f6f23ea07e0cc4cf1233ce62d88008574b06ce19c1"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1011/2973331780.mp4",
+"bytes": 3256098,
+"crc32": "2649a11e",
+"sha256": "8e0c551a19e1bcc3099185512f61b08f332725c659dc628194eede2fd0fb8fcb"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1011/4674481985.mp4",
+"bytes": 2539865,
+"crc32": "a9406928",
+"sha256": "0b10d0ebf76cd907b3505ea9db1bdc5a2aa9c14caa297e170c8e8790f4369a86"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1011/4886753053.mp4",
+"bytes": 1409914,
+"crc32": "43e1beb6",
+"sha256": "8e7a9c737dd05493ffd86e3f9aabdf941b1d52a862c053510ce00c0ebf0c59bb"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1011/6025238212.mp4",
+"bytes": 2666786,
+"crc32": "b5605824",
+"sha256": "a3dd2b17c20ffc22a250bb124ccc5b8026048ae68635706a5abd0670bca8ec62"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1011/9218760111.mp4",
+"bytes": 658842,
+"crc32": "ce539e91",
+"sha256": "9e45c771a236ccd26a1c1925d2a20096b56643bb2ba879e262e08b5e1d302bd5"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1014/7288107396.mp4",
+"bytes": 2229420,
+"crc32": "1d04bddb",
+"sha256": "4f8ecb660a9080587a2399f1854b8867c44e0bb45f9563b798ccca2b68a40770"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1017/11670386946.mp4",
+"bytes": 3352989,
+"crc32": "85bff1cf",
+"sha256": "d5d4fd69c22f8a4988a8e56ddf7c42780c97bb6a0b21e0387886ba9387c24407"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1018/4178478570.mp4",
+"bytes": 944497,
+"crc32": "a17ee7f8",
+"sha256": "2e4f4de84853401dc2155a797fbe9ee37ccdc286ce2282608e0df286396d3658"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1018/6016539775.mp4",
+"bytes": 751456,
+"crc32": "b17a44fc",
+"sha256": "29fc261ac9eade6609b6ab550b0da084b48fdce280597041b4210c3741c6c52a"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1021/5235909148.mp4",
+"bytes": 1218708,
+"crc32": "d1b471c9",
+"sha256": "e81be31f95b5a23e78a4093823506a23bc2e32900eaa56f64bc2878bbcbaa733"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1022/7863692240.mp4",
+"bytes": 911852,
+"crc32": "8876b45d",
+"sha256": "b403913fe960188dc45d2ba2fe79f026590b9f988992f1efb0ac67573a9853ab"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1025/6244382586.mp4",
+"bytes": 2200201,
+"crc32": "aaa7571e",
+"sha256": "804859ba41b4b7a6cac8e093c9cd05961aa8155564d35b71c97bb0b0fc57e98a"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1028/8318310610.mp4",
+"bytes": 2341647,
+"crc32": "51208cb1",
+"sha256": "0084fb1af05318d4c556f4696b39ebec8d4fd11078c07cf9decd03a1df1e25ce"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1051/4164771889.mp4",
+"bytes": 1739273,
+"crc32": "af73b038",
+"sha256": "35c00d352c7062c54d710f4f8cd9c42128c99d5a7d29ad72061d4b83dce2709d"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1051/4561932357.mp4",
+"bytes": 2713271,
+"crc32": "07cce23b",
+"sha256": "57dddca57e80323e0ce4d84db78e2ef305b164061563fc04bec6fc9b833fee06"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1051/5902452647.mp4",
+"bytes": 2861366,
+"crc32": "407adf1a",
+"sha256": "b7c37e58cf65d4ad352c9f5de96a1eb0ac0b3fb59c930d3343b82af206f575f4"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1099/3581585756.mp4",
+"bytes": 2435887,
+"crc32": "332401cc",
+"sha256": "69cd4b1ec8b4c420032b0651a87266c98f0340c82fa44adb0b6f2ec8702ed2c9"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1102/2589540862.mp4",
+"bytes": 2352961,
+"crc32": "e17ba808",
+"sha256": "b9ebda8edb39997a26cc45c0f6a52297c244dfbdcab09969fb40d0ba87dc1793"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1102/2735019707.mp4",
+"bytes": 2021578,
+"crc32": "dc1cc1a8",
+"sha256": "16f44232095c40ae7e920a8fdd887aedd3307adb899d6fa241e4b1f3e31309c0"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1103/3963997053.mp4",
+"bytes": 1985451,
+"crc32": "22b28354",
+"sha256": "91177a390a0416733aa6648458bbd92d53d33ee6c0c947055610181bdebe9756"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1103/5138093706.mp4",
+"bytes": 3231279,
+"crc32": "860d598a",
+"sha256": "c83db1b6f40de09efef03df711ee3f42c3088b8c15e972e0663c5b58b340989d"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1106/2500343755.mp4",
+"bytes": 612528,
+"crc32": "d4802d8b",
+"sha256": "3b9e4ceed76b2c908c05143076f4cdff2aaf112d261d6b70ee116b04ca484e9c"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1110/2584172238.mp4",
+"bytes": 3109838,
+"crc32": "f9461237",
+"sha256": "1378532956f4e0f21c5232fe0e8e36f9e0bd2271fa6382217c58d16a988a123b"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1110/3935853204.mp4",
+"bytes": 3274291,
+"crc32": "c5d2d3ac",
+"sha256": "acfa18f551dec4e5cfc0b0f5092aa8cc5b5cede6809a53a29278c782e81f5ac4"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1120/10607095936.mp4",
+"bytes": 3798640,
+"crc32": "98f4ae9d",
+"sha256": "49fa383997587a3509de2501efe9d037dd1cd0a6a24e665fa48d47259a46352f"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1150/4688219212.mp4",
+"bytes": 3325992,
+"crc32": "828a5a4e",
+"sha256": "12e5edc5c9435d81d2b5c4307a5c883c72bc16935b8b60cf354367ed8102f801"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1161/13624759154.mp4",
+"bytes": 1143296,
+"crc32": "f6349dc4",
+"sha256": "6275a37b9d63357fa26515bcb9c41d352eebbbb4b6d45de44cf4928e4c7b32dd"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1161/5008618500.mp4",
+"bytes": 2614695,
+"crc32": "12e55344",
+"sha256": "59820107586ce1b741420f8c4b39ba4898309b5008714bcb5cb5e7128640562c"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1164/13180519753.mp4",
+"bytes": 2112291,
+"crc32": "bf108c4d",
+"sha256": "8cf4c36b1ba5cc276918d9c66a0d1747d966589654082f88a07fc29f444b1e45"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1164/6356067859.mp4",
+"bytes": 3750160,
+"crc32": "4191f54d",
+"sha256": "732dd8ea5ab581deab8cdf434642338f19e079070dad70425538c61a31074a95"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1201/4333544549.mp4",
+"bytes": 3697456,
+"crc32": "04d00fc6",
+"sha256": "e952e11c16242e0bffb5d7fe3cfbcd4d7f7ba378c300a1a05c120a3060d8a132"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1201/5789897457.mp4",
+"bytes": 2029136,
+"crc32": "762dc228",
+"sha256": "7c4768e176419bca470938a1422cc642bf312a73c2f03239b65eb677b3726c5b"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1202/4626535366.mp4",
+"bytes": 5098172,
+"crc32": "947daeeb",
+"sha256": "3caf384acfd383f410887b965a3a4fc5f1a112d6c87b2ba41c06f916489089a4"
+},
+{
+"zip": "validation-video.zip",
+"member": "video/1202/7531285946.mp4",
+"bytes": 4096157,
+"crc32": "1d176877",
+"sha256": "8e2a0863ab2efa94f276784a5f1e6bc407c697b9b7b503861a2fc59921dbb8cd"
+}
+]
+}

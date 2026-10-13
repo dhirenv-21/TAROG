@@ -40,3 +40,16 @@ Unrelated items are never staged:
   - F3: coverage 0.775.
 - 2026-10-12 — **Freeze** (`results/downstream/freeze/frozen.json`), committed before any
   evaluation video was fetched.
+- 2026-10-12 — **Evaluation videos fetched** after the freeze push: 60 videos, 233 MB transferred.
+- 2026-10-13 — **Evaluation perception.**
+  - The session ended after 32/60 videos. The partial directory was removed and the run resumed
+    from the checkpoint at `0942146` (amendment A1).
+  - 60/60 videos aligned. `swscaler` warnings were disclosed (A2).
+- 2026-10-13 — **Registered evaluation: 240/240 runs. Decision GO** (C1 and C2 pass).
+- 2026-10-13 — **Development methods** (descriptive, after the freeze): same direction.
+- 2026-10-13 — **POST-HOC** (`eval/posthoc.json`):
+  - relative PGG loss 25–27%;
+  - 2.4–2.7 ghost-seconds removed per added false-termination second;
+  - 69% of terminations and 97% of recurrences are matching flicker; genuine-only effects ≈ 0.
+- 2026-10-13 — Wrote the exit report, supervisor update, ledger L65–L68, results notes and
+  Memory. Clarified the appearance audit's interval terminology (its exit report §11).

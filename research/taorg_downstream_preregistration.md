@@ -339,4 +339,18 @@ Amendments are appended to §14, each with a statement of whether it could affec
 
 ## 14. Amendments
 
-(none yet)
+**A1 (2026-10-13; operational; could not affect results).** The session ended during evaluation
+perception after 32/60 videos.
+- The partially processed video's working directory was deleted, and the pipeline resumed from
+  its checkpoint at the same frozen commit `0942146` (clean).
+- The untracked `scripts/downstream/figures.py` was moved out of the tree during the resume, so
+  the provenance check stayed clean.
+- Logs: `eval_pipeline_part1_interrupted.log` and `eval_pipeline_part2.log` on D:.
+
+**A2 (2026-10-13; disclosure).** FFmpeg `swscaler` "slice parameters" warnings appeared while
+decoding at least one evaluation video. All 60 videos still met the alignment rule.
+
+**A3 (2026-10-13; post-hoc, labelled).** Two scripts were added *after* the registered decision
+was computed; neither changes it:
+- `scripts/downstream/posthoc.py`: relative harm, and the genuine-vs-flicker event audit;
+- `scripts/downstream/figures.py`.
