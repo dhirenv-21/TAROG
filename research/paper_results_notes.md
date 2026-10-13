@@ -371,3 +371,28 @@ UNKNOWN, learned from calibration as "never returns", collapses S2 (J 0.568).
    person.
 4. The tracker defaults were originally chosen on MOT17 by their authors.
 5. Recorded gzip file hashes are not content hashes (contents verified).
+
+---
+
+# Downstream relationship study (2026-10-13; controlled test on real VidOR annotations; `results/downstream/`)
+
+> Real videos, detector and V3 tracker; oracle relation predictor; frozen appearance flag;
+> FB / B2 ± one endpoint-invalidation policy. Pre-registered (`a326622`), frozen (`0942146`).
+> Report: `research/taorg_downstream_exit_report.md`.
+
+## Outcome: registered GO, read narrowly
+
+- **Identity-ghost time:** −72% for FB (145 → 40 s) and −76% for B2 (110 → 27 s) over 60
+  evaluation videos.
+- **Harm margins met:** ΔPGG −0.014 / −0.013; termination and recurrence delays unchanged.
+- **No TAORG-method effect:** the flag helps both families (slightly more for FB).
+
+## Must-disclose
+
+1. Oracle relation predictor: annotation-level utility only.
+2. Previously inspected annotations: the split is held back for this study, not untouched.
+3. Low-hold baselines at the grid edge. Baseline PGG is about 0.05, so the absolute PGG margin
+   was lenient; the relative persistence loss is 25–27%.
+4. The flag fires on 32% of genuine-gap frames on VidOR (MOT17 7–12%).
+5. 69% of scored terminations and 97% of scored recurrences are matching flicker (post-hoc). On
+   genuine events the flag effect is ≈ 0.

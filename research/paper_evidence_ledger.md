@@ -78,6 +78,10 @@ synthetic evidence** (`R/` = `results/phase3/`)._
 | L62 | The appearance evidence is available during the gap (not only retrospectively) | — | Coverage; incident AUC at τ | Appearance audit (held-back) | a_loc coverage 0.95 / 0.97 (~0.9 within 0.25 s); incident A AUC 0.77 / 0.76 at τ = 0.2 s vs RETROSPECTIVE 0.81 | SUPPORTED (held-back; few takeover incidents: 34 / 45 at τ = 0.2 s) | §7 |
 | L63 | The gain comes from better tracking rather than better diagnosis of missing records | — | V2 vs V3 tracking metrics; cue on V2 records | Appearance audit | Tracking gain small (IDSW 363 → 357 / 504 → 428; IDF1 +0.008 / +0.015); the same cue on appearance-off V2 records gives ΔAUC +0.22 / +0.15 → mostly diagnosis | NOT SUPPORTED (mostly diagnosis) | §7 |
 | L64 | The appearance-based missing-record diagnosis is a novel TAORG algorithm | — | — | Appearance audit | The cue is standard BoT-SORT / DeepSORT re-ID distance; no relationship model run | NOT SUPPORTED (as algorithm) | never |
+| L65 | The frozen appearance takeover flag reduces identity-related relationship ghosts for equally informed baselines without unacceptable harm | — | Ghost reduction (ratio of sums) + non-inferiority margins, paired video bootstrap, Bonferroni 97.5% | Downstream study (prereg `a326622`, freeze `0942146`; 60 VidOR validation videos; oracle relation predictor on real V3 tracker outputs) | FB 0.72 [0.63, 0.80], B2 0.76 [0.67, 0.83]; ΔPGG −0.014 / −0.013 (margins met); ΔSTD-g, ΔRDD ≈ 0; registered **GO** (`results/downstream/eval/analysis.json`) | PARTIAL (annotation-level only; oracle predictor; lenient absolute PGG margin under low-hold baselines; previously inspected annotations) | §7 / future work |
+| L66 | The downstream gain reflects TAORG temporal inference rather than the information source | — | C3 and interaction | Downstream study | Flag helps both families; interaction favours FB (IGT +22 s [10, 38]; J −0.006 [−0.010, −0.002]); B2+F > FB+F only via B2's flag-independent advantage | NOT SUPPORTED | never |
+| L67 | The frozen flag's operating point transfers across domains | — | Flag rate by oracle label | Downstream study (VidOR) vs appearance audit (MOT17) | Flags 32% of genuine-gap frames on VidOR (MOT17 held-back 7–12%); takeover recall 0.58; precision 0.45 | NOT SUPPORTED | threats |
+| L68 | Tracker-key termination/recurrence metrics on VidOR measure genuine relation changes | — | Post-hoc event audit | Downstream study | 69% of scored terminations and 97% of scored recurrences are IoU-matching flicker; on genuine events the flag effect is ≈0 (`eval/posthoc.json`) | NOT SUPPORTED (post-hoc) | threats / metric design |
 
 ## Change log
 
@@ -107,3 +111,5 @@ synthetic evidence** (`R/` = `results/phase3/`)._
   L58 (SUPPORTED, limited sample), L59 (NOT SUPPORTED), L60 (NOT SUPPORTED as algorithm).
 - 2026-10-12 (appearance audit; MOT17 frames + BoT-SORT appearance off/on + OSNet; decision NARROW): added L61 (PARTIAL),
   L62 (SUPPORTED, held-back), L63 (NOT SUPPORTED: mostly diagnosis), L64 (NOT SUPPORTED as algorithm). L59 unchanged (motion-only).
+- 2026-10-13 (downstream study; VidOR oracle-relation controlled test; registered GO): added L65 (PARTIAL), L66 (NOT SUPPORTED),
+  L67 (NOT SUPPORTED), L68 (NOT SUPPORTED, post-hoc). Appearance-audit interval terminology clarified (exit report §11).

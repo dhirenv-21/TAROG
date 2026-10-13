@@ -3,10 +3,10 @@
 > This file becomes the compact cross-session source of truth **after coding begins**. It is intentionally small and factual. Claude Code should update it after meaningful completed tasks. Do not paste full logs or duplicate the whole PRD here.
 
 ## Current status
-- Stage: **Appearance-based tracking audit complete — decision NARROW** (branch `codex/taorg-appearance-audit`; workspace `D:\ADSA project`). Earlier: observation audit NOT USABLE (motion-only)
+- Stage: **Downstream relationship study complete — registered GO (information-source utility, annotation-level; no algorithm contribution)** (branch `codex/taorg-downstream`; workspace `D:\ADSA project`). Earlier: appearance audit NARROW; observation audit NOT USABLE
 - Earlier: next-method K1 STOP / UNSUPPORTED; episode study STOP; Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
-- Active phase: none — **awaiting user decision** on one pre-registered downstream test of the frozen takeover signal (needs relationship labels / VidSGG approval)
-- Last updated: 2026-10-12
+- Active phase: none — **awaiting user decision** (next step needs approval: replace the oracle with one existing VidSGG predictor's cached predictions; flicker-robust scoring)
+- Last updated: 2026-10-13
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
@@ -102,6 +102,7 @@
 - [x] Next-method study (failure audit of B2; K1 survival hold; decision STOP, contribution UNSUPPORTED).
 - [x] Observation-interface audit on real MOT17 tracker outputs (distinction NOT USABLE; contract added).
 - [x] Appearance-based tracking audit (BoT-SORT appearance off/on + OSNet; MOT17 held-back; decision NARROW).
+- [x] Downstream relationship study (VidOR, oracle predictor, frozen flag; registered GO; no algorithm contribution).
 - [ ] Expiry heap implemented/proved.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
@@ -129,6 +130,12 @@ Phase 5H-1 registered run (2026-10-08; freeze `289319e`; `results/phase5h1/full/
 - Families passing: SPATIAL, MOTION (contact fails practical size). Gain = ONSET→OFFSET at lags ≤ 2 s; signed > positive-only (−0.031).
 - 17.0% of events tie exactly with another predicate's boundary (annotation convention risk). N-circ +16% events, N-jit −9.3% to −9.8%.
 - Method contribution NOT justified. Heavy run state: D:/TAORG_runs/phase5h1/main (outside git).
+
+Downstream study (2026-10-13; prereg `a326622`, impl `bf7749d`, freeze `0942146`; `results/downstream/`; report `research/taorg_downstream_exit_report.md`): **registered GO, narrow**.
+- VidOR person–person relations; 30 dev (training) + 60 eval (validation) videos, range-fetched (annotations previously used in Phase 5H: held back, not untouched); torchvision FRCNN v2 COCO persons + V3 BoT-SORT + frozen V3|T+A flag (sha256 98d7e46a…); oracle relation predictor on tracker outputs.
+- FB W=5 / B2 (α 0.5, dv 0.3, du 0.8, θ_on 0.5) selected on unflagged dev J — both at low-hold grid edges.
+- Eval (240/240 runs): ghost reduction FB 0.72 [97.5% 0.63, 0.80], B2 0.76 [0.67, 0.83]; ΔPGG −0.014/−0.013; ΔSTD-g, ΔRDD ≈ 0 → both contrasts pass.
+- Narrow reading: baseline PGG ≈ 0.05 (absolute margin lenient; relative loss 25–27%); flag fires on 32% of genuine-gap frames on VidOR (MOT17 7–12%); 69% of scored terminations / 97% of recurrences are matching flicker (post-hoc); flag helps FB more than B2 (information source, not TAORG inference).
 
 Appearance audit (2026-10-12; prereg `ac34d2f`, impl `e7ae883`, freeze `85a839c`, A3 fix `1ff4387`; `results/appearance/`; report `research/taorg_appearance_audit_exit_report.md`): **NARROW**.
 - BoxMOT 25.0.0 BotSort (V2 appearance off / V3 on, identical settings, ECC CMC) + OSNet x1.0 MSMT17 (sha256 b7d73dc6…; not MOT17-trained); ByteTrack V1; MOT17Det frames fetched by HTTP range (dev 357 MB, held-back 568 MB after freeze).
@@ -159,6 +166,7 @@ Relationship-episode study (2026-10-11; prereg `42b61ea`, impl `e7e7804`, freeze
 ## Decisions made during implementation
 Add short entries only, newest first:
 
+2026-10-13 — Downstream study: VidOR videos (≈367 MB transferred) and torchvision FRCNN v2 COCO weights (175 MB) downloaded with user approval; heavy state D:/TAORG_runs/downstream; deterministic gzip (mtime 0) + content hashes adopted. Appearance-audit intervals are track-cluster percentile bootstrap, 97.5% per detector (Bonferroni), not plain 95% CIs (its exit report §11). — research/taorg_downstream_preregistration.md
 2026-10-12 — Appearance audit: BoxMOT installed in isolated venv D:/TAORG_runs/appearance/venv (AGPL-3.0, --no-deps; C: full); OSNet x1.0 MSMT17 weights and MOT17Det frames (range-fetched) downloaded with user authorisation; heavy state on D:. Amendments A1 (strict conf > 0.5), A2 (smooth_feat creation seed; cue unchanged), A3 (post-freeze memory fix, outputs verified identical). — research/taorg_appearance_audit_preregistration.md §13
 2026-10-12 — Installed trackers 2.6.1 (+supervision 0.30.9, av, pydeprecate) and downloaded MOT17Labels.zip with user approval; personal local videos deliberately not used. — research/taorg_observation_research_log.md
 2026-10-11 — Workspace moved (copied) to D:\ADSA project; `pip install -e . --no-deps` re-pointed the package; the old C: copy still exists (the user will delete it). — research/taorg_next_method_failure_audit.md §0
@@ -204,7 +212,7 @@ Add short entries only, newest first:
 - Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
-WAIT for user review of the appearance-audit PR (decision NARROW). Single justified next step (needs approval): one pre-registered downstream test feeding the FROZEN T+A takeover flag into GatedEMA+hysteresis / fixed buffer via the observation contract, measuring relationship ghost time and false termination; requires relationship labels (VidSGG model or a pre-registered proxy) and must not tune on the MOT17 sequences used here; stop the line if no gain over the fixed buffer. Earlier: Single next experiment (needs approval: MOT17 frames 1.95 GB + re-ID model): repeat the pre-stated audit with an appearance-based tracker exposing association evidence (e.g. BoT-SORT + re-ID); alternatively integrate one VidSGG model to audit 'not evaluated' vs 'evaluated negative'. Earlier: WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
+WAIT for user review of the downstream PR (registered GO, narrow; no algorithm contribution). Single justified next step (needs approval; major scope): replace the oracle relation predictor with one existing VidSGG model's cached predictions on the same frozen pipeline, with identity-stable/flicker-robust scoring and harm margins relative to baseline persistence; stop the line if no gain. Earlier: WAIT for user review of the appearance-audit PR (decision NARROW). Single justified next step (needs approval): one pre-registered downstream test feeding the FROZEN T+A takeover flag into GatedEMA+hysteresis / fixed buffer via the observation contract, measuring relationship ghost time and false termination; requires relationship labels (VidSGG model or a pre-registered proxy) and must not tune on the MOT17 sequences used here; stop the line if no gain over the fixed buffer. Earlier: Single next experiment (needs approval: MOT17 frames 1.95 GB + re-ID model): repeat the pre-stated audit with an appearance-based tracker exposing association evidence (e.g. BoT-SORT + re-ID); alternatively integrate one VidSGG model to audit 'not evaluated' vs 'evaluated negative'. Earlier: WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code
 After each meaningful task:
