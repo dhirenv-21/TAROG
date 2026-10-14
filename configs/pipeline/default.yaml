@@ -5,10 +5,12 @@ python_perception: D:/TAORG_runs/appearance/venv/Scripts/python.exe
 python_egtr: D:/TAORG_runs/egtr/venv/Scripts/python.exe
 reid_weights: D:/TAORG_runs/appearance/weights/osnet_x1_0_msmt17.pt
 flag_artifact: results/appearance/freeze/frozen_models.pkl   # frozen takeover flag (sha256-checked)
-# Relationship layer (EGTR every 3rd frame). Parameters: development-calibrated values from the final
-# evaluation freeze (results/final/freeze/frozen.json); PROVISIONAL until that freeze exists.
-tau_obs: 0.02
-method: B2
+# Relationship layer (EGTR every 3rd frame). NOT A VALIDATED OPERATING POINT: the registered final
+# evaluation stopped at its development gate (research/taorg_final_exit_report.md). tau_obs is the
+# development 90th percentile of EGTR person-person triplet scores (results/final/dev/diagnosis.json);
+# method parameters are illustrative defaults.
+tau_obs: 6.648e-07
+method: FB          # B2/VH need [0,1]-scaled scores; raw EGTR triplet scores (~1e-6) never reach their thresholds
 use_flag: true
 params:
   NM: {}
