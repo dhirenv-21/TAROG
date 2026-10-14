@@ -52,6 +52,26 @@ pip install -e ".[dev]"
 pytest
 ```
 
+
+## What you can run
+
+| Goal | Command | Docs |
+|---|---|---|
+| Video → tracks → EGTR relationships → temporal maintenance → graphs + viewer | `python -m taorg.pipeline run --video clip.mp4 --work W` | [docs/PIPELINE.md](docs/PIPELINE.md), [docs/SETUP.md](docs/SETUP.md) |
+| Phase 5 lazy-vs-eager benchmark (synthetic) | `python scripts/phase5/benchmark.py` then `python scripts/phase5/figures.py` | [research/derivations/lazy_maintenance.md](research/derivations/lazy_maintenance.md) |
+| EGTR source-reproduction check (VG subset) | `scripts/egtr/fetch_vg_subset.py`, then `reproduce_vg_subset.py` (EGTR env) | [research/taorg_egtr_integration.md](research/taorg_egtr_integration.md) |
+| Synthetic presentation demo | `python demo/build_demo.py --open` | [demo/README.md](demo/README.md) (synthetic, not evidence) |
+| Tests | `python -m pytest -q` | — |
+
+**Where the project stands** (verified; details in [Memory.md](Memory.md) and the evidence ledger):
+- Certified lazy maintenance is exact and benchmarked.
+- On real tracker outputs, appearance, not filter complexity, separates identity takeovers from
+  gaps.
+- No novel temporal estimator is supported.
+- The predictor-level final evaluation stopped at its development gate.
+
+The working paper draft is [paper/taorg_paper_draft.md](paper/taorg_paper_draft.md).
+
 ## Current Status
 
 See [Memory.md](Memory.md) for verified implementation status.

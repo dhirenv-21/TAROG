@@ -396,3 +396,24 @@ UNKNOWN, learned from calibration as "never returns", collapses S2 (J 0.568).
 4. The flag fires on 32% of genuine-gap frames on VidOR (MOT17 7–12%).
 5. 69% of scored terminations and 97% of scored recurrences are matching flicker (post-hoc). On
    genuine events the flag effect is ≈ 0.
+
+---
+
+# Project completion (2026-10-14)
+
+- **Phase 5:** certified lazy maintenance.
+  - Exact: 28/28 synthetic runs, plus 30 real streams.
+  - About 4× fewer key updates; 1.6–3.1× wall-clock (slower: 0.79× with mostly-live keys, 0.47×
+    under interval jitter).
+- **Phase 6:** EGTR integrated.
+  - Bit-identical to the official path on 200 VG test images.
+  - Subset recall consistent with the authors'.
+- **Final evaluation:** STOP at the development gate.
+  - The registered τ grid was misspecified for EGTR's score scale.
+  - Diagnosis: weak person–person signal (AUC 0.53–0.69).
+
+## Must-disclose
+
+1. The final predictor-level questions are untested.
+2. The pre-registration error (τ grid).
+3. The lazy maintenance speed-up depends on stale-key accumulation and a constant frame rate.

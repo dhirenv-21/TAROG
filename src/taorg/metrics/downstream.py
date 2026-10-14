@@ -77,3 +77,56 @@ def video_outcomes(out: Mapping[Hashable, np.ndarray], lab: Mapping[Hashable, Ma
             "rdd_sum": rdd_sum, "rdd_n": rdd_n,
             "J": em.get("J", np.nan), "frame_f1": em.get("frame_f1", np.nan), "episode_f1": em.get("episode_f1", np.nan),
             "onset_mean_s": em.get("onset_mean_s", np.nan), "n_frames": float(n), "n_keys": float(len(keys))}
+
+
+def genuine_outcomes(out: Mapping[Hashable, np.ndarray], lab: Mapping[Hashable, Mapping[str, np.ndarray]],
+                     fps: float, min_dead_s: float = 1 / 3, sustained_s: float = 0.5, first: int = 1
+                     ) -> dict[str, float]:
+    """Termination / recurrence outcomes restricted to GENUINE relation changes (final prereg §6).
+
+    Needs ``ended_after`` and ``started_at`` label arrays (relation of the endpoints' identities inactive
+    at the next / previous scored frame). A termination at episode end b counts iff both endpoints are
+    output at b+1 and ended_after[b]; STD-gen = time from b to the start of >= sustained_s of continuous
+    OFF within the following dead span (censored at its end); FRR-gen = re-output after the first OFF.
+    A recurrence (episode after the first) counts iff started_at[a]; RDD-gen = time from a to the first
+    output unless the gap since the previous episode was bridged by continuous output.
+    """
+    min_dead = max(1, int(round(min_dead_s * fps)))
+    sus = max(1, int(round(sustained_s * fps)))
+    std, cens, frr_n, frr_d, rdd, rdd_c = [], 0, 0, 0, [], 0
+    for k, L in lab.items():
+        o = np.asarray(out[k], bool)[first:]
+        alive = np.asarray(L["alive"], bool)[first:]
+        bo = np.asarray(L["both_out"], bool)[first:]
+        ea = np.asarray(L["ended_after"], bool)[first:]
+        sa = np.asarray(L["started_at"], bool)[first:]
+        n = len(alive)
+        ep = runs(alive.tolist())
+        for idx, (a, b) in enumerate(ep):
+            if b < n - 1:
+                d = (ep[idx + 1][0] - 1) if idx + 1 < len(ep) else n - 1
+                D = d - b
+                if D >= min_dead and bo[b + 1] and ea[b]:
+                    frr_d += 1
+                    td = next((f for f in range(b + 1, d + 1) if not o[f]), None)
+                    if td is not None and o[td + 1:d + 1].any():
+                        frr_n += 1
+                    ts = next((f for f in range(b + 1, d + 1) if not o[f:min(f + sus - 1, d) + 1].any()), None)
+                    if ts is None:
+                        std.append((D + 1) / fps)
+                        cens += 1
+                    else:
+                        std.append((ts - b) / fps)
+            if idx >= 1 and sa[a]:
+                c = ep[idx - 1][1] + 1
+                if a > c and o[c:a].all():
+                    continue
+                fo = next((f for f in range(a, b + 1) if o[f]), None)
+                if fo is None:
+                    rdd.append((b - a + 1) / fps)
+                    rdd_c += 1
+                else:
+                    rdd.append((fo - a) / fps)
+    return {"std_gen_sum": float(sum(std)), "std_gen_n": float(len(std)), "std_gen_censored": float(cens),
+            "frr_gen_num": float(frr_n), "frr_gen_den": float(frr_d), "rdd_gen_sum": float(sum(rdd)),
+            "rdd_gen_n": float(len(rdd)), "rdd_gen_censored": float(rdd_c)}

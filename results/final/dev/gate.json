@@ -1,0 +1,75 @@
+{
+ "tau_obs": 0.005,
+ "tau_scan": {
+  "0.005": [
+   8.470986869970353e-05,
+   1
+  ],
+  "0.01": [
+   0.0,
+   0
+  ],
+  "0.02": [
+   0.0,
+   0
+  ],
+  "0.05": [
+   0.0,
+   0
+  ],
+  "0.1": [
+   0.0,
+   0
+  ]
+ },
+ "selected": {
+  "FB": {
+   "config": 8,
+   "params": {
+    "window_size": 40
+   },
+   "mean_J": 0.0005833333333333333,
+   "igt_s": 0.0
+  },
+  "B2": {
+   "config": 0,
+   "params": {
+    "alpha": 0.1,
+    "decay_visible": 0.3,
+    "decay_occluded": 0.5,
+    "score_threshold": 0.2,
+    "off_ratio": 0.5
+   },
+   "mean_J": 0.0,
+   "igt_s": 0.0
+  },
+  "VH": {
+   "config": 54,
+   "params": {
+    "mu": 0.2,
+    "nu": 0.05,
+    "gamma_o": 0.5,
+    "gamma_v": 1.0,
+    "miss": 0.2,
+    "false_pos": 0.01,
+    "threshold": 0.3,
+    "r_ov": 0.05,
+    "r_vo": 0.05,
+    "dt_ref": 0.1
+   },
+   "mean_J": 0.00012674271229404308,
+   "igt_s": 0.0
+  }
+ },
+ "G1": true,
+ "G2": {
+  "NM_frame_f1": 8.470986869970353e-05,
+  "videos_with_predicted_keys": 1,
+  "pass": false
+ },
+ "G3": {
+  "igt_s_B2_unflagged": 0.0,
+  "pass": false
+ },
+ "PASS": false
+}

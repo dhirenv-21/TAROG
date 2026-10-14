@@ -43,7 +43,7 @@ from taorg.utils.seed import set_seed  # noqa: E402
 VIDEOS = Path("D:/TAORG_runs/downstream/videos")
 WEIGHTS = Path("D:/TAORG_runs/appearance/weights/osnet_x1_0_msmt17.pt")
 FLAG = Path("results/appearance/freeze/frozen_models.pkl")
-SPLIT_NAME = {"training": "dev", "validation": "eval"}
+SPLIT_NAME = {"training": "dev", "validation": "eval", "final": "final"}
 
 
 def main() -> None:

@@ -25,7 +25,8 @@ from fetch_mot17_frames import HttpRangeFile  # noqa: E402
 from taorg.adapters.vidor import sample  # noqa: E402
 
 BASE = "https://huggingface.co/datasets/shangxd/vidor/resolve/main/"
-ZIPS = {"validation": ["validation-video.zip"], "training": [f"training-video-part{i}.zip" for i in range(1, 9)]}
+ZIPS = {"validation": ["validation-video.zip"], "final": ["validation-video.zip"],
+        "training": [f"training-video-part{i}.zip" for i in range(1, 9)]}
 OUT = Path("D:/TAORG_runs/downstream/videos")
 
 

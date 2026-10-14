@@ -1,0 +1,1007 @@
+{
+"seed": 20261013,
+"n": 200,
+"bytes_transferred": 211610761,
+"files": [
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2315740.jpg",
+"sha256": "f35ea4f204cb99cc49ac44d69ac43ddbb3e03d5c150ae7d0ffde4147519b87fc"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2315809.jpg",
+"sha256": "0c24475d594e8c73497804bb1e7379634fa36db10bc75baf5eac38bcb5622c47"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2316161.jpg",
+"sha256": "acdd0085e28657607734625027939a60057a66df9b5e801bec7337c1f98999ae"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2316222.jpg",
+"sha256": "c52f680538ed2b872fe6b3f0b72821bd0794b0b70a1592543509656711edf075"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2316415.jpg",
+"sha256": "9db67baeab0e9090349f2ee5fd02ae3d2fcb8a2e16a1ec6d4e0d463fa1f7ca4e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2316423.jpg",
+"sha256": "94cc7aad33d76136d15279c1e44ed6937f887179272ae1f54fe436c1adebcc84"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2316939.jpg",
+"sha256": "5cf853696809f85af15a18884f5dffeaeab3f788e015e9c2bdba0ff041f91e8a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2316951.jpg",
+"sha256": "bc7ddccf3246f461d10a131997952c33699d1695b7c6c0a45d5cad0eccd3c696"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2317204.jpg",
+"sha256": "e6f2f33aa74f9b8a04383b62114c05efecd8fa2600768dfeeba5b2ba96dd9e0b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2317209.jpg",
+"sha256": "f2acbfcbe34cccc8dce4d1cf78151ca8a95959cd62f07a68c30e496ac415a9e1"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2317237.jpg",
+"sha256": "bdb33efcaa5116260971bc7240c5369a8a1bba1da8de4f5fc7118668f837c14c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2317493.jpg",
+"sha256": "df0d5b098c85ca1ff2b932e31e360c04fc592aa1e3d265efb09bca0407c673b1"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2318041.jpg",
+"sha256": "6a8c001cd7ba4292ea2a3d0830064ea6f40799a66ef6ce3c5d59d1c0f6e34895"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2318129.jpg",
+"sha256": "86c1a64c0555c88ed7bb68bead0ab5151c57d1d9f8a43012e7839f4d54f45523"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2318155.jpg",
+"sha256": "6a878663589642271243e7ec9cac4d6793a88ecf392cc843990514dab15f13f4"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2318253.jpg",
+"sha256": "0cec68f20b7f46fd7e3f36146e380fd75a06bf72950d18d660e6cb1a0ebef5a8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2318580.jpg",
+"sha256": "dbb046c211175cb70617e45c6602785e8a7fc07bdb1cdc50eed8b2d9741cc798"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2318832.jpg",
+"sha256": "6f7e42dc3c87678775c1ec5846896e7265978fff5ffded25a1f2ec00270660b0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2319157.jpg",
+"sha256": "21a2964db6d16a6fba59df3235c5983adffa4c4ad1eb20e0f36d64aaccf2b6b3"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2319369.jpg",
+"sha256": "b2caadad9d5d254b13dd3089fac527b5a08da8087eb27d62455440bf5173a423"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2319448.jpg",
+"sha256": "d10fcc37421be3d4aa68faf1fd961e3f876eb0581befdd5932fc68496a145bd0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2319992.jpg",
+"sha256": "bb0a5529fa7b218ca5b8cd7bae9b974221c18bdfc1422d62aaea821de37e6ea6"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2320223.jpg",
+"sha256": "7fde9d012799499b83b0e66a24a50ab783311931e7940138e01acd918e86ef72"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2320418.jpg",
+"sha256": "6eae14ab78f705319886938dae9c206258cb6ee6de864028c71870c68b5c88fa"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2320826.jpg",
+"sha256": "6d965230fd59aa2462e899d649bdd2d58a9f7cddb637a1d697be07eb84a83480"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2320912.jpg",
+"sha256": "4513d527c8cc3a65b867aa0823d08c9d3853fe94b35b7aaffb1bbd21234079d0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2321052.jpg",
+"sha256": "63a636d5775758d5ec2e450b366bc3b177ad043e3bf10dec1f2309809f50ff7b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2321090.jpg",
+"sha256": "ea98f2165cf114db5b4dccfc8a9a65d651d78b4f83fea7703fd555328b0c45f3"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2321196.jpg",
+"sha256": "41c6e680bfb56a0f1431c022b367986dafdbfe986b70e5bbc9c446647dfe7629"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2321404.jpg",
+"sha256": "bbf3f555b0138ebde5e001829935fde0ea14a6de32f32ecc850b7ad23199270f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2321486.jpg",
+"sha256": "67c7f3a2020504c99950911884322c75bfc69322a1b582c0171806a78cdefb90"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2322053.jpg",
+"sha256": "1769a4d07d70068e394fee586e96084d96dff7e3e850ab18fc4576c5c1e9f2c8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2322142.jpg",
+"sha256": "ea134054077c625ec71609c7b608f38311568854d86c251c88367b159f16df04"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2322515.jpg",
+"sha256": "7368eb70c968294737508e5b37b2635b71f0ac4432513601805c29f84e0b0f7b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2322983.jpg",
+"sha256": "8f55f9c53ebc9e03220cc1d03d88c55204bab2daf2ea44360902eefad6f5a29a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323048.jpg",
+"sha256": "d6e7acacde6b42335786118c9bd58d8365959b44e2264b093bb94e5bb819c94f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323147.jpg",
+"sha256": "05078537571dc66b8ca3915857585659a46161407501cd7acb2866d664525b1b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323178.jpg",
+"sha256": "9b38c60c7a56e18f01549a5aea20420bd501f4889e278af41bb37ff2e8df6cd2"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323199.jpg",
+"sha256": "fbbc8f52847b5effdcb9bf181c2188323b30b75fe5f73d1e7cbb08e2faf93a05"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323352.jpg",
+"sha256": "5a47a85f2cb57a9d7534727c1e885f7dcf01291b96f80ef3ca71fa3b3ff7717c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323475.jpg",
+"sha256": "716f54a85fb6d91be0ed909e5b89bf5b92f2872be00c2f4ac37ad38b451b6bd4"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2323640.jpg",
+"sha256": "65b9e033ce045eb127f1d634561315dba1cbbc33b2d45ad3033a538758f415ae"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324028.jpg",
+"sha256": "32aa5cb4540df20f663e44c121f44c667aa97bd84cb7a60911e6199977d99ce6"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324048.jpg",
+"sha256": "52144b5e1f22a1d9aec7449c13c96ce72cefb34f4653709cf66196936a23a62a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324169.jpg",
+"sha256": "060fe1ef0438a9c9600999a4abb045958e2587bae855ba8a96c91f4cf2375d99"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324179.jpg",
+"sha256": "0aee2eb089c8ca197b1d7173452f1d5081e2af03175e0e37435c34ecbc0c5d1f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324305.jpg",
+"sha256": "161f2231e54d64214058378df0aec3bb9f7ab24cbe0cdbce052a0f00c4700d8e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324496.jpg",
+"sha256": "bef76dc2aeef56c237b2925cc0703d22afae9d3ec6f7f71b249e5dd0f6faba0f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324556.jpg",
+"sha256": "9f2f07e1de51be265b2f17c1ce3ea1006d3f9976004cf6ff5fcb6c17342493b7"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324589.jpg",
+"sha256": "90dd7ded03c8803bc6f88a4883c6befba2d7800e0c72314874dee86b23f3323f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324744.jpg",
+"sha256": "603c62171a36ade09518931f0b1deff56e452339c7c4d0ceca2e12a61d313afd"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324745.jpg",
+"sha256": "c462fe57d6c7bd373de18a26972cbed8c246b62bd2a315bbcddba9428d12cf3d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2324811.jpg",
+"sha256": "df4807c0dc2c447fc7609d276304dd9ee9c2a8003f16a27f75e247812010a3ea"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2325109.jpg",
+"sha256": "946c105540dc6ee94c4fb9661b37921db4a924414785c0ec23469ef3e9352dbd"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2325343.jpg",
+"sha256": "23df34102026ebe53ed17fcdf92505955d3211cd380174b07f30192534bfae80"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2325833.jpg",
+"sha256": "bbdf7ca35c0d208bd8f5e3b16889166a43a84d5af72ee03a1390e13fa4a55a91"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2326109.jpg",
+"sha256": "90a70132683ea3418a421a8fe5ebf618610a4a76c245aac320c25291a732ef39"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2326364.jpg",
+"sha256": "c20482428ec3b5978245536d4a010aabb8318ca4d9c7112b53e025a01f403033"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2326510.jpg",
+"sha256": "692fdd3af24db62d9b325aece93ef6fa421005c313f4b99b9f4022be33905def"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2326627.jpg",
+"sha256": "b31ea4922d674194694f6f9896c3ef917c9baa996c8b5e353d1e2c29cba09ac4"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2326682.jpg",
+"sha256": "ca3e07602e55641599200969e08acda11fe02925226d64e4649ba39e898de870"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2326865.jpg",
+"sha256": "9c465eace054b32d18c8af4675d3002795e53d9719e9735f91ca7b8d688b9913"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2327245.jpg",
+"sha256": "8c6d7811dad66fd5e77e6e7f6120ab32b1aa5625c82c5963a424ec9cea71206a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2327325.jpg",
+"sha256": "77642a02b399ebcf85612aa24b9055957789371319017eb96e4b4efe7d6d9b8c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2327721.jpg",
+"sha256": "095f5159cdaab048da467501887634d784dc5f3c3e83543ab1a5db8a6d4db24f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2328541.jpg",
+"sha256": "6e64316b9710ae279d166e5d352417883470c8f8f669262e1bd6193af7c6301f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2328638.jpg",
+"sha256": "1cb979f5044ef7491389193faf143c4e5758fceb1f73595a89df64a533235dd0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2328643.jpg",
+"sha256": "ddd37a0a0c68cefb19016dd8d649f7b848059c643a546e5a08dc7b37ee362999"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2328646.jpg",
+"sha256": "4937a2e2dc4eb694540d9eb0f19dea1974541ac4bf85e37c98e44e85ec45ec55"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2328649.jpg",
+"sha256": "a28505255e643506a11083e882f98bde63b028c3562dec1db02a3487e9705426"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2329133.jpg",
+"sha256": "b950dbca20e6ef16231c567c09ceb21985a8a178b4347897b428ee1e07ec9ec8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2329404.jpg",
+"sha256": "275dd249f0c855e71973ad4687990d8e7147359038098e41474041810bcae946"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2329754.jpg",
+"sha256": "cfa65ddf8006df854bb6d3552f9c562996b2cd03abc6d467b89acda397924bb0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2329900.jpg",
+"sha256": "df47cfe7a29a2d3c4dfc70503f7ab47bbef39e1388899227f53c9bbd503420f9"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2329996.jpg",
+"sha256": "36e1a86659a2e0e48d1221b2503c4c0cb4a1d5b38e05776c335491d076da2281"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2330100.jpg",
+"sha256": "6b71c49e628c8c23315785d93fb12788dc988104d9af95064e6c667b78356b88"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2330154.jpg",
+"sha256": "6bedb565718ac35999607d1f5eb7bd476feafc6c967ea33d677fea5e719766ce"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2330624.jpg",
+"sha256": "e203a6231ac83d4834402ecff7923ce22642d15ce61b69f2c3c5103fd185bae2"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2330758.jpg",
+"sha256": "d1a3bac340a3ad5b3ca84a7747905a3662a11db33430c78457c99a6c477ff704"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2331173.jpg",
+"sha256": "c9cb13b0eac9760f4ffa62ed6a8cc5cb3af5abae1cfcd4a3dd19c14f66d36f5f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2331524.jpg",
+"sha256": "72542fe29bff32839bb1d8e727c2465d8e0418e98203345a37dda179bed55996"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2331610.jpg",
+"sha256": "b16179c7647409aaa29b3c9a9b42644084cc60060d913618e49b28b1499ee1ff"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2331818.jpg",
+"sha256": "8c88cc55da5026755abbbd43235a4d43458f87cdf3bbdb4b828a23b250ba72b6"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2331885.jpg",
+"sha256": "4e16fc22e4bdab424a2850317108b3eb6bc445d925309527ad5b57473748385c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2332211.jpg",
+"sha256": "7fc40081f78a45a6c6170bb8d57ed10b199c10bec857465b9c9d8ee582f25924"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2332771.jpg",
+"sha256": "62c36929841f3891a2b1c15c3760178abe5cf60c40b9ecda9511be15fd7adda5"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2332885.jpg",
+"sha256": "a4cd18495b751ca01ae3cf5699a7661e8c6a275fc20d3658a05b6bf0205ab537"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2332944.jpg",
+"sha256": "884031620fe4f4a1a5467e0bb7b3ca8d6e6ee00a2c4829112adaa3c4113d351f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2333034.jpg",
+"sha256": "693c33b630c6a7d645e093fd0ec1ebb90c0dec97ac52f822e11936b52fefc5a6"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2333269.jpg",
+"sha256": "8a0c45422518e6ec3231e0fb2296134438ba8e6119d3404f45d437f1d8f2cb3c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2333478.jpg",
+"sha256": "bb23e08ec615a2e960a54d01e09daaf6c43e85845cd64e95d10574644a3993af"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334039.jpg",
+"sha256": "ea42e238d91bbf7b9c10efa2130366facc0e210d706e8573a35f06a657638aa1"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334171.jpg",
+"sha256": "b9d84ef87963797c52d801c8cf547051dddc31f80bbcc251ca398c1c7975ed8e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334184.jpg",
+"sha256": "b4b77011925d6e911000c5d812a82997baf02f6ab9c453079ccdcccc2edb5cdd"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334204.jpg",
+"sha256": "12c45b3efc62790c0a75d93f9eae65f40c8d8d1c01cec52198d74992109bfbdf"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334309.jpg",
+"sha256": "05fcfce85e4a795bbbaa9477e3aa2f54c8d4aca534f0b9b277b1e96a362cb487"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334324.jpg",
+"sha256": "66a32ca57127761d8df00b1f64ff41775c74259b0a1ca9e3deaaa64c426f676d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334338.jpg",
+"sha256": "9a64e67af9d3c329c3cb995ef4092aaad320d7f130c2488200b6ddf3a9e68ad6"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334561.jpg",
+"sha256": "0f815acaa9df863febc4f617b5f06e78128f311e96c42dbd0a4b2da345700884"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334595.jpg",
+"sha256": "feb2aa9729c6f84f61f18d1fee1b4f3fa4d2836653c710efc3599f0c006c29fe"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334703.jpg",
+"sha256": "1913175750bfca398edaccc4a0dac3f0260da22283c1bb753f798ed2986a8dc9"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334712.jpg",
+"sha256": "2a0f21b22d8bdedf06f3187a47665993c1971d353aa03ad51811c5e05963e1f8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2334878.jpg",
+"sha256": "dbb7018ec5f2f10137e8b7ca76b6e64b6f85954a924f6eb5e344cb24195d37ac"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335094.jpg",
+"sha256": "387ab8301cac5000a82eec2c08417c323cb3433c3cb379862adced0ed2c548b4"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335160.jpg",
+"sha256": "d85e6fbf1c59f8cc1d9240fb6ac5b62ea47b2b08e84c9dd542f718eab7c16ce3"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335247.jpg",
+"sha256": "afffde3319499dec3eef5beb31cf78a8b9c0fe1de44dada702ca578b5ba8289b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335294.jpg",
+"sha256": "766cb336b4c4c462d0d705857b5f839406c61b528e0d0fa466ee916c029d3e53"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335311.jpg",
+"sha256": "a314bb1bf8ec7002b43760c0018c52c532a2633d0092b8c96b271ebd44e48b85"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335469.jpg",
+"sha256": "ff964b01e6a25863c8aba66388894235f12c48bb48f445c6f91c277251f78bf5"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335659.jpg",
+"sha256": "b5673e527c4be3b806bbd95b8351c87b5030dd7fe50652ae1c3c3597f9faefe2"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2335888.jpg",
+"sha256": "a86e18e5277508665e9b2ab86c409073083e175ba6b51997efce44feaa5179ee"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2336329.jpg",
+"sha256": "e7c04344de5bbbcfcdf8e7f2928ab9dde653fc3e17ac5cafa22409053f0c5b2c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2336468.jpg",
+"sha256": "4543bf0bc6fcb100edba813f3993059f4d2b04584c7d6cc0cff2822f693877a2"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2337509.jpg",
+"sha256": "92c617cdf73d63ac50327e95d6d3c4184f8141401afd537b6a4017a47f701389"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2337884.jpg",
+"sha256": "7c18c3b3f202412d4f132f305d5c29801efbccf9f6cc36329f73c28f81ceea51"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338022.jpg",
+"sha256": "bc0d6c937f7d10648fe571d5f386cce92cdde719a28d355e568a100fe9149260"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338199.jpg",
+"sha256": "5955dea860716cfbc9de819b6cd215f06b80a5c76dff1e0092960c7a529b41d5"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338247.jpg",
+"sha256": "5ec2cb0c07936df2d9fda593f551d059b608e02b3cbe22cd69dc2015eaa94639"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338282.jpg",
+"sha256": "d6c7b69ba4561f6d7a31563d0832b32da242785f7a0c67e8997d08374412d873"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338300.jpg",
+"sha256": "61888b051ac469a98e40fc06ebc8569996e155c84f87d3b49cc080fc9a64b64e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338613.jpg",
+"sha256": "b7de6184c11008cb651f34bc9e335ae85e275acb51489c12a720efa27cab53c5"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338787.jpg",
+"sha256": "9351f5cf3bc0f7a36845ed82651dfb761d24bfde8ad7a977835c021e8effdc0a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2338875.jpg",
+"sha256": "4554b270da6219dc44965f3512b0b8c785f2b55793d1023e1e195336727df748"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2339001.jpg",
+"sha256": "74a185c2438bd9639bd6ae57323f787b5109b07342f255b2672982651ef6d93b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2339253.jpg",
+"sha256": "23c24004fb07f2873586a6fe0fefdb7f9633c607322fe0a16c2229f9738a7b5d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2339427.jpg",
+"sha256": "227bc018351bbf3db3a544a6ee15983ba33abc4a658bb1c5329728a0e7db3ebd"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2339528.jpg",
+"sha256": "854353968dc1f087a67cec8b8ceb1afb752b71175a0b3562e0dce3cf881aaed7"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2339629.jpg",
+"sha256": "35059f5638316b1082d391408eb72eeabdab4a74366c66ebf0aba07bbf656754"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2339656.jpg",
+"sha256": "541d0f894bfbdda8ac38799b4f4ff13001b2464f92d5d3c17f132eeda996f42b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340236.jpg",
+"sha256": "b721c7d67a6f2c0cd7723227abc9f0d691ce8c40de6949beeb19067b12b5bfa2"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340310.jpg",
+"sha256": "f0c44cd50de118bdd08c53e46f2d2ef53e389f287cc86d7497f14ec60e66fc50"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340316.jpg",
+"sha256": "b0b190ef79b436f04028855f6692a00f2237391bdf421ddf5699b9c110950282"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340356.jpg",
+"sha256": "d334cb61f008116df66a1ef49fd44f9459afa2b5b43a1f611faeb681f50a3c9e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340421.jpg",
+"sha256": "2cfe23742b436c9a0c06a49e2097debce82de245b16dc3cf71a773f6893597ed"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340460.jpg",
+"sha256": "8df5efbbbe37beeb3e23c2d37ff2f2c1a3d446c027ea552a143c5d161f5a205e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340492.jpg",
+"sha256": "f4a2e10c37d6ec035ebb25f5c86292fd51169ab1805a878444aa558542441f49"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340512.jpg",
+"sha256": "a125833b5f8caf7dc62b96c51f7cb38f8ef41920d7e2caef5e35fc8e7ca41667"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340595.jpg",
+"sha256": "6a3fcc9b8564fa438a3537b482482961f91ff5d8f85570bff118ca54a8c3ea03"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340618.jpg",
+"sha256": "e74bdab17624a409637e1223bafa32741cf0f2aca34777036804680568acbc1f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340788.jpg",
+"sha256": "af6cc1cf1e6df8112f4db4e39af99fa34e7aeee1f3a85596383c7177ca42e092"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340862.jpg",
+"sha256": "dc407067a4c3ce987ff437f3fa8d6741820d5a71780241fe7426caa296c04335"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2340951.jpg",
+"sha256": "c84b31186cc8026ae2e677b0555dd9459efe0779babeb27dd41f0a32af452412"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2341070.jpg",
+"sha256": "1485a603f8227ca70f5988147aa436c6abe1854afd0abeedec8488cb9b651e0d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2341223.jpg",
+"sha256": "7d29c9440a80e8443acab4d2eacad2fc28150e2b0ded4b94ef78a5d41ff4de2f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2341310.jpg",
+"sha256": "04061f0af1942a8bfa7eeb318f8497b6df429795cd2aa50875ab756c4b8d3dce"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2341612.jpg",
+"sha256": "bbf5e2174d703c014bec49b507d50957d7fb2fbf4399ce96801af743bdc8ec83"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2341642.jpg",
+"sha256": "ac381919a02bfd26d05c8c8bea3690edd486c1f8e9177e7c19c1b812c9c4d5b3"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2341791.jpg",
+"sha256": "9b522106483a23689118d1248ad451c1a86b3c7ef011c8cabfbc562ffca64c59"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342377.jpg",
+"sha256": "38fcd04b839de09a01dfd8068b87243a12f6e3770a7272c2acd79662fbefdf5d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342439.jpg",
+"sha256": "7b87bb2ccc379206d9640cdf260632a43fd913741b618ca1d32013ce4a44e355"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342508.jpg",
+"sha256": "a15c17d5a3eb36934cc46756a4725d9273081d056f690f4647181b7ca6175e3d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342565.jpg",
+"sha256": "d716ef577988f168dd90a29aa3fd82d906ca5634f1b8f41cb94fe107fa6aee44"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342574.jpg",
+"sha256": "e9f5ee08957d42aa386cf326572dc43ae640b95b62b1d897025f4b8cf9b509e7"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342579.jpg",
+"sha256": "f4a34c7a04568e27150e80afd3a342fc098685b60736fe43f5265c3b1568e68a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2342584.jpg",
+"sha256": "ce37b9926156021ed79d52b6e38b816b9e0604aeef1bced66c20f8efd6dcbef0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2343257.jpg",
+"sha256": "b4589a4e55f1f2a1ebeaa83a8c286e56e07341f21bf8c6ddba2a67cfd84410ff"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2343535.jpg",
+"sha256": "86d4fed834de87fb278512e2db45d0f7415a567192aa6093245c20d3c6871988"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2343684.jpg",
+"sha256": "c7f6edf6de1f41b7f22dc0b80b50def98cb1001a32438509882e33aae7b5e858"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images.zip",
+"member": "VG_100K/2343686.jpg",
+"sha256": "1b570830a0db147c9946d6c84584b0671a3d8dc533f55b7f6e25d88b31b91c02"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2411648.jpg",
+"sha256": "4c81d977be298b798fb53dd44ffb3136a3764016c34db0423115251e2f56fc5c"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2411797.jpg",
+"sha256": "6ee05026fd4997c7fca1c3b572f210716fa8ac40248f1190ba7cd2d3d7a23f57"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412012.jpg",
+"sha256": "5e77c00cd83ce31257b335f48468b6009d1ee89b306a6d303e323ad248a19825"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412053.jpg",
+"sha256": "68ef035506026f603de0270f92c97924562559ab3aeab9f9407b355786fe8463"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412107.jpg",
+"sha256": "58543dd36cda9d39df5ea4d41db89331fe0fcb9e8e8746bcd298a19e08d0dcd7"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412194.jpg",
+"sha256": "d907d46c90df2a1ff9f868f23d6ab87597ec3d8ac6a31029469916749abb138d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412365.jpg",
+"sha256": "c5c41c2d6ff60820373f22d667ae9c80edb5e9a98acd8c26114629a7854a20df"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412663.jpg",
+"sha256": "1fa9621ca8bd9ec6775a7dce46aac8d39e4a589ce5b847b2547660fa821b6dba"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412786.jpg",
+"sha256": "77ed652f983870e21f6f31cc34b4f90379518a8eee0c04438b2e4b772e0a070a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2412838.jpg",
+"sha256": "e8cb7f5d246ed76675a0c0f7382e1b141f242757722e761e02d667639ddc8aa1"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413097.jpg",
+"sha256": "060070016431c34e5cc045956a0b107b93a17ca2cd07f57a07dfc07ea8130db9"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413348.jpg",
+"sha256": "1b9d90656185e94987634ca0849a210f7d4041dbab079e5c0ce83985747600e5"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413474.jpg",
+"sha256": "c884e7fa3b5158a179015ac25f3b639448b4dd1552f9f1297e54e68730d0dc0f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413602.jpg",
+"sha256": "3b56f5d91ac24f22ab64d5ed8fdf2c9cdb11b788e6b653d022eae1152829f86b"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413791.jpg",
+"sha256": "6c6d926614e9720fa5f0ee73d2e3a2dd604571c566d440ae5e05e57c5072eddd"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413828.jpg",
+"sha256": "b26c076c1293b3eba4d8e04a225ed488132c50d04dfde4b4928c96dcf7a277a0"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2413917.jpg",
+"sha256": "c48d39037c68631cfe06313127c964408b672691eae63de7de67f8818cbd1809"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414111.jpg",
+"sha256": "4afb24a8c64b279c8220caaf4ab7e89139c99eff693b209b80e843439e4f2186"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414258.jpg",
+"sha256": "648e5fa6c05fb0ef33ca8acb4c8a9e883fd9c83b39df54f1edd8a1e623fcef47"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414273.jpg",
+"sha256": "42b126eec8a2bfccf317967a457c4f7e0b6b5f93cc03522a9df19effbe867a7e"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414307.jpg",
+"sha256": "e5a115907f2236956d02d8d7d3ba87e2672ba8bc9b76c413fc4807547332d69d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414401.jpg",
+"sha256": "ec063f97d25bfe576d529bcd801bf58f8db05f08b2b816a2fa71a9d1a162c8d8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414581.jpg",
+"sha256": "16f4d985ef00faf733e28381ada0e18fc7a182b4ef9163f7eb30f434f5ac72f8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414692.jpg",
+"sha256": "463380355a3366124428f2bfdd399dd167cf2fdd6de930f5b392cbbdfd060a6a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2414832.jpg",
+"sha256": "054407c00cd3b7919f31b9ae800327526a940dba20563b4ef7fe5193e15b8ee1"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2415391.jpg",
+"sha256": "357639b85b645e54e1056162861c1d284048b36f59f6e3717c5616962385a237"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2415745.jpg",
+"sha256": "df1c8e86b2e1a442c2911cc0a0fe462883a703f8c530fedd2956a15df61ae03f"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2415750.jpg",
+"sha256": "438424a3dcb5ecd16f83fbcf6c2877a34bd1d4ae75bb68590d4bba967faf8b7d"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2415841.jpg",
+"sha256": "d96228d2b3da006d588bb72b6301d30d192149634e9b0858bb7993f99f47fcd8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2415976.jpg",
+"sha256": "2e0c8715677bed54903cea2a70e716681244183700dc206d94a775615ebb5570"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2416199.jpg",
+"sha256": "e5ad2cba2a9b7be2a2dd98d69d3ae9a6f4046ab99ade170e24b95900765ae37a"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2416240.jpg",
+"sha256": "f1e91d27b1765b239afde5d583f38f26961cb5a0e833cfab87cf012b242e8534"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2416621.jpg",
+"sha256": "b674e2c1f206490f792dfa655fc7e0378b46bfde654e5538aeba5877c523facf"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2416761.jpg",
+"sha256": "598db12a3fdec8e8c2df2dd019ac71ec9b8b8eddc205fe1aaba1e8324ea50fa4"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417165.jpg",
+"sha256": "09f5f9c1a708ffbe7ed551bd0144d5a268a149c2df7ae9354871577b721ec3e8"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417399.jpg",
+"sha256": "43ab4dadccee5880949ad3a020e13834e45f01346d7441adb2b280a40ebd5094"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417489.jpg",
+"sha256": "6e03d8037036878bef0516b6e4ed873df9780d8e02e0438a18ad9cff8185c9ea"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417656.jpg",
+"sha256": "7c2e243c70e04c445bcc7d3c45ddb369f0338625e48c09fb9e913b4bcaa75363"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417765.jpg",
+"sha256": "057e280c708daaf6013070f826868498b3c2da81898c62e0bc7a45c86e5bc3f2"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417851.jpg",
+"sha256": "848382a855b295e75f39842617d6afbf5e209b4a80b94231073cf69c67900f40"
+},
+{
+"zip": "https://cs.stanford.edu/people/rak248/VG_100K_2/images2.zip",
+"member": "VG_100K_2/2417901.jpg",
+"sha256": "13df6562da016a533e2d89af4e2d17b57a90b874e091560023f1da68ab679a84"
+}
+]
+}

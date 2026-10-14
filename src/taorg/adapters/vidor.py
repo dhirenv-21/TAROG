@@ -20,6 +20,7 @@ import numpy as np
 PERSON_CATEGORIES = frozenset({"adult", "child", "baby"})
 SAMPLE_RULE = {"min_persons": 3, "max_duration_s": 60.0, "min_pp_relations": 1}
 SAMPLE_SEEDS = {"training": (30, 20261013), "validation": (60, 20261014)}
+FINAL = (40, 20261020)       # final evaluation: fresh validation videos, excluding the downstream sample
 
 
 @dataclass(frozen=True)
@@ -58,8 +59,21 @@ def eligible(v: VidorVideo, n_persons: int) -> bool:
 
 
 def sample(ann_root: Path, split: str) -> list[str]:
-    """Seeded sample of eligible annotation files (relative paths, sorted pool order)."""
+    """Seeded sample of eligible annotation files (relative paths, sorted pool order).
+
+    ``split="final"`` draws FINAL[0] validation videos (seed FINAL[1]) from the validation pool minus
+    the downstream study's validation sample (research/taorg_final_preregistration.md).
+    """
+    if split == "final":
+        used = set(sample(ann_root, "validation"))
+        pool = [v for v in _pool(ann_root, "validation") if v not in used]
+        return random.Random(FINAL[1]).sample(pool, FINAL[0])
     k, seed = SAMPLE_SEEDS[split]
+    return random.Random(seed).sample(_pool(ann_root, split), k)
+
+
+def _pool(ann_root: Path, split: str) -> list[str]:
+    """Eligible videos of an official split, in sorted file order."""
     pool = []
     for fn in sorted(Path(ann_root, split).glob("*/*.json")):
         d = json.loads(fn.read_text(encoding="utf-8"))
@@ -71,7 +85,7 @@ def sample(ann_root: Path, split: str) -> list[str]:
                    for r in d["relation_instances"]):
             continue
         pool.append(d["video_path"])
-    return random.Random(seed).sample(pool, k)
+    return pool
 
 
 def active_relations(v: VidorVideo, f: int) -> set[tuple[int, int, str]]:
