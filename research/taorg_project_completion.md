@@ -65,3 +65,38 @@ dictionary oracle. Full Phase 5 integration and scaling benchmarks remain open.
   (0.47×).
 - M5 identity is an eager fallback.
 - Output enumeration Ω(E_t) remains; there is no sublinear claim.
+
+## Phase 6 status: integration COMPLETE; predictor-level evaluation STOP
+
+**Integration and verification.**
+- EGTR is integrated through the official code (`research/taorg_egtr_integration.md`).
+- The adapter is bit-identical to the official evaluation path on 200 VG test images. Subset recall
+  agrees with the authors' within sampling variation.
+- Licence, provenance and deviations are documented.
+
+**Registered final evaluation** (`research/taorg_final_preregistration.md`): the development gate
+failed, so Q1 and Q2 are **STOP** (`research/taorg_final_exit_report.md`).
+- **Cause:** the registered τ grid ignored EGTR's tiny score scale (a pre-registration error), and
+  the predictor's person–person signal on VidOR is weak.
+- **What still passed:** E1 (lazy = eager) holds exactly on 30 real streams.
+
+## Runnable project: COMPLETE
+
+- **Entry point:** `python -m taorg.pipeline run --video V --work W` (`docs/PIPELINE.md`,
+  `docs/SETUP.md`, `environments/`).
+- **Smoke run:** recorded in `results/pipeline_smoke/`.
+- **Tests:** 3 pipeline tests plus 5 final-stream tests.
+
+## Paper: working draft COMPLETE
+
+`paper/taorg_paper_draft.md` cites ledger entries L1–L72. Its `[VERIFY]` references still need
+checking against the primary sources before submission.
+
+## Remaining incomplete original requirements
+
+- **Predictor-level evaluation on real VidSGG outputs** (L6, L72 UNTESTED). It needs a new
+  registration with rank-normalised scores, or a video SGG model.
+- **Action Genome standard evaluation; base models STTran, DSG-DETR and TEMPURA:** not done (scope).
+- **Full ablation matrix on real data (Phase 8):** not done. The synthetic Phase 3/4 matrices
+  exist.
+- **Citation verification for the paper:** still to do.
