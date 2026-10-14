@@ -1,0 +1,271 @@
+{
+ "videos": {
+  "5568248185": {
+   "status": "done",
+   "frames_total": 390,
+   "frames_sgg": 130,
+   "persons_per_frame": 8.330769230769231,
+   "s_per_frame": 0.29407050384615313,
+   "content_sha256": "7bd6fcdaba01c0ba68507d0e203b3bbd8fcaf6e8a8229ebf3515cb6d761182d6"
+  },
+  "2957162127": {
+   "status": "done",
+   "frames_total": 574,
+   "frames_sgg": 192,
+   "persons_per_frame": 8.932291666666666,
+   "s_per_frame": 0.24809632916666638,
+   "content_sha256": "ecb3794f9d1ae2955f228eed132855e895942f05345c860a8f14b77f48c5858e"
+  },
+  "5124781697": {
+   "status": "done",
+   "frames_total": 1013,
+   "frames_sgg": 338,
+   "persons_per_frame": 10.784023668639053,
+   "s_per_frame": 0.2827648606508887,
+   "content_sha256": "c54015f42399694510566e10797117ef5df9d2811f91de77fbb1abd31d588855"
+  },
+  "8093267471": {
+   "status": "done",
+   "frames_total": 1479,
+   "frames_sgg": 493,
+   "persons_per_frame": 14.718052738336715,
+   "s_per_frame": 0.2542269999999994,
+   "content_sha256": "30ba2431b54d48181b368581fe460a8e70a4e7b3d46b40e744eaf75dcd706747"
+  },
+  "5114141409": {
+   "status": "done",
+   "frames_total": 315,
+   "frames_sgg": 105,
+   "persons_per_frame": 17.066666666666666,
+   "s_per_frame": 0.2839259457142838,
+   "content_sha256": "dc3eacd3b235e3ffd431cc9fd8b9590a799d9049b62ed4d557fcba7850fe5658"
+  },
+  "10274570313": {
+   "status": "done",
+   "frames_total": 241,
+   "frames_sgg": 81,
+   "persons_per_frame": 16.074074074074073,
+   "s_per_frame": 0.29692913580247143,
+   "content_sha256": "cb3277891f211751f5c30d7afc5d999262d91befb634b85dfcd119561a936894"
+  },
+  "2973658146": {
+   "status": "done",
+   "frames_total": 820,
+   "frames_sgg": 274,
+   "persons_per_frame": 10.587591240875913,
+   "s_per_frame": 0.25819644306569445,
+   "content_sha256": "eb909e93304d78d23ec22ed0f034ceadd94f8820b9dbd1b8dd6f6fb7e5cd2b57"
+  },
+  "3085010702": {
+   "status": "done",
+   "frames_total": 928,
+   "frames_sgg": 310,
+   "persons_per_frame": 14.209677419354838,
+   "s_per_frame": 0.272081835806453,
+   "content_sha256": "bd5671eceeede41f60edcd843b1d6a8eb876fc12804b548e577d2c4d1020100e"
+  },
+  "4957632295": {
+   "status": "done",
+   "frames_total": 915,
+   "frames_sgg": 305,
+   "persons_per_frame": 17.18688524590164,
+   "s_per_frame": 0.29569391114754145,
+   "content_sha256": "46a2d85f8844acc4a119e9aa674c113122ea84efc951a75e7c327eee5ea8f112"
+  },
+  "9179929638": {
+   "status": "done",
+   "frames_total": 491,
+   "frames_sgg": 164,
+   "persons_per_frame": 9.689024390243903,
+   "s_per_frame": 0.3189575560975577,
+   "content_sha256": "b4c84fea532bc3603f035d9a5ec4cdd2411a105ddd4836e5186437d5def2a013"
+  },
+  "3253849626": {
+   "status": "done",
+   "frames_total": 625,
+   "frames_sgg": 209,
+   "persons_per_frame": 10.4066985645933,
+   "s_per_frame": 0.2939105602870803,
+   "content_sha256": "472bb2653019fb73ddba7f06562adec9dc53215bbfef386dd3926e9603df69e9"
+  },
+  "4061710233": {
+   "status": "done",
+   "frames_total": 429,
+   "frames_sgg": 143,
+   "persons_per_frame": 12.118881118881118,
+   "s_per_frame": 0.2893178622377675,
+   "content_sha256": "fe9be8ffc5c97e9163f9dbbb19ff5eb96e6be9a9d5819146b0b3cbd77a9964b9"
+  },
+  "4612106647": {
+   "status": "done",
+   "frames_total": 537,
+   "frames_sgg": 179,
+   "persons_per_frame": 9.240223463687151,
+   "s_per_frame": 0.6152023273742993,
+   "content_sha256": "6cb3f2fb4a726b929a28d3ab817ccc74de926d628c15d011caf460485bca8284"
+  },
+  "2934818100": {
+   "status": "done",
+   "frames_total": 380,
+   "frames_sgg": 127,
+   "persons_per_frame": 27.440944881889763,
+   "s_per_frame": 0.5224924913385779,
+   "content_sha256": "c3cedc2eaa93b1877f87c01cce728f8bc860303e7aec0b985e7bed40611d1004"
+  },
+  "4101793172": {
+   "status": "done",
+   "frames_total": 345,
+   "frames_sgg": 115,
+   "persons_per_frame": 14.669565217391304,
+   "s_per_frame": 0.5567270782608751,
+   "content_sha256": "d35180cbd39db31eb54601cde6803c45c7f63af84233ff5c64dee20828d607ef"
+  },
+  "7050206723": {
+   "status": "done",
+   "frames_total": 274,
+   "frames_sgg": 92,
+   "persons_per_frame": 7.315217391304348,
+   "s_per_frame": 0.5535427923913057,
+   "content_sha256": "8df1255c8439bb7362d928ad3b8b16305ee7d6271e2046f9dd5c67fbd07e9417"
+  },
+  "4892615149": {
+   "status": "done",
+   "frames_total": 1657,
+   "frames_sgg": 553,
+   "persons_per_frame": 9.987341772151899,
+   "s_per_frame": 0.43536469421338175,
+   "content_sha256": "2cd34eab73dc33543654d20df778dd48eb6ecff3477b4a81f92f1bc9cd3f7a72"
+  },
+  "5901839398": {
+   "status": "done",
+   "frames_total": 1395,
+   "frames_sgg": 465,
+   "persons_per_frame": 17.98494623655914,
+   "s_per_frame": 0.3128190754838704,
+   "content_sha256": "527df7edf086edbe84a09d48b067876240de35d6fadc6aba42a28b41f945d07a"
+  },
+  "8069014507": {
+   "status": "done",
+   "frames_total": 1200,
+   "frames_sgg": 400,
+   "persons_per_frame": 16.18,
+   "s_per_frame": 0.31335093550000237,
+   "content_sha256": "0d48aa0396bcb9241f57cac6bef979a13c13921554d2a391082fb10d057ecf15"
+  },
+  "3926030596": {
+   "status": "done",
+   "frames_total": 444,
+   "frames_sgg": 148,
+   "persons_per_frame": 16.16891891891892,
+   "s_per_frame": 0.2818768081081027,
+   "content_sha256": "f8001eb1dd6cea00df14a2f1996a74fea0b4679ca32dffca54d86ed6fe28aa04"
+  },
+  "12028339293": {
+   "status": "done",
+   "frames_total": 360,
+   "frames_sgg": 120,
+   "persons_per_frame": 29.95,
+   "s_per_frame": 0.31640210750000125,
+   "content_sha256": "485bf8b6d112b31b21dde01c0a5233e966c6c75177634454c934dd88c0fe7092"
+  },
+  "3225620425": {
+   "status": "done",
+   "frames_total": 1274,
+   "frames_sgg": 425,
+   "persons_per_frame": 17.708235294117646,
+   "s_per_frame": 0.28370409882352654,
+   "content_sha256": "aa98d9046244d8013a6928671ca1fba22184b83ab94926956232a8dd4586149e"
+  },
+  "3406071161": {
+   "status": "done",
+   "frames_total": 982,
+   "frames_sgg": 328,
+   "persons_per_frame": 15.664634146341463,
+   "s_per_frame": 0.2861984057926803,
+   "content_sha256": "def5b063a942ab605300bc5112fe06fe04201cf13b6522e1cc47f5af874177f7"
+  },
+  "5176837860": {
+   "status": "done",
+   "frames_total": 421,
+   "frames_sgg": 141,
+   "persons_per_frame": 9.453900709219859,
+   "s_per_frame": 0.33592505390070654,
+   "content_sha256": "27544efea1cf5573306a767427a05a58a067d47794f8c0ee175f89f5180c51ef"
+  },
+  "10163970336": {
+   "status": "done",
+   "frames_total": 270,
+   "frames_sgg": 90,
+   "persons_per_frame": 17.511111111111113,
+   "s_per_frame": 0.3207976044444472,
+   "content_sha256": "0977e5423184358b3face4cd4462b38d40c4af55325ec93516188b53f0dd2de0"
+  },
+  "5621615066": {
+   "status": "done",
+   "frames_total": 1709,
+   "frames_sgg": 570,
+   "persons_per_frame": 14.5,
+   "s_per_frame": 0.3012693698245609,
+   "content_sha256": "33ba2f293cc0b8170aae6f40ee6d086c9ce11899b8c40c7b873133d42602dd2a"
+  },
+  "5909774623": {
+   "status": "done",
+   "frames_total": 773,
+   "frames_sgg": 258,
+   "persons_per_frame": 14.2015503875969,
+   "s_per_frame": 0.2501063457364355,
+   "content_sha256": "644ffe577acf27a11a6ef1e5c3b4994b243f3c37d179191e96a0789bee5dbbc1"
+  },
+  "3779800369": {
+   "status": "done",
+   "frames_total": 957,
+   "frames_sgg": 319,
+   "persons_per_frame": 14.156739811912226,
+   "s_per_frame": 0.2853557793103471,
+   "content_sha256": "38ab9beb58e559a542f4999e0a51a558c41c551112922967900d10fe4fd97605"
+  },
+  "5513186064": {
+   "status": "done",
+   "frames_total": 418,
+   "frames_sgg": 140,
+   "persons_per_frame": 14.1,
+   "s_per_frame": 0.35666413428571103,
+   "content_sha256": "c296773fd9ee572e50ad4e71328dbba5d73cd604e8faf14d613e7c1ee6f316dd"
+  },
+  "12681261204": {
+   "status": "done",
+   "frames_total": 401,
+   "frames_sgg": 134,
+   "persons_per_frame": 13.261194029850746,
+   "s_per_frame": 0.5421803537313403,
+   "content_sha256": "36911cc9439491769f3c0b36fe7cb23ffe2ff19ec3f987dd5cc4ebe9a07fe8d8"
+  }
+ },
+ "stride": 3,
+ "egtr_commit": "7f87450f32758ed8583948847a8186f2ee8b21e3",
+ "ckpt_sha256": "8926640facecd2784160c221c048dd4209df7d623ceb3c9eda289a11cb1f84d5",
+ "mapped": [
+  "behind",
+  "in_front_of",
+  "next_to",
+  "watch"
+ ],
+ "predicate_map": {
+  "behind": [
+   "behind"
+  ],
+  "in_front_of": [
+   "in front of"
+  ],
+  "next_to": [
+   "near"
+  ],
+  "watch": [
+   "watching",
+   "looking at"
+  ]
+ },
+ "torch": "2.14.0+cu132",
+ "git_commit": "ed31905251d5adb8dbe1740d8746abbbc58db0ee",
+ "git_dirty_src": false
+}

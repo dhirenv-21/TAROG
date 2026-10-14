@@ -30,14 +30,15 @@ MATCH_IOU = 0.5
 def load_sgg(path: Path) -> dict[int, tuple[np.ndarray, np.ndarray, np.ndarray]]:
     """frame -> (person boxes (N,4), obj scores (N,), pair scores (N,N,len(MAPPED)))."""
     z = np.load(path)
+    frames, o = z["frames"], z["offsets"]                 # decompress each array once
+    boxes, obj, pair = z["boxes"], z["obj_scores"], z["pair_scores"]
     out = {}
-    o = z["offsets"]
     pair_off = 0
-    for i, f in enumerate(z["frames"]):
+    for i, f in enumerate(frames):
         n = int(o[i + 1] - o[i])
-        sc = z["pair_scores"][pair_off:pair_off + n * n].reshape(n, n, len(MAPPED))
+        sc = pair[pair_off:pair_off + n * n].reshape(n, n, len(MAPPED))
         pair_off += n * n
-        out[int(f)] = (z["boxes"][o[i]:o[i + 1]], z["obj_scores"][o[i]:o[i + 1]], sc)
+        out[int(f)] = (boxes[o[i]:o[i + 1]], obj[o[i]:o[i + 1]], sc)
     return out
 
 
