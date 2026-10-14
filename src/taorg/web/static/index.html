@@ -1,34 +1,180 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TAORG · Video workspace</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAORG · Video workspace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23172b35%22/%3E%3Ctext x=%2216%22 y=%2223%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/style.css">
+<script defer src="/app.js"></script>
+</head>
 <body>
-<header><a class="brand" href="/"><span class="mark">T<span>↗</span></span> TAORG <small>VIDEO WORKSPACE</small></a><span class="local"><i></i> On your laptop</span></header>
+<a class="skip" href="#workspace">Skip to results</a>
+<header>
+  <a class="brand" href="/"><span class="mark" aria-hidden="true">T</span> TAORG <small>Video workspace</small></a>
+  <span class="local"><i aria-hidden="true"></i> Runs locally on this computer</span>
+</header>
 <main>
-<section class="intro"><div><p class="eyebrow">FROM VIDEO TO RELATIONSHIPS</p><h1>See what connects.</h1><p class="lede">Track people, explore their relationships, and follow how a scene changes over time.</p></div><div class="flow" aria-label="Video to tracks to graph"><span>01<br><b>Video</b></span><em>→</em><span>02<br><b>Tracks</b></span><em>→</em><span>03<br><b>Graph</b></span></div></section>
+<section class="intro">
+  <div>
+    <p class="eyebrow">From video to relationships</p>
+    <h1>Who is next to whom, over time.</h1>
+    <p class="lede">The workspace tracks the <b>people</b> in a short video, predicts four person–person relationships
+      (<b>behind</b>, <b>in front of</b>, <b>next to</b>, <b>watching</b>) frame by frame, and keeps a temporal graph of
+      them. It does not recognise other objects or answer questions about the video.</p>
+  </div>
+  <ol class="flow" aria-label="Processing steps">
+    <li><span>1</span> Check video</li><li><span>2</span> Track people</li><li><span>3</span> Predict relationships</li>
+    <li><span>4</span> Maintain graph</li><li><span>5</span> Explore</li>
+  </ol>
+</section>
+
 <div class="layout">
 <aside>
-<section class="card"><div class="cardhead"><h2>New analysis</h2><span class="tag">LOCAL GPU</span></div>
-<form id="runForm">
-<label class="drop" id="drop"><input id="video" type="file" accept=".mp4,.mov,.avi,.mkv,.webm,.m4v" required><span class="uploadicon">↥</span><strong id="filename">Choose a video</strong><span id="filemeta">or drop it here</span><small id="uploadLimit">MP4, MOV, AVI, MKV, WebM · up to 2 GB</small></label>
-<video id="preview" controls hidden></video>
-<label for="method">Temporal method</label><select id="method"><option value="FB">Fixed buffer · recommended</option><option value="NM">No temporal memory</option><option value="B2">GatedEMA + hysteresis · experimental</option><option value="VH">V-HPED · experimental</option></select>
-<p class="hint" id="methodHint">Keeps recent relationships for a short window.</p>
-<label class="check"><input id="flag" type="checkbox" checked><span>Clear relationships on a takeover flag<small>Uses the frozen appearance model.</small></span></label>
-<details class="advanced"><summary>Advanced settings</summary><label for="tau">Relationship score cutoff</label><input id="tau" type="number" min="0.000000000001" max="1" step="any" value="0.0000006648" required><label for="window">Buffer length (relationship steps)</label><input id="window" type="number" min="1" max="300" value="10" required><p class="hint">One relationship step every third video frame. Settings are saved with each run.</p></details>
-<button class="primary" id="start" type="submit" disabled>Start analysis <span>↗</span></button>
-<p id="uploadStatus" class="hint" aria-live="polite"></p><p id="error" role="alert" hidden></p>
-</form></section>
-<details class="card environment"><summary><span id="readyDot">○</span> <span id="readyText">Checking environment…</span></summary><ul id="checks"></ul><p class="hint">Missing a resource? See docs/SETUP.md.</p></details>
-<p class="scope">Currently supports <b>people</b> and four relationships: behind, in front of, next to, and watching. Model scores are uncalibrated; inspect predictions before relying on them.</p>
+  <section class="card" aria-labelledby="newTitle">
+    <div class="cardhead"><h2 id="newTitle">New analysis</h2><span class="tag">Local GPU</span></div>
+    <form id="runForm" novalidate>
+      <label class="drop" id="drop" for="video">
+        <input id="video" type="file" accept=".mp4,.mov,.avi,.mkv,.webm,.m4v,video/*" aria-describedby="uploadLimit">
+        <span class="uploadicon" aria-hidden="true">⬆</span>
+        <strong id="filename">Choose a video</strong>
+        <span id="filemeta">or drop a file here</span>
+        <small id="uploadLimit">MP4, MOV, AVI, MKV, WebM</small>
+      </label>
+      <video id="preview" controls muted hidden aria-label="Preview of the chosen video"></video>
+      <p id="previewNote" class="hint" hidden></p>
+
+      <div id="sampleBox" class="sample" hidden>
+        <p class="sampletitle">No video at hand?</p>
+        <p class="hint" id="sampleText"></p>
+        <button type="button" id="runSample" class="secondary">Analyse the sample clip</button>
+      </div>
+
+      <label for="method">Temporal method</label>
+      <select id="method" aria-describedby="methodHint">
+        <option value="FB">Fixed buffer (recommended)</option>
+        <option value="NM">No memory: raw predictions only</option>
+        <option value="B2">GatedEMA + hysteresis (experimental)</option>
+        <option value="VH">V-HPED filter (experimental)</option>
+      </select>
+      <p class="hint" id="methodHint"></p>
+
+      <label class="check"><input id="flag" type="checkbox" checked aria-describedby="flagHint">
+        <span>Clear a person's relationships when the tracker loses them to another ID
+          <small id="flagHint">Uses the frozen appearance-based takeover flag. Available for Fixed buffer and GatedEMA.</small></span></label>
+
+      <details class="advanced">
+        <summary>Advanced settings</summary>
+        <label for="tau">Relationship score cutoff</label>
+        <input id="tau" type="number" min="0.000000000001" max="1" step="any" aria-describedby="tauHint">
+        <p class="hint" id="tauHint">A prediction counts only if its raw EGTR score is at least this value. Raw scores are
+          uncalibrated ranking scores, usually far below 0.01. The default was chosen on development videos; it is not a
+          validated operating point.</p>
+        <label for="window">Fixed-buffer length (relationship steps)</label>
+        <input id="window" type="number" min="1" max="300" aria-describedby="windowHint">
+        <p class="hint" id="windowHint">Relationships are predicted on every third frame. A retained relationship stays this many steps after its last prediction.</p>
+      </details>
+
+      <button class="primary" id="start" type="submit" disabled>Start analysis</button>
+      <p id="uploadStatus" class="hint" aria-live="polite"></p>
+      <p id="error" class="alert" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section class="card environment" aria-labelledby="envTitle">
+    <div class="cardhead"><h2 id="envTitle"><span id="readyDot" aria-hidden="true">○</span> <span id="readyText">Checking setup…</span></h2></div>
+    <div class="cardbody">
+      <ul id="checks" class="checks"></ul>
+      <button type="button" id="selfcheck" class="secondary">Run pre-demo check</button>
+      <p class="hint" id="selfcheckText">Loads both inference environments and checks the GPU (usually under a minute). No models are downloaded.</p>
+      <ul id="selfcheckResults" class="checks"></ul>
+    </div>
+  </section>
+
+  <section class="note" aria-labelledby="limitsTitle">
+    <h2 id="limitsTitle">Before you rely on a result</h2>
+    <ul>
+      <li>Relationships come from EGTR, an image model trained on still photos; each frame is predicted independently.</li>
+      <li>Raw scores are ranking scores, not probabilities. Empty or wrong graphs are possible and are shown as they are.</li>
+      <li>The research study found no evidence yet that the temporal methods improve real predicted relationships.</li>
+    </ul>
+  </section>
 </aside>
-<section class="workspace">
-<div class="sectiontitle"><h2>Your workspace</h2><span id="runCount">0 runs</span></div>
-<section class="card focus" id="focus">
-<div id="empty"><div class="graphart" aria-hidden="true"><span class="node n1">01</span><span class="link l1"></span><span class="node n2">02</span><span class="link l2"></span><span class="node n3">03</span><span class="relation">next to</span></div><h3>A new perspective on your video.</h3><p>Choose a clip to build your first temporal scene graph.<br>Your video and results stay on this computer.</p><div class="emptyfooter"><span>01 · Track people</span><span>02 · Predict relationships</span><span>03 · Explore the graph</span></div></div>
-<div id="runDetail" hidden><div class="detailhead"><div><p class="eyebrow" id="runLabel">ANALYSIS</p><h3 id="runName"></h3></div><span id="badge" class="badge"></span></div><p id="runInfo" class="hint"></p><ol id="stages"></ol><p id="runError" role="alert" hidden></p><div id="actions" class="actions"></div><iframe id="viewer" title="TAORG relationship graph viewer" sandbox="allow-scripts allow-same-origin" hidden></iframe><details id="logs"><summary>Processing log</summary><pre id="logText"></pre></details></div>
+
+<section class="workspace" id="workspace" tabindex="-1" aria-labelledby="wsTitle">
+  <div class="sectiontitle"><h2 id="wsTitle">Results</h2><span id="runCount"></span></div>
+  <section class="card focus" id="focus">
+    <div id="empty" class="emptystate">
+      <h3>No run selected</h3>
+      <p>Choose a video (or the sample clip) and press <b>Start analysis</b>. Results, settings and logs are saved on
+        this computer and appear under <b>Recent runs</b>.</p>
+    </div>
+
+    <div id="runDetail" hidden>
+      <div class="detailhead">
+        <div><p class="eyebrow" id="runKind">Run</p><h3 id="runName"></h3><p class="hint" id="runWhen"></p></div>
+        <span id="badge" class="badge"></span>
+      </div>
+      <p id="statusLine" class="statusline" aria-live="polite"></p>
+      <ol id="stages" class="stages" aria-label="Processing stages"></ol>
+      <div id="runError" class="alert" role="alert" hidden></div>
+      <div id="actions" class="actions"></div>
+
+      <details id="settingsBox" class="settings">
+        <summary>Settings used for this run</summary>
+        <dl id="settingsList"></dl>
+      </details>
+
+      <section id="viewerBox" hidden aria-labelledby="viewerTitle">
+        <h3 id="viewerTitle" class="viewertitle">Explore the relationship graph</h3>
+        <p id="viewerEmpty" class="alert info" hidden></p>
+        <div class="viewer" id="viewerRegion" tabindex="0"
+             aria-label="Relationship viewer. Use left and right arrow keys to step, space to play or pause.">
+          <div class="controls">
+            <button type="button" id="vFirst" aria-label="First step">⏮</button>
+            <button type="button" id="vPrev" aria-label="Previous step">◀</button>
+            <button type="button" id="vPlay" class="playbtn">Play</button>
+            <button type="button" id="vNext" aria-label="Next step">▶</button>
+            <input id="vSlider" type="range" min="0" value="0" aria-label="Relationship step">
+            <label class="speed" for="vSpeed">Speed</label>
+            <select id="vSpeed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+          </div>
+          <p id="vPos" class="vpos" aria-live="polite"></p>
+          <div class="vgrid">
+            <figure class="stage">
+              <canvas id="vCanvas" width="640" height="360" role="img" aria-label="Video frame with tracked people and relationships"></canvas>
+              <figcaption class="legend">
+                <span><i class="sw cur"></i>Predicted at this step</span>
+                <span><i class="sw ret"></i>Retained by temporal memory</span>
+                <span><i class="sw flg"></i>Takeover flag on a person</span>
+                <span>P7 = Person 7 (the tracker's ID for that person in this video)</span>
+              </figcaption>
+            </figure>
+            <div class="reltable">
+              <h4>Relationships at this step</h4>
+              <table>
+                <thead><tr><th scope="col">Person</th><th scope="col">Relationship</th><th scope="col">Person</th><th scope="col">Status</th><th scope="col"><abbr title="EGTR ranking score for current predictions; the method's own score for retained ones. Not a probability.">Score</abbr></th></tr></thead>
+                <tbody id="vRows"></tbody>
+              </table>
+              <p id="vNone" class="hint" hidden>No relationships at this step.</p>
+            </div>
+          </div>
+          <div class="timeline">
+            <h4>Timeline <small>(click to jump; rows are person pairs; scroll for more)</small></h4>
+            <div class="tlscroll" tabindex="0" aria-label="Timeline, scrollable"><canvas id="vTimeline" height="120"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <details id="logs" class="logs"><summary>Processing log</summary><pre id="logText">Open to load the log.</pre></details>
+    </div>
+  </section>
+
+  <div class="sectiontitle historytitle"><h2>Recent runs</h2><span>Saved on this computer</span></div>
+  <div id="history" class="history"><p class="muted">Your runs will appear here.</p></div>
 </section>
-<div class="sectiontitle historytitle"><h2>Recent runs</h2><span>Saved on this laptop</span></div><div id="history"><p class="muted">Your runs will appear here.</p></div>
-</section></div>
-<footer><span>TAORG / Temporal Adaptive Object Relationship Graph</span><span>Research workspace · Predictions, not ground truth</span></footer>
-</main></body></html>
+</div>
+<footer><span>TAORG · Temporal Adaptive Object Relationship Graph</span><span>Research prototype · predictions, not ground truth</span></footer>
+</main>
+</body>
+</html>

@@ -5,8 +5,11 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
+import re
 import secrets
 import shutil
+import socket
 import threading
 import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -14,10 +17,12 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 
 from taorg.pipeline.cli import DEFAULT_CONFIG, ROOT
-from taorg.web.jobs import EXPORTS, BusyError, Jobs
+from taorg.web.jobs import EXPORTS, VIDEO_SUFFIXES, BusyError, Jobs
 
 STATIC = Path(__file__).parent / "static"
-SUFFIXES = {".mp4", ".mov", ".avi", ".mkv", ".webm", ".m4v"}
+SUFFIXES = VIDEO_SUFFIXES
+FRAME = re.compile(r"^\d{6}\.jpg$")
+JOB_ID = re.compile(r"^[0-9a-f]{32}$")
 
 
 def options_from_query(query: dict) -> dict:
@@ -39,6 +44,13 @@ class LocalServer(ThreadingHTTPServer):
     """Threaded requests with one pipeline worker and a per-launch request token."""
 
     daemon_threads = True
+    # On Windows SO_REUSEADDR lets a second server bind the same port silently: bind exclusively.
+    allow_reuse_address = os.name != "nt"
+
+    def server_bind(self) -> None:
+        if os.name == "nt":
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        super().server_bind()
 
     def __init__(self, address: tuple, jobs: Jobs, max_upload: int) -> None:
         self.jobs = jobs
@@ -49,6 +61,11 @@ class LocalServer(ThreadingHTTPServer):
 
 class Handler(BaseHTTPRequestHandler):
     """Serve only named assets and artifacts inside registered job directories."""
+
+    def log_request(self, code="-", size="-") -> None:
+        """Keep the console readable during a demo: only error responses are logged."""
+        if str(code).isdigit() and int(code) >= 400:
+            super().log_request(code, size)
 
     def _trusted(self, mutation: bool = False) -> bool:
         port = self.server.server_address[1]
@@ -64,7 +81,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send_error(403)
             return False
         if mutation and not secrets.compare_digest(
-                self.headers.get("X-TAORG-Token", ""), self.server.token):
+            self.headers.get("X-TAORG-Token", ""), self.server.token
+        ):
             self.send_error(403, "Refresh the page before starting a run.")
             return False
         return True
@@ -97,18 +115,38 @@ class Handler(BaseHTTPRequestHandler):
         url = urlsplit(self.path)
         path = unquote(url.path)
         try:
-            assets = {"/": ("index.html", "text/html"),
-                      "/app.js": ("app.js", "text/javascript"),
-                      "/style.css": ("style.css", "text/css")}
+            assets = {
+                "/": ("index.html", "text/html"),
+                "/app.js": ("app.js", "text/javascript"),
+                "/style.css": ("style.css", "text/css"),
+            }
             if path in assets:
                 name, mime = assets[path]
                 return self._file(STATIC / name, mime + "; charset=utf-8")
             if path == "/api/status":
-                return self._json({**self.server.jobs.readiness(), "token": self.server.token,
-                                   "max_upload": self.server.max_upload})
+                return self._json(
+                    {
+                        **self.server.jobs.readiness(),
+                        "token": self.server.token,
+                        "max_upload": self.server.max_upload,
+                    }
+                )
             if path == "/api/jobs":
                 return self._json(self.server.jobs.snapshot())
+            if path == "/api/samples":
+                return self._json(self.server.jobs.samples())
             parts = path.strip("/").split("/")
+            if (
+                len(parts) == 4
+                and parts[0] == "results"
+                and parts[2] == "frames"
+                and JOB_ID.match(parts[1])
+                and FRAME.match(parts[3])
+            ):
+                self.server.jobs.snapshot(parts[1])
+                return self._file(
+                    self.server.jobs.root / parts[1] / "frames" / parts[3], "image/jpeg"
+                )
             if len(parts) == 4 and parts[:2] == ["api", "jobs"] and parts[3] == "log":
                 self.server.jobs.snapshot(parts[2])
                 p = self.server.jobs.root / parts[2] / "run.log"
@@ -151,7 +189,19 @@ class Handler(BaseHTTPRequestHandler):
                 self.connection.settimeout(120)
                 job_id = self.server.jobs.upload(self.rfile, size, name, options)
                 return self._json({"id": job_id}, 202)
+            if url.path == "/api/selfcheck":
+                return self._json({"checks": self.server.jobs.selfcheck()})
             parts = url.path.strip("/").split("/")
+            if len(parts) == 3 and parts[:2] == ["api", "samples"]:
+                readiness = self.server.jobs.readiness()
+                if not readiness["ready"]:
+                    return self._json(
+                        {"error": "Setup is incomplete. Check the environment panel."}, 409
+                    )
+                job_id = self.server.jobs.start_sample(
+                    parts[2], options_from_query(parse_qs(url.query))
+                )
+                return self._json({"id": job_id}, 202)
             if len(parts) == 4 and parts[:2] == ["api", "jobs"] and parts[3] == "cancel":
                 self.server.jobs.cancel(parts[2])
                 return self._json({"ok": True})
@@ -170,9 +220,22 @@ def main() -> None:
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--work", type=Path, default=ROOT.parent / "TAORG_runs" / "web")
     ap.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
-    ap.add_argument("--torch-home", type=Path,
-                    default=ROOT.parent / "TAORG_runs" / "downstream" / "torch_home")
+    ap.add_argument(
+        "--torch-home", type=Path, default=ROOT.parent / "TAORG_runs" / "downstream" / "torch_home"
+    )
     ap.add_argument("--max-upload-mb", type=int, default=2048)
+    ap.add_argument(
+        "--max-seconds",
+        type=float,
+        default=300.0,
+        help="Longest accepted video duration in seconds (default 300)",
+    )
+    ap.add_argument(
+        "--samples",
+        type=Path,
+        default=ROOT.parent / "TAORG_runs" / "web-samples",
+        help="Folder of sample clips, each with a .json description (see docs/WEB.md)",
+    )
     ap.add_argument("--open", action="store_true", help="Open the local website in your browser")
     args = ap.parse_args()
     if not 1 <= args.port <= 65535 or args.max_upload_mb < 1:
@@ -181,9 +244,9 @@ def main() -> None:
     with (args.work / "server.lock").open("a+b") as lock:
         # An OS lock releases even after a crash; never trust a stale PID file.
         try:
-            import os
             if os.name == "nt":
                 import msvcrt
+
                 lock.seek(0)
                 lock.write(b"0")
                 lock.flush()
@@ -191,11 +254,21 @@ def main() -> None:
                 msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
             else:
                 import fcntl
+
                 fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError:
             ap.error("Another TAORG website is already using this work folder.")
-        jobs = Jobs(args.work, args.config, args.torch_home)
-        server = LocalServer(("127.0.0.1", args.port), jobs, args.max_upload_mb * 1024**2)
+        jobs = Jobs(
+            args.work,
+            args.config,
+            args.torch_home,
+            samples=args.samples,
+            max_seconds=args.max_seconds,
+        )
+        try:
+            server = LocalServer(("127.0.0.1", args.port), jobs, args.max_upload_mb * 1024**2)
+        except OSError:
+            ap.error(f"Port {args.port} is already in use. Close the other program or use --port.")
         url = f"http://127.0.0.1:{args.port}"
         print(f"TAORG local workspace: {url}\nRuns saved to {args.work}", flush=True)
         if args.open:
