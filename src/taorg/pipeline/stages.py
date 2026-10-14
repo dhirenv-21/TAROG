@@ -105,6 +105,15 @@ def sgg(work: Path) -> dict[str, Any]:
     return {"sgg_frames": len(fr), "s_per_frame": (time.time() - t0) / max(1, len(fr))}
 
 
+def export_score(x: float) -> float:
+    """Score as written to graphs.json / stream.csv.gz: 4 significant figures.
+
+    Raw EGTR scores are ~1e-6, so the earlier fixed 4-decimal rounding exported them as 0.0.
+    Export format only; the temporal methods always receive the unrounded score.
+    """
+    return float(f"{x:.4g}")
+
+
 def maintain(work: Path, method: str, params: dict[str, Any], tau: float, use_flag: bool) -> dict[str, Any]:
     """Canonical stream -> temporal method -> graphs.json (+ stream.jsonl.gz). Main env; no annotations."""
     from taorg.adapters.egtr import MAPPED
@@ -148,11 +157,11 @@ def maintain(work: Path, method: str, params: dict[str, Any], tau: float, use_fl
                        "tracks": {str(t): [round(v, 1) for v in b] for t, (b, _) in per[g.frame_idx].items()},
                        "flagged": sorted(flags.get(g.frame_idx, ())),
                        "edges": [{"s": o.edge_key.subject_track_id, "o": o.edge_key.object_track_id,
-                                  "p": MAPPED[o.edge_key.predicate_id], "score": round(o.predicate_score, 4),
+                                  "p": MAPPED[o.edge_key.predicate_id], "score": export_score(o.predicate_score),
                                   "observed": o.observed} for o in res.edge_observations]})
         for o in g.edge_observations:
             rows.append({"frame": g.frame_idx, "s": o.edge_key.subject_track_id, "o": o.edge_key.object_track_id,
-                         "p": MAPPED[o.edge_key.predicate_id], "score": round(o.predicate_score, 4),
+                         "p": MAPPED[o.edge_key.predicate_id], "score": export_score(o.predicate_score),
                          "observed": o.observed})
     out = {"method": name, "params": params, "tau": tau, "stride": STRIDE, "fps": meta["fps"],
            "width": meta["width"], "height": meta["height"], "frames": graphs}
