@@ -32,14 +32,14 @@ troubleshooting are in [WEB.md](WEB.md). What was actually tested is listed in
 
 | Time | Do | Say |
 |---|---|---|
-| 0:00 | Show the header and the intro | "Everything runs locally on this laptop. It tracks the people in a short video and predicts four relationships between them: behind, in front of, next to, and watching. It is not general scene understanding." |
-| 0:30 | Point at the five steps, then press **Analyse the sample clip**. Alternatively, choose a short video and press **Start analysis**. | "The sample is 10 seconds of a public pedestrian benchmark, MOT17-09, used non-commercially under its CC BY-NC-SA licence. It has no relationship ground truth, so what you will see are unverified predictions." |
-| 1:00 | While it runs, point at the stage list and the elapsed time | "Each stage is a separate process. Tracking and EGTR run in their own pinned environments. The page shows which stage is running and how long it has taken. It does not guess a percentage or a finish time." |
+| 0:00 | Show the header (*Local only*, *Setup ready*) and the scope line | "Everything runs locally on this laptop. It tracks the people in a short video and predicts four relationships between them: behind, in front of, next to, and watching. It is not general scene understanding." |
+| 0:30 | Point at the three numbered steps, then press **Analyse sample**. Alternatively, choose a short video and press **Start analysis**. | "The sample is 10 seconds of a public pedestrian benchmark, MOT17-09, used non-commercially under its CC BY-NC-SA licence. It has no relationship ground truth, so what you will see are unverified predictions." |
+| 1:00 | While it runs, point at the stage cards in **2 Monitor the run** and the elapsed time | "Each stage is a separate process. Tracking and EGTR run in their own pinned environments. The page shows which stage is running and how long it has taken. It does not guess a percentage or a finish time." |
 | 1:30 | Open **Settings used for this run** | "These are the exact settings, the config hash and the Git commit, recorded for reproducibility." |
 | 2:00 | When it completes, use the viewer: press Play, step with ← and →, and click the timeline | "Solid blue arrows are relationships EGTR predicted at this step. Dashed orange ones were not predicted now but are retained by the temporal memory. The table lists exactly the same edges as the saved `graphs.json`." |
 | 3:00 | Hover over the **Score** header | "These are raw EGTR ranking scores, typically around 10⁻⁶. They are not probabilities, and we do not rescale them." |
-| 3:30 | Show the download buttons and **Recent runs** | "Every run keeps its graph, its observations, its settings and its log. The offline viewer opens without the server." |
-| 4:00 | Close with the limitations card | See section 4. |
+| 3:30 | Show the **Downloads** row and **Recent runs** | "Every run keeps its graph, its observations, its settings and its log. The offline viewer opens without the server." |
+| 4:00 | Close with the **Before you rely on a result** note | See section 4. |
 
 If the live run is slow or fails, see section 5.
 

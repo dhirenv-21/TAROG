@@ -65,6 +65,12 @@
   - Browser QA: `scripts/web/browser_qa.cjs` (headless Edge, real pipeline), 30/30 checks.
   - Full suite: see `docs/WEB_VALIDATION.md`.
   - Demo guide: `docs/DEMO_GUIDE.md`.
+- [x] Website visual redesign (2026-10-15, UI only):
+  - Layout: numbered Configure / Monitor / Inspect workflow; compact header with local and setup status;
+    scannable history table (12 rows plus "Show all"); exports grouped in a Downloads row.
+  - Icons are local SVGs, and state uses icon/line style plus text. No remote assets.
+  - Verified: 21 screenshots per pass, 0 px overflow, no console errors; WCAG AA contrast computed (minimum 5.36:1);
+    unchanged browser_qa.cjs 30/30; suite 403 passed, 4 skipped. API, run format and pipeline unchanged.
 - [x] Project research scope defined.
 - [x] PRD drafted.
 - [x] Architecture drafted.

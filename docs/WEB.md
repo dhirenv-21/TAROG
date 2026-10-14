@@ -17,16 +17,21 @@ python -m taorg.web --open
 The page opens at http://127.0.0.1:8765. Keep the server window open while you
 use it.
 
-1. Choose a video, drop one onto the page, or press **Analyse the sample clip**.
-2. Keep the recommended settings (Fixed buffer with the takeover flag), or open
-   **Advanced settings**.
-3. Press **Start analysis**. The stage list shows which stage is running and how
-   long it has taken. The page does not estimate percentages or finish times.
-4. When the run completes, explore it in the viewer: Play, step with ← and →,
-   use Home and End, drag the slider, or click the timeline. Download the
-   results with the buttons above it.
-5. Earlier runs stay under **Recent runs**. Runs created before the current
+The page follows three numbered steps.
+
+1. **Configure a run.** Choose a video, drop one onto the page, or press
+   **Analyse sample**. Keep the recommended settings (Fixed buffer with the
+   takeover flag), or open **Advanced settings**. Press **Start analysis**.
+2. **Monitor the run.** Each stage is shown with an icon and a text state
+   (done, running now, failed, not started) and the time it took. The page does
+   not estimate percentages or finish times. **Cancel run**, the processing log
+   and the settings used are in the same card. Saved runs are listed under
+   **Recent runs**, with name, start time, method, result and status. The newest
+   12 are shown; **Show all** lists the rest. Runs created before the current
    server started are labelled *Saved result from an earlier session*.
+3. **Inspect results.** For a completed run, explore the viewer: Play, step
+   with ← and →, use Home and End, drag the slider, or click the timeline. The
+   **Downloads** row in the same card holds every export.
 
 ### What it does and does not do
 
@@ -63,15 +68,31 @@ and historical results are unchanged.
 
 | Button | File | Contents |
 |---|---|---|
-| Download offline viewer | `viewer.html` | Self-contained viewer that opens without the server |
-| Graph (JSON) | `graphs.json` | Per-step tracks, takeover flags and edges (`observed: true` = predicted now) |
-| Predictions (CSV) | `stream.csv.gz` | Raw thresholded EGTR observations before temporal maintenance |
-| Settings (YAML) | `config.yaml` | Exact pipeline configuration of the run |
-| Run record (JSON) | `job.json` | Status, stage times, settings, input and config SHA-256, Git commit |
-| Processing log | `run.log` | Output of every stage |
+| Open offline viewer / Offline viewer | `viewer.html` | Self-contained viewer that opens without the server |
+| Graph JSON | `graphs.json` | Per-step tracks, takeover flags and edges (`observed: true` = predicted now) |
+| Predictions CSV | `stream.csv.gz` | Raw thresholded EGTR observations before temporal maintenance |
+| Settings YAML | `config.yaml` | Exact pipeline configuration of the run |
+| Run record | `job.json` | Status, stage times, settings, input and config SHA-256, Git commit |
+| Log | `run.log` | Output of every stage; failed, cancelled and interrupted runs offer it as **Download processing log** |
 
 Only these named files can be downloaded. The input video and other folder
 contents cannot.
+
+### Interface design
+
+- **Theme.** A light research-dashboard style: navy text, one teal accent for
+  actions, and neutral cards with thin borders. Blue (solid) and amber (dashed)
+  are kept only for predicted and retained relationships, as Design.md
+  specifies.
+- **Typography and icons.** System fonts only (Inter if it is installed,
+  otherwise Segoe UI or the system sans-serif) and small inline SVG icons. There
+  are no remote fonts, CDN files or frameworks, so the page works offline.
+- **State is never colour alone.** Status badges, stages and relationship rows
+  always carry an icon or line style plus text. All text/background pairs meet
+  WCAG AA contrast (≥ 4.5:1; the lowest computed is 5.36:1).
+- **Accessibility.** Keyboard focus is always visible. The viewer accepts
+  ←, →, Home, End and Space. Reduced-motion preferences are respected, and the
+  page uses no animation.
 
 ## Requirements
 

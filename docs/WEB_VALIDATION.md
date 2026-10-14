@@ -213,3 +213,51 @@ that folder's history.
 python -m taorg.web --port 8770 --work D:\TAORG_runs\web-qa-work
 node scripts/web/browser_qa.cjs http://127.0.0.1:8770 D:/TAORG_runs/web-qa
 ```
+
+## 7. Visual redesign check — 2026-10-15
+
+The UI-only pass changed `index.html`, `style.css` and `app.js` rendering. No
+backend, API, saved-run format, pipeline, threshold or score change was made.
+
+**Screenshots.** `scripts/web/ui_states.cjs` captured seven states (empty,
+upload, running, failed, cancelled, interrupted, completed) at 1440×900,
+1280×720 and 390×844, before and after the redesign. That is 21 captures each,
+saved in `D:/TAORG_runs/web-qa/ui`. "Empty" and "running" are **mocked** by
+rewriting `/api/jobs` in the browser, and their file names say so. The other
+states are real saved runs in the QA workspace.
+
+Results:
+- 0 px horizontal overflow and no console errors in all captures.
+- At 390 px the relationship table fits its container: 330 of 330 px.
+
+Defects seen in the screenshots and fixed:
+- the stage state text inherited the table's line marker;
+- the log download link was unstyled;
+- the narrow table clipped its score column;
+- the disabled primary button had low contrast (1.97:1, now 7.3:1);
+- the recovery text said "on the left", which is wrong on narrow screens.
+
+**Contrast.** All text/background colour pairs were computed against WCAG AA
+(≥ 4.5:1). The lowest is 5.36:1, for muted text on the selected history row.
+This was computed from the stylesheet tokens, not checked with an automated
+page audit.
+
+**End-to-end.** The unchanged `scripts/web/browser_qa.cjs` passed **30/30**
+against the redesigned page. It ran one real sample run
+(`b1cc6d9aecf94dc5a6686038f4394aa1`: 100 steps, 1,162 edge records, the same
+as before; 121 s including browser overhead) and one cancelled run. It
+covered:
+- keyboard order and visible focus on 9 stops, including the new header status
+  link;
+- focus surviving a refresh;
+- invalid, empty and corrupt inputs; one-job-at-a-time;
+- table and frame matching `graphs.json` at all 100 steps;
+- Play/Pause, arrow keys, End, slider and timeline seeking;
+- the six exports and the allowlist;
+- process cleanup after cancel;
+- history reopening; 390 px layout; no console errors.
+
+**Suite.** 403 passed, 4 skipped. `node --check` and `git diff --check` pass.
+
+**Not checked:** screen readers, browsers other than Edge, and
+Windows high-contrast mode.
