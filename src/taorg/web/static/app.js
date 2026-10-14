@@ -33,6 +33,15 @@ function el(tag, props = {}, ...children) {
   e.append(...children.filter(c => c !== null && c !== undefined));
   return e;
 }
+const SVGNS = 'http://www.w3.org/2000/svg';
+function icon(name, cls = 'ic') {
+  const svg = document.createElementNS(SVGNS, 'svg'), use = document.createElementNS(SVGNS, 'use');
+  svg.setAttribute('class', cls); svg.setAttribute('aria-hidden', 'true'); use.setAttribute('href', `#i-${name}`);
+  svg.append(use); return svg;
+}
+const STATUS_ICON = {completed: 'check', failed: 'x', interrupted: 'warn', cancelled: 'stop', cancelling: 'stop',
+  running: 'dot', queued: 'circle', uploading: 'upload'};
+function badge(status) { return el('span', {class: `badge ${status}`}, icon(STATUS_ICON[status] || 'circle'), status); }
 const fmtTime = s => s < 60 ? `${Math.round(s)} s` : `${Math.floor(s / 60)} min ${String(Math.round(s % 60)).padStart(2, '0')} s`;
 const fmtDate = t => new Date(t * 1000).toLocaleString();
 // Older exports rounded scores to 4 decimals, turning raw EGTR scores (~1e-6) into 0; never show those as 0.
@@ -199,7 +208,7 @@ function recovery(job) {
   if (job.status !== 'failed' && job.status !== 'interrupted') return null;
   const tips = job.failed_stage === 'check' ?
     ['Use a short clip (10–60 s works best) saved as MP4 (H.264).', 'Choose the file again and press Start analysis.'] :
-    ['Open the processing log below; the last lines name the problem.', 'If a model or environment is missing, the setup panel on the left shows it; see docs/SETUP.md.',
+    ['Open the processing log below; the last lines name the problem.', 'If a model or environment is missing, the Setup panel shows it; see docs/SETUP.md.',
       'Start a new run after fixing it. Partial outputs of this run stay on disk.'];
   return el('ul', {}, ...tips.map(t => el('li', {text: t})));
 }
@@ -214,10 +223,10 @@ function stageClass(job, key) {
   if (job.failed_stage === key) return 'failed';
   return '';
 }
-function action(label, href, download = false) {
-  const a = el('a', {href, text: label});
+function exportLink(label, href, iconName, download = true, cls = '') {
+  const a = el('a', {href, 'data-act': label, class: cls}, icon(iconName), label);
   if (download) a.setAttribute('download', ''); else { a.target = '_blank'; a.rel = 'noopener'; }
-  $('actions').append(a);
+  return a;
 }
 function renderSettings(job) {
   const s = job.settings || {}, v = job.video, o = job.options;
@@ -228,54 +237,68 @@ function renderSettings(job) {
     ['Fixed-buffer length', o.method === 'FB' ? `${o.window} steps` : 'not used by this method'],
     ['Relationship step', `every ${s.relationship_stride || 3}rd video frame`],
     ['Video', v ? `${v.width}×${v.height}, ${v.fps} fps${v.duration_s ? `, ${v.duration_s} s` : ''}` : 'not checked'],
-    ['Input SHA-256', job.input_sha256 ? job.input_sha256.slice(0, 16) + '…' : '—'],
-    ['Settings file SHA-256', job.config_sha256 ? job.config_sha256.slice(0, 16) + '…' : '—'],
-    ['Code version', job.git_commit ? job.git_commit.slice(0, 10) + (job.git_dirty_src ? ' + local changes' : '') : '—'],
+    ['Input SHA-256', job.input_sha256 ? job.input_sha256.slice(0, 16) + '…' : '—', 'mono'],
+    ['Settings file SHA-256', job.config_sha256 ? job.config_sha256.slice(0, 16) + '…' : '—', 'mono'],
+    ['Code version', job.git_commit ? job.git_commit.slice(0, 10) + (job.git_dirty_src ? ' + local changes' : '') : '—', 'mono'],
   ];
   if (job.sample) rows.push(['Sample source', `${job.sample.source} · ${job.sample.licence}`]);
-  $('settingsList').replaceChildren(...rows.flatMap(([k, val]) => [el('dt', {text: k}), el('dd', {text: val})]));
+  $('settingsList').replaceChildren(...rows.flatMap(([k, val, cls]) => [el('dt', {text: k}), el('dd', {text: val, class: cls || ''})]));
 }
 function renderDetail() {
   const job = jobs.find(j => j.id === selected);
   $('empty').hidden = !!job; $('runDetail').hidden = !job;
-  if (!job) return;
+  if (!job) { $('viewerBox').hidden = true; $('resultsEmpty').hidden = false; $('exports').replaceChildren(); return; }
   const saved = job.status === 'completed' && job.created < serverStarted;
   $('runKind').textContent = (job.origin === 'sample' ? 'Sample clip · ' : '') + (saved ? 'Saved result from an earlier session' : 'Run');
   $('runName').textContent = job.name;
   $('runWhen').textContent = `Started ${fmtDate(job.created)} · ${METHOD[job.options.method]}${job.options.flag ? ' + takeover flag' : ''}`;
-  $('badge').textContent = job.status; $('badge').className = `badge ${job.status}`;
+  $('badge').replaceWith(Object.assign(badge(job.status), {id: 'badge'}));
   $('statusLine').textContent = statusText(job);
   $('stages').replaceChildren(...STAGES.map(([key, label]) => {
-    const t = (job.stage_times || {})[key];
-    const li = el('li', {class: stageClass(job, key)}, el('b', {text: label}),
-      t && t[1] ? `${fmtTime(t[1] - t[0])}` : '');
-    return li;
+    const t = (job.stage_times || {})[key], cls = stageClass(job, key);
+    const state = {done: t && t[1] ? `done · ${fmtTime(t[1] - t[0])}` : 'done', current: 'running now', failed: 'failed'}[cls] ||
+      (['completed'].includes(job.status) ? 'skipped' : 'not started');
+    return el('li', {class: cls}, icon({done: 'check', current: 'dot', failed: 'x'}[cls] || 'circle'),
+      el('span', {}, el('b', {text: label}), el('span', {class: 'sst', text: state})));
   }));
   $('runError').hidden = !job.error;
-  $('runError').replaceChildren(...(job.error ? [el('p', {text: job.error, style: 'margin:0'}), recovery(job)] : []));
+  $('runError').replaceChildren(...(job.error ? [el('b', {text: job.status === 'interrupted' ? 'Run interrupted' : 'What went wrong'}),
+    el('p', {text: job.error}), recovery(job)] : []));
   $('actions').replaceChildren();
   if (['queued', 'running'].includes(job.status)) {
-    const b = el('button', {type: 'button', class: 'danger', text: 'Cancel run'});
+    const b = el('button', {type: 'button', class: 'danger', 'data-act': 'cancel'}, icon('stop'), 'Cancel run');
     b.addEventListener('click', async () => {
       b.disabled = true;
       try { await api(`/api/jobs/${job.id}/cancel`, {method: 'POST'}); await refresh(); } catch (err) { showError(err.message); }
     });
     $('actions').append(b);
   }
-  if (job.status === 'completed') {
-    const base = `/results/${job.id}/`;
-    action('Open offline viewer ↗', base + 'viewer.html');
-    action('Download offline viewer', base + 'viewer.html?download=1', true);
-    action('Graph (JSON)', base + 'graphs.json?download=1', true);
-    action('Predictions (CSV)', base + 'stream.csv.gz?download=1', true);
-    action('Settings (YAML)', base + 'config.yaml?download=1', true);
-    action('Run record (JSON)', base + 'job.json?download=1', true);
+  const base = `/results/${job.id}/`;
+  $('exports').replaceChildren(...(job.status === 'completed' ? [
+    el('span', {class: 'label', text: 'Downloads'}),
+    exportLink('Open offline viewer', base + 'viewer.html', 'open', false, 'main'),
+    exportLink('Offline viewer', base + 'viewer.html?download=1', 'download'),
+    exportLink('Graph JSON', base + 'graphs.json?download=1', 'download'),
+    exportLink('Predictions CSV', base + 'stream.csv.gz?download=1', 'download'),
+    exportLink('Settings YAML', base + 'config.yaml?download=1', 'download'),
+    exportLink('Run record', base + 'job.json?download=1', 'download'),
+    exportLink('Log', base + 'run.log?download=1', 'download')] : []));
+  if (!['uploading', 'queued', 'completed'].includes(job.status)) {
+    $('actions').append(exportLink('Download processing log', base + 'run.log?download=1', 'download'));
   }
-  if (!['uploading', 'queued'].includes(job.status)) action('Processing log', `/results/${job.id}/run.log?download=1`, true);
   renderSettings(job);
-  if (job.status === 'completed') loadViewer(job); else { $('viewerBox').hidden = true; viewer.jobId = null; stopPlay(); }
+  if (job.status === 'completed') loadViewer(job);
+  else {
+    $('viewerBox').hidden = true; viewer.jobId = null; stopPlay();
+    $('resultsEmpty').hidden = false;
+    $('resultsEmpty').firstElementChild.textContent = ACTIVE.includes(job.status) ?
+      'Results appear here when this run completes.' :
+      `This run ${job.status === 'failed' ? 'failed' : `was ${job.status}`} before producing a graph, so there is nothing to explore. Select a completed run in Recent runs.`;
+  }
 }
-let lastSig = '';
+let lastSig = '', showAllRuns = false;
+const HISTORY_LIMIT = 12;
+$('historyMore').addEventListener('click', () => { showAllRuns = !showAllRuns; refresh(true).catch(err => showError(err.message)); });
 async function refresh(force = false) {
   jobs = await api('/api/jobs');
   if (!selected && jobs.length) selected = jobs[0].id;
@@ -294,23 +317,31 @@ async function refresh(force = false) {
   lastSig = sig;
   const active = document.activeElement;
   const focusedRow = active && active.dataset ? active.dataset.id : null;
-  const focusedAction = active && $('actions').contains(active) ? active.textContent : null;
+  const focusedAction = active && active.dataset && active.dataset.act ? active.dataset.act : null;
   $('runCount').textContent = `${jobs.length} saved run${jobs.length === 1 ? '' : 's'}`;
+  const limit = showAllRuns ? jobs.length : HISTORY_LIMIT;
+  let shown = jobs.slice(0, limit);
+  const sel = jobs.find(j => j.id === selected);
+  if (sel && !shown.includes(sel)) shown = [...shown, sel];          // the selected run is always listed
   if (!jobs.length) $('history').replaceChildren(el('p', {class: 'muted', text: 'Your runs will appear here.'}));
-  else $('history').replaceChildren(...jobs.map(job => {
-    const s = job.summary;
-    const meta = `${fmtDate(job.created)} · ${METHOD[job.options.method].split(' (')[0]}${job.options.flag ? ' + flag' : ''}` +
-      (s ? ` · ${s.steps} steps · ${s.edges} records` : '');
+  else $('history').replaceChildren(...shown.map(job => {
+    const s = job.summary, method = METHOD[job.options.method].split(' (')[0];
+    const result = s ? `${s.steps} steps · ${s.edges} relationship records` : (job.failed_stage ? `stopped at ${STAGE_LABEL[job.failed_stage]}` : '');
     const row = el('button', {type: 'button', class: 'historyrow' + (selected === job.id ? ' selected' : ''),
-      'aria-pressed': String(selected === job.id), 'data-id': job.id},
-    el('span', {}, el('strong', {text: (job.origin === 'sample' ? 'Sample · ' : '') + job.name}), el('small', {text: meta})),
-    el('span', {class: `badge ${job.status}`, text: job.status}));
+      'aria-current': selected === job.id ? 'true' : 'false', 'data-id': job.id},
+    el('span', {class: 'hname'}, job.origin === 'sample' ? el('span', {class: 'src', text: 'Sample clip'}) : null,
+      el('strong', {text: job.name, title: job.name})),
+    el('span', {class: 'hcell'}, fmtDate(job.created)),
+    el('span', {class: 'hcell'}, method + (job.options.flag ? ' + flag' : ''), result ? el('small', {text: result}) : null),
+    badge(job.status));
     row.addEventListener('click', () => { selected = job.id; refresh(true).catch(err => showError(err.message)); });
     return row;
   }));
+  $('historyMore').hidden = jobs.length <= HISTORY_LIMIT;
+  $('historyMore').textContent = showAllRuns ? 'Show fewer runs' : `Show all ${jobs.length} runs`;
   if (focusedRow) { const r = $('history').querySelector(`[data-id="${focusedRow}"]`); if (r) r.focus(); }
   renderDetail(); buttonState();
-  if (focusedAction) { const a = [...$('actions').children].find(x => x.textContent === focusedAction); if (a) a.focus(); }
+  if (focusedAction) { const a = document.querySelector(`[data-act="${CSS.escape(focusedAction)}"]`); if (a) a.focus(); }
   if (selected && $('logs').open) {
     const id = selected, log = await api(`/api/jobs/${id}/log`);
     if (selected === id) $('logText').textContent = log.text;
@@ -322,7 +353,7 @@ $('logs').addEventListener('toggle', () => { if ($('logs').open) refresh(true).c
 const viewer = {jobId: null, data: null, i: 0, playing: false, timer: null, images: new Map(), keys: [], rowOf: new Map()};
 function edgeKey(e) { return `${e.s}|${e.p}|${e.o}`; }
 async function loadViewer(job) {
-  $('viewerBox').hidden = false;
+  $('viewerBox').hidden = false; $('resultsEmpty').hidden = true;
   if (viewer.jobId === job.id) return;
   stopPlay();
   viewer.jobId = job.id; viewer.data = null; viewer.i = 0; viewer.images = new Map();
@@ -380,15 +411,15 @@ function show(i) {
 function renderRows(f) {
   const rows = [...f.edges].sort((a, b) => (b.observed - a.observed) || (a.s - b.s) || (a.o - b.o));
   $('vRows').replaceChildren(...rows.map(e => el('tr', {'data-key': edgeKey(e)},
-    el('td', {text: person(e.s)}), el('td', {text: REL[e.p] || e.p}), el('td', {text: person(e.o)}),
-    el('td', {class: e.observed ? 'st-cur' : 'st-ret', text: e.observed ? 'Predicted now' : 'Retained'}),
+    el('td', {class: 'pp', text: person(e.s)}), el('td', {text: REL[e.p] || e.p}), el('td', {class: 'pp', text: person(e.o)}),
+    el('td', {}, el('span', {class: `st ${e.observed ? 'st-cur' : 'st-ret'}`, text: e.observed ? 'Predicted now' : 'Retained'})),
     el('td', {class: 'num', text: score(e.score)}))));
   $('vNone').hidden = rows.length > 0;
 }
 function drawFrame() {
   const d = viewer.data, f = d.frames[viewer.i], c = $('vCanvas'), g = c.getContext('2d');
   const sx = c.width / d.width, sy = c.height / d.height, img = frameImage(f.frame);
-  g.fillStyle = '#20262a'; g.fillRect(0, 0, c.width, c.height);
+  g.fillStyle = '#1b2330'; g.fillRect(0, 0, c.width, c.height);
   if (img.complete && !img.failed && img.naturalWidth) g.drawImage(img, 0, 0, c.width, c.height);
   else { g.fillStyle = '#c9d1cd'; g.font = '18px system-ui'; g.fillText(img.failed ? 'Frame image not available for this run' : 'Loading frame…', 20, 34); }
   const centre = b => [(b[0] + b[2]) / 2 * sx, (b[1] + b[3]) / 2 * sy];
@@ -400,7 +431,7 @@ function drawFrame() {
     g.strokeRect(b[0] * sx, b[1] * sy, (b[2] - b[0]) * sx, (b[3] - b[1]) * sy);
     g.setLineDash([]);
     const label = `P${t}`, w = g.measureText(label).width + 10;
-    g.fillStyle = flagged ? '#b0307d' : 'rgba(23,43,53,.9)';
+    g.fillStyle = flagged ? '#a8327a' : 'rgba(22,35,58,.9)';
     g.fillRect(b[0] * sx, b[1] * sy - 22, w, 22);
     g.fillStyle = '#fff'; g.fillText(label, b[0] * sx + 5, b[1] * sy - 6);
   }
@@ -429,18 +460,18 @@ function drawTimeline() {
   const g = c.getContext('2d');
   g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
   g.font = '12px system-ui'; g.textBaseline = 'middle';
-  if (!viewer.keys.length) { g.fillStyle = '#4f5d63'; g.fillText('No relationships in this run.', 8, 20); return; }
+  if (!viewer.keys.length) { g.fillStyle = '#55627a'; g.fillText('No relationships in this run.', 8, 20); return; }
   viewer.keys.forEach((k, r) => {
     const [s, p, o] = k.split('|');
-    g.fillStyle = r % 2 ? '#f6f8f5' : '#fff'; g.fillRect(0, 4 + r * TL.row, c.width, TL.row);
-    g.fillStyle = '#172b35'; g.fillText(`P${s} ${(REL[p] || p).replace('is ', '')} P${o}`, 6, 4 + r * TL.row + TL.row / 2);
+    g.fillStyle = r % 2 ? '#f6f8fa' : '#fff'; g.fillRect(0, 4 + r * TL.row, c.width, TL.row);
+    g.fillStyle = '#16233a'; g.fillText(`P${s} ${(REL[p] || p).replace('is ', '')} P${o}`, 6, 4 + r * TL.row + TL.row / 2);
   });
   d.frames.forEach((f, i) => f.edges.forEach(e => {
     const r = viewer.rowOf.get(edgeKey(e));
-    g.fillStyle = e.observed ? '#1f63a8' : '#d48a1c';
+    g.fillStyle = e.observed ? '#1d5fa8' : '#d48a1c';
     g.fillRect(TL.gutter + i * cell, 6 + r * TL.row, Math.max(1, cell - 1), TL.row - 4);
   }));
-  g.fillStyle = '#b0307d';
+  g.fillStyle = '#16233a';
   g.fillRect(TL.gutter + viewer.i * cell + cell / 2 - 1, 0, 2, c.height);
   c.dataset.cell = cell;
   c.setAttribute('aria-label', `Timeline of ${viewer.keys.length} person-pair relationships over ${n} steps`);
@@ -450,11 +481,15 @@ $('vTimeline').addEventListener('click', e => {
   const x = (e.clientX - rect.left) * (c.width / rect.width) - TL.gutter;
   if (x >= 0) { stopPlay(); show(Math.floor(x / Number(c.dataset.cell || 1))); }
 });
-function stopPlay() { viewer.playing = false; clearTimeout(viewer.timer); $('vPlay').textContent = 'Play'; }
+function setPlayLabel(playing) {
+  $('vPlayText').textContent = playing ? 'Pause' : 'Play';
+  $('vPlayIcon').setAttribute('href', playing ? '#i-pause' : '#i-play');
+}
+function stopPlay() { viewer.playing = false; clearTimeout(viewer.timer); setPlayLabel(false); }
 function play() {
   const d = viewer.data; if (!d) return;
   if (viewer.i >= d.frames.length - 1) show(0);
-  viewer.playing = true; $('vPlay').textContent = 'Pause';
+  viewer.playing = true; setPlayLabel(true);
   const step = () => {
     if (!viewer.playing) return;
     if (viewer.i >= d.frames.length - 1) { stopPlay(); return; }
@@ -488,6 +523,8 @@ async function init() {
     $('tau').value = state.default_tau; $('window').value = state.default_window;
     $('readyDot').textContent = ready ? '●' : '○';
     $('readyText').textContent = ready ? 'Setup files found' : 'Setup needs attention';
+    $('hdrReady').className = `pill ${ready ? 'ok' : 'bad'}`;
+    $('hdrReady').replaceChildren(icon(ready ? 'check' : 'warn'), ready ? 'Setup ready' : 'Setup needs attention');
     $('checks').replaceChildren(...state.checks.map(c => el('li', {class: c.ok ? 'ok' : 'bad', title: c.path},
       c.ok ? c.name : `Missing: ${c.name} (${c.path})`)));
     if (!ready) showError('Some required files are missing (see the setup panel). Analysis is disabled until they are installed.');
@@ -495,10 +532,15 @@ async function init() {
     if (samples.length) {
       const s = samples[0];
       $('sampleBox').hidden = false;
-      $('sampleText').textContent = `${s.title}. Source: ${s.source}. Licence: ${s.licence}. Pedestrian footage without relationship labels, so predictions on it cannot be checked.`;
+      $('sampleText').textContent = `${s.title}. ${s.licence.split(' (')[0]}, MOTChallenge. ` +
+        'No relationship labels exist, so its predictions cannot be checked.';
+      $('sampleText').title = `Source: ${s.source}. Licence: ${s.licence}. ${s.attribution || ''}`;
     }
     await refresh();
-  } catch (err) { showError('Cannot connect to TAORG. Start it with start_web.cmd, then refresh this page.'); }
+  } catch (err) {
+    showError('Cannot connect to TAORG. Start it with start_web.cmd, then refresh this page.');
+    $('hdrReady').className = 'pill bad'; $('hdrReady').replaceChildren(icon('warn'), 'Server not reachable');
+  }
   const poll = async () => {
     try { await refresh(); } catch (err) { showError('Connection to the local server was lost. Saved runs remain on disk; restart the server and refresh.'); }
     setTimeout(poll, jobs.some(j => ACTIVE.includes(j.status)) ? 1500 : 4000);
