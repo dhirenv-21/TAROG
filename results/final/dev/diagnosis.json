@@ -1,0 +1,75 @@
+{
+ "note": "EXPLORATORY; development data only; cannot change the registered STOP",
+ "frames": 7348,
+ "egtr_person_queries_per_frame": 14.214888405008166,
+ "tracker_outputs_per_frame": 3.6373162765378333,
+ "share_tracker_outputs_matched_to_egtr": 0.7612900811913047,
+ "per_predicate": {
+  "behind": {
+   "pairs": 51464,
+   "positives": 2896,
+   "score_quantiles": {
+    "0.5": 3.906446943702235e-09,
+    "0.9": 5.395088976456472e-07,
+    "0.99": 2.2104841500549832e-05,
+    "0.999": 0.0001650510617327964
+   },
+   "auc_active_vs_inactive": 0.601416495218642,
+   "mean_score_active": 1.198247057058612e-06,
+   "mean_score_inactive": 1.169904986994965e-06
+  },
+  "in_front_of": {
+   "pairs": 51464,
+   "positives": 15791,
+   "score_quantiles": {
+    "0.5": 4.5009648785843126e-10,
+    "0.9": 1.0085489918765242e-07,
+    "0.99": 5.149645076016926e-06,
+    "0.999": 2.8868717086879092e-05
+   },
+   "auc_active_vs_inactive": 0.5285239551372657,
+   "mean_score_active": 3.278173987433883e-07,
+   "mean_score_inactive": 1.9725528127851493e-07
+  },
+  "next_to": {
+   "pairs": 51464,
+   "positives": 7506,
+   "score_quantiles": {
+    "0.5": 7.204523200243784e-09,
+    "0.9": 1.6900787500162778e-06,
+    "0.99": 0.0001517229832825278,
+    "0.999": 0.0008925877444562256
+   },
+   "auc_active_vs_inactive": 0.6929782758260383,
+   "mean_score_active": 3.450306848562819e-05,
+   "mean_score_inactive": 3.16439226582641e-06
+  },
+  "watch": {
+   "pairs": 51464,
+   "positives": 4082,
+   "score_quantiles": {
+    "0.5": 8.56093596013352e-09,
+    "0.9": 1.4648777778347744e-06,
+    "0.99": 5.253278177406173e-05,
+    "0.999": 0.0003507167364586978
+   },
+   "auc_active_vs_inactive": 0.6567913103029034,
+   "mean_score_active": 5.751696134074758e-06,
+   "mean_score_inactive": 2.3444326754996495e-06
+  }
+ },
+ "quantile_tau_nm_f1": {
+  "0.9": {
+   "tau": 6.648256203334313e-07,
+   "mean_NM_frame_f1": 0.15113244976282678
+  },
+  "0.99": {
+   "tau": 4.972793540218872e-05,
+   "mean_NM_frame_f1": 0.045694797829618244
+  },
+  "0.999": {
+   "tau": 0.0004586031692451671,
+   "mean_NM_frame_f1": 0.007591284370239404
+  }
+ }
+}

@@ -195,3 +195,24 @@ Ties go to the first in (video, key, start) order.
 ## 11. Amendments
 
 (none yet)
+
+**Registered outcome, recorded 2026-10-14: development gate FAIL, so Q1 and Q2 are STOP.**
+- **The gate** (`results/final/dev/gate.json`):
+  - G2: at the best registered τ_obs = 0.005, NM frame F1 = 0.0001 and only 1/30 videos had a
+    predicted key;
+  - G3: IGT(B2) = 0 s.
+- **What follows:** the final videos are **not** fetched or processed, and nothing is retuned or
+  redesigned.
+
+**Operational failure** (no result produced): the first calibration attempt aborted out of memory
+(`load_sgg` decompressed an array once per frame; fixed in `55bcd3b`; values unchanged).
+
+**After the gate** (EXPLORATORY, development only; cannot change STOP):
+- `results/final/dev/diagnosis.json` finds:
+  - 76% of tracker outputs are matched to EGTR person queries;
+  - EGTR's person–person triplet scores are tiny (99.9th percentile 3e-5 to 9e-4), **so the
+    registered τ grid was misspecified for this score scale**;
+  - the ranking signal is weak (AUC 0.53–0.69 by predicate);
+  - NM frame F1 is 0.15 at a 90th-percentile threshold.
+- **E1** on the development streams at that diagnostic threshold
+  (`results/final/dev/e1_real_streams.json`): 0 mismatches, max |Δscore| 0.
