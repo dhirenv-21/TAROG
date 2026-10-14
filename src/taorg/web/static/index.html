@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAORG · Video workspace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%2316233a%22/%3E%3Cg stroke=%22%235fd0c3%22 stroke-width=%222.2%22%3E%3Cpath d=%22M9 22 16 10l7 12z%22 fill=%22none%22/%3E%3C/g%3E%3Cg fill=%22white%22%3E%3Ccircle cx=%229%22 cy=%2222%22 r=%223.2%22/%3E%3Ccircle cx=%2216%22 cy=%2210%22 r=%223.2%22/%3E%3Ccircle cx=%2223%22 cy=%2222%22 r=%223.2%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="/style.css">
+<script defer src="/app.js"></script>
+</head>
+<body>
+<!-- Local icon set (no external assets). Each icon is decorative; text always carries the meaning. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="M4.5 4.5l7 7m0-7l-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.5" fill="currentColor"/><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-circle" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 16 16"><rect x="4" y="4" width="8" height="8" rx="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 16 16"><rect x="4" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9" y="3" width="3" height="10" rx="1" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6L13 8z" fill="currentColor"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 16 16"><path d="M11 3.2v9.6L4 8z" fill="currentColor"/></symbol>
+  <symbol id="i-first" viewBox="0 0 16 16"><path d="M13 3.2v9.6L6 8z" fill="currentColor"/><rect x="3" y="3" width="2" height="10" rx="1" fill="currentColor"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-download" viewBox="0 0 16 16"><path d="M8 2.5v7.5m0 0L5 7m3 3 3-3M3 11.5v1A1.5 1.5 0 0 0 4.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-open" viewBox="0 0 16 16"><path d="M9 3h4v4m0-4L7.5 8.5M12 9.5v2A1.5 1.5 0 0 1 10.5 13h-6A1.5 1.5 0 0 1 3 11.5v-6A1.5 1.5 0 0 1 4.5 4h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7.2v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="5" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 16 16"><path d="M8 2.2 14.3 13H1.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6.5v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11.3" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-film" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 6v4l3.5-2z" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip" href="#viewerSection">Skip to results</a>
+<header class="topbar">
+  <a class="brand" href="/" aria-label="TAORG video workspace, home">
+    <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M9 22 16 10l7 12z"/><circle cx="9" cy="22" r="3.2"/><circle cx="16" cy="10" r="3.2"/><circle cx="23" cy="22" r="3.2"/></svg>
+    <span class="brandname">TAORG</span><small>Temporal relationship graph workspace</small>
+  </a>
+  <div class="sysstatus">
+    <span class="pill"><span class="pdot ok" aria-hidden="true"></span>Local only · 127.0.0.1</span>
+    <a class="pill" id="hdrReady" href="#setup"><svg class="ic" aria-hidden="true"><use href="#i-circle"/></svg><span>Checking setup…</span></a>
+  </div>
+</header>
+
+<main>
+<p class="scope"><b>Scope:</b> tracks the <b>people</b> in a short video and predicts four person–person relationships —
+  <b>behind</b>, <b>in front of</b>, <b>next to</b>, <b>watching</b> — on every third frame, kept in a temporal graph.
+  It does not recognise other objects or answer questions about the video.</p>
+
+<div class="toprow">
+<div class="leftcol">
+  <section class="card" aria-labelledby="newTitle">
+    <div class="cardhead"><h2 id="newTitle"><span class="stepno" aria-hidden="true">1</span>Configure a run</h2><span class="tag">Local GPU</span></div>
+    <form id="runForm" class="cardbody" novalidate>
+      <label class="drop" id="drop" for="video">
+        <input id="video" type="file" accept=".mp4,.mov,.avi,.mkv,.webm,.m4v,video/*" aria-describedby="uploadLimit">
+        <svg class="uploadicon" aria-hidden="true"><use href="#i-upload"/></svg>
+        <strong id="filename">Choose a video</strong>
+        <span id="filemeta">or drop a file here</span>
+        <small id="uploadLimit">MP4, MOV, AVI, MKV, WebM</small>
+      </label>
+      <video id="preview" controls muted hidden aria-label="Preview of the chosen video"></video>
+      <p id="previewNote" class="hint" hidden></p>
+
+      <div id="sampleBox" class="sample" hidden>
+        <svg class="ic sampleic" aria-hidden="true"><use href="#i-film"/></svg>
+        <div>
+          <p class="sampletitle">No video at hand? Use the sample clip</p>
+          <p class="hint" id="sampleText"></p>
+        </div>
+        <button type="button" id="runSample" class="btn secondary">Analyse sample</button>
+      </div>
+
+      <div class="field">
+        <label for="method">Temporal method</label>
+        <select id="method" aria-describedby="methodHint">
+          <option value="FB">Fixed buffer (recommended)</option>
+          <option value="NM">No memory: raw predictions only</option>
+          <option value="B2">GatedEMA + hysteresis (experimental)</option>
+          <option value="VH">V-HPED filter (experimental)</option>
+        </select>
+        <p class="hint" id="methodHint"></p>
+      </div>
+
+      <label class="check"><input id="flag" type="checkbox" checked aria-describedby="flagHint">
+        <span>Clear a person's relationships when the tracker hands their ID to someone else
+          <small id="flagHint">Uses the frozen appearance-based takeover flag. Available for Fixed buffer and GatedEMA.</small></span></label>
+
+      <details class="advanced">
+        <summary>Advanced settings</summary>
+        <div class="field">
+          <label for="tau">Relationship score cutoff</label>
+          <input id="tau" type="number" min="0.000000000001" max="1" step="any" aria-describedby="tauHint">
+          <p class="hint" id="tauHint">A prediction counts only if its raw EGTR score is at least this value. Raw scores are
+            uncalibrated ranking scores, usually far below 0.01. The default was chosen on development videos; it is not a
+            validated operating point.</p>
+        </div>
+        <div class="field">
+          <label for="window">Fixed-buffer length (relationship steps)</label>
+          <input id="window" type="number" min="1" max="300" aria-describedby="windowHint">
+          <p class="hint" id="windowHint">Relationships are predicted on every third frame. A retained relationship stays this many steps after its last prediction.</p>
+        </div>
+      </details>
+
+      <button class="btn primary" id="start" type="submit" disabled>Start analysis</button>
+      <p id="uploadStatus" class="hint" aria-live="polite"></p>
+      <p id="error" class="alert" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section class="card environment" id="setup" tabindex="-1" aria-labelledby="envTitle">
+    <div class="cardhead"><h2 id="envTitle"><span id="readyDot" aria-hidden="true">○</span> <span id="readyText">Checking setup…</span></h2></div>
+    <div class="cardbody">
+      <ul id="checks" class="checks"></ul>
+      <button type="button" id="selfcheck" class="btn secondary">Run pre-demo check</button>
+      <p class="hint" id="selfcheckText">Loads both inference environments and checks the GPU (usually under a minute). No models are downloaded.</p>
+      <ul id="selfcheckResults" class="checks"></ul>
+    </div>
+  </section>
+
+  <section class="note" aria-labelledby="limitsTitle">
+    <h2 id="limitsTitle"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>Before you rely on a result</h2>
+    <ul>
+      <li>Relationships come from EGTR, an image model trained on still photos; each frame is predicted independently.</li>
+      <li>Scores are raw ranking scores, not probabilities. Empty or wrong graphs are possible and are shown as they are.</li>
+      <li>GatedEMA and V-HPED are experimental: on raw scores they usually return empty graphs.</li>
+      <li>The research study found no evidence that the temporal methods improve real predicted relationships.</li>
+    </ul>
+  </section>
+</div>
+
+<div class="rightcol">
+  <section class="card" id="workspace" tabindex="-1" aria-labelledby="wsTitle">
+    <div class="cardhead"><h2 id="wsTitle"><span class="stepno" aria-hidden="true">2</span>Monitor the run</h2><span id="runCount" class="muted small"></span></div>
+    <div class="cardbody" id="focus">
+      <div id="empty" class="emptystate">
+        <h3>No run selected</h3>
+        <p>Choose a video or the sample clip and press <b>Start analysis</b>. Progress appears here; saved runs are listed below.</p>
+      </div>
+
+      <div id="runDetail" hidden>
+        <div class="detailhead">
+          <div class="detailname"><p class="eyebrow" id="runKind">Run</p><h3 id="runName"></h3><p class="hint" id="runWhen"></p></div>
+          <span id="badge" class="badge"></span>
+        </div>
+        <p id="statusLine" class="statusline" aria-live="polite"></p>
+        <ol id="stages" class="stages" aria-label="Processing stages"></ol>
+        <div id="runError" class="alert" role="alert" hidden></div>
+        <div id="actions" class="actions"></div>
+        <details id="settingsBox" class="disclosure">
+          <summary>Settings used for this run</summary>
+          <dl id="settingsList"></dl>
+        </details>
+        <details id="logs" class="disclosure logs"><summary>Processing log</summary><pre id="logText">Open to load the log.</pre></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="histTitle">
+    <div class="cardhead"><h2 id="histTitle">Recent runs</h2><span class="muted small">Saved on this computer</span></div>
+    <div id="history" class="history"><p class="muted">Your runs will appear here.</p></div>
+    <button type="button" id="historyMore" class="historymore" hidden></button>
+  </section>
+</div>
+</div>
+
+<section class="card results" id="viewerSection" tabindex="-1" aria-labelledby="viewerTitle">
+  <div class="cardhead">
+    <h2 id="viewerTitle"><span class="stepno" aria-hidden="true">3</span>Inspect results</h2>
+    <div id="exports" class="exports" aria-label="Downloads for this run"></div>
+  </div>
+  <div id="resultsEmpty" class="emptystate compact"><p>Select a completed run to explore its relationship graph.</p></div>
+  <div id="viewerBox" hidden>
+    <p id="viewerEmpty" class="alert info" hidden></p>
+    <div class="viewer" id="viewerRegion" tabindex="0"
+         aria-label="Relationship viewer. Use left and right arrow keys to step, Home and End to jump, space to play or pause.">
+      <div class="controls">
+        <button type="button" id="vFirst" class="iconbtn" aria-label="First step" title="First step (Home)"><svg class="ic" aria-hidden="true"><use href="#i-first"/></svg></button>
+        <button type="button" id="vPrev" class="iconbtn" aria-label="Previous step" title="Previous step (←)"><svg class="ic" aria-hidden="true"><use href="#i-prev"/></svg></button>
+        <button type="button" id="vPlay" class="playbtn" title="Play or pause (space)"><svg class="ic" aria-hidden="true"><use id="vPlayIcon" href="#i-play"/></svg><span id="vPlayText">Play</span></button>
+        <button type="button" id="vNext" class="iconbtn" aria-label="Next step" title="Next step (→)"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></button>
+        <input id="vSlider" type="range" min="0" value="0" aria-label="Relationship step">
+        <label class="speed" for="vSpeed">Speed</label>
+        <select id="vSpeed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+      </div>
+      <p id="vPos" class="vpos" aria-live="polite"></p>
+      <div class="vgrid">
+        <figure class="stage">
+          <canvas id="vCanvas" width="640" height="360" role="img" aria-label="Video frame with tracked people and relationships"></canvas>
+          <figcaption class="legend">
+            <span><i class="sw cur"></i>Predicted at this step (solid)</span>
+            <span><i class="sw ret"></i>Retained by temporal memory (dashed)</span>
+            <span><i class="sw flg"></i>Takeover flag (dotted box)</span>
+            <span>P7 = the tracker's ID 7 in this video</span>
+          </figcaption>
+        </figure>
+        <div class="reltable">
+          <h3 class="subhead">Relationships at this step</h3>
+          <div class="tablewrap">
+            <table>
+              <thead><tr><th scope="col">Person</th><th scope="col">Relationship</th><th scope="col">Person</th><th scope="col">Status</th><th scope="col" class="num"><abbr title="EGTR ranking score for current predictions; the method's own score for retained ones. Not a probability.">Score</abbr></th></tr></thead>
+              <tbody id="vRows"></tbody>
+            </table>
+          </div>
+          <p id="vNone" class="hint" hidden>No relationships at this step.</p>
+          <p class="hint">Score: raw ranking score, not a probability.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <h3 class="subhead">Timeline <small>click to jump · rows are person pairs · scroll for more</small></h3>
+        <div class="tlscroll" tabindex="0" aria-label="Timeline, scrollable"><canvas id="vTimeline" height="120"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><span>TAORG · Temporal Adaptive Object Relationship Graph</span><span>Research prototype · predictions, not ground truth</span></footer>
+</main>
+</body>
+</html>

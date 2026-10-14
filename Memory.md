@@ -5,13 +5,13 @@
 ## Current status
 - Stage: **Project completion pass done** (branch `codex/taorg-completion`): Phase 5 lazy maintenance COMPLETE; EGTR integrated and source-verified; runnable pipeline; final predictor-level evaluation **STOP at its development gate**; paper draft. Earlier: downstream GO (narrow), appearance NARROW, observation NOT USABLE
 - Earlier: next-method K1 STOP / UNSUPPORTED; episode study STOP; Phase 5H-1 HAWKES TRACK = NARROW (exploratory, annotation-only); Phase 4 METHOD CONTRIBUTION = NO (synthetic); Stage 0 WEAK-MIXED
-- Active phase: none — **awaiting user review** of the completion PR. No supported novel temporal estimator.
+- Active phase: user-authorized local website wrapper (`codex/taorg-local-web`) on the completion branch. No new research study or supported novel temporal estimator.
 - Last updated: 2026-10-14
 - Paper intent: **Yes — conference/workshop-oriented research paper is a required project outcome.**
 
 ## Git provenance
 - Repository: local + remote (https://github.com/dhirenv-21/TAROG.git)
-- Branch: `main`
+- Current branch: `codex/taorg-local-web`, based on `codex/taorg-completion` at `4131448`; completion PR #8 is stacked on downstream PR #7. Older Phase 3 provenance follows.
 - Latest commits: `d8728b3` Phase 3 pre-registration; `2ce7d1f` parameter freeze; `867b7be` evaluation artifacts; exit-report commit follows (see `git log`)
 - Baseline commit: `770caaa` (Phase 1 complete)
 - Identity: dhiren2125@gmail.com / dhirenv-21 (repo-local)
@@ -40,6 +40,37 @@
 7. Exact recent WSGG baseline to reproduce.
 
 ## Completed work
+- [x] Local video website: upload, validated settings, single GPU job, stage progress,
+  cancellation, retained history/errors, graph viewer and exports. No new dependencies.
+  Real 12-frame smoke produced four steps / 48 edge records; browser checks passed
+  on desktop/mobile, including an intentionally invalid video. Nine backend tests
+  passed; full main suite: 395 passed, 4 environment-specific skips.
+  Evidence and limitations: `docs/WEB_VALIDATION.md`; launch: `docs/WEB.md`.
+  Existing research decisions and unrelated demo changes are preserved.
+- [x] Website polish + validation for submission (2026-10-14, `codex/taorg-local-web`):
+  - Main additions:
+    - in-page viewer with a frame-aligned relationship table and timeline, keyboard controls and current/retained distinction;
+    - the settings used for each run;
+    - an OpenCV video check before any GPU stage;
+    - the pre-demo self-check (both envs import and see CUDA; 7 s);
+    - an allowlisted MOT17-09 sample clip (CC BY-NC-SA 3.0, local only, not committed).
+  - Reliability fixes:
+    - restart stops a crashed server's orphaned pipeline worker (verified live: 2 orphans -> 0);
+    - exclusive port binding (Windows had allowed two servers on one port).
+  - Export fix: graphs.json/stream.csv.gz scores now keep 4 significant figures. Fixed 4-decimal
+    rounding had saved raw EGTR scores (~1e-6) as 0.0. Method inputs were always unrounded; no metric or
+    threshold changed. Older runs are labelled as rounded in the viewer.
+  - Real sample runs through the website: 100 steps, 1162 edge records (490 predicted, 672 retained), identical over 9 runs; 92-108 s (one 321 s run during a laptop suspend).
+    Unverified predictions: MOT17 has no relationship labels.
+  - Browser QA: `scripts/web/browser_qa.cjs` (headless Edge, real pipeline), 30/30 checks.
+  - Full suite: see `docs/WEB_VALIDATION.md`.
+  - Demo guide: `docs/DEMO_GUIDE.md`.
+- [x] Website visual redesign (2026-10-15, UI only):
+  - Layout: numbered Configure / Monitor / Inspect workflow; compact header with local and setup status;
+    scannable history table (12 rows plus "Show all"); exports grouped in a Downloads row.
+  - Icons are local SVGs, and state uses icon/line style plus text. No remote assets.
+  - Verified: 21 screenshots per pass, 0 px overflow, no console errors; WCAG AA contrast computed (minimum 5.36:1);
+    unchanged browser_qa.cjs 30/30; suite 403 passed, 4 skipped. API, run format and pipeline unchanged.
 - [x] Project research scope defined.
 - [x] PRD drafted.
 - [x] Architecture drafted.
@@ -221,6 +252,10 @@ Add short entries only, newest first:
 - Episode ladder contrasts compare selected operating points: mechanism and base-parameter selection are confounded (post-hoc E1).
 
 ## Next action
+Local website handoff: review website PR #9 (stacked on #8); rehearse the demo with
+`docs/DEMO_GUIDE.md` (pre-demo check, sample run, saved-result fallback). This is an
+engineering wrapper; it does not authorize another study. Earlier research next-action records are preserved below.
+
 WAIT for user review of the completion PR (Phase 5 complete; EGTR integrated; final evaluation STOP at gate; paper draft). Single justified next step (needs a NEW registration + approval): predictor-level test with rank-normalised scores and a development-quantile tau, ideally with a video scene-graph model; do not reuse the stopped registration. Earlier: WAIT for user review of the downstream PR (registered GO, narrow; no algorithm contribution). Single justified next step (needs approval; major scope): replace the oracle relation predictor with one existing VidSGG model's cached predictions on the same frozen pipeline, with identity-stable/flicker-robust scoring and harm margins relative to baseline persistence; stop the line if no gain. Earlier: WAIT for user review of the appearance-audit PR (decision NARROW). Single justified next step (needs approval): one pre-registered downstream test feeding the FROZEN T+A takeover flag into GatedEMA+hysteresis / fixed buffer via the observation contract, measuring relationship ghost time and false termination; requires relationship labels (VidSGG model or a pre-registered proxy) and must not tune on the MOT17 sequences used here; stop the line if no gain over the fixed buffer. Earlier: Single next experiment (needs approval: MOT17 frames 1.95 GB + re-ID model): repeat the pre-stated audit with an appearance-based tracker exposing association evidence (e.g. BoT-SORT + re-ID); alternatively integrate one VidSGG model to audit 'not evaluated' vs 'evaluated negative'. Earlier: WAIT for user review of the next-method PR (STOP / UNSUPPORTED) and of the episode-study PR. No algorithm contribution is currently supported. The most promising new question (needs a new prereg) is to separate 'no record / track lost' from 'visibility UNKNOWN', ideally using real tracker states. Earlier: WAIT for user review of the episode-study PR (decision STOP). Recommendation: use GatedEMA + hysteresis as the termination-aware baseline and the episode metrics in the robustness-evaluation paper; do not propose the episode estimator as a method. Phase 5H-1 NARROW decision also still pending. Do not start detector integration, another dataset, heap optimisation, or a later phase without approval.
 
 ## Update protocol for Claude Code

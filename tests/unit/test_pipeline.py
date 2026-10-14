@@ -70,3 +70,8 @@ def test_maintain_errors_are_actionable(tmp_path):
     work = make_work(tmp_path / "w")
     with pytest.raises(StageError, match="FB and B2 only"):
         maintain(work, "VH", {}, 0.1, True)
+
+
+def test_export_score_keeps_tiny_raw_scores():
+    from taorg.pipeline.stages import export_score
+    assert export_score(6.6481234e-7) == 6.648e-7 and export_score(0.123456) == 0.1235 and export_score(0.0) == 0.0

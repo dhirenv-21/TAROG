@@ -55,6 +55,10 @@ pytest
 
 ## What you can run
 
+**Local website:** double-click `start_web.cmd`, or run
+`python -m taorg.web --open`. Upload a clip, follow processing, and explore or
+download its graph. See [the website guide](docs/WEB.md) for setup and limits.
+
 | Goal | Command | Docs |
 |---|---|---|
 | Video → tracks → EGTR relationships → temporal maintenance → graphs + viewer | `python -m taorg.pipeline run --video clip.mp4 --work W` | [docs/PIPELINE.md](docs/PIPELINE.md), [docs/SETUP.md](docs/SETUP.md) |
