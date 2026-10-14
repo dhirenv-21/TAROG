@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAORG · Video workspace</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<body>
+<header><a class="brand" href="/"><span class="mark">T<span>↗</span></span> TAORG <small>VIDEO WORKSPACE</small></a><span class="local"><i></i> On your laptop</span></header>
+<main>
+<section class="intro"><div><p class="eyebrow">FROM VIDEO TO RELATIONSHIPS</p><h1>See what connects.</h1><p class="lede">Track people, explore their relationships, and follow how a scene changes over time.</p></div><div class="flow" aria-label="Video to tracks to graph"><span>01<br><b>Video</b></span><em>→</em><span>02<br><b>Tracks</b></span><em>→</em><span>03<br><b>Graph</b></span></div></section>
+<div class="layout">
+<aside>
+<section class="card"><div class="cardhead"><h2>New analysis</h2><span class="tag">LOCAL GPU</span></div>
+<form id="runForm">
+<label class="drop" id="drop"><input id="video" type="file" accept=".mp4,.mov,.avi,.mkv,.webm,.m4v" required><span class="uploadicon">↥</span><strong id="filename">Choose a video</strong><span id="filemeta">or drop it here</span><small id="uploadLimit">MP4, MOV, AVI, MKV, WebM · up to 2 GB</small></label>
+<video id="preview" controls hidden></video>
+<label for="method">Temporal method</label><select id="method"><option value="FB">Fixed buffer · recommended</option><option value="NM">No temporal memory</option><option value="B2">GatedEMA + hysteresis · experimental</option><option value="VH">V-HPED · experimental</option></select>
+<p class="hint" id="methodHint">Keeps recent relationships for a short window.</p>
+<label class="check"><input id="flag" type="checkbox" checked><span>Clear relationships on a takeover flag<small>Uses the frozen appearance model.</small></span></label>
+<details class="advanced"><summary>Advanced settings</summary><label for="tau">Relationship score cutoff</label><input id="tau" type="number" min="0.000000000001" max="1" step="any" value="0.0000006648" required><label for="window">Buffer length (relationship steps)</label><input id="window" type="number" min="1" max="300" value="10" required><p class="hint">One relationship step every third video frame. Settings are saved with each run.</p></details>
+<button class="primary" id="start" type="submit" disabled>Start analysis <span>↗</span></button>
+<p id="uploadStatus" class="hint" aria-live="polite"></p><p id="error" role="alert" hidden></p>
+</form></section>
+<details class="card environment"><summary><span id="readyDot">○</span> <span id="readyText">Checking environment…</span></summary><ul id="checks"></ul><p class="hint">Missing a resource? See docs/SETUP.md.</p></details>
+<p class="scope">Currently supports <b>people</b> and four relationships: behind, in front of, next to, and watching. Model scores are uncalibrated; inspect predictions before relying on them.</p>
+</aside>
+<section class="workspace">
+<div class="sectiontitle"><h2>Your workspace</h2><span id="runCount">0 runs</span></div>
+<section class="card focus" id="focus">
+<div id="empty"><div class="graphart" aria-hidden="true"><span class="node n1">01</span><span class="link l1"></span><span class="node n2">02</span><span class="link l2"></span><span class="node n3">03</span><span class="relation">next to</span></div><h3>A new perspective on your video.</h3><p>Choose a clip to build your first temporal scene graph.<br>Your video and results stay on this computer.</p><div class="emptyfooter"><span>01 · Track people</span><span>02 · Predict relationships</span><span>03 · Explore the graph</span></div></div>
+<div id="runDetail" hidden><div class="detailhead"><div><p class="eyebrow" id="runLabel">ANALYSIS</p><h3 id="runName"></h3></div><span id="badge" class="badge"></span></div><p id="runInfo" class="hint"></p><ol id="stages"></ol><p id="runError" role="alert" hidden></p><div id="actions" class="actions"></div><iframe id="viewer" title="TAORG relationship graph viewer" sandbox="allow-scripts allow-same-origin" hidden></iframe><details id="logs"><summary>Processing log</summary><pre id="logText"></pre></details></div>
+</section>
+<div class="sectiontitle historytitle"><h2>Recent runs</h2><span>Saved on this laptop</span></div><div id="history"><p class="muted">Your runs will appear here.</p></div>
+</section></div>
+<footer><span>TAORG / Temporal Adaptive Object Relationship Graph</span><span>Research workspace · Predictions, not ground truth</span></footer>
+</main></body></html>
