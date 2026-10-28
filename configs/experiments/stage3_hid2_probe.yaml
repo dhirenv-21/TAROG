@@ -1,0 +1,22 @@
+# Stage 3 probe of hypothesis H-ID2: the ID-switch failure is caused by a single
+# rho_unk confounding (i) record-absence of a real pair whose identity was taken
+# (should be censored) with (ii) record-absence of a phantom pair created by the
+# switch (should count as evidence).  Falsifier: pinning rho_unk does not recover
+# frame F1 / ECE of fitted V-HPED.
+seeds: [42, 123, 456, 789, 2024]
+splits: {train: 20, val: 10, test: 20}
+scenario: {}
+conditions:
+  occlusion_flicker_idswitch:
+    id_switch: {swap_duration: 5, num_swaps: 2, min_pre_swap_frames: 2,
+                min_post_swap_frames: 2, require_same_class: true}
+thresholds: [0.02, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5,
+             0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
+trainer: {num_iters: 200, lr: 0.05, l2_cross: 1.0e-3, fit_rebirth: false}
+methods:
+  vhped_handset:        {method: vhped}
+  vhped_full_fit:       {method: vhped, fit: true}
+  vhped_fit_rhounk05:   {method: vhped, fit: true, trainer: {rho_unk_fixed: 0.5}}
+  vhped_fit_rhounk1:    {method: vhped, fit: true, trainer: {rho_unk_fixed: 1.0}}
+reference_method: vhped_full_fit
+bootstrap: {n: 10000, seed: 0}

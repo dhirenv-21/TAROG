@@ -154,9 +154,34 @@ false_persistence_rate(e) = (frames where P(e,t)=1 AND t > t_end) / (seq_len - t
 
 ---
 
-## 6. Calibration / ECE
-**Status:** DEFERRED — only meaningful if the method produces a calibrated alive
-probability. Will be implemented when V-HPED or HMM produces probability outputs.
+## 6. Calibration / ECE and Brier score
+**Status: FROZEN 2026-10-28** (defined before any calibration result was computed;
+previously DEFERRED). Implementation: `src/taorg/metrics/calibration.py`.
+
+### Units
+Every (edge, frame) for which the method outputs a score when run with
+`score_threshold = 0` (every edge it is tracking). Label `y = 1` if the edge is
+observed in the uncorrupted GT at that frame, else 0. Untracked units are excluded.
+Scores are clipped to [0, 1].
+
+### Definitions
+```
+ECE   = sum_b (n_b / N) * | mean(y in bin b) - mean(score in bin b) |
+Brier = mean( (score - y)^2 )
+```
+Bins: 10 equal-width bins `[b/10, (b+1)/10)`, the last including 1.0.
+
+### Interpretation
+Only V-HPED and HMM output probabilities. EMA-family scores are smoothed detector
+scores, not probabilities; their ECE is reported for completeness but must not be
+read as a calibration claim.
+
+### Edge cases
+| Case | Expected |
+|------|----------|
+| No tracked units | ECE = 0, Brier = 0, num_units = 0 |
+| Perfect 0/1 scores equal to labels | ECE = 0, Brier = 0 |
+| Constant score 0.5, half labels 1 | ECE = 0, Brier = 0.25 |
 
 ---
 
@@ -172,6 +197,23 @@ Wall-clock time for the temporal method's `step()` call, excluding base model in
 
 ### Implementation
 Use `time.perf_counter()` for high-resolution timing.
+
+---
+
+## 8. ID-switch spurious-edge rate
+**Status: FROZEN 2026-10-28** (defined before its first use).
+Implementation: `idswitch_spurious` in `src/taorg/experiments/ablation_matrix.py`.
+
+Units: output edge-frames whose subject or object is one of the two swapped track labels of an
+`id_switch` manifest entry, at frames from the swap start to swap end + 10 (inclusive).
+An edge-frame is *spurious* if the edge is not observed in the uncorrupted GT at that frame.
+
+```
+idswitch_spurious_rate = spurious edge-frames / output edge-frames in those units
+```
+Pooled over the test videos of a seed; reported as mean +- std over seeds. 0 if there are no units
+(e.g. no ID switches). Lower is better. The +10-frame window captures phantom edges that outlive
+the swap.
 
 ---
 

@@ -1,0 +1,11 @@
+{
+  "baseline_matrix": "20261027_202753_a7314fe5",
+  "probe_prior": "20261028_044818_696b2840",
+  "probe_rho_unk": "20261028_045023_e10fb99f",
+  "ia_v1_matrix": "20261028_050001_0c54b136",
+  "complexity": "complexity/20261027T202322Z",
+  "param_recovery": "param_recovery/20261028T051308Z",
+  "complexity_machine": "Windows-10-10.0.26300-SP0",
+  "figures_copied_from": "paper/generated (rendered from the runs above by scripts/make_paper_artifacts.py)",
+  "note": "All runs synthetic. git_commit = unknown (checkout not under git)."
+}

@@ -1,0 +1,11 @@
+# Action Genome dataset configuration.
+# Format assumptions are documented in src/taorg/data/action_genome.py and MUST be
+# checked on the real files first:
+#   python scripts/inspect_action_genome.py --root <root>
+# Annotations are not redistributed with this repository (licensing); obtain them
+# from the official Action Genome release.
+action_genome:
+  root: data/action_genome          # relative to repo root; override with --root
+  annotation_dir: annotations
+  fps: 30.0                         # UNVERIFIED per-video; used for frame_number -> seconds
+  min_frames: 2
