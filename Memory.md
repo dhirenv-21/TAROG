@@ -109,6 +109,7 @@ Items 1–3 and 5 are RESOLVED for the discrete-time model in `research/derivati
 - [x] Phase 9 scripts: scripts/make_paper_artifacts.py -> paper/generated/ (tables, figures, numbers.tex, results_text.tex, provenance.json).
 - [x] Phase 10: paper/main.tex + references.bib (not compiled: no LaTeX on this machine), research/reproducibility_audit.md.
 - [x] 240 tests passing (2026-10-28).
+- [x] Dashboard (2026-10-29): `src/taorg/dashboard/` (FastAPI, optional `[dashboard]` extra) + static UI; reads saved runs only and replays single saved test videos with the run's fitted params. Replay reproduced saved per-video frame F1 exactly (baseline run, seed 42, video 0). `tests/integration/test_dashboard.py`: 12 passed. Start: `python scripts/run_dashboard.py`.
 - [ ] Base models integrated.
 - [ ] Final experiments completed.
 - [ ] Paper drafted.

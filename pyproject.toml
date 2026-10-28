@@ -21,10 +21,19 @@ dependencies = [
 dev = [
     "pytest>=7.0",
     "ruff>=0.4",
+    "httpx>=0.24",  # FastAPI TestClient in tests/integration/test_dashboard.py
+]
+# Optional web dashboard over saved runs (scripts/run_dashboard.py).
+dashboard = [
+    "fastapi>=0.100",
+    "uvicorn>=0.20",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"taorg.dashboard" = ["static/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

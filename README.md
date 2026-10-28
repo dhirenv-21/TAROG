@@ -76,6 +76,26 @@ python scripts/make_paper_artifacts.py                # paper/generated/ from ru
 The paper draft is `paper/main.tex` (all numbers come from `paper/generated/`).
 Reproducibility status: `research/reproducibility_audit.md`.
 
+## Dashboard
+
+A web dashboard over the saved runs in `outputs/runs/`: headline results, the ablation
+tables with threshold curves and paired comparisons, the lazy-maintenance benchmark,
+parameter recovery, run history with downloads, and a filter explorer. The explorer replays
+one saved synthetic test video through the real filters, using that run's fitted parameters
+and thresholds, and checks each result against the per-video value the run stored. It never
+starts an experiment or writes to `outputs/`.
+
+```bash
+pip install -e ".[dashboard]"
+```
+```bash
+python scripts/run_dashboard.py
+```
+
+Then open http://127.0.0.1:8050. Options: `--runs <dir>` and `--port <n>`. The API docs
+are at `/api/docs`. The frontend is plain HTML/CSS/JS in `src/taorg/dashboard/static/`, with
+no build step. All results shown are synthetic.
+
 ## Current Status
 
 See [Memory.md](Memory.md) for verified implementation status.
