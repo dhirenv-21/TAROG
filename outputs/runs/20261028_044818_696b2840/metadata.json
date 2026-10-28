@@ -1,0 +1,35 @@
+{
+  "run_id": "20261028_044818_696b2840",
+  "git_commit": "unknown",
+  "git_dirty": true,
+  "git_branch": "unknown",
+  "command": "scripts/run_ablation_matrix.py --config configs/experiments/stage3_hid_probe.yaml --workers 5",
+  "config": {},
+  "dataset_id": "synthetic/vhped_benchmark",
+  "base_model_id": "synthetic_detector",
+  "temporal_method": "ablation_matrix",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    2024
+  ],
+  "corruption_manifest": null,
+  "environment": {
+    "platform": "Windows-10-10.0.26300-SP0",
+    "python_version": "3.10.11",
+    "machine": "AMD64",
+    "torch_version": "2.12.0.dev20260408+cu128",
+    "cuda_available": "True"
+  },
+  "start_time": "2026-10-28T04:48:18.948615+00:00",
+  "end_time": "2026-10-28T04:49:26.971454+00:00",
+  "status": "completed",
+  "warnings": [],
+  "metrics": {},
+  "timing": {
+    "total_seconds": 67.99800989998039,
+    "workers": 5
+  }
+}

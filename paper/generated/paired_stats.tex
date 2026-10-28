@@ -1,0 +1,26 @@
+\begin{tabular}{llrrr}
+\toprule
+Condition & vs.\ method & $\Delta$ frame F1 [95\% CI] & $\Delta$ term.\ delay [95\% CI] & seeds F1$>$ \\
+\midrule
+occlusion flicker & No memory & +0.184 [+0.176, +0.193] & +2.37 [+2.14, +2.61] & 5/5 \\
+occlusion flicker & Fixed window & +0.055 [+0.051, +0.060] & -0.90 [-1.21, -0.57] & 5/5 \\
+occlusion flicker & EMA & +0.028 [+0.024, +0.032] & -4.37 [-4.84, -3.89] & 5/5 \\
+occlusion flicker & Vis-Gated EMA & +0.008 [+0.006, +0.010] & -1.63 [-1.87, -1.38] & 5/5 \\
+occlusion flicker & HMM & +0.068 [+0.063, +0.073] & +1.03 [+0.77, +1.30] & 5/5 \\
+occlusion flicker & V-HPED (hand-set) & +0.008 [+0.006, +0.010] & -0.73 [-0.94, -0.53] & 5/5 \\
+occlusion flicker & VT-HMM (fit, no Hawkes) & -0.011 [-0.013, -0.009] & -1.90 [-2.14, -1.67] & 0/5 \\
+occlusion flicker & V-HPED w/o visibility & +0.037 [+0.032, +0.042] & -0.56 [-0.88, -0.24] & 5/5 \\
+occlusion flicker & V-HPED self-only & +0.003 [+0.002, +0.004] & -0.15 [-0.22, -0.08] & 5/5 \\
+occlusion flicker & V-HPED lazy-exact & +0.001 [+0.001, +0.002] & -0.24 [-0.31, -0.17] & 5/5 \\
+occlusion flicker idswitch & No memory & +0.127 [+0.121, +0.135] & +1.13 [+0.96, +1.31] & 5/5 \\
+occlusion flicker idswitch & Fixed window & +0.001 [-0.004, +0.006] & -2.03 [-2.30, -1.73] & 3/5 \\
+occlusion flicker idswitch & EMA & -0.031 [-0.036, -0.025] & -3.97 [-4.35, -3.57] & 0/5 \\
+occlusion flicker idswitch & Vis-Gated EMA & -0.015 [-0.018, -0.012] & -1.57 [-1.78, -1.36] & 0/5 \\
+occlusion flicker idswitch & HMM & +0.016 [+0.011, +0.020] & -0.14 [-0.35, +0.09] & 5/5 \\
+occlusion flicker idswitch & V-HPED (hand-set) & -0.033 [-0.036, -0.029] & -1.55 [-1.78, -1.33] & 0/5 \\
+occlusion flicker idswitch & VT-HMM (fit, no Hawkes) & -0.031 [-0.035, -0.028] & -0.83 [-0.99, -0.65] & 0/5 \\
+occlusion flicker idswitch & V-HPED w/o visibility & +0.005 [-0.002, +0.012] & -1.57 [-1.87, -1.26] & 3/5 \\
+occlusion flicker idswitch & V-HPED self-only & +0.003 [+0.002, +0.003] & -0.14 [-0.21, -0.08] & 5/5 \\
+occlusion flicker idswitch & V-HPED lazy-exact & +0.004 [+0.003, +0.006] & -0.07 [-0.15, +0.02] & 5/5 \\
+\bottomrule
+\end{tabular}

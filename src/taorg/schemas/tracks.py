@@ -53,6 +53,10 @@ class TrackObservation:
         tracker_state: Raw tracker state.
         visibility_state: Derived visibility state (may be set by visibility policy).
         occlusion_ratio: Optional estimated occlusion ratio in [0, 1].
+        identity_confidence: Optional tracker score in [0, 1] that this track label
+            still refers to the same physical object as in the previous frame
+            (association confidence).  None = not supplied; consumers that need it
+            treat None as 1.0.  Used only by identity-aware methods (vhped_ia).
     """
 
     video_id: str
@@ -65,3 +69,4 @@ class TrackObservation:
     tracker_state: TrackerState = TrackerState.TRACKED
     visibility_state: VisibilityState = VisibilityState.VISIBLE
     occlusion_ratio: Optional[float] = None
+    identity_confidence: Optional[float] = None

@@ -1,0 +1,1 @@
+INTERRUPTED: killed by a session restart before any cell finished (no metrics). A re-run (20261028_162146_fc7b5ffd) was cancelled by the user. IA-v2 is implemented and unit-tested but NOT evaluated.

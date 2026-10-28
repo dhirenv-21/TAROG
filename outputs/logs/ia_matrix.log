@@ -1,0 +1,10 @@
+2026-10-28 10:30:01,778 Loaded config from configs\experiments\ia_matrix_synthetic.yaml
+2026-10-28 10:30:01,788 Set Python random seed = 42, NumPy seed = 42
+2026-10-28 10:30:01,806 Set PyTorch manual seed = 42
+2026-10-28 10:30:01,909 Created run directory: outputs\runs\20261028_050001_0c54b136
+2026-10-28 10:30:01,913 Saved resolved config to outputs\runs\20261028_050001_0c54b136\config.resolved.yaml
+2026-10-28 10:52:48,140 Saved metrics to outputs\runs\20261028_050001_0c54b136\metrics.json
+2026-10-28 10:52:48,141 Saved timing to outputs\runs\20261028_050001_0c54b136\timing.json
+2026-10-28 10:52:48,142 Saved metadata to outputs\runs\20261028_050001_0c54b136\metadata.json
+
+Ablation matrix finished -> outputs\runs\20261028_050001_0c54b136

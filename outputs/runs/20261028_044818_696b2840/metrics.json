@@ -1,0 +1,293 @@
+{
+  "kind": "SYNTHETIC ablation matrix",
+  "table": [
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "method": "gated_ema",
+      "frame_f1": [
+        0.8905336712768307,
+        0.004874094267033102
+      ],
+      "persistence_f1": [
+        0.8776535025752443,
+        0.01454113078533435
+      ],
+      "termination_delay_mean": [
+        3.7442219963866306,
+        0.21682402696987696
+      ],
+      "false_persistence_rate": [
+        0.060946203229441796,
+        0.00311564990309781
+      ],
+      "churn": [
+        0.050430549898457536,
+        0.00464354902506667
+      ],
+      "ece": [
+        0.19218318341253143,
+        0.0045386901025858475
+      ],
+      "brier": [
+        0.14135777850987147,
+        0.0017542133994576006
+      ],
+      "latency_ms": [
+        0.037957853319433826,
+        0.004669931920997187
+      ],
+      "selected_threshold": [
+        0.2,
+        0.0
+      ]
+    },
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "method": "vhped_handset",
+      "frame_f1": [
+        0.9090128306658236,
+        0.005276188533832665
+      ],
+      "persistence_f1": [
+        0.8761911313130305,
+        0.028981136730089802
+      ],
+      "termination_delay_mean": [
+        3.735747798102982,
+        0.46020446771314577
+      ],
+      "false_persistence_rate": [
+        0.06012124788720097,
+        0.010703399953092862
+      ],
+      "churn": [
+        0.029450390876052703,
+        0.003887567476037746
+      ],
+      "ece": [
+        0.028309780901000236,
+        0.0025821916277335775
+      ],
+      "brier": [
+        0.06535829974440402,
+        0.0013403099876997896
+      ],
+      "latency_ms": [
+        0.5067715666528481,
+        0.01356108947186948
+      ],
+      "selected_threshold": [
+        0.5599999999999999,
+        0.048989794855663564
+      ]
+    },
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "method": "vhped_full_fit",
+      "frame_f1": [
+        0.8754983148803402,
+        0.007330402650570555
+      ],
+      "persistence_f1": [
+        0.8946490537540353,
+        0.015610602001180895
+      ],
+      "termination_delay_mean": [
+        2.119917852303523,
+        0.242999174320744
+      ],
+      "false_persistence_rate": [
+        0.03786512533043997,
+        0.004272545116685989
+      ],
+      "churn": [
+        0.05877165604195892,
+        0.007126833756571717
+      ],
+      "ece": [
+        0.21123288598922935,
+        0.013439584308299753
+      ],
+      "brier": [
+        0.1910187648931363,
+        0.010205097963945722
+      ],
+      "latency_ms": [
+        0.43915846665234615,
+        0.010074499469054924
+      ],
+      "selected_threshold": [
+        0.9,
+        0.0
+      ]
+    },
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "method": "vhped_full_fit_prior05",
+      "frame_f1": [
+        0.8820376992056407,
+        0.005641087164328344
+      ],
+      "persistence_f1": [
+        0.8944472832094597,
+        0.014814487526130425
+      ],
+      "termination_delay_mean": [
+        2.1101617547425477,
+        0.24917154026330873
+      ],
+      "false_persistence_rate": [
+        0.02475579120641875,
+        0.003849145168814253
+      ],
+      "churn": [
+        0.06663831323382512,
+        0.0060435684410295515
+      ],
+      "ece": [
+        0.19865223142622562,
+        0.011944670888521518
+      ],
+      "brier": [
+        0.1780417987932105,
+        0.009409780710081127
+      ],
+      "latency_ms": [
+        0.4916784800084618,
+        0.035978990127813665
+      ],
+      "selected_threshold": [
+        0.9,
+        0.0
+      ]
+    }
+  ],
+  "paired_vs_reference": [
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "a": "vhped_full_fit",
+      "b": "gated_ema",
+      "frame_f1_seed_diff": [
+        -0.015035356396490585,
+        0.003428752601656019
+      ],
+      "frame_f1_a_greater_seeds": 0,
+      "persistence_f1_seed_diff": [
+        0.016995551178790924,
+        0.008307324009037075
+      ],
+      "persistence_f1_a_greater_seeds": 5,
+      "termination_delay_mean_seed_diff": [
+        -1.6243041440831072,
+        0.21591418611074026
+      ],
+      "termination_delay_mean_a_greater_seeds": 0,
+      "false_persistence_rate_seed_diff": [
+        -0.023081077899001823,
+        0.00639238071155199
+      ],
+      "false_persistence_rate_a_greater_seeds": 0,
+      "churn_seed_diff": [
+        0.008341106143501392,
+        0.009599791147659957
+      ],
+      "churn_a_greater_seeds": 4,
+      "frame_f1_video_diff_mean": -0.014915494998477396,
+      "frame_f1_video_ci95": [
+        -0.01780652423118594,
+        -0.012071931122239891
+      ],
+      "frame_f1_video_units": 100,
+      "termination_delay_mean_video_diff_mean": -1.5670922792134914,
+      "termination_delay_mean_video_ci95": [
+        -1.7760923356946083,
+        -1.3626102657163266
+      ],
+      "termination_delay_mean_video_units": 99
+    },
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "a": "vhped_full_fit",
+      "b": "vhped_handset",
+      "frame_f1_seed_diff": [
+        -0.03351451578548352,
+        0.00420992648122395
+      ],
+      "frame_f1_a_greater_seeds": 0,
+      "persistence_f1_seed_diff": [
+        0.018457922441004793,
+        0.026162267135736685
+      ],
+      "persistence_f1_a_greater_seeds": 4,
+      "termination_delay_mean_seed_diff": [
+        -1.615829945799458,
+        0.488975787605724
+      ],
+      "termination_delay_mean_a_greater_seeds": 0,
+      "false_persistence_rate_seed_diff": [
+        -0.022256122556760998,
+        0.010984066101671207
+      ],
+      "false_persistence_rate_a_greater_seeds": 0,
+      "churn_seed_diff": [
+        0.02932126516590622,
+        0.00991228675272882
+      ],
+      "churn_a_greater_seeds": 5,
+      "frame_f1_video_diff_mean": -0.03281948438192957,
+      "frame_f1_video_ci95": [
+        -0.0364247261565052,
+        -0.029249123884515605
+      ],
+      "frame_f1_video_units": 100,
+      "termination_delay_mean_video_diff_mean": -1.55175164341831,
+      "termination_delay_mean_video_ci95": [
+        -1.7844501563251562,
+        -1.3268714927048262
+      ],
+      "termination_delay_mean_video_units": 99
+    },
+    {
+      "condition": "occlusion_flicker_idswitch",
+      "a": "vhped_full_fit",
+      "b": "vhped_full_fit_prior05",
+      "frame_f1_seed_diff": [
+        -0.006539384325300412,
+        0.0019237692846109124
+      ],
+      "frame_f1_a_greater_seeds": 0,
+      "persistence_f1_seed_diff": [
+        0.00020177054457548582,
+        0.00117667871423087
+      ],
+      "persistence_f1_a_greater_seeds": 4,
+      "termination_delay_mean_seed_diff": [
+        0.009756097560975664,
+        0.013008130081300884
+      ],
+      "termination_delay_mean_a_greater_seeds": 2,
+      "false_persistence_rate_seed_diff": [
+        0.013109334124021215,
+        0.0031830492599605473
+      ],
+      "false_persistence_rate_a_greater_seeds": 5,
+      "churn_seed_diff": [
+        -0.007866657191866194,
+        0.004672531438759273
+      ],
+      "churn_a_greater_seeds": 0,
+      "frame_f1_video_diff_mean": -0.006594479106571816,
+      "frame_f1_video_ci95": [
+        -0.007971170236066565,
+        -0.0052930600333317805
+      ],
+      "frame_f1_video_units": 100,
+      "termination_delay_mean_video_diff_mean": 0.011038961038961037,
+      "termination_delay_mean_video_ci95": [
+        0.002020202020202022,
+        0.022054473304473295
+      ],
+      "termination_delay_mean_video_units": 99
+    }
+  ]
+}

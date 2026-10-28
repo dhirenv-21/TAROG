@@ -1,0 +1,5 @@
+2026-10-28 21:51:46,155 Loaded config from configs\experiments\ia2_matrix_synthetic.yaml
+2026-10-28 21:51:46,167 Set Python random seed = 42, NumPy seed = 42
+2026-10-28 21:51:46,190 Set PyTorch manual seed = 42
+2026-10-28 21:51:46,320 Created run directory: outputs\runs\20261028_162146_fc7b5ffd
+2026-10-28 21:51:46,324 Saved resolved config to outputs\runs\20261028_162146_fc7b5ffd\config.resolved.yaml

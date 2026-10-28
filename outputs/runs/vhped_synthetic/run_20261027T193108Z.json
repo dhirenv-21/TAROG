@@ -1,0 +1,694 @@
+{
+  "kind": "SYNTHETIC sanity benchmark - not paper evidence",
+  "seeds": [
+    0
+  ],
+  "splits": {
+    "train": 6,
+    "val": 4,
+    "test": 6
+  },
+  "scenario": {
+    "num_frames": 150,
+    "num_pairs": 4,
+    "fps": 30.0,
+    "p_terminate": 0.6,
+    "terminate_range": [
+      40,
+      120
+    ],
+    "precursor_len": 6,
+    "reliabilities": [
+      0.95,
+      0.75,
+      0.5
+    ],
+    "fp_prob": 0.02,
+    "gap_lengths": [
+      3,
+      5,
+      10,
+      20
+    ],
+    "gaps_per_pair": 2
+  },
+  "trainer": {
+    "num_iters": 60,
+    "lr": 0.05,
+    "l2_cross": 0.001,
+    "fit_rebirth": false,
+    "use_visibility": true,
+    "use_excitation": true,
+    "use_cross_predicate": true,
+    "seed": 0
+  },
+  "git_commit": "unknown",
+  "git_dirty": true,
+  "summary": {
+    "no_memory": {
+      "frame_f1": [
+        0.8089394392896339,
+        0.0
+      ],
+      "persistence_f1": [
+        0.0,
+        0.0
+      ],
+      "persistence_recall": [
+        0.0,
+        0.0
+      ],
+      "termination_delay_mean": [
+        1.0,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.01776692494781012,
+        0.0
+      ],
+      "churn": [
+        0.2354640762839639,
+        0.0
+      ],
+      "selected_threshold": [
+        0.05,
+        0.0
+      ]
+    },
+    "ema": {
+      "frame_f1": [
+        0.9361702127659575,
+        0.0
+      ],
+      "persistence_f1": [
+        0.7360861759425493,
+        0.0
+      ],
+      "persistence_recall": [
+        0.6002928257686676,
+        0.0
+      ],
+      "termination_delay_mean": [
+        7.555555555555555,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.15949635143418828,
+        0.0
+      ],
+      "churn": [
+        0.0405865114796756,
+        0.0
+      ],
+      "selected_threshold": [
+        0.25,
+        0.0
+      ]
+    },
+    "gated_ema": {
+      "frame_f1": [
+        0.9575907590759076,
+        0.0
+      ],
+      "persistence_f1": [
+        0.9294781382228491,
+        0.0
+      ],
+      "persistence_recall": [
+        0.9648609077598829,
+        0.0
+      ],
+      "termination_delay_mean": [
+        6.0,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.13917026012241085,
+        0.0
+      ],
+      "churn": [
+        0.021645965103302568,
+        0.0
+      ],
+      "selected_threshold": [
+        0.1,
+        0.0
+      ]
+    },
+    "hmm": {
+      "frame_f1": [
+        0.8961489322869137,
+        0.0
+      ],
+      "persistence_f1": [
+        0.2270967741935484,
+        0.0
+      ],
+      "persistence_recall": [
+        0.12884333821376281,
+        0.0
+      ],
+      "termination_delay_mean": [
+        2.111111111111111,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.03853587189225603,
+        0.0
+      ],
+      "churn": [
+        0.0858395828497052,
+        0.0
+      ],
+      "selected_threshold": [
+        0.05,
+        0.0
+      ]
+    },
+    "vhped_handset": {
+      "frame_f1": [
+        0.9597797062750334,
+        0.0
+      ],
+      "persistence_f1": [
+        0.9247311827956989,
+        0.0
+      ],
+      "persistence_recall": [
+        0.9443631039531479,
+        0.0
+      ],
+      "termination_delay_mean": [
+        4.138888888888889,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.08857646434805146,
+        0.0
+      ],
+      "churn": [
+        0.022053643604052417,
+        0.0
+      ],
+      "selected_threshold": [
+        0.45,
+        0.0
+      ]
+    },
+    "vt_hmm_fit": {
+      "frame_f1": [
+        0.9746941511647395,
+        0.0
+      ],
+      "persistence_f1": [
+        0.9612625538020086,
+        0.0
+      ],
+      "persistence_recall": [
+        0.9809663250366032,
+        0.0
+      ],
+      "termination_delay_mean": [
+        5.75,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.09690331419408821,
+        0.0
+      ],
+      "churn": [
+        0.03076667273622757,
+        0.0
+      ],
+      "selected_threshold": [
+        0.9,
+        0.0
+      ]
+    },
+    "vhped_novis_fit": {
+      "frame_f1": [
+        0.9187494557171471,
+        0.0
+      ],
+      "persistence_f1": [
+        0.47608695652173916,
+        0.0
+      ],
+      "persistence_recall": [
+        0.3206442166910688,
+        0.0
+      ],
+      "termination_delay_mean": [
+        3.3333333333333335,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.07323838222406961,
+        0.0
+      ],
+      "churn": [
+        0.02269492891473883,
+        0.0
+      ],
+      "selected_threshold": [
+        0.55,
+        0.0
+      ]
+    },
+    "vhped_self_fit": {
+      "frame_f1": [
+        0.9646069777217319,
+        0.0
+      ],
+      "persistence_f1": [
+        0.9532710280373832,
+        0.0
+      ],
+      "persistence_recall": [
+        0.9707174231332357,
+        0.0
+      ],
+      "termination_delay_mean": [
+        3.3055555555555554,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.0656290044926386,
+        0.0
+      ],
+      "churn": [
+        0.02634559258679534,
+        0.0
+      ],
+      "selected_threshold": [
+        0.7,
+        0.0
+      ]
+    },
+    "vhped_full_fit": {
+      "frame_f1": [
+        0.9669649577653258,
+        0.0
+      ],
+      "persistence_f1": [
+        0.9566453447050463,
+        0.0
+      ],
+      "persistence_recall": [
+        0.9853587115666179,
+        0.0
+      ],
+      "termination_delay_mean": [
+        3.0833333333333335,
+        0.0
+      ],
+      "termination_censored_frac": [
+        0.0,
+        0.0
+      ],
+      "false_persistence_rate": [
+        0.06698849669504706,
+        0.0
+      ],
+      "churn": [
+        0.021604250651759003,
+        0.0
+      ],
+      "selected_threshold": [
+        0.65,
+        0.0
+      ]
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 0,
+      "metrics": {
+        "no_memory": {
+          "frame_f1": 0.8089394392896339,
+          "persistence_f1": 0.0,
+          "persistence_recall": 0.0,
+          "termination_delay_mean": 1.0,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.01776692494781012,
+          "churn": 0.2354640762839639,
+          "selected_threshold": 0.05
+        },
+        "ema": {
+          "frame_f1": 0.9361702127659575,
+          "persistence_f1": 0.7360861759425493,
+          "persistence_recall": 0.6002928257686676,
+          "termination_delay_mean": 7.555555555555555,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.15949635143418828,
+          "churn": 0.0405865114796756,
+          "selected_threshold": 0.25
+        },
+        "gated_ema": {
+          "frame_f1": 0.9575907590759076,
+          "persistence_f1": 0.9294781382228491,
+          "persistence_recall": 0.9648609077598829,
+          "termination_delay_mean": 6.0,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.13917026012241085,
+          "churn": 0.021645965103302568,
+          "selected_threshold": 0.1
+        },
+        "hmm": {
+          "frame_f1": 0.8961489322869137,
+          "persistence_f1": 0.2270967741935484,
+          "persistence_recall": 0.12884333821376281,
+          "termination_delay_mean": 2.111111111111111,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.03853587189225603,
+          "churn": 0.0858395828497052,
+          "selected_threshold": 0.05
+        },
+        "vhped_handset": {
+          "frame_f1": 0.9597797062750334,
+          "persistence_f1": 0.9247311827956989,
+          "persistence_recall": 0.9443631039531479,
+          "termination_delay_mean": 4.138888888888889,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.08857646434805146,
+          "churn": 0.022053643604052417,
+          "selected_threshold": 0.45
+        },
+        "vt_hmm_fit": {
+          "frame_f1": 0.9746941511647395,
+          "persistence_f1": 0.9612625538020086,
+          "persistence_recall": 0.9809663250366032,
+          "termination_delay_mean": 5.75,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.09690331419408821,
+          "churn": 0.03076667273622757,
+          "selected_threshold": 0.9
+        },
+        "vhped_novis_fit": {
+          "frame_f1": 0.9187494557171471,
+          "persistence_f1": 0.47608695652173916,
+          "persistence_recall": 0.3206442166910688,
+          "termination_delay_mean": 3.3333333333333335,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.07323838222406961,
+          "churn": 0.02269492891473883,
+          "selected_threshold": 0.55
+        },
+        "vhped_self_fit": {
+          "frame_f1": 0.9646069777217319,
+          "persistence_f1": 0.9532710280373832,
+          "persistence_recall": 0.9707174231332357,
+          "termination_delay_mean": 3.3055555555555554,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.0656290044926386,
+          "churn": 0.02634559258679534,
+          "selected_threshold": 0.7
+        },
+        "vhped_full_fit": {
+          "frame_f1": 0.9669649577653258,
+          "persistence_f1": 0.9566453447050463,
+          "persistence_recall": 0.9853587115666179,
+          "termination_delay_mean": 3.0833333333333335,
+          "termination_censored_frac": 0.0,
+          "false_persistence_rate": 0.06698849669504706,
+          "churn": 0.021604250651759003,
+          "selected_threshold": 0.65
+        }
+      },
+      "fitted_params": {
+        "vt_hmm_fit": {
+          "mu": [
+            7.770454482362204,
+            7.426099915444441,
+            7.778846770063705
+          ],
+          "alpha": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "eta": [
+            -2.0024124323457317,
+            1.664004773618088,
+            -2.1898372234634187
+          ],
+          "gamma": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "beta": [
+            3.0,
+            0.29999999999999993,
+            1.0
+          ],
+          "rho": [
+            1.0,
+            0.00576050818685591,
+            0.5
+          ],
+          "eps_rate": 0.7204176027629657,
+          "rebirth_rate": 0.0,
+          "prior_alive": 0.9113745190252917,
+          "use_marks": true
+        },
+        "vhped_novis_fit": {
+          "mu": [
+            7.254385393808625,
+            3.2283088986251234,
+            7.555533232041102
+          ],
+          "alpha": [
+            [
+              9.031020258508242,
+              0.04384167387469359,
+              0.5829085013091444
+            ],
+            [
+              0.0014189243940637127,
+              4.707510040035558,
+              0.00808472561097741
+            ],
+            [
+              0.2242416849741202,
+              0.23776700510278548,
+              9.787049437163002
+            ]
+          ],
+          "eta": [
+            -2.0609460996167,
+            0.16587365059646958,
+            -1.9219169271066994
+          ],
+          "gamma": [
+            [
+              -0.0017224995369205893,
+              0.09063462484687336,
+              -0.170047262790439
+            ],
+            [
+              0.7578426669966083,
+              0.2813399297380065,
+              0.004243818184635257
+            ],
+            [
+              0.04156299802570154,
+              0.26271149809141275,
+              0.09806147204241121
+            ]
+          ],
+          "beta": [
+            4.656842551653058,
+            4.656842551653058,
+            4.656842551653058
+          ],
+          "rho": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "eps_rate": 0.5916388974997588,
+          "rebirth_rate": 0.0,
+          "prior_alive": 0.911607763853063,
+          "use_marks": true
+        },
+        "vhped_self_fit": {
+          "mu": [
+            7.837043926894019,
+            3.5085966428125257,
+            7.386857124277083
+          ],
+          "alpha": [
+            [
+              7.041368960100882,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              4.38204896580457,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              8.756661256368833
+            ]
+          ],
+          "eta": [
+            -1.6236944618721656,
+            0.4767886194888805,
+            -1.7708282810174034
+          ],
+          "gamma": [
+            [
+              -0.04450939260738632,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.429666712200222,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.041636876845294296
+            ]
+          ],
+          "beta": [
+            3.1407082585037593,
+            0.06863073506248112,
+            1.0
+          ],
+          "rho": [
+            1.0,
+            0.0061334660412794674,
+            0.5
+          ],
+          "eps_rate": 0.6480386220792972,
+          "rebirth_rate": 0.0,
+          "prior_alive": 0.9122268869629487,
+          "use_marks": true
+        },
+        "vhped_full_fit": {
+          "mu": [
+            7.77239853670126,
+            4.196881070415736,
+            7.381816553953514
+          ],
+          "alpha": [
+            [
+              7.0835455075521665,
+              -0.04011800644091006,
+              0.27701796940931167
+            ],
+            [
+              -0.01610663417966947,
+              4.2103984036749775,
+              -0.04600953077429885
+            ],
+            [
+              -0.010218246387421609,
+              0.23012846787731805,
+              8.667624155090634
+            ]
+          ],
+          "eta": [
+            -1.76815603836177,
+            0.006986631645933961,
+            -1.5961428610831285
+          ],
+          "gamma": [
+            [
+              -0.0807615308815454,
+              -0.0009711192697150119,
+              -0.15847161877979746
+            ],
+            [
+              0.8529291462237102,
+              0.3359660460679044,
+              0.018244455318482976
+            ],
+            [
+              -0.009456124901157086,
+              0.26298663827327723,
+              0.04753146374884771
+            ]
+          ],
+          "beta": [
+            3.150195829637218,
+            0.07011669480693469,
+            1.0
+          ],
+          "rho": [
+            1.0,
+            0.006135808580704544,
+            0.5
+          ],
+          "eps_rate": 0.7108479817898359,
+          "rebirth_rate": 0.0,
+          "prior_alive": 0.9103269773899305,
+          "use_marks": true
+        }
+      }
+    }
+  ]
+}

@@ -52,6 +52,50 @@ pip install -e ".[dev]"
 pytest
 ```
 
+## Phase 3 pilot (Action Genome)
+
+```bash
+# 1. place the official AG annotations under data/action_genome/annotations/
+# 2. verify the loader's format assumptions on the real files
+python scripts/inspect_action_genome.py --root data/action_genome
+# 3. run the pilot (all predeclared seeds, all gap lengths, all methods incl. V-HPED ablations)
+python scripts/run_pilot_ag.py --config configs/experiments/pilot_action_genome.yaml --workers 4
+```
+
+Outputs go to `outputs/runs/<run_id>/` (curves, selected-threshold table, hypervolume
+comparisons, manifests, fitted parameters, figures).
+
+## Other experiments and the paper
+
+```bash
+python scripts/run_ablation_matrix.py --workers 5     # Phase 8 synthetic ablation matrix
+python scripts/run_complexity_benchmark.py            # Phase 5 eager vs lazy scaling
+python scripts/make_paper_artifacts.py                # paper/generated/ from run artifacts
+```
+
+The paper draft is `paper/main.tex` (all numbers come from `paper/generated/`).
+Reproducibility status: `research/reproducibility_audit.md`.
+
+## Dashboard
+
+A web dashboard over the saved runs in `outputs/runs/`: headline results, the ablation
+tables with threshold curves and paired comparisons, the lazy-maintenance benchmark,
+parameter recovery, run history with downloads, and a filter explorer. The explorer replays
+one saved synthetic test video through the real filters, using that run's fitted parameters
+and thresholds, and checks each result against the per-video value the run stored. It never
+starts an experiment or writes to `outputs/`.
+
+```bash
+pip install -e ".[dashboard]"
+```
+```bash
+python scripts/run_dashboard.py
+```
+
+Then open http://127.0.0.1:8050. Options: `--runs <dir>` and `--port <n>`. The API docs
+are at `/api/docs`. The frontend is plain HTML/CSS/JS in `src/taorg/dashboard/static/`, with
+no build step. All results shown are synthetic.
+
 ## Current Status
 
 See [Memory.md](Memory.md) for verified implementation status.

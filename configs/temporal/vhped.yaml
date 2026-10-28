@@ -1,0 +1,50 @@
+# V-HPED — Visibility-aware Hawkes-Process Edge Dynamics
+# Derivation: research/derivations/vhped_model.md
+# Rates are in 1/second; probabilities in [0, 1].
+# The `vhped` block is the HAND-SET reference (H3 "no MLE" condition) and must
+# match taorg.temporal.vhped.model.HAND_SET_CONFIG (enforced by a unit test).
+
+vhped:
+  method: vhped
+  num_predicates: 26        # set to the dataset's predicate vocabulary size
+  # Observation intensity  lambda_p = softplus(mu_p + sum_q alpha[q,p] e_q)
+  mu: 5.0
+  alpha_self: 7.0           # self-excitation: recent detections raise expected detection rate
+  alpha_cross: 0.0          # cross-predicate excitation (+) / inhibition (-)
+  # Termination hazard  h_p = softplus(eta_p + sum_q gamma[q,p] e_q)
+  eta: -0.5                 # softplus(-0.5) ~= 0.47 /s baseline hazard
+  gamma_self: 0.0
+  gamma_cross: 0.0
+  # Visibility regimes: trace decay beta_v and detection thinning rho_v (rho_vis = 1)
+  beta_vis: 3.0
+  beta_occ: 0.3             # memory survives occlusion
+  beta_unk: 1.0
+  rho_occ: 0.05             # occluded absence ~ censored (Proposition 1 at rho = 0)
+  rho_unk: 0.5
+  eps_rate: 1.0             # spurious-detection rate when the edge is dead
+  rebirth_rate: 0.0
+  prior_alive: 0.5
+  use_marks: true
+  # Runtime
+  score_threshold: 0.5      # threshold on P(alive); select on validation data
+  fps: 30.0
+  prune_below: 1.0e-6
+  # Ablations (PRD §10)
+  use_visibility: true
+  use_excitation: true
+  use_cross_predicate: true
+
+trainer:
+  num_iters: 200
+  lr: 0.05
+  l2_cross: 1.0e-3
+  fit_rebirth: false
+  seed: 0
+
+# Ablation ladder (Proposition 3 nesting):
+#   HMM  ⊂  VT-HMM  ⊂  V-HPED-self  ⊂  V-HPED
+ablations:
+  vt_hmm:        {use_excitation: false}
+  vhped_no_vis:  {use_visibility: false}
+  vhped_self:    {use_cross_predicate: false}
+  vhped_full:    {}

@@ -1,0 +1,107 @@
+Set Python random seed = 0, NumPy seed = 0
+Set PyTorch manual seed = 0
+V-HPED fit iter 0: mean NLL 0.75612
+V-HPED fit iter 50: mean NLL 0.63781
+V-HPED fit iter 100: mean NLL 0.57425
+V-HPED fit iter 150: mean NLL 0.53199
+seed 0 vt_hmm_fit: NLL 0.7561 -> 0.5016
+V-HPED fit iter 0: mean NLL 0.40462
+V-HPED fit iter 50: mean NLL 0.38600
+V-HPED fit iter 100: mean NLL 0.38214
+V-HPED fit iter 150: mean NLL 0.38022
+seed 0 vhped_novis_fit: NLL 0.4046 -> 0.3789
+V-HPED fit iter 0: mean NLL 0.35412
+V-HPED fit iter 50: mean NLL 0.33751
+V-HPED fit iter 100: mean NLL 0.33470
+V-HPED fit iter 150: mean NLL 0.33361
+seed 0 vhped_self_fit: NLL 0.3541 -> 0.3331
+V-HPED fit iter 0: mean NLL 0.35412
+V-HPED fit iter 50: mean NLL 0.33527
+V-HPED fit iter 100: mean NLL 0.33261
+V-HPED fit iter 150: mean NLL 0.33163
+seed 0 vhped_full_fit: NLL 0.3541 -> 0.3312
+seed 0 no_memory        {'frame_f1': 0.782, 'persistence_f1': 0.0, 'persistence_recall': 0.0, 'termination_delay_mean': 1.017, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.018, 'churn': 0.246, 'selected_threshold': np.float64(0.05)}
+seed 0 ema              {'frame_f1': 0.932, 'persistence_f1': 0.747, 'persistence_recall': 0.611, 'termination_delay_mean': 8.198, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.158, 'churn': 0.043, 'selected_threshold': np.float64(0.25)}
+seed 0 gated_ema        {'frame_f1': 0.954, 'persistence_f1': 0.939, 'persistence_recall': 0.956, 'termination_delay_mean': 5.876, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.131, 'churn': 0.025, 'selected_threshold': np.float64(0.1)}
+seed 0 hmm              {'frame_f1': 0.881, 'persistence_f1': 0.231, 'persistence_recall': 0.131, 'termination_delay_mean': 2.182, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.04, 'churn': 0.095, 'selected_threshold': np.float64(0.05)}
+seed 0 vhped_handset    {'frame_f1': 0.954, 'persistence_f1': 0.93, 'persistence_recall': 0.942, 'termination_delay_mean': 4.264, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.086, 'churn': 0.029, 'selected_threshold': np.float64(0.45)}
+seed 0 vt_hmm_fit       {'frame_f1': 0.972, 'persistence_f1': 0.961, 'persistence_recall': 0.962, 'termination_delay_mean': 4.86, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.09, 'churn': 0.049, 'selected_threshold': np.float64(0.85)}
+seed 0 vhped_novis_fit  {'frame_f1': 0.899, 'persistence_f1': 0.356, 'persistence_recall': 0.222, 'termination_delay_mean': 3.182, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.059, 'churn': 0.048, 'selected_threshold': np.float64(0.8)}
+seed 0 vhped_self_fit   {'frame_f1': 0.955, 'persistence_f1': 0.952, 'persistence_recall': 0.965, 'termination_delay_mean': 3.43, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.068, 'churn': 0.04, 'selected_threshold': np.float64(0.75)}
+seed 0 vhped_full_fit   {'frame_f1': 0.956, 'persistence_f1': 0.955, 'persistence_recall': 0.963, 'termination_delay_mean': 2.959, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.06, 'churn': 0.043, 'selected_threshold': np.float64(0.8)}
+Set Python random seed = 1, NumPy seed = 1
+Set PyTorch manual seed = 1
+V-HPED fit iter 0: mean NLL 0.75685
+V-HPED fit iter 50: mean NLL 0.63599
+V-HPED fit iter 100: mean NLL 0.57132
+V-HPED fit iter 150: mean NLL 0.52820
+seed 1 vt_hmm_fit: NLL 0.7568 -> 0.4972
+V-HPED fit iter 0: mean NLL 0.40863
+V-HPED fit iter 50: mean NLL 0.38805
+V-HPED fit iter 100: mean NLL 0.38366
+V-HPED fit iter 150: mean NLL 0.38141
+seed 1 vhped_novis_fit: NLL 0.4086 -> 0.3799
+V-HPED fit iter 0: mean NLL 0.34843
+V-HPED fit iter 50: mean NLL 0.32989
+V-HPED fit iter 100: mean NLL 0.32659
+V-HPED fit iter 150: mean NLL 0.32523
+seed 1 vhped_self_fit: NLL 0.3484 -> 0.3245
+V-HPED fit iter 0: mean NLL 0.34843
+V-HPED fit iter 50: mean NLL 0.32745
+V-HPED fit iter 100: mean NLL 0.32428
+V-HPED fit iter 150: mean NLL 0.32303
+seed 1 vhped_full_fit: NLL 0.3484 -> 0.3224
+seed 1 no_memory        {'frame_f1': 0.775, 'persistence_f1': 0.0, 'persistence_recall': 0.0, 'termination_delay_mean': 1.0, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.018, 'churn': 0.254, 'selected_threshold': np.float64(0.05)}
+seed 1 ema              {'frame_f1': 0.935, 'persistence_f1': 0.748, 'persistence_recall': 0.605, 'termination_delay_mean': 7.74, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.128, 'churn': 0.043, 'selected_threshold': np.float64(0.25)}
+seed 1 gated_ema        {'frame_f1': 0.952, 'persistence_f1': 0.943, 'persistence_recall': 0.947, 'termination_delay_mean': 5.195, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.12, 'churn': 0.028, 'selected_threshold': np.float64(0.1)}
+seed 1 hmm              {'frame_f1': 0.87, 'persistence_f1': 0.222, 'persistence_recall': 0.125, 'termination_delay_mean': 2.138, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.036, 'churn': 0.111, 'selected_threshold': np.float64(0.05)}
+seed 1 vhped_handset    {'frame_f1': 0.952, 'persistence_f1': 0.933, 'persistence_recall': 0.935, 'termination_delay_mean': 3.911, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.076, 'churn': 0.034, 'selected_threshold': np.float64(0.45)}
+seed 1 vt_hmm_fit       {'frame_f1': 0.971, 'persistence_f1': 0.959, 'persistence_recall': 0.97, 'termination_delay_mean': 4.984, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.087, 'churn': 0.055, 'selected_threshold': np.float64(0.85)}
+seed 1 vhped_novis_fit  {'frame_f1': 0.914, 'persistence_f1': 0.481, 'persistence_recall': 0.323, 'termination_delay_mean': 3.203, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.061, 'churn': 0.038, 'selected_threshold': np.float64(0.65)}
+seed 1 vhped_self_fit   {'frame_f1': 0.955, 'persistence_f1': 0.944, 'persistence_recall': 0.971, 'termination_delay_mean': 3.707, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.091, 'churn': 0.032, 'selected_threshold': np.float64(0.6)}
+seed 1 vhped_full_fit   {'frame_f1': 0.956, 'persistence_f1': 0.944, 'persistence_recall': 0.971, 'termination_delay_mean': 3.203, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.089, 'churn': 0.035, 'selected_threshold': np.float64(0.65)}
+Set Python random seed = 2, NumPy seed = 2
+Set PyTorch manual seed = 2
+V-HPED fit iter 0: mean NLL 0.75493
+V-HPED fit iter 50: mean NLL 0.63623
+V-HPED fit iter 100: mean NLL 0.57296
+V-HPED fit iter 150: mean NLL 0.53118
+seed 2 vt_hmm_fit: NLL 0.7549 -> 0.5015
+V-HPED fit iter 0: mean NLL 0.41715
+V-HPED fit iter 50: mean NLL 0.39957
+V-HPED fit iter 100: mean NLL 0.39565
+V-HPED fit iter 150: mean NLL 0.39355
+seed 2 vhped_novis_fit: NLL 0.4171 -> 0.3922
+V-HPED fit iter 0: mean NLL 0.36342
+V-HPED fit iter 50: mean NLL 0.34747
+V-HPED fit iter 100: mean NLL 0.34457
+V-HPED fit iter 150: mean NLL 0.34326
+seed 2 vhped_self_fit: NLL 0.3634 -> 0.3426
+V-HPED fit iter 0: mean NLL 0.36342
+V-HPED fit iter 50: mean NLL 0.34592
+V-HPED fit iter 100: mean NLL 0.34307
+V-HPED fit iter 150: mean NLL 0.34196
+seed 2 vhped_full_fit: NLL 0.3634 -> 0.3414
+seed 2 no_memory        {'frame_f1': 0.793, 'persistence_f1': 0.0, 'persistence_recall': 0.0, 'termination_delay_mean': 1.013, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.018, 'churn': 0.248, 'selected_threshold': np.float64(0.05)}
+seed 2 ema              {'frame_f1': 0.923, 'persistence_f1': 0.745, 'persistence_recall': 0.641, 'termination_delay_mean': 8.364, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.154, 'churn': 0.048, 'selected_threshold': np.float64(0.25)}
+seed 2 gated_ema        {'frame_f1': 0.943, 'persistence_f1': 0.883, 'persistence_recall': 0.916, 'termination_delay_mean': 5.656, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.106, 'churn': 0.051, 'selected_threshold': np.float64(0.15)}
+seed 2 hmm              {'frame_f1': 0.88, 'persistence_f1': 0.25, 'persistence_recall': 0.143, 'termination_delay_mean': 2.179, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.039, 'churn': 0.105, 'selected_threshold': np.float64(0.05)}
+seed 2 vhped_handset    {'frame_f1': 0.944, 'persistence_f1': 0.896, 'persistence_recall': 0.94, 'termination_delay_mean': 5.053, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.081, 'churn': 0.038, 'selected_threshold': np.float64(0.5)}
+seed 2 vt_hmm_fit       {'frame_f1': 0.96, 'persistence_f1': 0.913, 'persistence_recall': 0.972, 'termination_delay_mean': 6.026, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.106, 'churn': 0.062, 'selected_threshold': np.float64(0.85)}
+seed 2 vhped_novis_fit  {'frame_f1': 0.923, 'persistence_f1': 0.654, 'persistence_recall': 0.504, 'termination_delay_mean': 4.576, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.102, 'churn': 0.039, 'selected_threshold': np.float64(0.3)}
+seed 2 vhped_self_fit   {'frame_f1': 0.958, 'persistence_f1': 0.921, 'persistence_recall': 0.95, 'termination_delay_mean': 3.728, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.066, 'churn': 0.078, 'selected_threshold': np.float64(0.75)}
+seed 2 vhped_full_fit   {'frame_f1': 0.96, 'persistence_f1': 0.928, 'persistence_recall': 0.962, 'termination_delay_mean': 3.53, 'termination_censored_frac': 0.0, 'false_persistence_rate': 0.068, 'churn': 0.065, 'selected_threshold': np.float64(0.7)}
+
+SYNTHETIC test metrics, mean ± std over seeds [0, 1, 2]
+method                   frame_f1  persistence_f1  persistence_re  termination_de  termination_ce  false_persiste           churn  selected_thres
+no_memory            0.783±0.007     0.000±0.000     0.000±0.000     1.010±0.007     0.000±0.000     0.018±0.000     0.249±0.003     0.050±0.000 
+ema                  0.930±0.005     0.746±0.001     0.619±0.016     8.101±0.264     0.000±0.000     0.147±0.013     0.045±0.002     0.250±0.000 
+gated_ema            0.949±0.005     0.922±0.027     0.940±0.017     5.576±0.284     0.000±0.000     0.119±0.010     0.035±0.012     0.117±0.024 
+hmm                  0.877±0.005     0.234±0.012     0.133±0.008     2.166±0.020     0.000±0.000     0.038±0.002     0.104±0.007     0.050±0.000 
+vhped_handset        0.950±0.004     0.919±0.017     0.939±0.003     4.409±0.478     0.000±0.000     0.081±0.004     0.034±0.004     0.467±0.024 
+vt_hmm_fit           0.967±0.005     0.944±0.022     0.968±0.004     5.290±0.523     0.000±0.000     0.094±0.009     0.055±0.006     0.850±0.000 
+vhped_novis_fit      0.912±0.010     0.497±0.122     0.350±0.117     3.654±0.652     0.000±0.000     0.074±0.020     0.042±0.004     0.583±0.209 
+vhped_self_fit       0.956±0.001     0.939±0.013     0.962±0.009     3.622±0.136     0.000±0.000     0.075±0.011     0.050±0.020     0.700±0.071 
+vhped_full_fit       0.957±0.002     0.942±0.011     0.965±0.004     3.231±0.234     0.000±0.000     0.072±0.012     0.048±0.013     0.717±0.062 
+
+Artifact: outputs\runs\vhped_synthetic\run_20261027T194003Z.json

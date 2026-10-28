@@ -1,0 +1,361 @@
+% TAORG / V-HPED paper draft.
+% Every number comes from paper/generated/ (scripts/make_paper_artifacts.py).
+% Do not type result numbers by hand (Phases.md Phase 9).
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\softplus}{\operatorname{softplus}}
+
+\input{generated/numbers.tex}
+
+\title{Is It Gone or Just Hidden? Visibility-Thinned Hawkes Dynamics for\\
+Persistent Relationships in Video Scene Graphs}
+\author{TAORG team \todo{authors and affiliations}}
+\date{Draft --- \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Video scene graph generators predict subject--predicate--object relationships
+frame by frame, so a relationship that is briefly occluded or missed by the
+detector flickers in and out of the output. Temporal smoothing hides the
+flicker but also keeps relationships alive after they have really ended,
+because it cannot tell \emph{why} an edge stopped being observed. We propose
+V-HPED, a model-agnostic post-processing layer that treats the base model's
+detections of a live relationship as a multivariate Hawkes process thinned
+by visibility, and filters a latent alive/dead state with the exact
+forward-algorithm likelihood. This gives visible absence a principled
+meaning: its evidence against the relationship is proportional to the
+current Hawkes intensity, so densely observed relationships are dropped
+quickly when they disappear in plain view while occluded ones are carried
+through. A cross-predicate hazard lets one predicate signal the end of
+another. On the data-structure side we prove that, under two explicit
+conditions, untouched edges evolve in closed form, which yields an exact
+lazy implementation with a per-pair wake-up heap whose decisions match the
+eager reference. In a controlled synthetic study with \synSeeds{} predeclared
+seeds, fitted V-HPED drops terminated relationships after
+\synFullDelay{} frames on average versus \synGatedDelay{} for
+visibility-gated EMA, with better-calibrated alive probabilities.
+\input{generated/id_finding.tex}Real-data evaluation on Action Genome is
+\todo{pending --- pipeline ready, see Sec.~\ref{sec:pilot}}.
+\end{abstract}
+
+\section{Introduction}
+Video scene graph generation (VidSGG) methods such as
+STTran~\cite{cong2021sttran}, DSG-DETR~\cite{feng2023dsgdetr} and
+TEMPURA~\cite{nag2023tempura} output, at each frame, a set of
+relationship triplets between tracked objects. Downstream consumers need
+relationship \emph{state}: is the person still holding the cup? Frame-wise
+outputs answer this poorly. Occlusion, missed detections and tracker
+failures~\cite{zhang2022bytetrack} make continuing relationships disappear
+for a few frames, producing churn
+(\texttt{holding} $\to$ missing $\to$ \texttt{holding}).
+
+A temporal memory bridges such gaps, but every fixed-decay memory faces the
+same trade-off: slow decay persists through occlusion and also through true
+termination; fast decay does the opposite. The missing ingredient is the
+\emph{reason} for absence. When an object is occluded, absence is censored
+evidence; when both objects are clearly visible and the relationship is not
+detected, absence is evidence that it ended --- and how strong that evidence
+is should depend on how reliably this relationship has been detected so far.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item A \textbf{visibility-thinned Hawkes observation model} for VidSGG edge
+persistence: detections of a live relationship form a multivariate Hawkes
+process~\cite{hawkes1971spectra} thinned by visibility~\cite{lewis1979thinning};
+a two-state alive/dead chain is filtered with the exact forward
+likelihood~\cite{rabiner1989hmm}. Visible absence is \emph{not} treated as
+a Hawkes event; its evidence follows from the thinned compensator
+(Proposition~\ref{prop:evidence}).
+\item A \textbf{cross-predicate termination hazard} that lets one predicate
+(e.g.\ \texttt{putting down}) raise the hazard of another (\texttt{holding}).
+\item \textbf{Exact lazy evaluation} with a per-pair wake-up heap, its
+correctness proof and complexity, and a randomized equivalence harness
+against the eager oracle (Sec.~\ref{sec:lazy}).
+\item A \textbf{reproducible evaluation protocol}: deterministic corruption
+manifests, frozen persistence/termination/churn/calibration metrics,
+validation-only threshold selection and paired statistics.
+\end{enumerate}
+We do not claim to invent Hawkes processes, HMMs or thinning; the
+contribution is their combination as an observation model for relationship
+persistence, its exact likelihood and its efficient maintenance.
+
+\section{Related work}
+\paragraph{Video scene graphs.} Action Genome~\cite{ji2020actiongenome}
+annotates person--object relationships on sampled frames. STTran, DSG-DETR
+and TEMPURA model temporal context inside the network; our layer is
+post-hoc and model-agnostic. \todo{verify closest occlusion-aware VidSGG
+work and whether it is reproducible (PRD §11).}
+\paragraph{Temporal point processes on graphs.} Hawkes processes with
+nonlinear links~\cite{mei2017neuralhawkes} have been used for dynamic
+knowledge graphs~\cite{trivedi2017knowevolve} and dynamic
+graphs~\cite{trivedi2019dyrep}. These model when edges \emph{occur}; we use
+the intensity as the expected detection rate of a relationship that may or
+may not still hold.
+\paragraph{Calibration.} We report expected calibration error~\cite{guo2017calibration}
+of the alive probability.
+
+\section{Method: V-HPED}
+\label{sec:method}
+\paragraph{Setting.} For a subject--object pair and predicates
+$p\in\{1..P\}$, frame $n$ at time $t_n$ ($\Delta_n=t_n-t_{n-1}$) provides
+detections $o_n^p\in\{0,1\}$ with scores $w_n^p$ and a visibility regime
+$v_n\in\{\textsc{vis},\textsc{occ},\textsc{unk}\}$ (a pair with no record is
+\textsc{unk}).
+
+\paragraph{Hawkes intensity.} Excitation traces decay with a
+regime-dependent rate and add marks after each frame,
+$e_q \leftarrow e_q e^{-\beta_{v_n}\Delta_n}$, $e_q \leftarrow e_q + o_n^q w_n^q$.
+The detection intensity and termination hazard are
+\begin{equation}
+\lambda_p=\softplus\Big(\mu_p+\sum_q \alpha_{qp} e_q\Big),\qquad
+h_p=\softplus\Big(\eta_p+\sum_q \gamma_{qp} e_q\Big).
+\end{equation}
+The softplus link keeps both positive for any sign of $\alpha,\gamma$, so
+inhibition is always valid. $\beta_{\textsc{occ}}<\beta_{\textsc{vis}}$
+preserves the memory of past evidence through occlusion.
+
+\paragraph{Thinned observation model.} If the relationship is alive,
+detections arrive with intensity $\rho_v\lambda_p$ ($\rho_{\textsc{vis}}=1$,
+$\rho_{\textsc{occ}},\rho_{\textsc{unk}}\in[0,1]$ learned); if dead,
+spurious detections arrive with rate $\rho_v\varepsilon$. With the intensity
+constant within a frame,
+\begin{equation}
+P(o=1\mid\text{alive})=1-e^{-\rho_v\lambda_p\Delta},\qquad
+P(o=1\mid\text{dead})=1-e^{-\rho_v\varepsilon\Delta}.
+\end{equation}
+Because the model is defined in discrete frames, the compensator is exactly
+$\rho_v\lambda_p\Delta$; no closed-form integral of the softplus intensity is
+needed.
+
+\paragraph{Alive filter.} The hidden state follows a two-state continuous-time
+Markov chain with rates $h_p$ (alive$\to$dead) and $r$ (dead$\to$alive):
+$a^- = \pi + (a-\pi)e^{-(h_p+r)\Delta}$ with $\pi=r/(h_p+r)$, followed by the
+Bayes update with the emission above. The keep/drop decision thresholds the
+posterior $a=P(\text{alive}\mid o_{\le n})$. The log-likelihood
+$\sum_n\sum_p \log c_n^p$ of the one-step predictive evidences $c_n^p$ is
+exact and differentiable; parameters are fitted by maximum likelihood on
+training videos only.
+
+\begin{proposition}[Exact censoring]\label{prop:censor}
+If $\rho_v=0$, an absence leaves the belief unchanged except for the prior
+transition.
+\end{proposition}
+\begin{proposition}[Self-calibrating negative evidence]\label{prop:evidence}
+For a visible absence, $\log \frac{P(o=0\mid\text{alive})}{P(o=0\mid\text{dead})}
+=-(\lambda_p-\varepsilon)\Delta$.
+\end{proposition}
+Proposition~\ref{prop:evidence} is the key behavioural difference from
+gated EMA: the strength of ``it ended'' grows with the current Hawkes
+intensity, i.e.\ with how densely and recently this relationship has been
+detected.
+\begin{proposition}[Nesting]\label{prop:nest}
+With $\alpha=\gamma=0$ and $\rho\equiv 1$, V-HPED equals a two-state HMM
+with constant emissions (verified numerically against our HMM baseline).
+\end{proposition}
+This yields the ablation ladder HMM $\subset$ VT-HMM ($+$visibility)
+$\subset$ V-HPED-self ($+$self-excitation) $\subset$ V-HPED ($+$cross terms).
+Proofs and a termination-delay bound with explicit assumptions are in
+\texttt{research/derivations/vhped\_model.md}.
+
+\section{Exact lazy maintenance}
+\label{sec:lazy}
+The eager reference updates every active pair every frame, $\Theta(AP)$.
+\begin{lemma}[Untouched semigroup]
+If $\rho_{\textsc{unk}}=0$ and $\gamma=0$, a pair with no record evolves as
+$a_p(t)=\pi_p+(a_p(t_0)-\pi_p)e^{-(h_p+r)(t-t_0)}$, depending only on elapsed
+time, and contributes zero log-likelihood.
+\end{lemma}
+The trajectory is monotone, so each predicate crosses the output threshold
+or the prune level at most once, at a closed-form time. Each pair keeps one
+\emph{wake-up} in a min-heap: the earliest such crossing. A wake-up may be
+early (the pair was touched since), which is safe because popping only
+re-evaluates the closed form; superseded entries are skipped by a wake id.
+\begin{algorithm}[t]
+\caption{Lazy V-HPED frame step}
+\begin{algorithmic}[1]
+\For{each pair $k$ with a record in the frame}
+  \State materialize $k$ to the previous frame time (Lemma); eager frame step
+  \State update output membership; $w\gets$ earliest crossing time
+  \If{no pending wake-up $\le w$} push $(w,k,\text{new id})$ \EndIf
+\EndFor
+\While{heap top time $<t_n$}
+  \State pop; skip if id stale; re-evaluate $k$ at $t_n$; apply crossings/prunes; push next wake-up
+\EndWhile
+\State emit output set
+\end{algorithmic}
+\end{algorithm}
+\begin{theorem}[Equivalence]
+Under the two conditions, lazy and eager V-HPED emit the same edges with the
+same alive scores and the same log-likelihood at every frame (exact
+arithmetic).
+\end{theorem}
+Per frame, state maintenance costs
+$O(k_{\text{touch}}P+(k_{\text{touch}}+k_{\text{wake}})(P+\log H))$ versus
+$\Theta(AP)$ eager, with at most one heap push per touch or wake-up and
+amortized heap rebuilding keeping $H=O(A)$; output enumeration $O(|S|)$ is
+identical in both and reported separately. If the conditions fail, the
+implementation falls back to eager updates. Full statement and proofs:
+\texttt{research/derivations/lazy\_expiry.md}.
+
+\section{Experimental protocol}
+\paragraph{Metrics} (frozen before use): frame-level edge F1 (threshold
+selection only), edge persistence F1 inside injected occlusion gaps,
+termination delay and false-persistence rate after true termination, churn,
+ECE/Brier of the alive score, and per-frame latency of the temporal module.
+\paragraph{Protocol.} All methods consume identical corrupted streams
+(deterministic manifests). V-HPED variants are fitted on training videos;
+each method's threshold is selected on validation videos by frame F1;
+test results are reported as mean $\pm$ std over \synSeeds{} predeclared
+seeds, with paired bootstrap confidence intervals over test videos.
+\paragraph{Synthetic scenario.} Each video has pairs with three predicates
+(\texttt{holding}, a short \texttt{putting down} cue before
+\texttt{holding} ends, and an independent \texttt{looking at}), heterogeneous
+detector reliability (0.95/0.75/0.5), spurious detections, and pair-level
+occlusion gaps of 3--20 frames; a second condition adds ID switches.
+The synthetic study tests whether the method behaves as derived; it is not
+evidence about real detectors.
+
+\section{Results}
+\subsection{Synthetic ablation matrix}
+\input{generated/results_text.tex}
+
+\begin{table}[t]
+\centering\scriptsize
+\caption{Synthetic, occlusion + detector flicker. Test mean $\pm$ std over
+seeds at the validation-selected threshold (run \synRunId).}
+\label{tab:abl}
+\resizebox{\linewidth}{!}{\input{generated/ablation_occlusion_flicker.tex}}
+\end{table}
+
+\begin{table}[t]
+\centering\scriptsize
+\caption{Synthetic, occlusion + flicker + ID switches.}
+\label{tab:ablid}
+\resizebox{\linewidth}{!}{\input{generated/ablation_occlusion_flicker_idswitch.tex}}
+\end{table}
+
+\begin{table}[t]
+\centering\scriptsize
+\caption{Paired differences, full V-HPED minus each method (positive
+$\Delta$F1 favours V-HPED; negative $\Delta$delay favours V-HPED). 95\%
+paired bootstrap CIs over test videos; last column: seeds where V-HPED has
+higher F1.}
+\label{tab:paired}
+\resizebox{\linewidth}{!}{\input{generated/paired_stats.tex}}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\linewidth]{generated/tradeoff_occlusion_flicker.pdf}
+\includegraphics[width=0.48\linewidth]{generated/tradeoff_occlusion_flicker_idswitch.pdf}
+\caption{Trade-off curves over thresholds (test, mean over seeds).}
+\label{fig:tradeoff}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{generated/qualitative.pdf}
+\caption{Synthetic example. Top: ground truth, detections, occlusion.
+Bottom: alive probability of fitted V-HPED and score of gated EMA.}
+\label{fig:qual}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\linewidth]{generated/termination_delay.pdf}
+\includegraphics[width=0.48\linewidth]{generated/churn.pdf}
+\caption{Termination delay per video and churn.}
+\label{fig:delaychurn}
+\end{figure}
+
+\subsection{Efficiency of lazy maintenance}
+Table~\ref{tab:eff} and Fig.~\ref{fig:eff} compare eager and lazy V-HPED on
+traces with $A$ active pairs of which a fraction $f$ have a record in each
+frame ($P=26$). Decision mismatches against the eager oracle:
+\cxMismatches. With $A=\cxMaxPairs$, lazy is $\cxSpeedupSparse\times$ faster
+at $f=\cxFracSparse$, but $\cxSpeedupDense\times$ (i.e.\ slower) at $f=1$,
+where nothing can be skipped and scheduling overhead remains. Latency was
+measured on \cxMachine; operation counts are machine-independent.
+
+\begin{table}[t]
+\centering\scriptsize
+\caption{Eager vs.\ lazy per-frame update latency and work.}
+\label{tab:eff}
+\input{generated/efficiency.tex}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.45\linewidth]{generated/complexity_latency.pdf}
+\includegraphics[width=0.45\linewidth]{generated/complexity_work.pdf}
+\caption{Latency and pair updates vs.\ active pairs.}
+\label{fig:eff}
+\end{figure}
+
+\subsection{Action Genome pilot}
+\label{sec:pilot}
+\ifnum\pilotAvailable=1
+\input{generated/pilot_text.tex}
+\else
+\todo{Not yet run: Action Genome annotations were not available. The
+pipeline (loader, format inspection, corruption, fitting, threshold sweep,
+hypervolume go/no-go comparisons, figures) is implemented and tested;
+run \texttt{scripts/inspect\_action\_genome.py} then
+\texttt{scripts/run\_pilot\_ag.py}.}
+\fi
+
+\section{Limitations}
+\begin{itemize}
+\item All quantitative results so far are synthetic or efficiency
+benchmarks; no claim about real detectors, trackers or base models is made.
+Base-model integration (STTran, DSG-DETR, TEMPURA) and real tracker noise
+remain to be run through the frozen adapter contract.
+\item Fitted parameters degrade under identity switches: in the synthetic ID-switch
+condition the fitted model loses frame F1 to simpler baselines and to its own
+hand-set version, and its calibration collapses (Table~ef{tab:ablid}).
+Identity noise creates spurious edges on wrong pairs that unsupervised
+likelihood fitting partly absorbs; robust fitting is open.
+\item Visibility without Hawkes terms (VT-HMM) attains the best frame F1 in the
+flicker condition; the Hawkes terms buy faster termination, not uniformly
+higher accuracy.
+\item The self-calibrating evidence that speeds up termination also
+penalises dense relationships after a few misses, which can increase churn
+(Fig.~\ref{fig:qual}, frame $\approx 90$).
+\item Lazy evaluation is exact only if absence of a record is fully censored
+($\rho_{\textsc{unk}}=0$) and the hazard ignores the traces ($\gamma=0$);
+otherwise the implementation falls back to eager updates. Pairs touched
+under occlusion are still updated eagerly.
+\item Parameters are fitted without alive labels; $\varepsilon$ and
+$\lambda$ can trade off (identifiability), so fitted values are interpreted
+only through behaviour.
+\item Action Genome annotates sparse keyframes; gap lengths are in
+annotated frames, and the frozen termination metric also counts
+relationships that end because the object becomes invisible.
+\end{itemize}
+
+\section{Conclusion}
+V-HPED gives temporal scene graphs a principled way to tell an occluded
+relationship from one that has ended, and its lazy implementation maintains
+it exactly at a cost proportional to the edges that change. Whether the
+synthetic advantages hold on real VidSGG predictions is the next,
+decisive experiment.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,101 @@
+bootstrap:
+  n: 10000
+  seed: 0
+command: scripts/run_ablation_matrix.py --workers 5
+conditions:
+  occlusion_flicker: {}
+  occlusion_flicker_idswitch:
+    id_switch:
+      min_post_swap_frames: 2
+      min_pre_swap_frames: 2
+      num_swaps: 2
+      require_same_class: true
+      swap_duration: 5
+methods:
+  ema:
+    alpha: 0.3
+    decay: 0.9
+    method: ema
+  fixed_window:
+    method: fixed_window
+    window_size: 5
+  gated_ema:
+    alpha: 0.3
+    decay_occluded: 0.95
+    decay_unknown: -1.0
+    decay_visible: 0.7
+    method: gated_ema
+  hmm:
+    emit_obs_alive: 0.9
+    emit_obs_dead: 0.05
+    method: hmm
+    prior_alive: 0.5
+    resurrect_prob: 0.01
+    stay_alive_prob: 0.9
+  no_memory:
+    method: no_memory
+  vhped_full_fit:
+    fit: true
+    method: vhped
+  vhped_handset:
+    method: vhped
+  vhped_lazyexact_fit:
+    fit: true
+    method: vhped_lazy
+    trainer:
+      fit_gamma: false
+      rho_unk_fixed: 0.0
+  vhped_novis_fit:
+    fit: true
+    method: vhped
+    trainer:
+      use_visibility: false
+  vhped_self_fit:
+    fit: true
+    method: vhped
+    trainer:
+      use_cross_predicate: false
+  vt_hmm_fit:
+    fit: true
+    method: vhped
+    trainer:
+      use_excitation: false
+reference_method: vhped_full_fit
+scenario: {}
+seeds:
+- 42
+- 123
+- 456
+- 789
+- 2024
+smoke_run: false
+splits:
+  test: 20
+  train: 20
+  val: 10
+thresholds:
+- 0.02
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+- 0.25
+- 0.3
+- 0.35
+- 0.4
+- 0.45
+- 0.5
+- 0.55
+- 0.6
+- 0.65
+- 0.7
+- 0.75
+- 0.8
+- 0.85
+- 0.9
+- 0.95
+trainer:
+  fit_rebirth: false
+  l2_cross: 0.001
+  lr: 0.05
+  num_iters: 200
