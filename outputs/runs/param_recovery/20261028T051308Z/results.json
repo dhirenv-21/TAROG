@@ -1,0 +1,351 @@
+{
+  "true_config": {
+    "num_predicates": 2,
+    "mu": 3.0,
+    "alpha_self": 12.0,
+    "alpha_cross": 0.0,
+    "eta": -1.0,
+    "gamma_self": 0.0,
+    "gamma_cross": 0.0,
+    "beta_vis": 4.0,
+    "beta_occ": 0.5,
+    "beta_unk": 1.0,
+    "rho_occ": 0.1,
+    "rho_unk": 0.5,
+    "eps_rate": 0.8,
+    "rebirth_rate": 0.0,
+    "prior_alive": 0.5,
+    "use_marks": false
+  },
+  "init_config": {
+    "num_predicates": 2,
+    "mu": 5.0,
+    "alpha_self": 7.0,
+    "alpha_cross": 0.0,
+    "eta": -0.5,
+    "gamma_self": 0.0,
+    "gamma_cross": 0.0,
+    "beta_vis": 3.0,
+    "beta_occ": 0.3,
+    "beta_unk": 1.0,
+    "rho_occ": 0.05,
+    "rho_unk": 0.5,
+    "eps_rate": 1.0,
+    "rebirth_rate": 0.0,
+    "prior_alive": 0.5,
+    "use_marks": false
+  },
+  "args": {
+    "seeds": "[42, 123, 456, 789, 2024]",
+    "videos": "8",
+    "iters": "400",
+    "out": "outputs\\runs\\param_recovery"
+  },
+  "git_commit": "unknown",
+  "summary": {
+    "mu": {
+      "true": 3.0,
+      "fitted_mean": 13.561304185342479,
+      "fitted_std": 0.35688041331367176,
+      "init": 5.0
+    },
+    "alpha_diag": {
+      "true": 12.0,
+      "fitted_mean": 7.40023422382985,
+      "fitted_std": 0.2700645387676136,
+      "init": 7.0
+    },
+    "eta": {
+      "true": -1.0,
+      "fitted_mean": -0.28684066268207903,
+      "fitted_std": 0.06694022058592575,
+      "init": -0.5
+    },
+    "beta_vis": {
+      "true": 4.0,
+      "fitted_mean": 2.9183922533038036,
+      "fitted_std": 0.12267157163796125,
+      "init": 3.0
+    },
+    "beta_occ": {
+      "true": 0.5,
+      "fitted_mean": 0.23621231169332407,
+      "fitted_std": 0.05390651115960647,
+      "init": 0.3
+    },
+    "rho_occ": {
+      "true": 0.1,
+      "fitted_mean": 0.10665584384737188,
+      "fitted_std": 0.002968536045612868,
+      "init": 0.05
+    },
+    "eps_rate": {
+      "true": 0.8,
+      "fitted_mean": 0.8073354594547227,
+      "fitted_std": 0.012351941539996384,
+      "init": 1.0
+    }
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "true": {
+        "mu": 3.0,
+        "alpha_diag": 12.0,
+        "eta": -1.0,
+        "beta_vis": 4.0,
+        "beta_occ": 0.5,
+        "rho_occ": 0.1,
+        "eps_rate": 0.8
+      },
+      "fitted": {
+        "mu": 13.222972109617253,
+        "alpha_diag": 7.726187836132851,
+        "eta": -0.34733706206790027,
+        "beta_vis": 3.0443122124683004,
+        "beta_occ": 0.2606867869535492,
+        "rho_occ": 0.10420263008252272,
+        "eps_rate": 0.7896439460069358
+      },
+      "init": {
+        "mu": 5.0,
+        "alpha_diag": 7.0,
+        "eta": -0.5,
+        "beta_vis": 3.0,
+        "beta_occ": 0.3,
+        "rho_occ": 0.05,
+        "eps_rate": 1.0
+      },
+      "abs_error": {
+        "mu": 10.222972109617253,
+        "alpha_diag": 4.273812163867149,
+        "eta": 0.6526629379320997,
+        "beta_vis": 0.9556877875316996,
+        "beta_occ": 0.2393132130464508,
+        "rho_occ": 0.00420263008252271,
+        "eps_rate": 0.010356053993064274
+      },
+      "init_abs_error": {
+        "mu": 2.0,
+        "alpha_diag": 5.0,
+        "eta": 0.5,
+        "beta_vis": 1.0,
+        "beta_occ": 0.2,
+        "rho_occ": 0.05,
+        "eps_rate": 0.19999999999999996
+      },
+      "nll": [
+        0.2835236180746148,
+        0.2650664558304293
+      ]
+    },
+    {
+      "seed": 123,
+      "true": {
+        "mu": 3.0,
+        "alpha_diag": 12.0,
+        "eta": -1.0,
+        "beta_vis": 4.0,
+        "beta_occ": 0.5,
+        "rho_occ": 0.1,
+        "eps_rate": 0.8
+      },
+      "fitted": {
+        "mu": 13.054510137045693,
+        "alpha_diag": 7.050261225337209,
+        "eta": -0.3450657475405206,
+        "beta_vis": 2.7480355972860226,
+        "beta_occ": 0.2591558764137188,
+        "rho_occ": 0.11082912121331433,
+        "eps_rate": 0.8078255646909115
+      },
+      "init": {
+        "mu": 5.0,
+        "alpha_diag": 7.0,
+        "eta": -0.5,
+        "beta_vis": 3.0,
+        "beta_occ": 0.3,
+        "rho_occ": 0.05,
+        "eps_rate": 1.0
+      },
+      "abs_error": {
+        "mu": 10.054510137045693,
+        "alpha_diag": 4.949738774662791,
+        "eta": 0.6549342524594794,
+        "beta_vis": 1.2519644027139774,
+        "beta_occ": 0.2408441235862812,
+        "rho_occ": 0.010829121213314322,
+        "eps_rate": 0.007825564690911446
+      },
+      "init_abs_error": {
+        "mu": 2.0,
+        "alpha_diag": 5.0,
+        "eta": 0.5,
+        "beta_vis": 1.0,
+        "beta_occ": 0.2,
+        "rho_occ": 0.05,
+        "eps_rate": 0.19999999999999996
+      },
+      "nll": [
+        0.28611964397918627,
+        0.2677569463212048
+      ]
+    },
+    {
+      "seed": 456,
+      "true": {
+        "mu": 3.0,
+        "alpha_diag": 12.0,
+        "eta": -1.0,
+        "beta_vis": 4.0,
+        "beta_occ": 0.5,
+        "rho_occ": 0.1,
+        "eps_rate": 0.8
+      },
+      "fitted": {
+        "mu": 13.902934673947899,
+        "alpha_diag": 7.171510371981499,
+        "eta": -0.16618744291676057,
+        "beta_vis": 2.8241463918301233,
+        "beta_occ": 0.28081194924646313,
+        "rho_occ": 0.10892245915624879,
+        "eps_rate": 0.8223589745672389
+      },
+      "init": {
+        "mu": 5.0,
+        "alpha_diag": 7.0,
+        "eta": -0.5,
+        "beta_vis": 3.0,
+        "beta_occ": 0.3,
+        "rho_occ": 0.05,
+        "eps_rate": 1.0
+      },
+      "abs_error": {
+        "mu": 10.902934673947899,
+        "alpha_diag": 4.828489628018501,
+        "eta": 0.8338125570832394,
+        "beta_vis": 1.1758536081698767,
+        "beta_occ": 0.21918805075353687,
+        "rho_occ": 0.008922459156248785,
+        "eps_rate": 0.0223589745672389
+      },
+      "init_abs_error": {
+        "mu": 2.0,
+        "alpha_diag": 5.0,
+        "eta": 0.5,
+        "beta_vis": 1.0,
+        "beta_occ": 0.2,
+        "rho_occ": 0.05,
+        "eps_rate": 0.19999999999999996
+      },
+      "nll": [
+        0.2787296944588868,
+        0.26063727898488315
+      ]
+    },
+    {
+      "seed": 789,
+      "true": {
+        "mu": 3.0,
+        "alpha_diag": 12.0,
+        "eta": -1.0,
+        "beta_vis": 4.0,
+        "beta_occ": 0.5,
+        "rho_occ": 0.1,
+        "eps_rate": 0.8
+      },
+      "fitted": {
+        "mu": 13.91803778302726,
+        "alpha_diag": 7.687374692226148,
+        "eta": -0.2678575257777046,
+        "beta_vis": 3.064758326131781,
+        "beta_occ": 0.1302810294413998,
+        "rho_occ": 0.10272057491409133,
+        "eps_rate": 0.8189492535639711
+      },
+      "init": {
+        "mu": 5.0,
+        "alpha_diag": 7.0,
+        "eta": -0.5,
+        "beta_vis": 3.0,
+        "beta_occ": 0.3,
+        "rho_occ": 0.05,
+        "eps_rate": 1.0
+      },
+      "abs_error": {
+        "mu": 10.91803778302726,
+        "alpha_diag": 4.312625307773852,
+        "eta": 0.7321424742222954,
+        "beta_vis": 0.935241673868219,
+        "beta_occ": 0.3697189705586002,
+        "rho_occ": 0.00272057491409132,
+        "eps_rate": 0.018949253563971036
+      },
+      "init_abs_error": {
+        "mu": 2.0,
+        "alpha_diag": 5.0,
+        "eta": 0.5,
+        "beta_vis": 1.0,
+        "beta_occ": 0.2,
+        "rho_occ": 0.05,
+        "eps_rate": 0.19999999999999996
+      },
+      "nll": [
+        0.277772494595117,
+        0.25968630178140034
+      ]
+    },
+    {
+      "seed": 2024,
+      "true": {
+        "mu": 3.0,
+        "alpha_diag": 12.0,
+        "eta": -1.0,
+        "beta_vis": 4.0,
+        "beta_occ": 0.5,
+        "rho_occ": 0.1,
+        "eps_rate": 0.8
+      },
+      "fitted": {
+        "mu": 13.708066223074294,
+        "alpha_diag": 7.3658369934715395,
+        "eta": -0.3077555351075091,
+        "beta_vis": 2.9107087388027915,
+        "beta_occ": 0.25012591641148946,
+        "rho_occ": 0.10660443387068227,
+        "eps_rate": 0.7978995584445563
+      },
+      "init": {
+        "mu": 5.0,
+        "alpha_diag": 7.0,
+        "eta": -0.5,
+        "beta_vis": 3.0,
+        "beta_occ": 0.3,
+        "rho_occ": 0.05,
+        "eps_rate": 1.0
+      },
+      "abs_error": {
+        "mu": 10.708066223074294,
+        "alpha_diag": 4.6341630065284605,
+        "eta": 0.6922444648924909,
+        "beta_vis": 1.0892912611972085,
+        "beta_occ": 0.24987408358851054,
+        "rho_occ": 0.006604433870682269,
+        "eps_rate": 0.002100441555443755
+      },
+      "init_abs_error": {
+        "mu": 2.0,
+        "alpha_diag": 5.0,
+        "eta": 0.5,
+        "beta_vis": 1.0,
+        "beta_occ": 0.2,
+        "rho_occ": 0.05,
+        "eps_rate": 0.19999999999999996
+      },
+      "nll": [
+        0.2825998139012637,
+        0.2638853210136867
+      ]
+    }
+  ]
+}

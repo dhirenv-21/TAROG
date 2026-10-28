@@ -32,7 +32,7 @@ outputs/tables/
 
 # External models/data (never commit large binaries)
 external/
-data/
+/data/
 checkpoints/
 *.pth
 *.pt

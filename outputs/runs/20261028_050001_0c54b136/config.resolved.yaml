@@ -1,0 +1,145 @@
+bootstrap:
+  n: 10000
+  seed: 0
+command: scripts/run_ablation_matrix.py --config configs/experiments/ia_matrix_synthetic.yaml
+  --workers 10
+conditions:
+  swaps0:
+    identity_score:
+      informativeness: 1.0
+  swaps2_k0:
+    id_switch:
+      num_swaps: 2
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 0.0
+  swaps2_k05:
+    id_switch:
+      num_swaps: 2
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 0.5
+  swaps2_k1:
+    id_switch:
+      num_swaps: 2
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 1.0
+  swaps2_k1_jitter:
+    id_switch:
+      num_swaps: 2
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 1.0
+    timestamp_jitter: 0.5
+  swaps2_k1_visflip:
+    id_switch:
+      num_swaps: 2
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 1.0
+    vis_flip_prob: 0.1
+  swaps4_k0:
+    id_switch:
+      num_swaps: 4
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 0.0
+  swaps4_k1:
+    id_switch:
+      num_swaps: 4
+      require_same_class: true
+      swap_duration: 5
+    identity_score:
+      informativeness: 1.0
+methods:
+  gated_ema:
+    alpha: 0.3
+    decay_occluded: 0.95
+    decay_unknown: -1.0
+    decay_visible: 0.7
+    method: gated_ema
+  ia_full_fit:
+    fit: true
+    method: vhped_ia
+  ia_lazyexact_fit:
+    fit: true
+    method: vhped_ia_lazy
+    trainer:
+      fit_gamma: false
+      rho_unk_fixed: 0.0
+  ia_nobirth_fit:
+    fit: true
+    ia:
+      identity_births: false
+    method: vhped_ia
+  ia_nopost_fit:
+    fit: true
+    ia:
+      posterior_weight: false
+    method: vhped_ia
+  vhped_fit_rhounk05:
+    fit: true
+    method: vhped
+    trainer:
+      rho_unk_fixed: 0.5
+  vhped_full_fit:
+    fit: true
+    method: vhped
+  vhped_handset:
+    method: vhped
+  vhped_self_fit:
+    fit: true
+    method: vhped
+    trainer:
+      use_cross_predicate: false
+  vt_hmm_fit:
+    fit: true
+    method: vhped
+    trainer:
+      use_excitation: false
+reference_method: ia_full_fit
+scenario: {}
+seeds:
+- 42
+- 123
+- 456
+- 789
+- 2024
+smoke_run: false
+splits:
+  test: 20
+  train: 20
+  val: 10
+thresholds:
+- 0.02
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+- 0.25
+- 0.3
+- 0.35
+- 0.4
+- 0.45
+- 0.5
+- 0.55
+- 0.6
+- 0.65
+- 0.7
+- 0.75
+- 0.8
+- 0.85
+- 0.9
+- 0.95
+trainer:
+  fit_rebirth: false
+  l2_cross: 0.001
+  lr: 0.05
+  num_iters: 200
